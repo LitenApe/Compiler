@@ -11,9 +11,9 @@ Pascal kompilator
   - then run java -jar pascal2016.jar [filename]
 
 # To Do
-  [ ] Part 1: Scanner
-    [ ] Ignore/Remove Comments
-    [ ] Find and create tokens
-  [ ] Part 2: Parser
-  [ ] Part 3: Checker
-  [ ] Part 4: Code generator
+  - [ ] Part 1: Scanner
+    - [ ] Ignore/Remove Comments
+    - [ ] Find and create tokens
+  - [ ] Part 2: Parser
+  - [ ] Part 3: Checker
+  - [ ] Part 4: Code generator
