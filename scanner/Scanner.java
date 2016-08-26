@@ -107,12 +107,12 @@ public class Scanner {
           done = false;
         }
       }
-
-      if(!done){
-        sourcePos = 0;
-        readNextLine();
-        removeComments(false);
-      }
+    }
+    
+    if(!done){
+      sourcePos = 0;
+      readNextLine();
+      removeComments(false);
     }
   }
 
