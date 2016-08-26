@@ -30,40 +30,40 @@ public enum TokenKind {
     subtractToken("-"),
  /* upArrowToken("^"), */
 
-    andToken("and"), 
+    andToken("and"),
     arrayToken("array"),
-    beginToken("begin"), 
- /* caseToken("case"), */ 
+    beginToken("begin"),
+ /* caseToken("case"), */
     constToken("const"),
-    divToken("div"), 
-    doToken("do"), 
+    divToken("div"),
+    doToken("do"),
  /* downtoToken("downto"), */
-    elseToken("else"), 
+    elseToken("else"),
     endToken("end"),
  /* fileToken("file"), */
- /* forToken("for"), */ 
+ /* forToken("for"), */
     functionToken("function"),
  /* gotoToken("goto"), */
-    ifToken("if"), 
+    ifToken("if"),
  /* inToken("in"), */
  /* labelToken("label"), */
     modToken("mod"),
- /* nilToken("nil"), */ 
+ /* nilToken("nil"), */
     notToken("not"),
-    ofToken("of"), 
+    ofToken("of"),
     orToken("or"),
- /* packedToken("packed"), */ 
-    procedureToken("procedure"), 
+ /* packedToken("packed"), */
+    procedureToken("procedure"),
     programToken("program"),
- /* recordToken("record"), */ 
+ /* recordToken("record"), */
  /* repeatToken("repeat"), */
  /* setToken("set"), */
-    thenToken("then"), 
+    thenToken("then"),
  /* toToken("to"), */
  /* typeToken("type"), */
  /* untilToken("until"), */
     varToken("var"),
-    whileToken("while"), 
+    whileToken("while"),
  /* withToken("with"), */
 
     eofToken("e-o-f");
