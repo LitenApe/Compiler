@@ -47,7 +47,10 @@ public class Scanner {
     // Del 1 her:
 
     // leser en hel linjen
-    if(sourceLine.isEmpty() || sourcePos == sourceLine.length() - 1) readNextLine();
+    if(sourceLine.isEmpty() || sourcePos >= sourceLine.length() - 2){
+       readNextLine();
+       sourcePos = 0;
+     }
 
     // sjekker etter kommentar
     removeComments(false);
@@ -57,14 +60,26 @@ public class Scanner {
     String newToken = "";
 
     while(true){
-      if(sourcePos == sourceLine.length() - 1 || lineArray[sourcePos] == ' ' || lineArray[sourcePos] == ';'){
-        System.out.println(newToken);
+      if(sourcePos >= sourceLine.length()){
+        break;
+      }else if(lineArray[sourcePos] == ' ' && newToken.isEmpty()){
+        sourcePos++;
+      }else if(lineArray[sourcePos] == ' ' || sourcePos == sourceLine.length() - 1 || lineArray[sourcePos] == ';'){
         if(lineArray[sourcePos] != ';') sourcePos++;
         break;
       }
       newToken = newToken + lineArray[sourcePos];
       sourcePos++;
     }
+
+    newToken = newToken.trim().toLowerCase();
+
+    System.out.println(newToken);
+
+    if(sourceLine.isEmpty())
+      nextToken = new Token(eofToken,getFileLineNum());
+    else if(!newToken.equals(""))
+      nextToken = new Token(newToken,getFileLineNum());
 
     Main.log.noteToken(nextToken);
   }
@@ -75,18 +90,18 @@ public class Scanner {
     int endBracket = sourceLine.indexOf("}");
     int startAstCom = sourceLine.indexOf("/*");
     int endAstCom = sourceLine.indexOf("*/");
-    int lineLength = sourceLine.length();
+    int lineLength = sourceLine.length() - 1;
     boolean done = true;
 
-    //if(!insideComment){
+    if(!insideComment){
       if(startBracket != -1){
-        if(endBracket + 2 < lineLength){
+        if(endBracket + 1 < lineLength){
           sourceLine = sourceLine.substring(endBracket,lineLength);
         }else{
           done = false;
         }
       }else if(startAstCom != -1){
-        if(endAstCom + 3 < lineLength){
+        if(endAstCom + 2 < lineLength){
           sourceLine = sourceLine.substring(endAstCom + 1, lineLength);
         }else{
           done = false;
@@ -94,10 +109,11 @@ public class Scanner {
       }
 
       if(!done){
+        sourcePos = 0;
         readNextLine();
         removeComments(false);
       }
-    //}
+    }
   }
 
   private void readNextLine() {
