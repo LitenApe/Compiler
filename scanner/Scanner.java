@@ -52,7 +52,8 @@ public class Scanner {
        sourcePos = 0;
      }
 
-    // sjekker etter kommentar
+    // sjekker etter kommentar og fjerner den
+    // hvis det er det eneste på linjen
     removeComments();
 
     // henter forste token
@@ -92,25 +93,27 @@ public class Scanner {
     boolean endAstCom = sourceLine.endsWith("*/");
     int sourceLength = sourceLine.length();
 
-    // System.out.println(sourceLine);
-
     if(startBracket){
       if(endBracket){ // hele linjen er en kommentar
         readRemove();
-      }else{  // move the pointer to the end of the comment
+      }else if(sourceLine.contains("}")){  // move the pointer to the end of the comment
         sourcePos = sourceLine.indexOf("}") + 2;
         if (sourcePos >= sourceLength){
           readRemove();
         }
+      }else{  // multiline comment
+        findCommentsEnd("}");
       }
     }else if(startAstCom){
       if(endAstCom){ // hele linjen er en kommentar
         readRemove();
-      }else{  // move the pointer to the end of the comment
+      }else if(sourceLine.contains("*/")){  // move the pointer to the end of the comment
         sourcePos = sourceLine.indexOf("*/") + 3;
         if (sourcePos >= sourceLength){
           readRemove();
         }
+      }else{  // multiline comment
+        findCommentsEnd("*/");
       }
     }
   }
@@ -119,6 +122,19 @@ public class Scanner {
   private void readRemove(){
     readNextLine();
     removeComments();
+  }
+
+  // Hjelper metode for å ignorere multilinjede kommentarer
+  private void findCommentsEnd(String endSymbol){
+    while(true){
+      readNextLine();
+      if(sourceLine.endsWith(endSymbol)){
+        readNextLine();
+      }else if(sourceLine.contains(endSymbol)){
+        sourcePos = sourceLine.indexOf(endSymbol) + 1;
+        break;
+      }
+    }
   }
 
   private void readNextLine() {
