@@ -7,8 +7,11 @@ Pascal kompilator
     - If you are on a linux distro, run apt-get install ant
     - If you are on Windows, i can't help you
   - navigate to the project folder
-  - run ant
-  - then run java -jar pascal2016.jar [filename]
+  - Compile: run **ant compile**
+  - Run: run **ant run**
+
+  By using **ant run** the project will build itself.
+
 
 # To Do
   - [ ] Part 1: Scanner
