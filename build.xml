@@ -5,8 +5,8 @@
     <delete dir="classes"/>
     <delete file="pascal2016.jar"/>
     <delete file="inf2100-oblig-2016.zip"/>
-    <delete> 
-      <fileset defaultexcludes="no" dir="." includes="**/*~"/> 
+    <delete>
+      <fileset defaultexcludes="no" dir="." includes="**/*~"/>
     </delete>
   </target>
 
@@ -28,4 +28,13 @@
   <target name="zip" description="Lag en ZIP-fil">
     <zip destfile="inf2100-oblig-2016.zip" basedir="."/>
   </target>
+
+    <target name="run" depends="compile,jar" description="Kjør JAR-fil">
+        <java jar="pascal2016.jar" fork="true">
+            <arg value="-logS"/>
+            <arg value="-testscanner"/>
+            <arg value="pascal/miniTest.pas"/>
+        </java>
+    </target>
+
 </project>
