@@ -53,7 +53,7 @@ public class Scanner {
      }
 
     // sjekker etter kommentar
-    removeComments(false);
+    removeComments();
 
     // henter forste token
     char[] lineArray = sourceLine.toCharArray();
@@ -74,7 +74,7 @@ public class Scanner {
 
     newToken = newToken.trim().toLowerCase();
 
-    System.out.println(newToken);
+    // System.out.println(newToken);
 
     if(sourceLine.isEmpty())
       nextToken = new Token(eofToken,getFileLineNum());
@@ -85,35 +85,40 @@ public class Scanner {
   }
 
   // remove comments from the line { ... } or /* ... */
-  private void removeComments(boolean insideComment){
-    int startBracket = sourceLine.indexOf("{");
-    int endBracket = sourceLine.indexOf("}");
-    int startAstCom = sourceLine.indexOf("/*");
-    int endAstCom = sourceLine.indexOf("*/");
-    int lineLength = sourceLine.length() - 1;
-    boolean done = true;
+  private void removeComments(){
+    boolean startBracket = sourceLine.startsWith("{");
+    boolean endBracket = sourceLine.endsWith("}");
+    boolean startAstCom = sourceLine.startsWith("/*");
+    boolean endAstCom = sourceLine.endsWith("*/");
+    int sourceLength = sourceLine.length();
 
-    if(!insideComment){
-      if(startBracket != -1){
-        if(endBracket + 1 < lineLength){
-          sourceLine = sourceLine.substring(endBracket,lineLength);
-        }else{
-          done = false;
+    // System.out.println(sourceLine);
+
+    if(startBracket){
+      if(endBracket){ // hele linjen er en kommentar
+        readRemove();
+      }else{  // move the pointer to the end of the comment
+        sourcePos = sourceLine.indexOf("}") + 2;
+        if (sourcePos >= sourceLength){
+          readRemove();
         }
-      }else if(startAstCom != -1){
-        if(endAstCom + 2 < lineLength){
-          sourceLine = sourceLine.substring(endAstCom + 1, lineLength);
-        }else{
-          done = false;
+      }
+    }else if(startAstCom){
+      if(endAstCom){ // hele linjen er en kommentar
+        readRemove();
+      }else{  // move the pointer to the end of the comment
+        sourcePos = sourceLine.indexOf("*/") + 3;
+        if (sourcePos >= sourceLength){
+          readRemove();
         }
       }
     }
-    
-    if(!done){
-      sourcePos = 0;
-      readNextLine();
-      removeComments(false);
-    }
+  }
+
+  // hjelper metode for å starte en 'rekursiv' prosess
+  private void readRemove(){
+    readNextLine();
+    removeComments();
   }
 
   private void readNextLine() {
