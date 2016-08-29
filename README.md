@@ -10,7 +10,7 @@ Pascal kompilator
   - Compile: run **ant compile**
   - Run: run **ant run**
 
-  By using **ant run** the project will build itself.
+  By using **ant run** the project will compile and build itself.
 
 
 # To Do
