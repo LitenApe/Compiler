@@ -49,70 +49,59 @@ public class Scanner {
     curToken = nextToken;  nextToken = null;
 
     // Del 1 her:
+    String buf = "";
+    boolean tokenIsSet = false;
 
-
-    //Finished reading line
     if(sourceLine.length() == sourcePos){
-        System.out.println("Finished reading line");
-        sourcePos = 0;
+        System.out.println("Finished reading: " + sourceLine);
+        buf="";
         readNextLine();
     }
-
-    //Check if line is empty
-    if(sourceLine.equals("") || sourceLine.length() == 0){
+    //If file start or end
+    if(sourceLine.equals("")){
         nextToken = new Token(eofToken,getFileLineNum());
-        System.out.println("line is empty");
-        sourcePos = 0;
-        readNextLine();
+        tokenIsSet = true;
+    }
+    else{
+        for(int i = sourcePos; i < sourceLine.length(); i++){
+            char lineChar = sourceLine.charAt(i);
+
+            System.out.println("lineChar: " + lineChar);
+            //Everything read up until space is a token
+            if(lineChar == ' '){
+                sourcePos+=1;
+                break;
+            }else if (isLetterAZ(lineChar) || isDigit(lineChar)){
+                buf = "" + lineChar;
+                sourcePos+=1;
+                continue;
+            }else{
+                switch(lineChar){
+                    case '': <> break;
+                    case '': <> break;
+                    case '': <> break;
+                    case '': <> break;
+                    case '': <> break;
+                    case '': <> break;
+                    case '': <> break;
+                    case '': <> break;
+                    case '': <> break;
+                    case '': <> break;
+                    case '': <> break;
+                    case '': <> break;
+                    case '': <> break;
+                    default:
+                        <>
+                        break;
+                }
+
+            }
+        }//end loop
     }
 
-    //Read and scan line
-    String token = "";
-    for(int i = sourcePos; i < sourceLine.length(); i++){
-        char tokenChar = sourceLine.charAt(i);
-
-        //If space, one token
-        if(tokenChar == ' '){
-            nextToken = new Token(token,getFileLineNum());
-            System.out.println("Token space: " + token);
-            token="";
-            sourcePos+=1;
-            break;
-        }
-        else if (isLetterAZ(tokenChar) || isDigit(tokenChar)){
-            token+=tokenChar;
-            System.out.println("Token cat: " + token);
-            sourcePos+=1;
-            specialCharIsPartOfToken = true;
-            continue; //Continue to read
-        }
-        else{
-            if(specialCharIsPartOfToken){ //&& isNotComment()
-                System.out.println("PART OF TOKEN bef: " + token);
-                nextToken = new Token(token,getFileLineNum());
-                token="";
-                token+="" + tokenChar;
-                System.out.println("PART OF TOKEN af: " + token);
-                nextToken = new Token(token,getFileLineNum());
-                token="";
-                sourcePos+=1;
-                specialCharIsPartOfToken = false;
-            }
-            else{
-
-                //sourceLine = sourceLine.trim();
-                //System.out.println(sourceLine);
-
-                //boolean isCommentStart = sourceLine.startsWith("/*") || sourceLine.startsWith("{");
-                //boolean isCommentEnd = sourceLine.endsWith("*/") || sourceLine.endsWith("}");
-                //if(isCommentStart && isCommentEnd){ //Single Line
-                //    readNextLine();
-                //}
-
-            }
-        }//Special character
-    }//end for loop
-
+    if(!tokenIsSet){
+        nextToken = new Token(buf,getFileLineNum());
+    }
     Main.log.noteToken(nextToken);
   }
 
