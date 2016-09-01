@@ -7,7 +7,6 @@ import java.io.*;
 
 public class Scanner {
   public Token curToken = null, nextToken = null;
-
   private LineNumberReader sourceFile = null;
   private String sourceFileName, sourceLine = "";
   private int sourcePos = 0;
@@ -16,6 +15,7 @@ public class Scanner {
     sourceFileName = fileName;
     try {
       sourceFile = new LineNumberReader(new FileReader(fileName));
+      readNextLine();
     } catch (FileNotFoundException e) {
       Main.error("Cannot read " + fileName + "!");
     }
@@ -43,98 +43,77 @@ public class Scanner {
 
   public void readNextToken() {
     curToken = nextToken;  nextToken = null;
-
-    // Del 1 her:
-
-    // leser en hel linjen
-    if(sourceLine.isEmpty() || sourcePos >= sourceLine.length() - 2){
-       readNextLine();
-       sourcePos = 0;
-     }
-
-    // sjekker etter kommentar og fjerner den
-    // hvis det er det eneste på linjen
-    removeComments();
-
-    // henter forste token
-    char[] lineArray = sourceLine.toCharArray();
     String newToken = "";
-
-    while(true){
-      if(sourcePos >= sourceLine.length()){
-        break;
-      }else if(lineArray[sourcePos] == ' ' && newToken.isEmpty()){
-        sourcePos++;
-      }else if(lineArray[sourcePos] == ' ' || sourcePos == sourceLine.length() - 1 || lineArray[sourcePos] == ';'){
-        if(lineArray[sourcePos] != ';') sourcePos++;
-        break;
-      }
-      newToken = newToken + lineArray[sourcePos];
-      sourcePos++;
-    }
-
-    newToken = newToken.trim().toLowerCase();
-
-    // System.out.println(newToken);
-
-    if(sourceLine.isEmpty())
-      nextToken = new Token(eofToken,getFileLineNum());
-    else if(!newToken.equals(""))
-      nextToken = new Token(newToken,getFileLineNum());
-
-    Main.log.noteToken(nextToken);
-  }
-
-  // remove comments from the line { ... } or /* ... */
-  private void removeComments(){
-    boolean startBracket = sourceLine.startsWith("{");
-    boolean endBracket = sourceLine.endsWith("}");
-    boolean startAstCom = sourceLine.startsWith("/*");
-    boolean endAstCom = sourceLine.endsWith("*/");
-    int sourceLength = sourceLine.length();
-
-    if(startBracket){
-      if(endBracket){ // hele linjen er en kommentar
-        readRemove();
-      }else if(sourceLine.contains("}")){  // move the pointer to the end of the comment
-        sourcePos = sourceLine.indexOf("}") + 2;
-        if (sourcePos >= sourceLength){
-          readRemove();
-        }
-      }else{  // multiline comment
-        findCommentsEnd("}");
-      }
-    }else if(startAstCom){
-      if(endAstCom){ // hele linjen er en kommentar
-        readRemove();
-      }else if(sourceLine.contains("*/")){  // move the pointer to the end of the comment
-        sourcePos = sourceLine.indexOf("*/") + 3;
-        if (sourcePos >= sourceLength){
-          readRemove();
-        }
-      }else{  // multiline comment
-        findCommentsEnd("*/");
-      }
-    }
-  }
-
-  // hjelper metode for å starte en 'rekursiv' prosess
-  private void readRemove(){
-    readNextLine();
-    removeComments();
-  }
-
-  // Hjelper metode for å ignorere multilinjede kommentarer
-  private void findCommentsEnd(String endSymbol){
-    while(true){
-      readNextLine();
-      if(sourceLine.endsWith(endSymbol)){
+    // Del 1 her:
+    if(sourceLine.equals(" ")){
+      while(sourceLine.equals(" ")){
         readNextLine();
-      }else if(sourceLine.contains(endSymbol)){
-        sourcePos = sourceLine.indexOf(endSymbol) + 1;
-        break;
+      }
+    }else if(sourcePos > sourceLine.length() - 1){
+      readNextLine();
+    }
+
+    // removes trailing whitespace
+    if(sourceLine.length() > 1){
+      sourceLine = sourceLine.trim();
+    }
+
+    // remove comment if that is the next Token
+    String commentCheck = sourceLine.substring(sourcePos,sourceLine.length());
+    if(commentCheck.startsWith("/*") || commentCheck.startsWith("{")){
+      String symbol = commentCheck.startsWith("/*") ? "*/":"}";
+      if(commentCheck.endsWith(symbol)){
+        readNextLine();
       }
     }
+
+    if(sourceFile != null){
+      char[] charArr = sourceLine.toCharArray();
+      for(int i = sourcePos; i < charArr.length; i++){
+        if(charArr[i] == ' '){
+          sourcePos++;
+          break;
+        }else if(charArr[i] == ';'){
+          if(newToken.isEmpty()){
+            nextToken = new Token(semicolonToken, getFileLineNum());
+            sourcePos++;
+          }
+          break;
+        }else if(charArr[i] == '('){
+          if(newToken.isEmpty()){
+            nextToken = new Token(leftParToken,getFileLineNum());
+            sourcePos++;
+          }
+          break;
+        }else if(charArr[i] == ')'){
+          if(newToken.isEmpty()){
+            nextToken = new Token(rightParToken, getFileLineNum());
+            sourcePos++;
+          }else{
+            if(newToken.startsWith("'") && newToken.endsWith("'") && newToken.length() == 3){
+              nextToken = new Token(charArr[i - 2],getFileLineNum());
+            }
+          }
+          break;
+        }else if(charArr[i] == '.'){
+          if(newToken.isEmpty()){
+            nextToken = new Token(dotToken,getFileLineNum());
+            sourcePos++;
+          }
+          break;
+        }
+
+        newToken = newToken + charArr[i];
+        sourcePos++;
+      }
+      if(nextToken == null){
+        nextToken = new Token(newToken.toLowerCase(),getFileLineNum());
+      }
+    }else{
+      nextToken = new Token(eofToken,getFileLineNum());
+    }
+    System.out.println(nextToken.identify());
+    Main.log.noteToken(nextToken);
   }
 
   private void readNextLine() {
