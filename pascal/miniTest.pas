@@ -1,2 +1,2 @@
-/* Et minimalt Pascal-program */program Mini;begin  write('x');
+program Mini;begin  write('x');
 end.

@@ -48,6 +48,8 @@ public class Scanner {
   public void readNextToken() {
     curToken = nextToken;  nextToken = null;
 
+
+    //TODO: Create no token on empty line!!!
     // Del 1 her:
     String buf = "";
     boolean tokenIsSet = false;
@@ -57,51 +59,65 @@ public class Scanner {
         buf="";
         readNextLine();
     }
-    //If file start or end
+
+    if(sourceLine.length() == 1){
+        System.out.println("Empty line");
+        buf="";
+        readNextLine();
+    }
+
     if(sourceLine.equals("")){
         nextToken = new Token(eofToken,getFileLineNum());
         tokenIsSet = true;
-    }
-    else{
+    }else{
         for(int i = sourcePos; i < sourceLine.length(); i++){
+            //System.out.println("sourceLine: " + sourceLine.length());
+            //System.out.println("sourceLine: " + sourceLine.length());
             char lineChar = sourceLine.charAt(i);
 
-            System.out.println("lineChar: " + lineChar);
+            //System.out.println("lineChar: " + lineChar);
             //Everything read up until space is a token
             if(lineChar == ' '){
+                //System.out.println("buf empty read: " + buf);
                 sourcePos+=1;
                 break;
             }else if (isLetterAZ(lineChar) || isDigit(lineChar)){
-                buf = "" + lineChar;
+                buf += lineChar;
+                //System.out.println("buf isL or isD: " + buf);
                 sourcePos+=1;
                 continue;
             }else{
+                //System.out.println("buf specialsC before switch: " + buf.length());
+                tokenIsSet = true;
                 switch(lineChar){
-                    case '': <> break;
-                    case '': <> break;
-                    case '': <> break;
-                    case '': <> break;
-                    case '': <> break;
-                    case '': <> break;
-                    case '': <> break;
-                    case '': <> break;
-                    case '': <> break;
-                    case '': <> break;
-                    case '': <> break;
-                    case '': <> break;
-                    case '': <> break;
-                    default:
-                        <>
-                        break;
+                    case '+': nextToken = new Token(addToken,getFileLineNum()); break;
+                    case ':': nextToken = new Token(":",getFileLineNum()); break;
+                    case ',': nextToken = new Token(",",getFileLineNum()); break;
+                    case '.': nextToken = new Token(dotToken,getFileLineNum()); break;
+                    case '=': nextToken = new Token("=",getFileLineNum()); break;
+                    case '>': nextToken = new Token(">",getFileLineNum()); break;
+                    case '[': nextToken = new Token("[",getFileLineNum()); break;
+                    case '<': nextToken = new Token("<",getFileLineNum()); break;
+                    case '*': nextToken = new Token("*",getFileLineNum()); break;
+                    case ';': nextToken = new Token(semicolonToken,getFileLineNum()); break;
+                    case '-': nextToken = new Token("-",getFileLineNum()); break;
+                    case ']': nextToken = new Token("]",getFileLineNum()); break;
+                    case ')': nextToken = new Token(rightParToken,getFileLineNum()); break;
+                    case '(': nextToken = new Token(leftParToken,getFileLineNum()); break;
+                    case '\'': buf+=lineChar; tokenIsSet=false; break;
                 }
-
+                //System.out.println("buf specialsC: " + buf.length());
             }
+
         }//end loop
     }
 
     if(!tokenIsSet){
         nextToken = new Token(buf,getFileLineNum());
+        buf="";
     }
+    System.out.println(nextToken.identify());
+
     Main.log.noteToken(nextToken);
   }
 
