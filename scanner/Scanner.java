@@ -14,7 +14,7 @@ public class Scanner {
 
   private boolean specialCharIsPartOfToken = false; //custom variable
   private boolean commentIsScanned = false;
-
+  private String buf;
 
   public Scanner(String fileName) {
     sourceFileName = fileName;
@@ -51,72 +51,100 @@ public class Scanner {
 
     //TODO: Create no token on empty line!!!
     // Del 1 her:
-    String buf = "";
+    buf = "";
     boolean tokenIsSet = false;
 
-    if(sourceLine.length() == sourcePos){
+    if(sourceLine.length() - 1 <= sourcePos){
+        System.out.println("hahahahahahahhahahahah");
+
         System.out.println("Finished reading: " + sourceLine);
         buf="";
         readNextLine();
     }
-
     if(sourceLine.length() == 1){
         System.out.println("Empty line");
         buf="";
         readNextLine();
     }
-
     if(sourceLine.equals("")){
         nextToken = new Token(eofToken,getFileLineNum());
         tokenIsSet = true;
     }else{
         for(int i = sourcePos; i < sourceLine.length(); i++){
-            //System.out.println("sourceLine: " + sourceLine.length());
-            //System.out.println("sourceLine: " + sourceLine.length());
+            //System.out.println("sourceLine: " + sourceLine);
             char lineChar = sourceLine.charAt(i);
 
-            //System.out.println("lineChar: " + lineChar);
+            System.out.println("    DEBUG: sourceline: " + sourceLine.length());
+            System.out.println("    DEBUG: 1. SOURCEPOS: " + sourcePos);
+
+            // System.out.println("lineChar: " + lineChar);
             //Everything read up until space is a token
             if(lineChar == ' '){
+                if(buf.length() == 0){
+                    continue;
+                }
                 //System.out.println("buf empty read: " + buf);
+                tokenIsSet=false;
                 sourcePos+=1;
                 break;
-            }else if (isLetterAZ(lineChar) || isDigit(lineChar)){
+            }else if (isLetterAZ(lineChar)){
                 buf += lineChar;
                 //System.out.println("buf isL or isD: " + buf);
                 sourcePos+=1;
                 continue;
-            }else{
-                //System.out.println("buf specialsC before switch: " + buf.length());
+            }else if(isDigit(lineChar)){
+                nextToken = new Token(intValToken,getFileLineNum());
+                sourcePos+=1;
                 tokenIsSet = true;
-                switch(lineChar){
-                    case '+': nextToken = new Token(addToken,getFileLineNum()); break;
-                    case ':': nextToken = new Token(":",getFileLineNum()); break;
-                    case ',': nextToken = new Token(",",getFileLineNum()); break;
-                    case '.': nextToken = new Token(dotToken,getFileLineNum()); break;
-                    case '=': nextToken = new Token("=",getFileLineNum()); break;
-                    case '>': nextToken = new Token(">",getFileLineNum()); break;
-                    case '[': nextToken = new Token("[",getFileLineNum()); break;
-                    case '<': nextToken = new Token("<",getFileLineNum()); break;
-                    case '*': nextToken = new Token("*",getFileLineNum()); break;
-                    case ';': nextToken = new Token(semicolonToken,getFileLineNum()); break;
-                    case '-': nextToken = new Token("-",getFileLineNum()); break;
-                    case ']': nextToken = new Token("]",getFileLineNum()); break;
-                    case ')': nextToken = new Token(rightParToken,getFileLineNum()); break;
-                    case '(': nextToken = new Token(leftParToken,getFileLineNum()); break;
-                    case '\'': buf+=lineChar; tokenIsSet=false; break;
-                }
-                //System.out.println("buf specialsC: " + buf.length());
+                break;
             }
-
+            else{ //special character
+                tokenIsSet = true;
+                if(buf.length() > 0){
+                    tokenIsSet = false;
+                    break;
+                }
+                else{
+                    boolean sourcePosIncrementedMoreThanOne = false;
+                    switch(lineChar){
+                        case '+': nextToken = new Token(addToken,getFileLineNum()); break;
+                        case ':': nextToken = new Token(":",getFileLineNum()); break;
+                        case ',': nextToken = new Token(",",getFileLineNum()); break;
+                        case '.': nextToken = new Token(dotToken,getFileLineNum()); break;
+                        case '=': nextToken = new Token("=",getFileLineNum()); break;
+                        case '>': nextToken = new Token(">",getFileLineNum()); break;
+                        case '[': nextToken = new Token("[",getFileLineNum()); break;
+                        case '<': nextToken = new Token("<",getFileLineNum()); break;
+                        case '*': nextToken = new Token("*",getFileLineNum()); break;
+                        case ';':
+                            nextToken = new Token(semicolonToken,getFileLineNum());
+                            break;
+                        case '-': nextToken = new Token("-",getFileLineNum()); break;
+                        case ']': nextToken = new Token("]",getFileLineNum()); break;
+                        case ')': nextToken = new Token(rightParToken,getFileLineNum()); break;
+                        case '(': nextToken = new Token(leftParToken,getFileLineNum()); break;
+                        case '\'':
+                            nextToken = new Token(sourceLine.charAt(i+1),getFileLineNum());
+                            sourcePos+=3;
+                            sourcePosIncrementedMoreThanOne = true;
+                            break;
+                    }//End switch
+                    if(!sourcePosIncrementedMoreThanOne){
+                        sourcePos+=1;
+                    }
+                }//End switch else
+                break;
+            }//End special character
         }//end loop
+        // System.out.println("buf after loop" + buf);
     }
 
     if(!tokenIsSet){
         nextToken = new Token(buf,getFileLineNum());
         buf="";
     }
-    System.out.println(nextToken.identify());
+    if (nextToken != null)
+        System.out.println(nextToken.identify());
 
     Main.log.noteToken(nextToken);
   }
