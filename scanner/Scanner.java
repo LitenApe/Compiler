@@ -4,6 +4,7 @@ import main.Main;
 import static scanner.TokenKind.*;
 
 import java.io.*;
+import java.util.*;
 
 public class Scanner {
   public Token curToken = null, nextToken = null;
@@ -52,7 +53,8 @@ public class Scanner {
 
     // check too see if we need to read a new line
     if(sourceLine.isEmpty() || sourcePos >= sourceLine.length()){
-      while(sourceLine.isEmpty()){
+      readNextLine();
+      while(sourceLine.isEmpty() && getFileLineNum() != -1){
         readNextLine();
       }
     }
@@ -61,12 +63,71 @@ public class Scanner {
     removeComment();
 
     // find tokens
-    String[] stringArr = sourceLine.toCharArray();
+    char[] charArr = sourceLine.toCharArray();
 
-    
+    if(sourceFile == null){
+      nextToken = new Token(eofToken,getFileLineNum());
+    }
 
     while(nextToken == null){
 
+      while(charArr[sourcePos] == ' '){
+        sourcePos++;
+      }
+
+      if(isLetterAZ(charArr[sourcePos])){
+        for(;sourcePos <= charArr.length - 1; sourcePos++){
+          if(isLetterAZ(charArr[sourcePos]) || isDigit(charArr[sourcePos])){
+            newToken += charArr[sourcePos];
+          }else{
+            nextToken = new Token(newToken,getFileLineNum()); break;
+          }
+        }
+        nextToken = new Token(newToken,getFileLineNum());
+      }else if(isDigit(charArr[sourcePos])){
+        while(isDigit(charArr[sourcePos])){
+          newToken += charArr[sourcePos++];
+        }
+        nextToken = new Token(Integer.parseInt(newToken),getFileLineNum());
+      }else{  // special character
+        if(sourcePos + 1 < charArr.length && (newToken.equals(":") || newToken.equals(">") || newToken.equals("<") || newToken.equals("."))){
+          switch(newToken){
+            case ":=" : nextToken = new Token(assignToken,getFileLineNum()); break;
+            case ">=" : nextToken = new Token(greaterEqualToken,getFileLineNum()); break;
+            case "<=" : nextToken = new Token(lessEqualToken,getFileLineNum()); break;
+            case "<>" : nextToken = new Token(notEqualToken,getFileLineNum()); break;
+            case ".." : nextToken = new Token(rangeToken,getFileLineNum()); break;
+            default: break;
+          }
+        }else{
+          switch(charArr[sourcePos]){
+            case '+' : nextToken = new Token(addToken,getFileLineNum()); break;
+            case ':' : nextToken = new Token(colonToken,getFileLineNum()); break;
+            case ',' : nextToken = new Token(commaToken,getFileLineNum()); break;
+            case '/' : nextToken = new Token(divideToken,getFileLineNum()); break;
+            case '.' : nextToken = new Token(dotToken,getFileLineNum()); break;
+            case '=' : nextToken = new Token(equalToken,getFileLineNum()); break;
+            case '>' : nextToken = new Token(greaterToken,getFileLineNum()); break;
+            case '[' : nextToken = new Token(leftBracketToken,getFileLineNum()); break;
+            case '(' : nextToken = new Token(leftParToken,getFileLineNum()); break;
+            case '<' : nextToken = new Token(lessToken,getFileLineNum()); break;
+            case '*' : nextToken = new Token(multiplyToken,getFileLineNum()); break;
+            case ']' : nextToken = new Token(rightBracketToken,getFileLineNum()); break;
+            case ')' : nextToken = new Token(rightParToken,getFileLineNum()); break;
+            case ';' : nextToken = new Token(semicolonToken,getFileLineNum()); break;
+            case '-' : nextToken = new Token(subtractToken,getFileLineNum()); break;
+            case '^' : nextToken = new Token(upArrowToken,getFileLineNum()); break;
+            case '\'': nextToken = new Token(charArr[sourcePos+1],getFileLineNum());
+                                   sourcePos = sourcePos + 2;
+                                   break;
+            default: break;
+          }
+        }
+        if(nextToken != null){
+          sourcePos++;
+        }
+      }
+      if(nextToken == null) newToken += charArr[sourcePos];
     }
 
     System.out.println(nextToken.identify());
@@ -117,7 +178,7 @@ public class Scanner {
 
 
   private int getFileLineNum() {
-    return (sourceFile!=null ? sourceFile.getLineNumber() : 0);
+    return (sourceFile!=null ? sourceFile.getLineNumber() : -1);
   }
 
 
