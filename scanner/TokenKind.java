@@ -12,7 +12,7 @@ public enum TokenKind {
   assignToken(":="),
   colonToken(":"),
   commaToken(","),
-  /* divideToken("/"), */
+  divideToken("/"),
   dotToken("."),
   equalToken("="),
   greaterToken(">"),
@@ -28,7 +28,7 @@ public enum TokenKind {
   rightParToken(")"),
   semicolonToken(";"),
   subtractToken("-"),
-  /* upArrowToken("^"), */
+  upArrowToken("^"),
 
   andToken("and"),
   arrayToken("array"),
@@ -69,11 +69,10 @@ public enum TokenKind {
   eofToken("e-o-f");
 
   private String image;
-  
+
   TokenKind(String im) {
     image = im;
   }
-
 
   public String identify() {
     return image + " token";
@@ -82,7 +81,6 @@ public enum TokenKind {
   @Override public String toString() {
     return image;
   }
-
 
   public boolean isFactorOpr() {
     return this==multiplyToken || this==divToken ||

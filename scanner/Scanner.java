@@ -21,6 +21,10 @@ public class Scanner {
     }
 
     readNextToken();  readNextToken();
+
+    //for (TokenKind k : TokenKind.values()) {
+    //  System.out.println(k.toString());
+    //}
   }
 
 
@@ -45,75 +49,50 @@ public class Scanner {
     curToken = nextToken;  nextToken = null;
     String newToken = "";
     // Del 1 her:
-    if(sourceLine.equals(" ")){
-      while(sourceLine.equals(" ")){
-        readNextLine();
-      }
-    }else if(sourcePos > sourceLine.length() - 1){
-      readNextLine();
-    }
 
-    // removes trailing whitespace
-    if(sourceLine.length() > 1){
-      sourceLine = sourceLine.trim();
-    }
-
-    // remove comment if that is the next Token
-    String commentCheck = sourceLine.substring(sourcePos,sourceLine.length());
-    if(commentCheck.startsWith("/*") || commentCheck.startsWith("{")){
-      String symbol = commentCheck.startsWith("/*") ? "*/":"}";
-      if(commentCheck.endsWith(symbol)){
+    // check too see if we need to read a new line
+    if(sourceLine.isEmpty() || sourcePos >= sourceLine.length()){
+      while(sourceLine.isEmpty()){
         readNextLine();
       }
     }
 
-    if(sourceFile != null){
-      char[] charArr = sourceLine.toCharArray();
-      for(int i = sourcePos; i < charArr.length; i++){
-        if(charArr[i] == ' '){
-          sourcePos++;
-          break;
-        }else if(charArr[i] == ';'){
-          if(newToken.isEmpty()){
-            nextToken = new Token(semicolonToken, getFileLineNum());
-            sourcePos++;
-          }
-          break;
-        }else if(charArr[i] == '('){
-          if(newToken.isEmpty()){
-            nextToken = new Token(leftParToken,getFileLineNum());
-            sourcePos++;
-          }
-          break;
-        }else if(charArr[i] == ')'){
-          if(newToken.isEmpty()){
-            nextToken = new Token(rightParToken, getFileLineNum());
-            sourcePos++;
-          }else{
-            if(newToken.startsWith("'") && newToken.endsWith("'") && newToken.length() == 3){
-              nextToken = new Token(charArr[i - 2],getFileLineNum());
-            }
-          }
-          break;
-        }else if(charArr[i] == '.'){
-          if(newToken.isEmpty()){
-            nextToken = new Token(dotToken,getFileLineNum());
-            sourcePos++;
-          }
-          break;
-        }
+    // remove comment if that is the current symbol
+    removeComment();
 
-        newToken = newToken + charArr[i];
-        sourcePos++;
-      }
-      if(nextToken == null){
-        nextToken = new Token(newToken.toLowerCase(),getFileLineNum());
-      }
-    }else{
-      nextToken = new Token(eofToken,getFileLineNum());
+    // find tokens
+    String[] stringArr = sourceLine.toCharArray();
+
+    
+
+    while(nextToken == null){
+
     }
+
     System.out.println(nextToken.identify());
     Main.log.noteToken(nextToken);
+  }
+
+  // removes comment
+  private void removeComment(){
+    String cmtCheck = sourceLine.substring(sourcePos);
+    if(cmtCheck.startsWith("{") || cmtCheck.startsWith("/*")){
+      String symbol = cmtCheck.startsWith("{") ? "}":"*/";
+      if(cmtCheck.endsWith(symbol)){
+        readNextLine();
+      }else{  // multiline comment
+        while(!cmtCheck.contains(symbol)){
+          readNextLine();
+        }
+        if(cmtCheck.endsWith(symbol)){
+          readNextLine();
+        }else{
+          sourcePos = sourceLine.indexOf(symbol) + symbol.length();
+        }
+        // a second check to se if there is another comment
+        removeComment();
+      }
+    }
   }
 
   private void readNextLine() {
@@ -125,6 +104,7 @@ public class Scanner {
           sourceLine = "";
         } else {
           sourceLine += " ";
+          sourceLine = sourceLine.toLowerCase().trim();
         }
         sourcePos = 0;
       } catch (IOException e) {

@@ -33,7 +33,7 @@
         <java jar="pascal2016.jar" fork="true">
             <arg value="-logS"/>
             <arg value="-testscanner"/>
-            <arg value="pascal/miniTest.pas"/>
+            <arg value="test/mini.pas"/>
         </java>
     </target>
 
