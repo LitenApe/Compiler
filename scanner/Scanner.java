@@ -44,12 +44,16 @@ public class Scanner {
     ": " + message);
   }
 
+
+  private boolean commentIsScanned(String sourceLine){
+      if(sourceLine.startsWith("/*") || sourceLine.startsWith("{")){
+          while(sourceLine.endsWith("*/") || sourceLine.endsWith("}"))
+      }
+  }
   /*TODO: Finish this method*/
   public void readNextToken() {
     curToken = nextToken;  nextToken = null;
 
-
-    //TODO: Create no token on empty line!!!
     // Del 1 her:
     buf = "";
 
@@ -58,8 +62,12 @@ public class Scanner {
         buf="";
         readNextLine();
     }
-    if(sourceLine.length() == 1){
+    else if(sourceLine.length() == 1){
         // System.out.println("Empty line");
+        buf="";
+        readNextLine();
+    }
+    else if(commentIsScanned(sourceLine)){ //CHeck if comment
         buf="";
         readNextLine();
     }
@@ -74,11 +82,10 @@ public class Scanner {
             // System.out.println("lineChar: " + lineChar);
             // System.out.println("sourcepos: " + sourcePos);
 
-            
-
             //Everything read up until space is a token
             if(lineChar == ' '){
                 if(buf.length() == 0){
+                    sourcePos+=1;
                     continue;
                 }
                 sourcePos+=1;
@@ -96,7 +103,6 @@ public class Scanner {
             else{ //special character
                 boolean sourcePosIncrementedMoreThanOne = false;
                 if(buf.length() > 0){
-                    sourcePos+=2;
                     break;
                 }
                 else{
