@@ -74,6 +74,8 @@ public class Scanner {
             // System.out.println("lineChar: " + lineChar);
             // System.out.println("sourcepos: " + sourcePos);
 
+            
+
             //Everything read up until space is a token
             if(lineChar == ' '){
                 if(buf.length() == 0){
