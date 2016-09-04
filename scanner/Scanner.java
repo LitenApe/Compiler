@@ -108,7 +108,7 @@ public class Scanner {
         readNextLine();
     }//Checks if line is empty, resets buffer and reads next line
 
-    checkForComments();
+    checkForComments(); //TODO: FIX if comment comes on same line as token
 
     int lineNum = getFileLineNum();
     if(sourceLine.equals("")){
@@ -126,9 +126,8 @@ public class Scanner {
                 sourcePos+=1;
                 break;
             }//Everything read up until the empty char is a token
-            else if (isLetterAZ(lineChar)){
+            else if (isLetterAZ(lineChar) || isDigit(lineChar)){
                 if(isLetterAZ(lineChar) && isDigit(sourceLine.charAt(i+1))){ //TODO: CHeck v1 and potentially other variables of size > 2
-                    System.out.println("one is char and next is letter, but still a name token");
                     buf += lineChar;
                     buf += sourceLine.charAt(i+1);
                     sourcePos+=2;
@@ -139,10 +138,6 @@ public class Scanner {
                     sourcePos+=1;
                 }
                 continue;
-            }else if(isDigit(lineChar)){
-                nextToken = new Token(intValToken,lineNum);
-                sourcePos+=1;
-                break;
             }
             else{ //special character
                 boolean sourcePosIncrementedMoreThanOne = false;
@@ -165,37 +160,52 @@ public class Scanner {
                         case '[': nextToken = new Token(leftBracketToken,lineNum);break;
                         case ':':
                             if(nextChar == '='){
-                                nextToken = new Token(assignToken,lineNum); break;
+                                nextToken = new Token(assignToken,lineNum);
+                                sourcePos+=2;
+                                sourcePosIncrementedMoreThanOne = true;
+                                break;
                             }
                             else{
                                 nextToken = new Token(colonToken,lineNum); break;
                             }
                         case '.':
                             if(nextChar == '.'){
-                                nextToken = new Token(rangeToken,lineNum); break;
+                                nextToken = new Token(rangeToken,lineNum);
+                                sourcePos+=2;
+                                sourcePosIncrementedMoreThanOne = true;
+                                break;
                             }
                             else{
                                 nextToken = new Token(dotToken,lineNum); break;
                             }
                         case '>':
                             if(nextChar == '='){
-                                nextToken = new Token(greaterEqualToken,lineNum); break;
+                                nextToken = new Token(greaterEqualToken,lineNum);
+                                sourcePos+=2;
+                                sourcePosIncrementedMoreThanOne = true;
+                                break;
                             }
                             else{
                                 nextToken = new Token(greaterToken,lineNum); break;
                             }
                         case '<':
                             if(nextChar == '='){
-                                nextToken = new Token(lessEqualToken,lineNum); break;
+                                nextToken = new Token(lessEqualToken,lineNum);
+                                sourcePos+=2;
+                                sourcePosIncrementedMoreThanOne = true;
+                                break;
                             }
                             else if (nextChar == '>'){
-                                nextToken = new Token(notEqualToken,lineNum); break;
+                                nextToken = new Token(notEqualToken,lineNum);
+                                sourcePos+=2;
+                                sourcePosIncrementedMoreThanOne = true;
+                                break;
                             }
                             else{
                                 nextToken = new Token(lessToken,lineNum); break;
                             }
                         case '\'':
-                            nextToken = new Token(sourceLine.charAt(i+1),lineNum);
+                            nextToken = new Token(nextChar,lineNum);
                             sourcePos+=3;
                             sourcePosIncrementedMoreThanOne = true;
                             break;
@@ -211,7 +221,19 @@ public class Scanner {
     }
 
     if(nextToken == null){
-        nextToken = new Token(buf,lineNum);
+        boolean allIsInteger = true;
+
+        for(int i = 0; i < buf.length()-1; i++){
+            if(isLetterAZ(buf.charAt(i))){
+                allIsInteger = false;
+            }
+        }
+
+        if(allIsInteger){
+            nextToken = new Token(intValToken,lineNum);
+        }else{
+            nextToken = new Token(buf,lineNum);
+        }
         buf="";
     }
 
