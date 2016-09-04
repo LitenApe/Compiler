@@ -44,22 +44,26 @@ public class Scanner {
     ": " + message);
   }
 
-  /*Single comment works*/
+  /**
+   * For each line that is scanned and registered as a comment, this method
+   * parses the comment until the end of comment, so that tokens are not generated.
+   */
   private void scanComment(){
-    //   System.out.println("START SCANNING !!!!!! _____----- " + sourceLine);
       if(sourceLine.endsWith("}") || sourceLine.endsWith("*/")){
           readNextLine();
       }
       else{
-          System.out.println("STILLL comment !!!!! --- " + sourceLine);
           readNextLine();
           sourceLine = sourceLine.replaceAll("\\s+","");
           sourceLine = sourceLine.trim();
-          System.out.println("after NEW read ------- " + sourceLine);
           scanComment();
       }
   }
 
+  /**
+   * For each line that is read by readNextLine(), there has to be a call to readNextToken() to
+   * make tokens. This method checks if a line is a comment.
+   */
   private void checkForComments(){
       if (sourceLine.startsWith("/*") || sourceLine.startsWith("{")){
           sourceLine = sourceLine.replaceAll("\\s+","");
@@ -71,62 +75,69 @@ public class Scanner {
           }
       }
   }
+
+  /**
+   * This method returns the boolean value of an empty line
+   * @return boolean expression that satisfies an empty line
+   */
   private boolean isEmptyLine(){
       return sourceLine.length() == 1;
   }
+
+  /**
+   * This method returns the boolean value for a line read
+   * @return boolean expression that satisfies a read line
+   */
   private boolean finishedReading(){
       return sourceLine.length()-1 <= sourcePos;
   }
 
+
   public void readNextToken() {
     curToken = nextToken;  nextToken = null;
 
-    // Del 1 her:
-
-    buf = ""; //Reset buffer
+    //Part 1 of INF 2100
+    buf = ""; //Resets the buffer
 
     if(finishedReading()){
         buf="";
         readNextLine();
-    }
+    }//Checks if line is read, resets buffer and reads next line
     if(isEmptyLine()){
         buf="";
         readNextLine();
-    }
+    }//Checks if line is empty, resets buffer and reads next line
 
     checkForComments();
 
     int lineNum = getFileLineNum();
     if(sourceLine.equals("")){
-        // System.out.println("LNUM eof" + lineNum);
         nextToken = new Token(eofToken,lineNum);
-    }
+    }//Checks if the line is empty, thus indicating end of file
     else{
         for(int i = sourcePos; i < sourceLine.length(); i++){
-            //System.out.println("sourceLine: " + sourceLine);
             char lineChar = sourceLine.charAt(i);
-            // System.out.println("lineChar: " + lineChar);
-            // System.out.println("sourcepos: " + sourcePos);
-
-            //Everything read up until space is a token
-            // System.out.println(sourceLine);
 
             if(lineChar == ' '){
                 if(buf.length() == 0){
                     sourcePos+=1;
                     continue;
-                }
+                }//Checks for excessive space (indent and space after lines)
                 sourcePos+=1;
                 break;
-            }else if (isLetterAZ(lineChar)){
-                if(isLetterAZ(lineChar) && isDigit(sourceLine.charAt(i+1))){ //TODO: CHeck v1 and commenting
+            }//Everything read up until the empty char is a token
+            else if (isLetterAZ(lineChar)){
+                if(isLetterAZ(lineChar) && isDigit(sourceLine.charAt(i+1))){ //TODO: CHeck v1 and potentially other variables of size > 2
+                    System.out.println("one is char and next is letter, but still a name token");
                     buf += lineChar;
-                }else{
-                    buf += lineChar;
+                    buf += sourceLine.charAt(i+1);
+                    sourcePos+=2;
+                    break;
                 }
-                // System.out.println("BUFFER: " + buf);
-                //System.out.println("buf isL or isD: " + buf);
-                sourcePos+=1;
+                else{
+                    buf += lineChar;
+                    sourcePos+=1;
+                }
                 continue;
             }else if(isDigit(lineChar)){
                 nextToken = new Token(intValToken,lineNum);
@@ -139,26 +150,50 @@ public class Scanner {
                     break;
                 }
                 else{
+                    //TODO: CHeck double/presedence cases
+                    char nextChar = sourceLine.charAt(i+1);
                     switch(lineChar){
-                        case '+': nextToken = new Token(addToken,lineNum); break;
+                        case '+': nextToken = new Token(addToken,lineNum);break;
+                        case '*': nextToken = new Token(multiplyToken,lineNum);break;
+                        case ';': nextToken = new Token(semicolonToken,lineNum);break;
+                        case '-': nextToken = new Token(subtractToken,lineNum);break;
+                        case ']': nextToken = new Token(rightBracketToken,lineNum);break;
+                        case ')': nextToken = new Token(rightParToken,lineNum);break;
+                        case '(': nextToken = new Token(leftParToken,lineNum);break;
+                        case '=': nextToken = new Token(equalToken,lineNum);break;
+                        case ',': nextToken = new Token(commaToken,lineNum);break;
+                        case '[': nextToken = new Token(leftBracketToken,lineNum);break;
                         case ':':
+                            if(nextChar == '='){
+                                nextToken = new Token(assignToken,lineNum); break;
+                            }
+                            else{
                                 nextToken = new Token(colonToken,lineNum); break;
-                        case ',': nextToken = new Token(commaToken,lineNum); break;
+                            }
                         case '.':
+                            if(nextChar == '.'){
+                                nextToken = new Token(rangeToken,lineNum); break;
+                            }
+                            else{
                                 nextToken = new Token(dotToken,lineNum); break;
-                        case '=': nextToken = new Token(equalToken,lineNum); break;
+                            }
                         case '>':
+                            if(nextChar == '='){
+                                nextToken = new Token(greaterEqualToken,lineNum); break;
+                            }
+                            else{
                                 nextToken = new Token(greaterToken,lineNum); break;
-                        case '[': nextToken = new Token(leftBracketToken,lineNum); break;
+                            }
                         case '<':
-                            nextToken = new Token(lessToken,lineNum); break;
-                        case '*': nextToken = new Token(multiplyToken,lineNum); break;
-                        case ';':
-                            nextToken = new Token(semicolonToken,lineNum); break;
-                        case '-': nextToken = new Token(subtractToken,lineNum); break;
-                        case ']': nextToken = new Token(rightBracketToken,lineNum); break;
-                        case ')': nextToken = new Token(rightParToken,lineNum); break;
-                        case '(': nextToken = new Token(leftParToken,lineNum); break;
+                            if(nextChar == '='){
+                                nextToken = new Token(lessEqualToken,lineNum); break;
+                            }
+                            else if (nextChar == '>'){
+                                nextToken = new Token(notEqualToken,lineNum); break;
+                            }
+                            else{
+                                nextToken = new Token(lessToken,lineNum); break;
+                            }
                         case '\'':
                             nextToken = new Token(sourceLine.charAt(i+1),lineNum);
                             sourcePos+=3;
@@ -179,8 +214,8 @@ public class Scanner {
         nextToken = new Token(buf,lineNum);
         buf="";
     }
-    if (nextToken != null)
-        System.out.println(nextToken.identify());
+
+    System.out.println(nextToken.identify());
 
     Main.log.noteToken(nextToken);
   }
