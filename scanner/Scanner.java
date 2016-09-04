@@ -13,8 +13,8 @@ public class Scanner {
   private int sourcePos = 0;
 
   private boolean specialCharIsPartOfToken = false; //custom variable
-  private boolean commentIsScanned = false;
   private String buf;
+  private boolean commentIsScanned = false;
 
   public Scanner(String fileName) {
     sourceFileName = fileName;
@@ -44,30 +44,41 @@ public class Scanner {
     ": " + message);
   }
 
+  private int scanComment(String sl){
 
-  private boolean commentIsScanned(String sourceLine){
-      if(sourceLine.startsWith("/*") || sourceLine.startsWith("{")){
-          while(sourceLine.endsWith("*/") || sourceLine.endsWith("}"))
+    //   System.out.println("before check" + sl);
+      if(sl.endsWith("}") || sl.endsWith("*/")){
+          commentIsScanned = true;
+        //   System.out.println("in check" + sl);
+          return 0;
       }
+      else{
+        //   System.out.println("before read" + sl);
+          readNextLine();
+        //   System.out.println("after read" + sl);
+          sl = sourceLine.replaceAll("\\s+","");
+          sl = sourceLine.trim();
+          scanComment(sl);
+          readNextLine();
+      }
+
+      return 0;
   }
+
+
   /*TODO: Finish this method*/
   public void readNextToken() {
     curToken = nextToken;  nextToken = null;
 
     // Del 1 her:
     buf = "";
-
     if(sourceLine.length()-1 <= sourcePos){
         // System.out.println("Finished reading: " + sourceLine);
         buf="";
         readNextLine();
     }
-    else if(sourceLine.length() == 1){
+    if(sourceLine.length() == 1){
         // System.out.println("Empty line");
-        buf="";
-        readNextLine();
-    }
-    else if(commentIsScanned(sourceLine)){ //CHeck if comment
         buf="";
         readNextLine();
     }
@@ -76,6 +87,17 @@ public class Scanner {
     if(sourceLine.equals("")){
         nextToken = new Token(eofToken,getFileLineNum());
     }else{
+        if(sourceLine.startsWith("/*") || sourceLine.startsWith("{")){ //CHeck if comment //TODO: DOESN WORKT
+            // commentIsScanned();s
+                readNextLine();
+                // System.out.println("before replacing" + sourceLine);
+                sourceLine = sourceLine.replaceAll("\\s+","");
+                // System.out.println("after replacing before trimming" + sourceLine);
+                sourceLine = sourceLine.trim();
+                // System.out.println("after replacing after trimming" + sourceLine);
+                scanComment(sourceLine);
+        }
+
         for(int i = sourcePos; i < sourceLine.length(); i++){
             //System.out.println("sourceLine: " + sourceLine);
             char lineChar = sourceLine.charAt(i);
@@ -83,6 +105,8 @@ public class Scanner {
             // System.out.println("sourcepos: " + sourcePos);
 
             //Everything read up until space is a token
+            // System.out.println(sourceLine);
+
             if(lineChar == ' '){
                 if(buf.length() == 0){
                     sourcePos+=1;
@@ -91,7 +115,12 @@ public class Scanner {
                 sourcePos+=1;
                 break;
             }else if (isLetterAZ(lineChar)){
-                buf += lineChar;
+                if(isLetterAZ(lineChar) && isDigit(sourceLine.charAt(i+1))){ //TODO: CHeck v1 and commenting
+                    buf += lineChar;
+                }else{
+                    buf += lineChar;
+                }
+                System.out.println("BUFFER: " + buf);
                 //System.out.println("buf isL or isD: " + buf);
                 sourcePos+=1;
                 continue;
@@ -108,19 +137,22 @@ public class Scanner {
                 else{
                     switch(lineChar){
                         case '+': nextToken = new Token(addToken,lineNum); break;
-                        case ':': nextToken = new Token(":",lineNum); break;
-                        case ',': nextToken = new Token(",",lineNum); break;
-                        case '.': nextToken = new Token(dotToken,lineNum); break;
-                        case '=': nextToken = new Token("=",lineNum); break;
-                        case '>': nextToken = new Token(">",lineNum); break;
-                        case '[': nextToken = new Token("[",lineNum); break;
-                        case '<': nextToken = new Token("<",lineNum); break;
-                        case '*': nextToken = new Token("*",lineNum); break;
+                        case ':':
+                                nextToken = new Token(colonToken,lineNum); break;
+                        case ',': nextToken = new Token(commaToken,lineNum); break;
+                        case '.':
+                                nextToken = new Token(dotToken,lineNum); break;
+                        case '=': nextToken = new Token(equalToken,lineNum); break;
+                        case '>':
+                                nextToken = new Token(greaterToken,lineNum); break;
+                        case '[': nextToken = new Token(leftBracketToken,lineNum); break;
+                        case '<':
+                            nextToken = new Token(lessToken,lineNum); break;
+                        case '*': nextToken = new Token(multiplyToken,lineNum); break;
                         case ';':
-                            nextToken = new Token(semicolonToken,lineNum);
-                            break;
-                        case '-': nextToken = new Token("-",lineNum); break;
-                        case ']': nextToken = new Token("]",lineNum); break;
+                            nextToken = new Token(semicolonToken,lineNum); break;
+                        case '-': nextToken = new Token(subtractToken,lineNum); break;
+                        case ']': nextToken = new Token(rightBracketToken,lineNum); break;
                         case ')': nextToken = new Token(rightParToken,lineNum); break;
                         case '(': nextToken = new Token(leftParToken,lineNum); break;
                         case '\'':
