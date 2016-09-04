@@ -48,24 +48,36 @@ public class Scanner {
   private void scanComment(){
     //   System.out.println("START SCANNING !!!!!! _____----- " + sourceLine);
       if(sourceLine.endsWith("}") || sourceLine.endsWith("*/")){
-          System.out.println("COMMENT ENDDDDD:     ---- " + sourceLine);
           readNextLine();
       }
       else{
           System.out.println("STILLL comment !!!!! --- " + sourceLine);
           readNextLine();
           sourceLine = sourceLine.replaceAll("\\s+","");
-        //   sl = sourceLine.trim();
+          sourceLine = sourceLine.trim();
           System.out.println("after NEW read ------- " + sourceLine);
           scanComment();
       }
   }
 
-  public void isComment(){
+  private void checkForComments(){
+      if (sourceLine.startsWith("/*") || sourceLine.startsWith("{")){
+          sourceLine = sourceLine.replaceAll("\\s+","");
+          sourceLine = sourceLine.trim();
+          scanComment();
 
+          if(isEmptyLine()){ //Some weird thing about empty lines after comments
+              readNextLine();
+          }
+      }
+  }
+  private boolean isEmptyLine(){
+      return sourceLine.length() == 1;
+  }
+  private boolean finishedReading(){
+      return sourceLine.length()-1 <= sourcePos;
   }
 
-  /*TODO: Finish this method*/
   public void readNextToken() {
     curToken = nextToken;  nextToken = null;
 
@@ -73,27 +85,17 @@ public class Scanner {
 
     buf = ""; //Reset buffer
 
-    if(sourceLine.length()-1 <= sourcePos){
-        System.out.println("Finished reading" + sourceLine);
+    if(finishedReading()){
         buf="";
         readNextLine();
     }
-    if(sourceLine.length() == 1){
-        System.out.println("empty line" + sourceLine);
+    if(isEmptyLine()){
         buf="";
         readNextLine();
     }
-    if (sourceLine.startsWith("/*") || sourceLine.startsWith("{")){
-            System.out.println("after replacing before trimming" + sourceLine);
-            // sourceLine = sourceLine.trim();
-            sourceLine = sourceLine.replaceAll("\\s+","");
-            sourceLine = sourceLine.trim();
-            System.out.println("after replacing after trimming" + sourceLine);
 
-            scanComment();
-                        //   System.out.println("SOURCELINE SCANNED: VALUE: " + sourceLine);
-          //   System.out.println("SOURCELINE RAAD AGAIN: " + sourceLine);
-    }
+    checkForComments();
+
     int lineNum = getFileLineNum();
     if(sourceLine.equals("")){
         // System.out.println("LNUM eof" + lineNum);
