@@ -12,9 +12,9 @@ public class Scanner {
   private String sourceFileName, sourceLine = "";
   private int sourcePos = 0;
 
-  private boolean specialCharIsPartOfToken = false; //custom variable
   private String buf;
   private boolean commentIsScanned = false;
+  private boolean stillInComment = false;
 
   public Scanner(String fileName) {
     sourceFileName = fileName;
@@ -44,60 +44,62 @@ public class Scanner {
     ": " + message);
   }
 
-  private int scanComment(String sl){
-
-    //   System.out.println("before check" + sl);
-      if(sl.endsWith("}") || sl.endsWith("*/")){
-          commentIsScanned = true;
-        //   System.out.println("in check" + sl);
-          return 0;
+  /*Single comment works*/
+  private void scanComment(){
+    //   System.out.println("START SCANNING !!!!!! _____----- " + sourceLine);
+      if(sourceLine.endsWith("}") || sourceLine.endsWith("*/")){
+          System.out.println("COMMENT ENDDDDD:     ---- " + sourceLine);
+          readNextLine();
       }
       else{
-        //   System.out.println("before read" + sl);
+          System.out.println("STILLL comment !!!!! --- " + sourceLine);
           readNextLine();
-        //   System.out.println("after read" + sl);
-          sl = sourceLine.replaceAll("\\s+","");
-          sl = sourceLine.trim();
-          scanComment(sl);
-          readNextLine();
+          sourceLine = sourceLine.replaceAll("\\s+","");
+        //   sl = sourceLine.trim();
+          System.out.println("after NEW read ------- " + sourceLine);
+          scanComment();
       }
-
-      return 0;
   }
 
+  public void isComment(){
+
+  }
 
   /*TODO: Finish this method*/
   public void readNextToken() {
     curToken = nextToken;  nextToken = null;
 
     // Del 1 her:
-    buf = "";
+
+    buf = ""; //Reset buffer
+
     if(sourceLine.length()-1 <= sourcePos){
-        // System.out.println("Finished reading: " + sourceLine);
+        System.out.println("Finished reading" + sourceLine);
         buf="";
         readNextLine();
     }
     if(sourceLine.length() == 1){
-        // System.out.println("Empty line");
+        System.out.println("empty line" + sourceLine);
         buf="";
         readNextLine();
     }
+    if (sourceLine.startsWith("/*") || sourceLine.startsWith("{")){
+            System.out.println("after replacing before trimming" + sourceLine);
+            // sourceLine = sourceLine.trim();
+            sourceLine = sourceLine.replaceAll("\\s+","");
+            sourceLine = sourceLine.trim();
+            System.out.println("after replacing after trimming" + sourceLine);
 
+            scanComment();
+                        //   System.out.println("SOURCELINE SCANNED: VALUE: " + sourceLine);
+          //   System.out.println("SOURCELINE RAAD AGAIN: " + sourceLine);
+    }
     int lineNum = getFileLineNum();
     if(sourceLine.equals("")){
-        nextToken = new Token(eofToken,getFileLineNum());
-    }else{
-        if(sourceLine.startsWith("/*") || sourceLine.startsWith("{")){ //CHeck if comment //TODO: DOESN WORKT
-            // commentIsScanned();s
-                readNextLine();
-                // System.out.println("before replacing" + sourceLine);
-                sourceLine = sourceLine.replaceAll("\\s+","");
-                // System.out.println("after replacing before trimming" + sourceLine);
-                sourceLine = sourceLine.trim();
-                // System.out.println("after replacing after trimming" + sourceLine);
-                scanComment(sourceLine);
-        }
-
+        // System.out.println("LNUM eof" + lineNum);
+        nextToken = new Token(eofToken,lineNum);
+    }
+    else{
         for(int i = sourcePos; i < sourceLine.length(); i++){
             //System.out.println("sourceLine: " + sourceLine);
             char lineChar = sourceLine.charAt(i);
@@ -120,7 +122,7 @@ public class Scanner {
                 }else{
                     buf += lineChar;
                 }
-                System.out.println("BUFFER: " + buf);
+                // System.out.println("BUFFER: " + buf);
                 //System.out.println("buf isL or isD: " + buf);
                 sourcePos+=1;
                 continue;
