@@ -62,6 +62,13 @@ public class Scanner {
     // remove comment if that is the current symbol
     removeComment();
 
+    if(sourceLine.isEmpty() || sourcePos >= sourceLine.length()){
+      readNextLine();
+      while(sourceLine.isEmpty() && getFileLineNum() != -1){
+        readNextLine();
+      }
+    }
+
     // find tokens
     char[] charArr = sourceLine.toCharArray();
 
@@ -90,7 +97,9 @@ public class Scanner {
         }
         nextToken = new Token(Integer.parseInt(newToken),getFileLineNum());
       }else{  // special character
-        if(sourcePos + 1 < charArr.length && (newToken.equals(":") || newToken.equals(">") || newToken.equals("<") || newToken.equals("."))){
+        if(sourcePos + 1 < charArr.length && (charArr[sourcePos] == ':' || charArr[sourcePos] == '>' || charArr[sourcePos] == '<' || charArr[sourcePos] == '.') && (charArr[sourcePos + 1] == '=' || charArr[sourcePos] == '.' || charArr[sourcePos] == '>')){
+          newToken+=charArr[sourcePos];
+          newToken+=charArr[++sourcePos];
           switch(newToken){
             case ":=" : nextToken = new Token(assignToken,getFileLineNum()); break;
             case ">=" : nextToken = new Token(greaterEqualToken,getFileLineNum()); break;
@@ -136,13 +145,14 @@ public class Scanner {
 
   // removes comment
   private void removeComment(){
-    String cmtCheck = sourceLine.substring(sourcePos);
+    String cmtCheck = sourceLine.substring(sourcePos).trim();
     if(cmtCheck.startsWith("{") || cmtCheck.startsWith("/*")){
       String symbol = cmtCheck.startsWith("{") ? "}":"*/";
       if(cmtCheck.endsWith(symbol)){
         readNextLine();
       }else{  // multiline comment
         while(!cmtCheck.contains(symbol)){
+          cmtCheck=sourceLine;
           readNextLine();
         }
         if(cmtCheck.endsWith(symbol)){
@@ -150,8 +160,6 @@ public class Scanner {
         }else{
           sourcePos = sourceLine.indexOf(symbol) + symbol.length();
         }
-        // a second check to se if there is another comment
-        removeComment();
       }
     }
   }
