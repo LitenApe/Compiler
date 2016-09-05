@@ -64,7 +64,7 @@ public class Scanner {
    * For each line that is read by readNextLine(), there has to be a call to readNextToken() to
    * make tokens. This method checks if a line is a comment.
    */
-  private void checkForComments(){
+  private void checkForComments(int inLineCommentPosition){
       if (sourceLine.startsWith("/*") || sourceLine.startsWith("{")){
           sourceLine = sourceLine.replaceAll("\\s+","");
           sourceLine = sourceLine.trim();
@@ -73,7 +73,15 @@ public class Scanner {
           if(isEmptyLine()){ //Some weird thing about empty lines after comments
               readNextLine();
           }
-      }
+      }else if(inLineCommentPosition != 0){
+          int start = inLineCommentPosition;
+          System.out.println(start);
+          while(sourceLine.charAt(start) != '}' ||
+                sourceLine.endsWith("*/")){
+                    start++;
+                }
+                readNextLine();
+       }
   }
 
   /**
@@ -108,7 +116,7 @@ public class Scanner {
         readNextLine();
     }//Checks if line is empty, resets buffer and reads next line
 
-    checkForComments(); //TODO: FIX if comment comes on same line as token
+    checkForComments(0); //TODO: FIX if comment comes on same line as token
 
     int lineNum = getFileLineNum();
     if(sourceLine.equals("")){
@@ -117,6 +125,11 @@ public class Scanner {
     else{
         for(int i = sourcePos; i < sourceLine.length(); i++){
             char lineChar = sourceLine.charAt(i);
+
+            if(lineChar == '{' || lineChar == '/'){
+                checkForComments(sourcePos);
+                continue;
+            }
 
             if(lineChar == ' '){
                 if(buf.length() == 0){
@@ -223,14 +236,16 @@ public class Scanner {
     if(nextToken == null){
         boolean allIsInteger = true;
 
-        for(int i = 0; i < buf.length()-1; i++){
-            if(isLetterAZ(buf.charAt(i))){
+        for(int i = 0; i < buf.length(); i++){
+            if(!isDigit(buf.charAt(i))){
                 allIsInteger = false;
+                break;
             }
         }
 
-        if(allIsInteger){
-            nextToken = new Token(intValToken,lineNum);
+        if(allIsInteger && buf.length() != 0){
+            // System.out.println("BUFFER IS NUMBER: "+buf +"\nLineNUM: " + lineNum);
+            nextToken = new Token(Integer.parseInt(buf),lineNum);
         }else{
             nextToken = new Token(buf,lineNum);
         }
