@@ -76,8 +76,11 @@ public class Scanner {
       }else if(inLineCommentPosition != 0){
           int start = inLineCommentPosition;
           System.out.println(start);
-          while(sourceLine.charAt(start) != '}' ||
-                sourceLine.endsWith("*/")){
+          while(sourceLine.charAt(start) != '}'){
+                    if(sourceLine.charAt(start) == '*'){
+                        if(sourceLine.charAt(start+1) == '/')
+                            break;
+                    }
                     start++;
                 }
                 readNextLine();
@@ -126,9 +129,15 @@ public class Scanner {
         for(int i = sourcePos; i < sourceLine.length(); i++){
             char lineChar = sourceLine.charAt(i);
 
-            if(lineChar == '{' || lineChar == '/'){
+            //Check for inline comments
+            if(lineChar == '{'){
                 checkForComments(sourcePos);
                 continue;
+            }
+            else if(lineChar == '/'){
+                if (sourceLine.charAt(i+1) == '*')
+                    checkForComments(sourcePos);
+                    continue;
             }
 
             if(lineChar == ' '){
@@ -160,6 +169,7 @@ public class Scanner {
                 else{
                     //TODO: CHeck double/presedence cases
                     char nextChar = sourceLine.charAt(i+1);
+
                     switch(lineChar){
                         case '+': nextToken = new Token(addToken,lineNum);break;
                         case '*': nextToken = new Token(multiplyToken,lineNum);break;
@@ -244,16 +254,13 @@ public class Scanner {
         }
 
         if(allIsInteger && buf.length() != 0){
-            // System.out.println("BUFFER IS NUMBER: "+buf +"\nLineNUM: " + lineNum);
             nextToken = new Token(Integer.parseInt(buf),lineNum);
         }else{
             nextToken = new Token(buf,lineNum);
         }
         buf="";
     }
-
-    System.out.println(nextToken.identify());
-
+    // System.out.println(nextToken.identify());
     Main.log.noteToken(nextToken);
   }
 
