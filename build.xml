@@ -29,12 +29,16 @@
     <zip destfile="inf2100-oblig-2016.zip" basedir="."/>
   </target>
 
-    <target name="run" depends="compile,jar" description="Kjør JAR-fil">
-        <java jar="pascal2016.jar" fork="true">
-            <arg value="-logS"/>
-            <arg value="-testscanner"/>
-            <arg value="test/gcd.pas"/>
-        </java>
-    </target>
+  <target name="run" depends="compile,jar,arguments" description="Kjør JAR-fil">
+      <java jar="pascal2016.jar" fork="true">
+          <arg value="-logS"/>
+          <arg value="-testscanner"/>
+          <arg value="testFiles/${filename}"/>
+      </java>
+  </target>
+
+  <target name="arguments" unless="filename">
+      <input addProperty="filename" message="Type in filename: "/>
+  </target>
 
 </project>
