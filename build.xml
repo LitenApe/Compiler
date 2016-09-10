@@ -29,7 +29,7 @@
     <zip destfile="inf2100-oblig-2016.zip" basedir="."/>
   </target>
 
-    <target name="run" depends="compile,jar,arguments" description="Kjør JAR-fil">
+    <target name="run" depends="jar,arguments" description="Kjør JAR-fil">
         <java jar="pascal2016.jar" fork="true">
             <arg value="-logS"/>
             <arg value="-testscanner"/>
