@@ -119,7 +119,7 @@ public class Scanner {
         readNextLine();
     }//Checks if line is empty, resets buffer and reads next line
 
-    checkForComments(0); //TODO: FIX if comment comes on same line as token
+    checkForComments(0);
 
     int lineNum = getFileLineNum();
     if(sourceLine.equals("")){
