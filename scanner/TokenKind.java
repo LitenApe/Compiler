@@ -12,7 +12,7 @@ public enum TokenKind {
     assignToken(":="),
     colonToken(":"),
     commaToken(","),
- /* divideToken("/"), */
+    divideToken("/"),
     dotToken("."),
     equalToken("="),
     greaterToken(">"),
@@ -28,7 +28,7 @@ public enum TokenKind {
     rightParToken(")"),
     semicolonToken(";"),
     subtractToken("-"),
- /* upArrowToken("^"), */
+    upArrowToken("^"),
 
     andToken("and"),
     arrayToken("array"),
