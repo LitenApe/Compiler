@@ -14,9 +14,9 @@ Pascal kompilator
 
 
 # To Do
-  - [ ] Part 1: Scanner
-    - [ ] Ignore/Remove Comments
-    - [ ] Find and create tokens
+  - [x] Part 1: Scanner
+    - [x] Ignore/Remove Comments
+    - [x] Find and create tokens
   - [ ] Part 2: Parser
   - [ ] Part 3: Checker
   - [ ] Part 4: Code generator
