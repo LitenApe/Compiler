@@ -33,13 +33,12 @@
         <java jar="pascal2016.jar" fork="true">
             <arg value="-logS"/>
             <arg value="-testscanner"/>
-            <arg value="${folder}/${file}"/>
+            <arg value="${file_path}"/>
         </java>
     </target>
 
     <target name="arguments" unless="file">
-        <input addProperty="folder" message="Type in folder: "/>
-        <input addProperty="file" message="Type in filename: "/>
+        <input addProperty="file_path" message="Type in path: "/>
     </target>
 
 </project>

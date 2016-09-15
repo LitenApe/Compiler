@@ -1,6 +1,9 @@
 classes/
+testFF/
+testFiles/
+failFiles/
+logMover.sh
 *.jar
 *.pdf
-*.log
 *.res
 *.s

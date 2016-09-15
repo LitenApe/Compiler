@@ -70,7 +70,7 @@ public class Scanner {
     }
 
     // find tokens
-    char[] charArr = sourceLine.toCharArray();
+    char[] charArr = sourceLine.toLowerCase().toCharArray();
 
     if(sourceFile == null){
       nextToken = new Token(eofToken,getFileLineNum());
@@ -94,9 +94,12 @@ public class Scanner {
         while(sourcePos < sourceLine.length() && isDigit(charArr[sourcePos])){
           newToken += charArr[sourcePos++];
         }
-        nextToken = new Token(Integer.parseInt(newToken),getFileLineNum());
+        try{
+          nextToken = new Token(Integer.parseInt(newToken),getFileLineNum());
+        }catch(Exception e){
+        }
       }else{  // special character
-        if(sourcePos + 1 < charArr.length && (charArr[sourcePos] == ':' || charArr[sourcePos] == '>' || charArr[sourcePos] == '<' || charArr[sourcePos] == '.') && (charArr[sourcePos + 1] == '=' || charArr[sourcePos] == '.' || charArr[sourcePos] == '>')){
+        if(sourcePos + 1 < charArr.length && (charArr[sourcePos] == ':' || charArr[sourcePos] == '>' || charArr[sourcePos] == '<' || charArr[sourcePos] == '.') && (charArr[sourcePos + 1] == '=' || charArr[sourcePos + 1] == '.' || charArr[sourcePos + 1] == '>')){
           newToken+=charArr[sourcePos];
           newToken+=charArr[++sourcePos];
           switch(newToken){
@@ -138,7 +141,7 @@ public class Scanner {
       if(nextToken == null) newToken += charArr[sourcePos];
     }
 
-    System.out.println(nextToken.identify());
+    // System.out.println(nextToken.identify());
     Main.log.noteToken(nextToken);
   }
 
@@ -172,8 +175,8 @@ public class Scanner {
           sourceLine = "";
         } else {
           sourceLine += " ";
-          sourceLine = sourceLine.toLowerCase().trim();
-          System.out.println("READ: " + sourceLine);
+          sourceLine = sourceLine.trim();
+          // System.out.println("READ: " + sourceLine);
         }
         sourcePos = 0;
       } catch (IOException e) {
