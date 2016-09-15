@@ -3,9 +3,11 @@ testFF/
 testFiles/
 failFiles/
 resLogs/
-scannerDiff.sh
-testingUnit.sh
+
 *.jar
 *.pdf
 *.res
 *.s
+
+compS.sh
+testS.sh
