@@ -2,7 +2,9 @@ classes/
 testFF/
 testFiles/
 failFiles/
-logMover.sh
+resLogs/
+scannerDiff.sh
+testingUnit.sh
 *.jar
 *.pdf
 *.res

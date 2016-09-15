@@ -22,7 +22,7 @@ public class Main {
     OS = System.getProperty("os.name");
     System.out.println("This is the Ifi Pascal2016 compiler (" +
     version + ") running on " + OS);
-    System.out.println("file being read is: " + arg[1]);
+    System.out.println("source file: " + arg[1]);
 
     int exitStatus = 0;
     try {
