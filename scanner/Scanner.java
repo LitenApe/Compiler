@@ -23,10 +23,6 @@ public class Scanner {
     }
 
     readNextToken();  readNextToken();
-
-    //for (TokenKind k : TokenKind.values()) {
-    //  System.out.println(k.toString());
-    //}
   }
 
 
