@@ -181,7 +181,7 @@ public class Scanner {
       }
     }
     if (sourceFile != null)
-    Main.log.noteSourceLine(getFileLineNum(), sourceLine);
+      Main.log.noteSourceLine(getFileLineNum(), sourceLine);
   }
 
 
