@@ -111,14 +111,11 @@ public class Scanner {
             char lineChar = sourceLine.charAt(i);
 
             //Check for inline comments
-            if(lineChar == '{'){
+            if(lineChar == '{' ||
+                (lineChar == '/' &&
+                    sourceLine.charAt(i+1) == '*')){
                 checkForComments(sourcePos);
                 continue;
-            }
-            else if(lineChar == '/' &&
-                    sourceLine.charAt(i+1) == '*'){
-                    checkForComments(sourcePos);
-                    continue;
             }
 
             if(lineChar == ' ' || lineChar == '\t'){
@@ -159,10 +156,9 @@ public class Scanner {
                             sourcePos+=3;
                             break;
                         }
-
                     }
+                    break;
                 }//End special cases without buf build
-                break;
             }//End special character
         }//end main loop
     }
@@ -176,7 +172,6 @@ public class Scanner {
         }
         buf="";
     }
-    // System.out.println(nextToken.identify());
     Main.log.noteToken(nextToken);
   }
 

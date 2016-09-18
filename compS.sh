@@ -6,18 +6,18 @@ fasPath="$curPath/testfiles/restestfiles"
 
 # retrieve log files
 resultater=$(ls testfiles/*.log)
-fasit=$(ls testfiles)
+fasit=$(ls testfiles/restestfiles/*)
 
 # make it into an array
 # resultater=$resultater | cut -d ' ' -f 1,2,3,4,5,6
 # fasit=$fasit | cut -d ' ' -f 1,2,3,4,5,6
 
 # # iterate through the files
-for file in fasit; do
-  for files in resultater; do
+for fas in $fasit; do
+  for res in $resultater; do
     if [[ $res == $fas ]]; then
-      echo "Double checking:" $fas
-      diff "$resPath$res" "$fasPath$fas"
+        echo "$fas and $res"
+    #   diff "$res" "$fas"
     fi
   done
 done
