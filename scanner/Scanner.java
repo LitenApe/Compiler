@@ -20,6 +20,7 @@ public class Scanner {
     sourceFileName = fileName;
     try {
       sourceFile = new LineNumberReader(new FileReader(fileName));
+      readNextLine();
     } catch (FileNotFoundException e) {
       Main.error("Cannot read " + fileName + "!");
     }
@@ -70,56 +71,35 @@ public class Scanner {
           sourceLine = sourceLine.trim();
           scanComment();
 
-          if(isEmptyLine()){ //Some weird thing about empty lines after comments
+          if(sourceLine.length() == 1){ //Some weird thing about empty lines after comments
               readNextLine();
           }
       }else if(inLineCommentPosition != 0){
           int start = inLineCommentPosition;
           System.out.println(start);
           while(sourceLine.charAt(start) != '}'){
-                    if(sourceLine.charAt(start) == '*'){
-                        if(sourceLine.charAt(start+1) == '/')
-                            break;
-                    }
-                    start++;
-                }
-                readNextLine();
+              if(sourceLine.charAt(start) == '*' &&
+                  sourceLine.charAt(start+1) == '/'){
+                      break;
+              }
+              start++;
+          }
+          readNextLine();
        }
   }
-
-  /**
-   * This method returns the boolean value of an empty line
-   * @return boolean expression that satisfies an empty line
-   */
-  private boolean isEmptyLine(){
-      return sourceLine.length() == 1;
-  }
-
-  /**
-   * This method returns the boolean value for a line read
-   * @return boolean expression that satisfies a read line
-   */
-  private boolean finishedReading(){
-      return sourceLine.length()-1 <= sourcePos;
-  }
-
 
   public void readNextToken() {
     curToken = nextToken;  nextToken = null;
 
     //Part 1 of INF 2100
     buf = ""; //Resets the buffer
-
-    if(finishedReading()){
+    if (sourceLine.length() == 1 ||
+        sourceLine.length()-1 <= sourcePos){
         buf="";
         readNextLine();
-    }//Checks if line is read, resets buffer and reads next line
-    if(isEmptyLine()){
-        buf="";
-        readNextLine();
-    }//Checks if line is empty, resets buffer and reads next line
+    }
 
-    checkForComments(0); //TODO: FIX if comment comes on same line as token
+    checkForComments(0);
 
     int lineNum = getFileLineNum();
     if(sourceLine.equals("")){
@@ -134,8 +114,8 @@ public class Scanner {
                 checkForComments(sourcePos);
                 continue;
             }
-            else if(lineChar == '/'){
-                if (sourceLine.charAt(i+1) == '*')
+            else if(lineChar == '/' &&
+                    sourceLine.charAt(i+1) == '*'){
                     checkForComments(sourcePos);
                     continue;
             }
@@ -149,113 +129,50 @@ public class Scanner {
                 break;
             }//Everything read up until the empty char is a token
             else if (isLetterAZ(lineChar) || isDigit(lineChar)){
-                if(isLetterAZ(lineChar) && isDigit(sourceLine.charAt(i+1))){ //TODO: CHeck v1 and potentially other variables of size > 2
-                    buf += lineChar;
-                    buf += sourceLine.charAt(i+1);
-                    sourcePos+=2;
-                    break;
-                }
-                else{
-                    buf += lineChar;
-                    sourcePos+=1;
-                }
+                buf += lineChar;
+                sourcePos+=1;
                 continue;
             }
             else{ //special character
-                boolean sourcePosIncrementedMoreThanOne = false;
                 if(buf.length() > 0){
                     break;
                 }
                 else{
-                    //TODO: CHeck double/presedence cases
                     char nextChar = sourceLine.charAt(i+1);
+                    String twoCharToken = ""+lineChar;
+                    twoCharToken+=nextChar;
 
-                    switch(lineChar){
-                        case '+': nextToken = new Token(addToken,lineNum);break;
-                        case '*': nextToken = new Token(multiplyToken,lineNum);break;
-                        case ';': nextToken = new Token(semicolonToken,lineNum);break;
-                        case '-': nextToken = new Token(subtractToken,lineNum);break;
-                        case ']': nextToken = new Token(rightBracketToken,lineNum);break;
-                        case ')': nextToken = new Token(rightParToken,lineNum);break;
-                        case '(': nextToken = new Token(leftParToken,lineNum);break;
-                        case '=': nextToken = new Token(equalToken,lineNum);break;
-                        case ',': nextToken = new Token(commaToken,lineNum);break;
-                        case '[': nextToken = new Token(leftBracketToken,lineNum);break;
-                        case ':':
-                            if(nextChar == '='){
-                                nextToken = new Token(assignToken,lineNum);
-                                sourcePos+=2;
-                                sourcePosIncrementedMoreThanOne = true;
-                                break;
-                            }
-                            else{
-                                nextToken = new Token(colonToken,lineNum); break;
-                            }
-                        case '.':
-                            if(nextChar == '.'){
-                                nextToken = new Token(rangeToken,lineNum);
-                                sourcePos+=2;
-                                sourcePosIncrementedMoreThanOne = true;
-                                break;
-                            }
-                            else{
-                                nextToken = new Token(dotToken,lineNum); break;
-                            }
-                        case '>':
-                            if(nextChar == '='){
-                                nextToken = new Token(greaterEqualToken,lineNum);
-                                sourcePos+=2;
-                                sourcePosIncrementedMoreThanOne = true;
-                                break;
-                            }
-                            else{
-                                nextToken = new Token(greaterToken,lineNum); break;
-                            }
-                        case '<':
-                            if(nextChar == '='){
-                                nextToken = new Token(lessEqualToken,lineNum);
-                                sourcePos+=2;
-                                sourcePosIncrementedMoreThanOne = true;
-                                break;
-                            }
-                            else if (nextChar == '>'){
-                                nextToken = new Token(notEqualToken,lineNum);
-                                sourcePos+=2;
-                                sourcePosIncrementedMoreThanOne = true;
-                                break;
-                            }
-                            else{
-                                nextToken = new Token(lessToken,lineNum); break;
-                            }
-                        case '\'':
+                    for(TokenKind k : TokenKind.values()){
+                        System.out.println("K VALUE: " +k.toString() + "and: " + k.toString().length());
+                        if(k.toString().equals(twoCharToken)){
+                            System.out.println("IS TWO CHAR TOKEN");
+                            nextToken = new Token(k,lineNum);
+                            sourcePos+=2;
+                            break;
+                        }
+                        if (k.toString().equals(""+lineChar)){
+                            nextToken = new Token(k,lineNum);
+                            sourcePos+=1;
+                            break;
+                        }
+                        if(lineChar == '\''){
                             nextToken = new Token(nextChar,lineNum);
                             sourcePos+=3;
-                            sourcePosIncrementedMoreThanOne = true;
                             break;
-                    }//End switch
-                }//End switch else
-                if(!sourcePosIncrementedMoreThanOne){
-                    sourcePos+=1;
-                }
+                        }
+
+                    }
+                }//End special cases without buf build
                 break;
             }//End special character
-        }//end loop
-        // System.out.println("buf after loop" + buf);
+        }//end main loop
     }
 
     if(nextToken == null){
-        boolean allIsInteger = true;
-
-        for(int i = 0; i < buf.length(); i++){
-            if(!isDigit(buf.charAt(i))){
-                allIsInteger = false;
-                break;
-            }
-        }
-
-        if(allIsInteger && buf.length() != 0){
+        try{
             nextToken = new Token(Integer.parseInt(buf),lineNum);
-        }else{
+        }
+        catch(NumberFormatException e){
             nextToken = new Token(buf,lineNum);
         }
         buf="";

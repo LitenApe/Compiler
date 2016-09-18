@@ -37,6 +37,14 @@
         </java>
     </target>
 
+    <target name="runfail" depends="compile,jar,arguments" description="Kjør JAR-fil">
+        <java jar="pascal2016.jar" fork="true">
+            <arg value="-logS"/>
+            <arg value="-testscanner"/>
+            <arg value="failfolder/${filename}"/>
+        </java>
+    </target>
+
     <target name="arguments" unless="filename">
         <input addProperty="filename" message="Type in filename: "/>
     </target>
