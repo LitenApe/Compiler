@@ -94,7 +94,8 @@ public class Scanner {
     //Part 1 of INF 2100
     buf = ""; //Resets the buffer
     if (sourceLine.length() == 1 ||
-        sourceLine.length()-1 <= sourcePos){
+        sourceLine.length()-1 <= sourcePos ||
+        sourceLine.equals("\t")){
         buf="";
         readNextLine();
     }
@@ -120,7 +121,7 @@ public class Scanner {
                     continue;
             }
 
-            if(lineChar == ' '){
+            if(lineChar == ' ' || lineChar == '\t'){
                 if(buf.length() == 0){
                     sourcePos+=1;
                     continue;
@@ -143,9 +144,7 @@ public class Scanner {
                     twoCharToken+=nextChar;
 
                     for(TokenKind k : TokenKind.values()){
-                        System.out.println("K VALUE: " +k.toString() + "and: " + k.toString().length());
                         if(k.toString().equals(twoCharToken)){
-                            System.out.println("IS TWO CHAR TOKEN");
                             nextToken = new Token(k,lineNum);
                             sourcePos+=2;
                             break;
@@ -173,7 +172,7 @@ public class Scanner {
             nextToken = new Token(Integer.parseInt(buf),lineNum);
         }
         catch(NumberFormatException e){
-            nextToken = new Token(buf,lineNum);
+            nextToken = new Token(buf.toLowerCase(),lineNum);
         }
         buf="";
     }
