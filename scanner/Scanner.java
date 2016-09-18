@@ -77,11 +77,9 @@ public class Scanner {
       }else if(inLineCommentPosition != 0){
           int start = inLineCommentPosition;
           System.out.println(start);
-          while(sourceLine.charAt(start) != '}'){
-              if(sourceLine.charAt(start) == '*' &&
-                  sourceLine.charAt(start+1) == '/'){
-                      break;
-              }
+          while(sourceLine.charAt(start) != '}' ||
+                    (sourceLine.charAt(start) == '*' &&
+                        sourceLine.charAt(start+1) == '/'))
               start++;
           }
           readNextLine();
@@ -94,8 +92,7 @@ public class Scanner {
     //Part 1 of INF 2100
     buf = ""; //Resets the buffer
     if (sourceLine.length() == 1 ||
-        sourceLine.length()-1 <= sourcePos ||
-        sourceLine.equals("\t")){
+        sourceLine.length()-1 <= sourcePos){
         buf="";
         readNextLine();
     }
@@ -141,16 +138,19 @@ public class Scanner {
                     twoCharToken+=nextChar;
 
                     for(TokenKind k : TokenKind.values()){
+                        //Presedence case, check "to char tokens" first, :=,<> etc
                         if(k.toString().equals(twoCharToken)){
                             nextToken = new Token(k,lineNum);
                             sourcePos+=2;
                             break;
                         }
+                        //Otherwise check special chars such as >,<,= etc
                         if (k.toString().equals(""+lineChar)){
                             nextToken = new Token(k,lineNum);
                             sourcePos+=1;
                             break;
                         }
+                        //Special case for char tokens
                         if(lineChar == '\''){
                             nextToken = new Token(nextChar,lineNum);
                             sourcePos+=3;
