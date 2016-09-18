@@ -66,7 +66,7 @@ public class Scanner {
    * make tokens. This method checks if a line is a comment.
    */
   private void checkForComments(int inLineCommentPosition){
-      if (sourceLine.startsWith("/*") || sourceLine.startsWith("{")){
+      if (sourceLine.startsWith("/*") || sourceLine.startsWith("{")){ //Single line and multiline comments
           sourceLine = sourceLine.replaceAll("\\s+","");
           sourceLine = sourceLine.trim();
           scanComment();
@@ -74,17 +74,37 @@ public class Scanner {
           if(sourceLine.length() == 1){ //Some weird thing about empty lines after comments
               readNextLine();
           }
-      }else if(inLineCommentPosition != 0){
+      }else if(inLineCommentPosition != 0){ //In line comments
           int start = inLineCommentPosition;
           System.out.println(start);
           while(sourceLine.charAt(start) != '}' ||
                     (sourceLine.charAt(start) == '*' &&
-                        sourceLine.charAt(start+1) == '/'))
+                        sourceLine.charAt(start+1) == '/')){
               start++;
           }
           readNextLine();
        }
   }
+
+   // private void checkForComments(int sourcePos){
+   //     boolean commentEndsWithBrackets = sourceLine.charAt(sourcePos) == '}';
+   //     boolean commentEndsWithStarDash = sourceLine.charAt(sourcePos) == '*' &&
+   //         sourceLine.charAt(sourcePos+1) == '/';
+   //
+   //     System.out.println(sourceLine);
+   //
+   //     while(!commentEndsWithStarDash || !commentEndsWithBrackets){
+   //          sourcePos++;
+   //          if(sourceLine.length()-1 <= sourcePos){
+   //              readNextLine();
+   //              sourcePos=0;
+   //          }
+   //          commentEndsWithBrackets = sourceLine.charAt(sourcePos) == '}';
+   //          commentEndsWithStarDash = sourceLine.charAt(sourcePos) == '*' &&
+   //              sourceLine.charAt(sourcePos+1) == '/';
+   //     }
+   //     this.sourcePos = sourcePos;
+   // }
 
   public void readNextToken() {
     curToken = nextToken;  nextToken = null;
@@ -107,7 +127,6 @@ public class Scanner {
         for(int i = sourcePos; i < sourceLine.length(); i++){
             char lineChar = sourceLine.charAt(i);
 
-            //Check for inline comments
             if(lineChar == '{' ||
                 (lineChar == '/' &&
                     sourceLine.charAt(i+1) == '*')){
