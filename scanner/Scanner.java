@@ -59,6 +59,7 @@ public class Scanner {
     // remove comment if that is the current symbol
     removeComment();
 
+    // jump over white spaces
     if(sourceLine.isEmpty() || sourcePos >= sourceLine.length()){
       readNextLine();
       while(sourceLine.isEmpty() && getFileLineNum() != -1){
@@ -66,10 +67,10 @@ public class Scanner {
       }
     }
 
-    // find tokens
+    // convert sourceLine into an char array
     char[] charArr = sourceLine.toCharArray();
 
-    if(sourceFile == null){
+    if(sourceFile == null){ // print out statistics
       nextToken = new Token(eofToken,getFileLineNum());
       System.out.println("Number of lines read: " + nrOfLines);
       System.out.println("Number of tokens generated: " + nrOfTokens);
@@ -77,13 +78,13 @@ public class Scanner {
       System.out.println("Number of comments ignored: " + nrOfComments);
     }
 
-    while(nextToken == null){
+    while(nextToken == null){ // jump over white spaces
       while((charArr[sourcePos] == ' ' || charArr[sourcePos] == '\t') && sourcePos < sourceLine.length()){
         sourcePos++;
       }
 
       if(isLetterAZ(charArr[sourcePos])){
-        for(;sourcePos <= charArr.length - 1; sourcePos++){
+        for(;sourcePos <= charArr.length - 1; sourcePos++){ // name tokens
           if(isLetterAZ(charArr[sourcePos]) || isDigit(charArr[sourcePos])){
             newToken += charArr[sourcePos];
           }else{
@@ -91,7 +92,7 @@ public class Scanner {
           }
         }
         nextToken = new Token(newToken.toLowerCase(),getFileLineNum());
-      }else if(isDigit(charArr[sourcePos])){
+      }else if(isDigit(charArr[sourcePos])){  // int tokens
         while(sourcePos < sourceLine.length() && isDigit(charArr[sourcePos])){
           newToken += charArr[sourcePos++];
         }
