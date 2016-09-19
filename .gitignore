@@ -5,6 +5,8 @@ resLogs/
 pascal/
 testFF/
 
+.DS_Store
+
 *.jar
 *.pdf
 *.res
