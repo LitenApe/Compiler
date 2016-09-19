@@ -1,8 +1,9 @@
-classes/
-testFF/
 testFiles/
 failFiles/
+classes/
 resLogs/
+pascal/
+testFF/
 
 *.jar
 *.pdf
