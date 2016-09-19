@@ -191,6 +191,7 @@ public class Scanner {
         }
         buf="";
     }
+    System.out.println(nextToken.identify());
     Main.log.noteToken(nextToken);
   }
 
