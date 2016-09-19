@@ -49,6 +49,7 @@ public class Scanner {
    * For each line that is scanned and registered as a comment, this method
    * parses the comment until the end of comment, so that tokens are not generated.
    */
+  boolean isIncComment = false;
   private void scanComment(){
       if(sourceLine.endsWith("}") || sourceLine.endsWith("*/")){
           readNextLine();
@@ -65,6 +66,39 @@ public class Scanner {
    * For each line that is read by readNextLine(), there has to be a call to readNextToken() to
    * make tokens. This method checks if a line is a comment.
    */
+  // private void checkForComments(int inLineCommentPosition){
+  //     if (sourceLine.startsWith("/*") || sourceLine.startsWith("{")){ //Single line and multiline comments
+  //         sourceLine = sourceLine.replaceAll("\\s+","");
+  //         sourceLine = sourceLine.trim();
+  //         scanComment();
+  //
+  //         if(sourceLine.length() == 1){ //Some weird thing about empty lines after comments
+  //             readNextLine();
+  //         }
+  //     }else if(inLineCommentPosition != 0){ //In line comments
+  //         int start = inLineCommentPosition;
+  //         System.out.println(start);
+  //         while(sourceLine.charAt(start) != '}' ||
+  //                   (sourceLine.charAt(start) == '*' &&
+  //                       sourceLine.charAt(start+1) == '/')){
+  //             start++;
+  //         }
+  //         readNextLine();
+  //      }
+  // }
+
+  // private void remove_sourceLineStartsWithComments(){
+  //     if (sourceLine.startsWith("/*") || sourceLine.startsWith("{")){ //Single line and multiline comments
+  //         sourceLine = sourceLine.replaceAll("\\s+","");
+  //         sourceLine = sourceLine.trim();
+  //         isIncComment = true;
+  //         scanComment();
+  //
+  //         if(sourceLine.length() == 1){ //Some weird thing about empty lines after comments
+  //             readNextLine();
+  //         }
+  //     }
+  // }
   private void checkForComments(int inLineCommentPosition){
       if (sourceLine.startsWith("/*") || sourceLine.startsWith("{")){ //Single line and multiline comments
           sourceLine = sourceLine.replaceAll("\\s+","");
@@ -75,36 +109,30 @@ public class Scanner {
               readNextLine();
           }
       }else if(inLineCommentPosition != 0){ //In line comments
-          int start = inLineCommentPosition;
-          System.out.println(start);
-          while(sourceLine.charAt(start) != '}' ||
-                    (sourceLine.charAt(start) == '*' &&
-                        sourceLine.charAt(start+1) == '/')){
-              start++;
+          int start = 0;
+          for (int i = inLineCommentPosition; sourceLine.length()-1 >= i; i++) {
+              System.out.println(sourceLine.charAt(i));
+              start = i;
+              if(sourceLine.charAt(i) == '}'){
+                start = i+1;
+                break;
+              }
+              else if (sourceLine.charAt(i) == '*' && sourceLine.charAt(i+1) == '/'){
+                start = i+2;
+                break;
+              }
           }
-          readNextLine();
+          if(sourceLine.length()-1 <= start){
+              readNextLine(); //Finished reading on that line
+              while(sourceLine.length() == 1){
+                  readNextLine();
+              }
+          }
+          else{
+              sourcePos = start;
+          }
        }
   }
-
-   // private void checkForComments(int sourcePos){
-   //     boolean commentEndsWithBrackets = sourceLine.charAt(sourcePos) == '}';
-   //     boolean commentEndsWithStarDash = sourceLine.charAt(sourcePos) == '*' &&
-   //         sourceLine.charAt(sourcePos+1) == '/';
-   //
-   //     System.out.println(sourceLine);
-   //
-   //     while(!commentEndsWithStarDash || !commentEndsWithBrackets){
-   //          sourcePos++;
-   //          if(sourceLine.length()-1 <= sourcePos){
-   //              readNextLine();
-   //              sourcePos=0;
-   //          }
-   //          commentEndsWithBrackets = sourceLine.charAt(sourcePos) == '}';
-   //          commentEndsWithStarDash = sourceLine.charAt(sourcePos) == '*' &&
-   //              sourceLine.charAt(sourcePos+1) == '/';
-   //     }
-   //     this.sourcePos = sourcePos;
-   // }
 
   public void readNextToken() {
     curToken = nextToken;  nextToken = null;
@@ -117,20 +145,23 @@ public class Scanner {
         readNextLine();
     }
 
-    checkForComments(0);
+    // checkForComments(0);
 
     int lineNum = getFileLineNum();
     if(sourceLine.equals("")){
         nextToken = new Token(eofToken,lineNum);
     }//Checks if the line is empty, thus indicating end of file
     else{
+        checkForComments(0);
         for(int i = sourcePos; i < sourceLine.length(); i++){
             char lineChar = sourceLine.charAt(i);
 
             if(lineChar == '{' ||
                 (lineChar == '/' &&
                     sourceLine.charAt(i+1) == '*')){
+                System.out.println(sourcePos+" <<< SP Started comment inline: " +sourceLine.charAt(i));
                 checkForComments(sourcePos);
+                System.out.println(sourcePos + " Should be changed");
                 continue;
             }
 
