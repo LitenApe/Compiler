@@ -1,6 +1,6 @@
 public class Variable extends Factor{
 
     public Variable(){
-        super()
+        super();
     }/*End constructor*/
 }/*End class*/

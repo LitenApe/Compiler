@@ -1,6 +1,6 @@
 public class FuncCall extends Factor{
 
     public FuncCall(){
-        super()
+        super();
     }/*End constructor*/
 }/*End class*/

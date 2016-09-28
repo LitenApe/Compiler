@@ -1,6 +1,6 @@
 public class CharLiteral extends UnsignedConstant{
 
     public CharLiteral(){
-        super()
+        super();
     }/*End constructor*/
 }/*End class*/

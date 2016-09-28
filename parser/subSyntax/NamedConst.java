@@ -1,6 +1,6 @@
 public class NamedConst extends UnsignedConstant{
 
     public NamedConst(){
-        super()
+        super();
     }/*End constructor*/
 }/*End class*/

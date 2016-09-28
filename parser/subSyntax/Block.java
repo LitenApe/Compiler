@@ -1,6 +1,6 @@
 public class Block extends PascalSyntax{
 
     public Block(){
-        super()
+        super();
     }/*End constructor*/
 }/*End class*/

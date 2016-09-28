@@ -1,6 +1,6 @@
 public class NumberLiteral extends UnsignedConstant{
 
     public NumberLiteral(){
-        super()
+        super();
     }/*End constructor*/
 }/*End class*/

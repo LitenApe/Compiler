@@ -1,6 +1,6 @@
 public class Negation extends Factor{
 
     public Negation(){
-        super()
+        super();
     }/*End constructor*/
 }/*End class*/

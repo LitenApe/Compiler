@@ -1,6 +1,6 @@
 public class InnerExpr extends Factor{
 
     public InnerExpr(){
-        super()
+        super();
     }/*End constructor*/
 }/*End class*/

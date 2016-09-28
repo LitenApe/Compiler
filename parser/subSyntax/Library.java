@@ -1,6 +1,6 @@
 public class Library extends Block{
 
     public Library(){
-        super()
+        super();
     }/*End constructor*/
 }/*End class*/
