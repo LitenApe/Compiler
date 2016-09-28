@@ -6,7 +6,7 @@ public abstract class PascalSyntax {
     public int lineNum;
 
     PascalSyntax(int n) {
-	lineNum = n;
+       lineNum = n;
     }
 
     boolean isInLibrary() {
