@@ -3,7 +3,7 @@ public class Program extends PascalDecl{
     Scanner s;
 
     public Program(String id, int lNum){
-        super(String id, int lNum);
+        super(id, lNum);
     }/*Enc constructor*/
 
     public parse(Scanner s){
