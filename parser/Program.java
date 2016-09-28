@@ -6,7 +6,7 @@ public class Program extends PascalDecl{
         super(id, lNum);
     }/*Enc constructor*/
 
-    public parse(Scanner s){
+    public Program parse(Scanner s){
         this.s = s;
     }
 
