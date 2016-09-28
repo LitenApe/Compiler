@@ -31,10 +31,9 @@ public class Main {
 
       Scanner s = new Scanner(sourceFileName);
       if (testScanner)
-      doTestScanner(s);
-      // Del 2:
-      // else if (testParser)
-      //     doTestParser(s);
+        doTestScanner(s);
+      else if (testParser)
+        doTestParser(s);
       // Del 3:
       // else if (testChecker)
       //     doTestChecker(s);
