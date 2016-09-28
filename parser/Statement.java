@@ -1,3 +1,3 @@
-Class Statement.java{
-  
+class Statement{
+
 }
