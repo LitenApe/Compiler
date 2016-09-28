@@ -1,4 +1,4 @@
-public class Block extends PascalSyntax{
+public class Block{
 
     public Block(){
         super();
