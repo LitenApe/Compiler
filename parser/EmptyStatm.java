@@ -1,5 +1,7 @@
 package parser;
 
+import scanner.*;
+
 public class EmptyStatm extends Statement{
 
     public EmptyStatm(int n){
@@ -10,4 +12,8 @@ public class EmptyStatm extends Statement{
         return "<EmptyStatm> on line " + lineNum;
     } /* End of identify */
 
+    @Override
+    public static EmptyStatm parse(Scanner s) {
+        return null;
+    }/*End parse*/
 } /* End of class */

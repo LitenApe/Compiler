@@ -14,7 +14,6 @@ public class Block extends PascalSyntax{
         super(lineNum);
     }/*End constructor*/
 
-
     public static Block parse(Scanner s){
         enterParser(s.curToken.id);
 
@@ -41,4 +40,5 @@ public class Block extends PascalSyntax{
     public void prettyPrint(){
 
     }/*End prettyPrint*/
+
 }/*End class*/

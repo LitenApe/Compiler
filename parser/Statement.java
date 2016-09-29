@@ -1,5 +1,7 @@
 package parser;
 
+import scanner.*;
+
 public abstract class Statement extends PascalSyntax{
 
     public Statement(int n){
@@ -16,4 +18,7 @@ public abstract class Statement extends PascalSyntax{
 
     }/*End prettyPrint*/
 
+    public static Statement parse(Scanner s) {
+        return null;
+    }/*End parse*/
 }/*End class*/

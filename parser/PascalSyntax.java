@@ -1,6 +1,7 @@
 package parser;
 
 import main.*;
+import scanner.*;
 
 public abstract class PascalSyntax {
     public int lineNum;

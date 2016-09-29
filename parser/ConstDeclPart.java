@@ -2,7 +2,7 @@ package parser;
 
 import scanner.Scanner;
 
-public class ConstDeclPart{
+public class ConstDeclPart extends PascalSyntax{
 
     public ConstDeclPart(){
 
@@ -12,4 +12,5 @@ public class ConstDeclPart{
         //Added method definition for compilation
         return null;
     }/*End parse*/
+
 }/*End class*/

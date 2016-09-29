@@ -1,6 +1,8 @@
 package parser;
 
-import scanner.Scanner;
+import scanner.*;
+import main.*;
+import static scanner.TokenKind.*;
 
 public class WhileStatm extends Statement{
     Expression expr;
@@ -16,7 +18,7 @@ public class WhileStatm extends Statement{
     }
 
     @Override
-    void prettyPrint() {
+    public void prettyPrint() {
         Main.log.prettyPrint("while "); expr.prettyPrint();
         Main.log.prettyPrintLn(" do"); Main.log.prettyIndent();
         body.prettyPrint(); Main.log.prettyOutdent();
@@ -26,7 +28,7 @@ public class WhileStatm extends Statement{
         enterParser("while-statm");
 
         WhileStatm ws = new WhileStatm(s.curLineNum());
-        s.skip(whileToken);
+        s.skip(TokenKind.whileToken);
 
         ws.expr = Expression.parse(s);
         s.skip(doToken);
