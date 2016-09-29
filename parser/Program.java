@@ -5,8 +5,8 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 public class Program extends PascalDecl{
-    Block proBlock;
-    Scanner s;
+    // Block proBlock;
+    // Scanner s;
 
     public Program(String id, int lNum){
         super(id, lNum);

@@ -1,3 +1,8 @@
+package parser;
+import main.*;
+import scanner.*;
+import static scanner.TokenKind.*;
+
 public class FuncDecl extends ProcDecl{
 
     public FuncDecl(String id, int lNum){

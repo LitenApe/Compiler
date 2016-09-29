@@ -1,3 +1,8 @@
+package parser;
+import main.*;
+import scanner.*;
+import static scanner.TokenKind.*;
+
 public class IfStatm extends Statement{
 
     public IfStatm(){
@@ -7,5 +12,5 @@ public class IfStatm extends Statement{
     @Override public String identify() {
         return "<IfStatm> " + name + " on line " + lineNum;
     } /* End of identify */
-    
+
 } /* End of class */

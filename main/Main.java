@@ -99,7 +99,7 @@ public class Main {
   }
 
 
-  
+
   private static void doTestParser(Scanner s) {
   Program prog = Program.parse(s);
   if (s.curToken.kind != eofToken)

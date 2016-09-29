@@ -1,3 +1,8 @@
+package parser;
+import main.*;
+import scanner.*;
+import static scanner.TokenKind.*;
+
 public class Block extends PascalSyntax{
 
     public Block(int n){

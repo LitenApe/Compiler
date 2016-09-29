@@ -1,3 +1,8 @@
+package parser;
+import main.*;
+import scanner.*;
+import static scanner.TokenKind.*;
+
 public class ParamDecl extends PascalDecl{
 
     public ParamDecl(String id, int lNum){
@@ -7,5 +12,5 @@ public class ParamDecl extends PascalDecl{
     @Override public String identify() {
         return "<ParamDecl> " + name + " on line " + lineNum;
     } /* End of identify */
-    
+
 }/*End class*/

@@ -1,5 +1,10 @@
+package parser;
+import main.*;
+import scanner.*;
+import static scanner.TokenKind.*;
+
 public class AssignStatm extends Statement{
-    
+
     public AssignStatm(){
         super();
     } /* End of constructor */
