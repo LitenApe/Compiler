@@ -10,4 +10,8 @@ public class SimpleExpr extends PascalSyntax{
         return "<SimpleExpr> on line " + lineNum;
     } /* End of identify */
 
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
 }/*End class*/

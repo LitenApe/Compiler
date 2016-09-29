@@ -8,7 +8,8 @@ public class VarDeclPart extends PascalSyntax{
         super(n);
     } /* End of constructor */
 
-    @Override public String identify() {
+    @Override
+    public String identify() {
         return "<VarDeclPart> on line " + lineNum;
     } /* End of identify */
 
@@ -17,4 +18,8 @@ public class VarDeclPart extends PascalSyntax{
         return null;
     }/*End parse*/
 
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
 } /* End of class */

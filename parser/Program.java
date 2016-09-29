@@ -17,11 +17,36 @@ public class Program extends PascalDecl{
     } /* End of constructor */
 
     public Program parse(Scanner s){
-        this.s = s;
+        return null; //TODO: Return Program instance
     } /* End of parse */
 
-    @Override public String identify() {
-        return "<program> " + this.name + " on line " + this.lineNum;
+    @Override
+    public String identify() {
+        return "<program> " + name + " on line " + lineNum;
     } /* End of identify */
 
+    @Override
+    public void checkWhetherAssignable(PascalSyntax where){
+
+    }/*End checkWhetherAssignable*/
+
+    @Override
+    public void checkWhetherFunction(PascalSyntax where){
+
+    }/*End checkWhetherFunction*/
+
+    @Override
+    public void checkWhetherProcedure(PascalSyntax where){
+
+    }/*End checkWhetherProcedure*/
+
+    @Override
+    public void checkWhetherValue(PascalSyntax where){
+
+    }/*End checkWhetherValue*/
+
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
 }/*End class*/

@@ -14,6 +14,11 @@ public class StatmList extends PascalSyntax{
 
     public static StatmList parse(Scanner s){
         //Added method definition for compilation
-        return null; 
+        return null;
     }/*End parse*/
+
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
 } /* End of class */

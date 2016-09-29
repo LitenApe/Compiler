@@ -10,6 +10,10 @@ public abstract class PascalDecl extends PascalSyntax {
     	name = id;
     }
 
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
 
     /**
      * checkWhetherAssignable: Utility method to check whether this PascalDecl is

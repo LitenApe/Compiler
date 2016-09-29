@@ -10,7 +10,6 @@ public class Block extends PascalSyntax{
     public ProcDecl procDecl;
     public StatmList statmList; //TODO: just a note Tredje kolonne i foilene, ingen assigned enda
 
-
     public Block(int lineNum){
         super(lineNum);
     }/*End constructor*/
@@ -33,7 +32,13 @@ public class Block extends PascalSyntax{
         return block;
     }/*End parse*/
 
-    @Override public String identify() {
+    @Override
+    public String identify() {
         return "<Block> on line " + lineNum;
     } /* End of identify */
+
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
 }/*End class*/

@@ -6,8 +6,13 @@ public class Term extends PascalSyntax{
         super(n);
     } /* End of constructor */
 
-    @Override public String identify() {
+    @Override
+    public String identify() {
         return "<Term> on line " + lineNum;
     } /* End of identify */
 
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
 } /* End of class */

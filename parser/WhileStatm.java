@@ -10,11 +10,13 @@ public class WhileStatm extends Statement{
         super(lNum);
     } /* End of constructor */
 
-    @Override public String identify() {
+    @Override
+    public String identify() {
         return "<while-statm> on line " + lineNum;
     }
 
-    @Override void prettyPrint() {
+    @Override
+    void prettyPrint() {
         Main.log.prettyPrint("while "); expr.prettyPrint();
         Main.log.prettyPrintLn(" do"); Main.log.prettyIndent();
         body.prettyPrint(); Main.log.prettyOutdent();
