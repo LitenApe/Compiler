@@ -26,7 +26,8 @@ Pascal kompilator
     - [ ] Drink Water
     - [ ] Cry in a corner
     - [ ] Find the reason for the existence of life
-    - [ ] Solve parser
+    - [ ] Check if the pascal program is correctly written syntactically
+    - [ ] Generate a syntax three
     - [ ] Sleep
   - [ ] Part 3: Checker
   - [ ] Part 4: Code generator
