@@ -74,7 +74,6 @@ public enum TokenKind {
 	image = im;
     }
 
-
     public String identify() {
 	return image + " token";
     }

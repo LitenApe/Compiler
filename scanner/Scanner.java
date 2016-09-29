@@ -7,227 +7,221 @@ import java.io.*;
 import java.util.*;
 
 public class Scanner {
-  public Token curToken = null, nextToken = null;
-  private LineNumberReader sourceFile = null;
-  private String sourceFileName, sourceLine = "";
-  private int sourcePos = 0;
-  public int nrOfLines = 0,nrOfTokens = 0,nrOfChars = 0,nrOfComments=0;
+    public Token curToken = null, nextToken = null;
+    private LineNumberReader sourceFile = null;
+    private String sourceFileName, sourceLine = "";
+    private int sourcePos = 0;
+    public int nrOfLines = 0,nrOfTokens = 0,nrOfChars = 0,nrOfComments=0;
+    private HashMap<String, TokenKind> tokenKinds = new HashMap<>();
 
-  public Scanner(String fileName) {
-    sourceFileName = fileName;
-    try {
-      sourceFile = new LineNumberReader(new FileReader(fileName));
-      readNextLine();
-    } catch (FileNotFoundException e) {
-      Main.error("Cannot read " + fileName + "!");
+    public Scanner(String fileName) {
+        sourceFileName = fileName;
+        try {
+            sourceFile = new LineNumberReader(new FileReader(fileName));
+            popMap();
+            readNextLine();
+        } catch (FileNotFoundException e) {
+            Main.error("Cannot read " + fileName + "!");
+        }
+
+        readNextToken();  readNextToken();
     }
 
-    readNextToken();  readNextToken();
-  }
 
-
-  public String identify() {
-    return "Scanner reading " + sourceFileName;
-  }
-
-
-  public int curLineNum() {
-    return curToken.lineNum;
-  }
-
-
-  private void error(String message) {
-    Main.error("Scanner error on " +
-    (curLineNum()<0 ? "last line" : "line "+curLineNum()) +
-    ": " + message);
-  }
-
-
-  public void readNextToken() {
-    curToken = nextToken;  nextToken = null;
-    String newToken = "";
-    // Del 1 her:
-
-    // check too see if we need to read a new line
-    if(sourceLine.isEmpty() || sourcePos >= sourceLine.length()){
-      readNextLine();
-      while(sourceLine.isEmpty() && getFileLineNum() != -1){
-        readNextLine();
-      }
+    public String identify() {
+        return "Scanner reading " + sourceFileName;
     }
 
-    // remove comment if that is the current symbol
-    removeComment();
 
-    // jump over white spaces
-    if(sourceLine.isEmpty() || sourcePos >= sourceLine.length()){
-      readNextLine();
-      while(sourceLine.isEmpty() && getFileLineNum() != -1){
-        readNextLine();
-      }
+    public int curLineNum() {
+        return curToken.lineNum;
     }
 
-    // convert sourceLine into an char array
-    char[] charArr = sourceLine.toCharArray();
 
-    if(sourceFile == null){ // print out statistics
-      nextToken = new Token(eofToken,getFileLineNum());
-      System.out.println("Number of lines read: " + nrOfLines);
-      System.out.println("Number of tokens generated: " + nrOfTokens);
-      System.out.println("Number of chars iterated: " + nrOfChars);
-      System.out.println("Number of comments ignored: " + nrOfComments);
+    private void error(String message) {
+        Main.error("Scanner error on " +
+        (curLineNum()<0 ? "last line" : "line "+curLineNum()) +
+        ": " + message);
     }
 
-    while(nextToken == null){ // jump over white spaces
-      while((charArr[sourcePos] == ' ' || charArr[sourcePos] == '\t') && sourcePos < sourceLine.length()){
-        sourcePos++;
-      }
 
-      if(isLetterAZ(charArr[sourcePos])){
-        for(;sourcePos <= charArr.length - 1; sourcePos++){ // name tokens
-          if(isLetterAZ(charArr[sourcePos]) || isDigit(charArr[sourcePos])){
-            newToken += charArr[sourcePos];
-          }else{
-            nextToken = new Token(newToken.toLowerCase(),getFileLineNum()); break;
-          }
+    public void readNextToken() {
+        curToken = nextToken;  nextToken = null;
+        String newToken = "";
+        // Del 1 her:
+
+        // check too see if we need to read a new line
+        if(sourceLine.isEmpty() || sourcePos >= sourceLine.length()){
+            readNextLine();
+            while(sourceLine.isEmpty() && getFileLineNum() != -1){
+                readNextLine();
+            }
         }
-        nextToken = new Token(newToken.toLowerCase(),getFileLineNum());
-      }else if(isDigit(charArr[sourcePos])){  // int tokens
-        while(sourcePos < sourceLine.length() && isDigit(charArr[sourcePos])){
-          newToken += charArr[sourcePos++];
+
+        // remove comment if that is the current symbol
+        removeComment();
+
+        // jump over white spaces
+        if(sourceLine.isEmpty() || sourcePos >= sourceLine.length()){
+            readNextLine();
+            while(sourceLine.isEmpty() && getFileLineNum() != -1){
+                readNextLine();
+            }
         }
-        nextToken = new Token(Integer.parseInt(newToken),getFileLineNum());
-      }else{  // special character
-        if(sourcePos + 1 < charArr.length && (charArr[sourcePos] == ':' || charArr[sourcePos] == '>' || charArr[sourcePos] == '<' || charArr[sourcePos] == '.') && (charArr[sourcePos + 1] == '=' || charArr[sourcePos + 1] == '.' || charArr[sourcePos + 1] == '>')){
-          newToken+=charArr[sourcePos];
-          newToken+=charArr[++sourcePos];
-          switch(newToken){
-            case ":=" : nextToken = new Token(assignToken,getFileLineNum()); break;
-            case ">=" : nextToken = new Token(greaterEqualToken,getFileLineNum()); break;
-            case "<=" : nextToken = new Token(lessEqualToken,getFileLineNum()); break;
-            case "<>" : nextToken = new Token(notEqualToken,getFileLineNum()); break;
-            case ".." : nextToken = new Token(rangeToken,getFileLineNum()); break;
-            default: error("Illegal character: " + charArr[sourcePos] + "!");
-                     break;
-          }
-        }else{
-          switch(charArr[sourcePos]){
-            case '+' : nextToken = new Token(addToken,getFileLineNum()); break;
-            case ':' : nextToken = new Token(colonToken,getFileLineNum()); break;
-            case ',' : nextToken = new Token(commaToken,getFileLineNum()); break;
-            case '/' : nextToken = new Token(divideToken,getFileLineNum()); break;
-            case '.' : nextToken = new Token(dotToken,getFileLineNum()); break;
-            case '=' : nextToken = new Token(equalToken,getFileLineNum()); break;
-            case '>' : nextToken = new Token(greaterToken,getFileLineNum()); break;
-            case '[' : nextToken = new Token(leftBracketToken,getFileLineNum()); break;
-            case '(' : nextToken = new Token(leftParToken,getFileLineNum()); break;
-            case '<' : nextToken = new Token(lessToken,getFileLineNum()); break;
-            case '*' : nextToken = new Token(multiplyToken,getFileLineNum()); break;
-            case ']' : nextToken = new Token(rightBracketToken,getFileLineNum()); break;
-            case ')' : nextToken = new Token(rightParToken,getFileLineNum()); break;
-            case ';' : nextToken = new Token(semicolonToken,getFileLineNum()); break;
-            case '-' : nextToken = new Token(subtractToken,getFileLineNum()); break;
-            case '^' : nextToken = new Token(upArrowToken,getFileLineNum()); break;
-            case '\'': if(charArr[sourcePos] != '\''){error("Illegal char literal!");}
-                       nextToken = new Token(charArr[sourcePos+1],getFileLineNum());
-                       sourcePos = sourcePos + 2;
-                       break;
-            default: error("Illegal character: " + charArr[sourcePos] + "!");
-                     break;
-          }
+
+        // convert sourceLine into an char array
+        char[] charArr = sourceLine.toCharArray();
+
+        if(sourceFile == null){ // print out statistics
+            nextToken = new Token(eofToken,getFileLineNum());
+            System.out.println("Number of lines read: " + nrOfLines);
+            System.out.println("Number of tokens generated: " + nrOfTokens);
+            System.out.println("Number of chars iterated: " + nrOfChars);
+            System.out.println("Number of comments ignored: " + nrOfComments);
         }
-        if(nextToken != null){
-          sourcePos++;
+
+        while(nextToken == null){ // jump over white spaces
+            while((charArr[sourcePos] == ' ' || charArr[sourcePos] == '\t') && sourcePos < sourceLine.length()){
+                sourcePos++;
+            }
+
+            if(isLetterAZ(charArr[sourcePos])){
+                for(;sourcePos <= charArr.length - 1; sourcePos++){ // name tokens
+                    if(isLetterAZ(charArr[sourcePos]) || isDigit(charArr[sourcePos])){
+                        newToken += charArr[sourcePos];
+                    }else{
+                        nextToken = new Token(newToken.toLowerCase(),getFileLineNum()); break;
+                    }
+                }
+                nextToken = new Token(newToken.toLowerCase(),getFileLineNum());
+            }else if(isDigit(charArr[sourcePos])){  // int tokens
+                while(sourcePos < sourceLine.length() && isDigit(charArr[sourcePos])){
+                    newToken += charArr[sourcePos++];
+                }
+                nextToken = new Token(Integer.parseInt(newToken),getFileLineNum());
+            }else{  // special character
+                if(sourcePos + 1 < charArr.length && (charArr[sourcePos] == ':' || charArr[sourcePos] == '>' || charArr[sourcePos] == '<' || charArr[sourcePos] == '.') && (charArr[sourcePos + 1] == '=' || charArr[sourcePos + 1] == '.' || charArr[sourcePos + 1] == '>')){
+                    newToken+=charArr[sourcePos++];
+                    newToken+=charArr[sourcePos];
+
+                    if(tokenKinds.containsKey(newToken)){
+                        nextToken = new Token(tokenKinds.get(newToken), getFileLineNum());
+                    }else{
+                        error("Illegal character: " + charArr[sourcePos] + "!");
+                    }
+                }else{
+                    newToken += charArr[sourcePos];
+                    if(tokenKinds.containsKey(newToken)){
+                        nextToken = new Token(tokenKinds.get(newToken), getFileLineNum());
+                    }else{
+                        if(newToken.equals("\'") && charArr[sourcePos + 2] == '\''){
+                            nextToken = new Token(charArr[++sourcePos],getFileLineNum());
+                            sourcePos++;
+                        }else{
+                            error("Illegal character: " + charArr[sourcePos] + "!");
+                        }
+                    }
+                }
+
+                // why did i do it like this??? i dont remember
+                if(nextToken != null){
+                    sourcePos++;
+                }
+            }
+            if(nextToken == null) newToken += charArr[sourcePos];
         }
-      }
-      if(nextToken == null) newToken += charArr[sourcePos];
+
+        nrOfTokens++;
+        Main.log.noteToken(nextToken);
     }
 
-    nrOfTokens++;
-    Main.log.noteToken(nextToken);
-  }
-
-  // removes comment
-  private void removeComment(){
-    String cmtCheck = sourceLine.substring(sourcePos).trim();
-    int commentStart = getFileLineNum();
-    if(cmtCheck.startsWith("{") || cmtCheck.startsWith("/*")){
-      nrOfComments++;
-      String symbol = cmtCheck.startsWith("{") ? "}":"*/";
-      if(cmtCheck.endsWith(symbol)){
-        readNextLine();
-      }else{  // multiline comment
-        while(!cmtCheck.contains(symbol)){
-          if(sourceFile == null){
-            error("No end for comment starting on line " + commentStart);
-          }
-          cmtCheck=sourceLine;
-          readNextLine();
+    // removes comment
+    private void removeComment(){
+        String cmtCheck = sourceLine.substring(sourcePos).trim();
+        int commentStart = getFileLineNum();
+        if(cmtCheck.startsWith("{") || cmtCheck.startsWith("/*")){
+            nrOfComments++;
+            String symbol = cmtCheck.startsWith("{") ? "}":"*/";
+            if(cmtCheck.endsWith(symbol)){
+                readNextLine();
+            }else{  // multiline comment
+                while(!cmtCheck.contains(symbol)){
+                    if(sourceFile == null){
+                        error("No end for comment starting on line " + commentStart);
+                    }
+                    cmtCheck=sourceLine;
+                    readNextLine();
+                }
+                if(cmtCheck.endsWith(symbol)){
+                    readNextLine();
+                }else{
+                    sourcePos = sourceLine.indexOf(symbol) + symbol.length();
+                }
+            }
         }
-        if(cmtCheck.endsWith(symbol)){
-          readNextLine();
-        }else{
-          sourcePos = sourceLine.indexOf(symbol) + symbol.length();
-        }
-      }
     }
-  }
 
-  private void readNextLine() {
-    if (sourceFile != null) {
-      try {
-        nrOfLines++;
-        sourceLine = sourceFile.readLine();
-        if (sourceLine == null) {
-          sourceFile.close();  sourceFile = null;
-          sourceLine = "";
-        } else {
-          sourceLine += " ";
-          nrOfChars += sourceLine.length();
+    private void readNextLine() {
+        if (sourceFile != null) {
+            try {
+                nrOfLines++;
+                sourceLine = sourceFile.readLine();
+                if (sourceLine == null) {
+                    sourceFile.close();  sourceFile = null;
+                    sourceLine = "";
+                } else {
+                    sourceLine += " ";
+                    nrOfChars += sourceLine.replaceAll("\\s","").length();
+                }
+                sourcePos = 0;
+            } catch (IOException e) {
+                Main.error("Scanner error: unspecified I/O error!");
+            }
         }
-        sourcePos = 0;
-      } catch (IOException e) {
-        Main.error("Scanner error: unspecified I/O error!");
-      }
+        if (sourceFile != null)
+        Main.log.noteSourceLine(getFileLineNum(), sourceLine);
+        sourceLine = sourceLine.trim();
     }
-    if (sourceFile != null)
-      Main.log.noteSourceLine(getFileLineNum(), sourceLine);
-      sourceLine = sourceLine.trim();
-  }
+
+    // get the current line number in file
+    private int getFileLineNum() {
+        return (sourceFile!=null ? sourceFile.getLineNumber() : -1);
+    }
+
+    // populate hashmap
+    private void popMap(){
+        for(TokenKind tk : Arrays.asList(TokenKind.values())){
+            tokenKinds.put(tk.toString() , tk);
+        }
+    }
+
+    // Character test utilities:
+
+    private boolean isLetterAZ(char c) {
+        return 'A'<=c && c<='Z' || 'a'<=c && c<='z';
+    }
 
 
-  private int getFileLineNum() {
-    return (sourceFile!=null ? sourceFile.getLineNumber() : -1);
-  }
+    private boolean isDigit(char c) {
+        return '0'<=c && c<='9';
+    }
 
 
-  // Character test utilities:
+    // Parser tests:
 
-  private boolean isLetterAZ(char c) {
-    return 'A'<=c && c<='Z' || 'a'<=c && c<='z';
-  }
+    public void test(TokenKind t) {
+        if (curToken.kind != t)
+        testError(t.toString());
+    }
 
+    public void testError(String message) {
+        Main.error(curLineNum(),
+        "Expected a " + message +
+        " but found a " + curToken.kind + "!");
+    }
 
-  private boolean isDigit(char c) {
-    return '0'<=c && c<='9';
-  }
-
-
-  // Parser tests:
-
-  public void test(TokenKind t) {
-    if (curToken.kind != t)
-    testError(t.toString());
-  }
-
-  public void testError(String message) {
-    Main.error(curLineNum(),
-    "Expected a " + message +
-    " but found a " + curToken.kind + "!");
-  }
-
-  public void skip(TokenKind t) {
-    test(t);
-    readNextToken();
-  }
+    public void skip(TokenKind t) {
+        test(t);
+        readNextToken();
+    }
 }
