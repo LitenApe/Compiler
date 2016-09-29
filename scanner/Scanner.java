@@ -102,7 +102,7 @@ public class Scanner {
             }else{  // special character
                 if(sourcePos + 1 < charArr.length && (charArr[sourcePos] == ':' || charArr[sourcePos] == '>' || charArr[sourcePos] == '<' || charArr[sourcePos] == '.') && (charArr[sourcePos + 1] == '=' || charArr[sourcePos + 1] == '.' || charArr[sourcePos + 1] == '>')){
                     newToken+=charArr[sourcePos++];
-                    newToken+=charArr[sourcePos];
+                    newToken+=charArr[sourcePos++];
 
                     if(tokenKinds.containsKey(newToken)){
                         nextToken = new Token(tokenKinds.get(newToken), getFileLineNum());
@@ -110,25 +110,20 @@ public class Scanner {
                         error("Illegal character: " + charArr[sourcePos] + "!");
                     }
                 }else{
-                    newToken += charArr[sourcePos];
+                    newToken += charArr[sourcePos++];
                     if(tokenKinds.containsKey(newToken)){
                         nextToken = new Token(tokenKinds.get(newToken), getFileLineNum());
                     }else{
-                        if(newToken.equals("\'") && charArr[sourcePos + 2] == '\''){
-                            nextToken = new Token(charArr[++sourcePos],getFileLineNum());
+                        if(newToken.equals("\'") && charArr[++sourcePos] == '\''){
+                            nextToken = new Token(charArr[sourcePos-1],getFileLineNum());
                             sourcePos++;
                         }else{
                             error("Illegal character: " + charArr[sourcePos] + "!");
                         }
                     }
                 }
-
-                // why did i do it like this??? i dont remember
-                if(nextToken != null){
-                    sourcePos++;
-                }
             }
-            if(nextToken == null) newToken += charArr[sourcePos];
+            if(nextToken == null) newToken += charArr[++sourcePos];
         }
 
         nrOfTokens++;
