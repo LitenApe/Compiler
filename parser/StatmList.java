@@ -7,7 +7,10 @@ public class StatmList extends PascalSyntax{
     } /* End of constructor */
 
     @Override public String identify() {
-        return "<StatmList> " + name + " on line " + lineNum;
+        return "<StatmList> on line " + lineNum;
     } /* End of identify */
 
+    public static StatmList parse(Scanner s){
+        //Added method definition for compilation
+    }/*End parse*/
 } /* End of class */

@@ -4,10 +4,10 @@ public abstract class Statement extends PascalSyntax{
 
     public Statement(int n){
         super(n);
-    }/*Enc constructor*/
+    }/*End constructor*/
 
     @Override public String identify() {
-        return "<Statement> " + name + " on line " + lineNum;
+        return "<Statement> on line " + lineNum;
     } /* End of identify */
 
 }/*End class*/

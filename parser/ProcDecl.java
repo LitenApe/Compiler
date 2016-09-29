@@ -10,4 +10,7 @@ public class ProcDecl extends PascalDecl{
         return "<ProcDecl> " + name + " on line " + lineNum;
     } /* End of identify */
 
+    public static ProcDecl parse(Scanner s){
+        //Added method definition for compilation
+    }/*End parse*/
 }/*End class*/

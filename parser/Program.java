@@ -3,7 +3,7 @@
 * Initial stuff is happening here
 */
 
-package parse;
+package parser;
 
 import main.Main;
 import scanner.Scanner;
@@ -21,7 +21,7 @@ public class Program extends PascalDecl{
     } /* End of parse */
 
     @Override public String identify() {
-        return "<program> " + name + " on line " + lineNum;
+        return "<program> " + this.name + " on line " + this.lineNum;
     } /* End of identify */
 
 }/*End class*/

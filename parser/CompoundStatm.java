@@ -2,8 +2,8 @@ package parser;
 
 public class CompoundStatm extends Statement{
 
-    public CompoundStatm(){
-        super();
+    public CompoundStatm(int n){
+        super(n);
     } /* End of constructor */
 
     @Override public String identify() {

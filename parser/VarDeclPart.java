@@ -7,7 +7,11 @@ public class VarDeclPart extends PascalSyntax{
     } /* End of constructor */
 
     @Override public String identify() {
-        return "<VarDeclPart> " + name + " on line " + lineNum;
+        return "<VarDeclPart> on line " + lineNum;
     } /* End of identify */
+
+    public static VarDeclPart parse(Scanner s){
+        //Added method definition for compilation
+    }/*End parse*/
 
 } /* End of class */
