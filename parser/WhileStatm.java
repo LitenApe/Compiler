@@ -24,7 +24,7 @@ public class WhileStatm extends Statement{
         body.prettyPrint(); Main.log.prettyOutdent();
     }
 
-    static WhileStatm parse(Scanner s) {
+    public static WhileStatm parse(Scanner s) {
         enterParser("while-statm");
 
         WhileStatm ws = new WhileStatm(s.curLineNum());

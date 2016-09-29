@@ -12,13 +12,11 @@ public class IfStatm extends Statement{
         return "<IfStatm> on line " + lineNum;
     } /* End of identify */
 
-
     @Override
     public void prettyPrint() {
 
     }
 
-    @Override
     public static IfStatm parse(Scanner s) {
         return null;
     }/*End parse*/

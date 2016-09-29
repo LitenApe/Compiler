@@ -17,8 +17,7 @@ public class ProcCallStatm extends Statement{
 
     }
 
-    @Override
-    static ProcCallStatm parse(Scanner s) {
+    public static ProcCallStatm parse(Scanner s) {
         return null; //TODO: Return instance ProcCallStatm
     }
 

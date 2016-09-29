@@ -13,7 +13,6 @@ public class CompoundStatm extends Statement{
         return "<CompoundStatm> on line " + lineNum;
     } /* End of identify */
 
-    @Override
     public static CompoundStatm parse(Scanner s) {
         return null;
     }/*End parse*/

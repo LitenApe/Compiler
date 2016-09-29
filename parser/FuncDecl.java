@@ -8,7 +8,8 @@ public class FuncDecl extends ProcDecl{
         super(id, lNum);
     }/*Enc constructor*/
 
-    @Override public String identify() {
+    @Override
+    public String identify() {
         return "<FuncDecl> " + name + " on line " + lineNum;
     } /* End of identify */
 

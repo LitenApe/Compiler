@@ -8,11 +8,12 @@ public class EmptyStatm extends Statement{
         super(n);
     } /* End of constructor */
 
-    @Override public String identify() {
+    @Override
+    public String identify() {
         return "<EmptyStatm> on line " + lineNum;
     } /* End of identify */
 
-    @Override
+    //TODO: Prettyprint??
     public static EmptyStatm parse(Scanner s) {
         return null;
     }/*End parse*/
