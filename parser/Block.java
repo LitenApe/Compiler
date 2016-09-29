@@ -1,6 +1,8 @@
 package parser;
 
-import scanner.Scanner;
+import scanner.*;
+import main.*;
+import static scanner.TokenKind.*;
 
 public class Block extends PascalSyntax{
 
@@ -8,26 +10,30 @@ public class Block extends PascalSyntax{
     public VarDeclPart varDeclPart;
     public FuncDecl funcDecl;
     public ProcDecl procDecl;
-    public StatmList statmList; //TODO: just a note Tredje kolonne i foilene, ingen assigned enda
+    public StatmList statmList;
 
     public Block(int lineNum){
         super(lineNum);
     }/*End constructor*/
 
     public static Block parse(Scanner s){
-        enterParser(s.curToken.id);
+        enterParser("block");
 
-        Block block = new Block(s.curLineNum()); //Get line number of block start
+        //Instanciate a new block to return to caller
+        Block block = new Block(s.curLineNum());
 
-        //Return instances
+        //Return instances of instance variables
         block.constDeclPart = ConstDeclPart.parse(s);
         block.varDeclPart = VarDeclPart.parse(s);
         block.funcDecl = FuncDecl.parse(s);
-        block.procDecl = ProcDecl.parse(s);
+
+        s.skip(TokenKind.beginToken);
+
         block.statmList = StatmList.parse(s);
+        s.skip(TokenKind.endToken);
+        block.procDecl = ProcDecl.parse(s);
 
-        leaveParser(s.curToken.id);
-
+        leaveParser("block");
         return block;
     }/*End parse*/
 

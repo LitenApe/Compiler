@@ -32,8 +32,8 @@ public class Main {
             Scanner s = new Scanner(sourceFileName);
             if (testScanner)
             doTestScanner(s);
-            // else if (testParser)
-            // doTestParser(s);
+            else if (testParser)
+            doTestParser(s);
             // Del 3:
             // else if (testChecker)
             //     doTestChecker(s);
@@ -100,13 +100,13 @@ public class Main {
 
 
 
-    // private static void doTestParser(Scanner s) {
-    //     Program prog = Program.parse(s);
-    //     if (s.curToken.kind != eofToken)
-    //     error("Scanner error: Garbage after the program!");
-    //
-    //     prog.prettyPrint();
-    // }
+    private static void doTestParser(Scanner s) {
+        Program prog = Program.parse(s);
+        if (s.curToken.kind != eofToken)
+        error("Scanner error: Garbage after the program!");
+
+        prog.prettyPrint();
+    }
 
 
 
