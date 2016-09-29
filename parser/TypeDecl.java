@@ -1,5 +1,8 @@
 package parser;
 
+import scanner.*;
+import static scanner.TokenKind.*;
+
 public class TypeDecl extends PascalDecl{
 
     public TypeDecl(String id, int lNum){
@@ -30,4 +33,8 @@ public class TypeDecl extends PascalDecl{
     public void checkWhetherValue(PascalSyntax where){
 
     }/*End checkWhetherValue*/
+
+    public static TypeDecl parse(Scanner s) {
+        return null;
+    }/*End parse*/
 }/*End class*/

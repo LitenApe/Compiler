@@ -35,4 +35,8 @@ public class ConstDecl extends PascalDecl{
     public void prettyPrint(){
 
     }/*End prettyPrint*/
+
+    public static ConstDecl parse(Scanner s){
+        return null;
+    }
 }/*End class*/

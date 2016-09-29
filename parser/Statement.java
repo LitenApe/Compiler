@@ -1,6 +1,7 @@
 package parser;
 
 import scanner.*;
+import static scanner.TokenKind.*;
 
 public abstract class Statement extends PascalSyntax{
 
@@ -13,10 +14,7 @@ public abstract class Statement extends PascalSyntax{
         return "<Statement> on line " + lineNum;
     } /* End of identify */
 
-    @Override
-    public void prettyPrint(){
-
-    }/*End prettyPrint*/
+    //TODO: PRettyrpint?
 
     public static Statement parse(Scanner s) {
         return null;

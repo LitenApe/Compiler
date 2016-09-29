@@ -1,8 +1,23 @@
 package parser;
 
-public abstract class Operator{
+import scanner.*;
+import static scanner.TokenKind.*;
 
-    public Operator(){
+public abstract class Operator extends PascalSyntax{
 
+    public Operator(int n){
+        super(n);
     }/*End constructor*/
+
+    @Override
+    public String identify() {
+        return "<Operator> on line " + lineNum;
+    } /* End of identify */
+
+    public static Operator parse(Scanner s) {
+        return null;
+    }/*End parse*/
+
+    //TODO:Prettyrpint?
+    
 }/*End class*/

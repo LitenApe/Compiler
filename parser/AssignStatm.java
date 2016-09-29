@@ -20,4 +20,8 @@ public class AssignStatm extends Statement{
     public static AssignStatm parse(Scanner s) {
         return null;
     }/*End parse*/
+
+    public static AssignStatm parse(Scanner s){
+        return null; 
+    }
 } /* End of class */

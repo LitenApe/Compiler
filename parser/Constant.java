@@ -1,5 +1,7 @@
 package parser;
 
+import scanner.*;
+
 public class Constant extends PascalSyntax{
 
     public Constant(int n){
@@ -15,4 +17,8 @@ public class Constant extends PascalSyntax{
     public void prettyPrint(){
 
     }/*End prettyPrint*/
+
+    public static Constant parse(Scanner s){
+        return null;
+    }
 }/*End class*/
