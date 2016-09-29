@@ -2,7 +2,7 @@ package parser;
 
 public class Library extends Block{
 
-    public Library(){
-        super();
+    public Library(int n){
+        super(n);
     }/*End constructor*/
 }/*End class*/

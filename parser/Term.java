@@ -7,7 +7,7 @@ public class Term extends PascalSyntax{
     } /* End of constructor */
 
     @Override public String identify() {
-        return "<Term> " + name + " on line " + lineNum;
+        return "<Term> on line " + lineNum;
     } /* End of identify */
 
 } /* End of class */

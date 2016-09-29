@@ -7,7 +7,7 @@ public class CompoundStatm extends Statement{
     } /* End of constructor */
 
     @Override public String identify() {
-        return "<CompoundStatm> " + name + " on line " + lineNum;
+        return "<CompoundStatm> on line " + lineNum;
     } /* End of identify */
 
 } /* End of class */

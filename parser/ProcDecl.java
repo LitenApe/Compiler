@@ -1,5 +1,7 @@
 package parser;
 
+import scanner.Scanner;
+
 public class ProcDecl extends PascalDecl{
 
     public ProcDecl(String id, int lNum){
@@ -12,5 +14,6 @@ public class ProcDecl extends PascalDecl{
 
     public static ProcDecl parse(Scanner s){
         //Added method definition for compilation
+        return null;
     }/*End parse*/
 }/*End class*/

@@ -1,5 +1,7 @@
 package parser;
 
+import scanner.Scanner;
+
 public class VarDeclPart extends PascalSyntax{
 
     public VarDeclPart(int n){
@@ -12,6 +14,7 @@ public class VarDeclPart extends PascalSyntax{
 
     public static VarDeclPart parse(Scanner s){
         //Added method definition for compilation
+        return null;
     }/*End parse*/
 
 } /* End of class */

@@ -1,5 +1,7 @@
 package parser;
 
+import scanner.Scanner;
+
 public class FuncDecl extends ProcDecl{
 
     public FuncDecl(String id, int lNum){
@@ -12,5 +14,6 @@ public class FuncDecl extends ProcDecl{
 
     public static FuncDecl parse(Scanner s){
         //Added method definition for compilation
+        return null;
     }/*End parse*/
 }/*End class*/
