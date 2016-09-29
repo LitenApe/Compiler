@@ -1,5 +1,12 @@
+/**
+* Program
+* Initial stuff is happening here
+*/
+
 package parse;
-import scanner.*;
+
+import main.Main;
+import scanner.Scanner;
 
 public class Program extends PascalDecl{
     Block proBlock;
