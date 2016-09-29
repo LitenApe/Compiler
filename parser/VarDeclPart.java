@@ -1,12 +1,9 @@
 package parser;
-import main.*;
-import scanner.*;
-import static scanner.TokenKind.*;
 
-public class VarDeclPart{
+public class VarDeclPart extends PascalSyntax{
 
-    public VarDeclPart(){
-
+    public VarDeclPart(int n){
+        super(n);
     } /* End of constructor */
 
     @Override public String identify() {

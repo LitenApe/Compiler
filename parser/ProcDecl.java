@@ -1,7 +1,4 @@
 package parser;
-import main.*;
-import scanner.*;
-import static scanner.TokenKind.*;
 
 public class ProcDecl extends PascalDecl{
 
@@ -12,5 +9,5 @@ public class ProcDecl extends PascalDecl{
     @Override public String identify() {
         return "<ProcDecl> " + name + " on line " + lineNum;
     } /* End of identify */
-    
+
 }/*End class*/

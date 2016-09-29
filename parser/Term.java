@@ -1,12 +1,9 @@
 package parser;
-import main.*;
-import scanner.*;
-import static scanner.TokenKind.*;
 
-public class Term{
+public class Term extends PascalSyntax{
 
-    public Term(){
-
+    public Term(int n){
+        super(n);
     } /* End of constructor */
 
     @Override public String identify() {

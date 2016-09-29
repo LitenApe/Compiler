@@ -1,7 +1,6 @@
 package parser;
-import main.*;
-import scanner.*;
-import static scanner.TokenKind.*;
+
+import scanner.Scanner;
 
 public class WhileStatm extends Statement{
     Expression expr;

@@ -1,11 +1,9 @@
 package parser;
-import main.*;
-import scanner.*;
-import static scanner.TokenKind.*;
 
-public class SimpleExpr{
-    public SimpleExpr(){
-
+public class SimpleExpr extends PascalSyntax{
+    
+    public SimpleExpr(int n){
+        super(n);
     }/*End Constructor*/
 
     @Override public String identify() {

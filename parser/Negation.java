@@ -1,3 +1,5 @@
+package parser;
+
 public class Negation extends Factor{
 
     public Negation(){

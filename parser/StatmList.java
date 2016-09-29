@@ -1,12 +1,9 @@
 package parser;
-import main.*;
-import scanner.*;
-import static scanner.TokenKind.*;
 
-public class StatmList{
+public class StatmList extends PascalSyntax{
 
-    public StatmList(){
-
+    public StatmList(int n){
+        super(n);
     } /* End of constructor */
 
     @Override public String identify() {

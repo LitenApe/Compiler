@@ -1,3 +1,5 @@
+package parser;
+
 public class NamedConst extends UnsignedConstant{
 
     public NamedConst(){

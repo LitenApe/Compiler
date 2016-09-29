@@ -1,12 +1,9 @@
 package parser;
-import main.*;
-import scanner.*;
-import static scanner.TokenKind.*;
 
-public abstract class Statement{
+public abstract class Statement extends PascalSyntax{
 
-    public Statement(){
-
+    public Statement(int n){
+        super(n);
     }/*Enc constructor*/
 
     @Override public String identify() {
