@@ -22,5 +22,11 @@ Pascal kompilator
     - [x] Ignore/Remove Comments
     - [x] Find and create tokens
   - [ ] Part 2: Parser
+    - [x] Create classes
+    - [ ] Drink Water
+    - [ ] Cry in a corner
+    - [ ] Find the reason for the existence of life
+    - [ ] Solve parser
+    - [ ] Sleep
   - [ ] Part 3: Checker
   - [ ] Part 4: Code generator
