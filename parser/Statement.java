@@ -14,7 +14,10 @@ public abstract class Statement extends PascalSyntax{
         return "<Statement> on line " + lineNum;
     } /* End of identify */
 
-    //TODO: PRettyrpint?
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
 
     public static Statement parse(Scanner s) {
         return null;

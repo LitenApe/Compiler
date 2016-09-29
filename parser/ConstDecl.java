@@ -1,5 +1,8 @@
 package parser;
 
+import scanner.*;
+import static scanner.TokenKind.*;
+
 public class ConstDecl extends PascalDecl{
 
     public ConstDecl(String id, int lNum){

@@ -5,8 +5,8 @@ import static scanner.TokenKind.*;
 
 public class FactorOperator extends Operator{
 
-    public FactorOperator(){
-        super();
+    public FactorOperator(int n){
+        super(n);
     }/*Enc constructor*/
 
     @Override
@@ -18,6 +18,9 @@ public class FactorOperator extends Operator{
         return null;
     }/*End parse*/
 
-    //TODO: Prettyprint?
-    
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
+
 }/*End class*/

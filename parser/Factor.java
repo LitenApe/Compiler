@@ -18,6 +18,9 @@ public abstract class Factor extends PascalSyntax{
         return null;
     }/*End parse*/
 
-    //TODO:prettyPrint?
-    
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
+
 }/*End class*/

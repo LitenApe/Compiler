@@ -4,8 +4,8 @@ import scanner.*;
 
 public class CharLiteral extends UnsignedConstant{
 
-    public CharLiteral(){
-        super();
+    public CharLiteral(int n){
+        super(n);
     }/*End constructor*/
 
     @Override

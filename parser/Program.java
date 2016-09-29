@@ -6,7 +6,8 @@
 package parser;
 
 import main.Main;
-import scanner.Scanner;
+import scanner.*;
+import static scanner.TokenKind.*;
 
 public class Program extends PascalDecl{
     Block proBlock;
@@ -16,7 +17,7 @@ public class Program extends PascalDecl{
         super(id, lNum);
     } /* End of constructor */
 
-    public Program parse(Scanner s){
+    public static Program parse(Scanner s){
         return null; //TODO: Return Program instance
     } /* End of parse */
 

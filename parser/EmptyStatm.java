@@ -13,8 +13,12 @@ public class EmptyStatm extends Statement{
         return "<EmptyStatm> on line " + lineNum;
     } /* End of identify */
 
-
     public static EmptyStatm parse(Scanner s) {
         return null;
     }/*End parse*/
+
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
 } /* End of class */

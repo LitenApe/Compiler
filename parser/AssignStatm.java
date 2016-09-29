@@ -13,15 +13,10 @@ public class AssignStatm extends Statement{
         return "<AssignStatm> on line " + lineNum;
     } /* End of identify */
 
-    @Override
-    public void prettyPrint(){
+    //TODO: prettyPrint? 
 
-    }/*End prettyPrint*/
     public static AssignStatm parse(Scanner s) {
         return null;
     }/*End parse*/
 
-    public static AssignStatm parse(Scanner s){
-        return null; 
-    }
 } /* End of class */

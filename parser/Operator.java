@@ -18,6 +18,9 @@ public abstract class Operator extends PascalSyntax{
         return null;
     }/*End parse*/
 
-    //TODO:Prettyrpint?
-    
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
+
 }/*End class*/
