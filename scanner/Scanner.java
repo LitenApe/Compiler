@@ -206,7 +206,7 @@ public class Scanner {
 
     public void test(TokenKind t) {
         if (curToken.kind != t)
-        testError(t.toString());
+            testError(t.toString());
     }
 
     public void testError(String message) {

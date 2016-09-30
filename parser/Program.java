@@ -2,7 +2,6 @@
 * Program
 * Initial stuff is happening here
 */
-
 package parser;
 
 import main.Main;
@@ -18,7 +17,20 @@ public class Program extends PascalDecl{
     } /* End of constructor */
 
     public static Program parse(Scanner s){
-        return null; //TODO: Return Program instance
+        // valid program start?
+        enterParser("program");
+        s.skip(programToken);
+        s.skip(nameToken);
+        s.skip(semicolonToken);
+
+
+        // generate a program object and return it
+        Program prog = new Program(s.curToken.identify(), s.curLineNum());
+        // generate a block here
+        s.skip(dotToken);
+
+        leaveParser("program");
+        return prog; //TODO: Return Program instance
     } /* End of parse */
 
     @Override

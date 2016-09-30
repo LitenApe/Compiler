@@ -1,4 +1,7 @@
    1:  
    2: /* Et minimalt Pascal-program */ 
    3: program Mini; 
-Scanner error: Garbage after the program!
+Parser:   <program>
+   4: begin 
+   5:    write('x'); 
+Error in line 4: Expected a . but found a begin!
