@@ -28,7 +28,7 @@ public class WhileStatm extends Statement{
         enterParser("while-statm");
 
         WhileStatm ws = new WhileStatm(s.curLineNum());
-        s.skip(TokenKind.whileToken);
+        s.skip(whileToken);
 
         ws.expr = Expression.parse(s);
         s.skip(doToken);
