@@ -1,5 +1,7 @@
 package parser;
 
+import scanner.Scanner;
+
 public class StatmList extends PascalSyntax{
 
     public StatmList(int n){
@@ -7,7 +9,16 @@ public class StatmList extends PascalSyntax{
     } /* End of constructor */
 
     @Override public String identify() {
-        return "<StatmList> " + name + " on line " + lineNum;
+        return "<StatmList> on line " + lineNum;
     } /* End of identify */
 
+    public static StatmList parse(Scanner s){
+        //Added method definition for compilation
+        return null;
+    }/*End parse*/
+
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
 } /* End of class */

@@ -1,5 +1,8 @@
 package parser;
 
+import scanner.*;
+import static scanner.TokenKind.*;
+
 public abstract class PascalDecl extends PascalSyntax {
     String name, progProcFuncName;
     int declLevel = 0, declOffset = 0;
@@ -10,6 +13,21 @@ public abstract class PascalDecl extends PascalSyntax {
     	name = id;
     }
 
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
+
+    @Override
+    public String identify() {
+        return "<PascalDecl> on line " + lineNum;
+    } /* End of identify */
+
+    public static PascalDecl parse(Scanner s) {
+        return null;
+    }/*End parse*/
+
+    //TODO: prettyPrint?
 
     /**
      * checkWhetherAssignable: Utility method to check whether this PascalDecl is
