@@ -5,5 +5,6 @@ Parser:   <program>
    4: begin 
    5:    write('x'); 
 Parser:     <block>
-Parser:       <const decl part>
-Error in line 4: Expected a const but found a begin!
+Parser:       <statm list>
+Parser:       </statm list>
+Error in line 5: Expected a end but found a name!

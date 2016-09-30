@@ -19,9 +19,9 @@ public class StatmList extends PascalSyntax{
         if(s.curToken.getTokenKind() == assignToken){
 
         // }else if(s.curToken.getTokenKind() == compoundToken){
-
-        // }else if(s.curToken == emptyToken){
         
+        // }else if(s.curToken == emptyToken){
+
         }else if(s.curToken.getTokenKind() == ifToken){
 
         // }else if(s.curToken == procToken){
