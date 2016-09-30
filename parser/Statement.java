@@ -20,6 +20,8 @@ public abstract class Statement extends PascalSyntax{
     }/*End prettyPrint*/
 
     public static Statement parse(Scanner s) {
+        enterParser("statement");
+        leaveParser("statement");
         return null;
     }/*End parse*/
 }/*End class*/

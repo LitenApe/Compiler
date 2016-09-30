@@ -1,6 +1,7 @@
 package parser;
 
 import scanner.Scanner;
+import static scanner.TokenKind.*;
 
 public class VarDeclPart extends PascalSyntax{
 
@@ -14,7 +15,8 @@ public class VarDeclPart extends PascalSyntax{
     } /* End of identify */
 
     public static VarDeclPart parse(Scanner s){
-        //Added method definition for compilation
+        enterParser("var decl part");
+        leaveParser("var decl part");
         return null;
     }/*End parse*/
 

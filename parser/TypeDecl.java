@@ -35,6 +35,8 @@ public class TypeDecl extends PascalDecl{
     }/*End checkWhetherValue*/
 
     public static TypeDecl parse(Scanner s) {
+        enterParser("type decl");
+        leaveParser("type decl");
         return null;
     }/*End parse*/
 }/*End class*/

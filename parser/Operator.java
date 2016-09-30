@@ -15,6 +15,8 @@ public abstract class Operator extends PascalSyntax{
     } /* End of identify */
 
     public static Operator parse(Scanner s) {
+        enterParser("operator");
+        leaveParser("operator");
         return null;
     }/*End parse*/
 

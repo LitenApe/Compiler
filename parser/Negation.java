@@ -15,6 +15,8 @@ public class Negation extends Factor{
     } /* End of identify */
 
     public static Negation parse(Scanner s) {
+        enterParser("negation");
+        leaveParser("negation");
         return null;
     }/*End parse*/
 

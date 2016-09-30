@@ -1,6 +1,7 @@
 package parser;
 
 import scanner.*;
+import static scanner.TokenKind.*;
 
 public class CompoundStatm extends Statement{
 
@@ -14,6 +15,8 @@ public class CompoundStatm extends Statement{
     } /* End of identify */
 
     public static CompoundStatm parse(Scanner s) {
+        enterParser("compound statm");
+        leaveParser("compound statm");
         return null;
     }/*End parse*/
 

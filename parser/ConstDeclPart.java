@@ -1,6 +1,7 @@
 package parser;
 
 import scanner.Scanner;
+import static scanner.TokenKind.*;
 
 public class ConstDeclPart extends PascalSyntax{
 
@@ -10,6 +11,8 @@ public class ConstDeclPart extends PascalSyntax{
 
     public static ConstDeclPart parse(Scanner s){
         //Added method definition for compilation
+        enterParser("const decl part");
+        leaveParser("const decl part");
         return null;
     }/*End parse*/
 

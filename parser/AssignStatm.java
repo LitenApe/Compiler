@@ -1,6 +1,7 @@
 package parser;
 
 import scanner.*;
+import static scanner.TokenKind.*;
 
 public class AssignStatm extends Statement{
 
@@ -13,9 +14,16 @@ public class AssignStatm extends Statement{
         return "<AssignStatm> on line " + lineNum;
     } /* End of identify */
 
-    //TODO: prettyPrint? 
+    //TODO: prettyPrint?
 
     public static AssignStatm parse(Scanner s) {
+        enterParser("assign statm");
+
+        s.test(nameToken);
+        s.skip(assignToken);
+        // create an expression and return it
+
+        leaveParser("assign statm");
         return null;
     }/*End parse*/
 

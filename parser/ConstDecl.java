@@ -40,6 +40,8 @@ public class ConstDecl extends PascalDecl{
     }/*End prettyPrint*/
 
     public static ConstDecl parse(Scanner s){
+        enterParser("const decl");
+        leaveParser("const decl");
         return null;
     }
 }/*End class*/

@@ -1,6 +1,7 @@
 package parser;
 
 import scanner.Scanner;
+import static scanner.TokenKind.*;
 
 public class ProcDecl extends PascalDecl{
 
@@ -9,7 +10,8 @@ public class ProcDecl extends PascalDecl{
     }/*Enc constructor*/
 
     public static ProcDecl parse(Scanner s){
-        //Added method definition for compilation
+        enterParser("proc decl");
+        leaveParser("proc decl");
         return null;
     }/*End parse*/
 

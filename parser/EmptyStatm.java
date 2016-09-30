@@ -1,6 +1,7 @@
 package parser;
 
 import scanner.*;
+import static scanner.TokenKind.*;
 
 public class EmptyStatm extends Statement{
 
@@ -14,6 +15,8 @@ public class EmptyStatm extends Statement{
     } /* End of identify */
 
     public static EmptyStatm parse(Scanner s) {
+        enterParser("empty statm");
+        leaveParser("empty statm");
         return null;
     }/*End parse*/
 

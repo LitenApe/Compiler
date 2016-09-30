@@ -1,6 +1,7 @@
 package parser;
 
 import scanner.Scanner;
+import static scanner.TokenKind.*;
 
 public class FuncDecl extends ProcDecl{
 
@@ -14,7 +15,8 @@ public class FuncDecl extends ProcDecl{
     } /* End of identify */
 
     public static FuncDecl parse(Scanner s){
-        //Added method definition for compilation
+        enterParser("func decl");
+        leaveParser("func decl");
         return null;
     }/*End parse*/
 }/*End class*/

@@ -1,6 +1,7 @@
 package parser;
 
 import scanner.*;
+import static scanner.TokenKind.*;
 
 public class CharLiteral extends UnsignedConstant{
 
@@ -19,6 +20,8 @@ public class CharLiteral extends UnsignedConstant{
     }/*End prettyPrint*/
 
     public static CharLiteral parse(Scanner s) {
+        enterParser("char literal");
+        leaveParser("char literal");
         return null;
     }/*End parse*/
 

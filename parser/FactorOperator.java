@@ -15,6 +15,8 @@ public class FactorOperator extends Operator{
     } /* End of identify */
 
     public static FactorOperator parse(Scanner s) {
+        enterParser("factor operator");
+        leaveParser("factor operator");
         return null;
     }/*End parse*/
 

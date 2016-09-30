@@ -15,6 +15,8 @@ public class TermOperator extends Operator{
     } /* End of identify */
 
     public static TermOperator parse(Scanner s) {
+        enterParser("term operator");
+        leaveParser("term operator");
         return null;
     }/*End parse*/
 

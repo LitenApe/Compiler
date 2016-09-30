@@ -15,6 +15,8 @@ public class RelOperator extends Operator{
     } /* End of identify */
 
     public static RelOperator parse(Scanner s) {
+        enterParser("rel operator");
+        leaveParser("rel operator");
         return null;
     }/*End parse*/
 }/*End class*/

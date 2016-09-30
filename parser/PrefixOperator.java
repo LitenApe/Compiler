@@ -15,6 +15,8 @@ public class PrefixOperator extends Operator{
     } /* End of identify */
 
     public static PrefixOperator parse(Scanner s) {
+        enterParser("prefix operator");
+        leaveParser("prefix operator");
         return null;
     }/*End parse*/
 

@@ -15,9 +15,11 @@ public abstract class UnsignedConstant extends Factor{
     } /* End of identify */
 
     public static UnsignedConstant parse(Scanner s) {
+        enterParser("unsigned constant");
+        leaveParser("unsigned constant");
         return null;
     }/*End parse*/
 
     //TODO: prettyPrint?
-    
+
 }/*End class*/

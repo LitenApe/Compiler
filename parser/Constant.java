@@ -1,6 +1,7 @@
 package parser;
 
 import scanner.*;
+import static scanner.TokenKind.*;
 
 public class Constant extends PascalSyntax{
 
@@ -19,6 +20,8 @@ public class Constant extends PascalSyntax{
     }/*End prettyPrint*/
 
     public static Constant parse(Scanner s){
+        enterParser("constant");
+        leaveParser("constant");
         return null;
     }
 }/*End class*/

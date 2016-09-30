@@ -15,6 +15,8 @@ public class Variable extends Factor{
     } /* End of identify */
 
     public static Variable parse(Scanner s) {
+        enterParser("variable");
+        leaveParser("variable");
         return null;
     }/*End parse*/
 

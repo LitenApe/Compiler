@@ -1,6 +1,7 @@
 package parser;
 
 import scanner.*;
+import static scanner.TokenKind.*;
 
 public class IfStatm extends Statement{
 
@@ -18,6 +19,8 @@ public class IfStatm extends Statement{
     }
 
     public static IfStatm parse(Scanner s) {
+        enterParser("if statm");
+        leaveParser("if statm");
         return null;
     }/*End parse*/
 

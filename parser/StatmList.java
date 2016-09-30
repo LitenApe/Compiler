@@ -1,6 +1,7 @@
 package parser;
 
-import scanner.Scanner;
+import scanner.*;
+import static scanner.TokenKind.*;
 
 public class StatmList extends PascalSyntax{
 
@@ -13,7 +14,23 @@ public class StatmList extends PascalSyntax{
     } /* End of identify */
 
     public static StatmList parse(Scanner s){
-        //Added method definition for compilation
+        enterParser("statm list");
+
+        // if(s.curToken == "fdsa"){
+        //
+        // }else if(s.curToken == "compoundstatm"){
+        //
+        // }else if(s.curToken == "emptystatm"){
+        //
+        // }else if(s.curToken == "ifstatm"){
+        //
+        // }else if(s.curToken == "proccall"){
+        //
+        // }else if(s.curToken == "whilestatm"){
+        //
+        // }
+
+        leaveParser("statm list");
         return null;
     }/*End parse*/
 

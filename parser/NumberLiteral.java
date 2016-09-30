@@ -15,6 +15,8 @@ public class NumberLiteral extends UnsignedConstant{
     } /* End of identify */
 
     public static NumberLiteral parse(Scanner s) {
+        enterParser("number literal");
+        leaveParser("number literal");
         return null;
     }/*End parse*/
 

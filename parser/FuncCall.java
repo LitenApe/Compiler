@@ -15,6 +15,8 @@ public class FuncCall extends Factor{
     } /* End of identify */
 
     public static FuncCall parse(Scanner s) {
+        enterParser("func call");
+        leaveParser("func call");
         return null;
     }/*End parse*/
 

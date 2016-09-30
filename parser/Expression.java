@@ -1,6 +1,7 @@
 package parser;
 
 import scanner.*;
+import static scanner.TokenKind.*;
 
 public class Expression extends PascalSyntax{
 
@@ -19,6 +20,8 @@ public class Expression extends PascalSyntax{
     } /* End of identify */
 
     public static Expression parse(Scanner s) {
+        enterParser("expression");
+        leaveParser("expression");
         return null;
     }/*End parse*/
 
