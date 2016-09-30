@@ -4,6 +4,7 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 public class AssignStatm extends Statement{
+    private static Expression ex;
 
     public AssignStatm(int n){
         super(n);
@@ -21,10 +22,11 @@ public class AssignStatm extends Statement{
 
         s.test(nameToken);
         s.skip(assignToken);
-        // create an expression and return it
+        AssignStatm as = new AssignStatm(s.curLineNum());
+        ex = new Expression(s.curLineNum());
 
         leaveParser("assign statm");
-        return null;
+        return as;
     }/*End parse*/
 
 } /* End of class */

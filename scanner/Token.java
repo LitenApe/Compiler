@@ -65,6 +65,9 @@ public class Token {
     kind = charValToken;  charVal = c;  lineNum = lNum;
   }
 
+  public TokenKind getTokenKind(){
+      return kind;
+  }
 
   public String identify() {
     String t = kind.identify();
