@@ -26,12 +26,11 @@ public class Block extends PascalSyntax{
         block.constDeclPart = ConstDeclPart.parse(s);
         block.varDeclPart = VarDeclPart.parse(s);
         block.funcDecl = FuncDecl.parse(s);
+        block.procDecl = ProcDecl.parse(s);
 
         s.skip(beginToken);
-
         block.statmList = StatmList.parse(s);
         s.skip(endToken);
-        block.procDecl = ProcDecl.parse(s);
 
         leaveParser("block");
         return block;
