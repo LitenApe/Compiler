@@ -4,11 +4,6 @@ import scanner.Scanner;
 import static scanner.TokenKind.*;
 
 public class FuncDecl extends ProcDecl{
-    ParamDeclList paramDeclList;
-    Block block;
-    static String name;
-    static String typeName;
-
     public FuncDecl(String id, int lNum){
         super(id, lNum);
     }/*Enc constructor*/
