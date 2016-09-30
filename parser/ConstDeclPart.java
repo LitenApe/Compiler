@@ -5,15 +5,20 @@ import static scanner.TokenKind.*;
 
 public class ConstDeclPart extends PascalSyntax{
 
+    ConstDecl constDecl;
     public ConstDeclPart(int n){
         super(n);
     }/*End constructor*/
 
     public static ConstDeclPart parse(Scanner s){
-        //Added method definition for compilation
         enterParser("const decl part");
+
+        ConstDeclPart constDeclPart = new ConstDeclPart(s.curLineNum());
+        s.skip(constToken);
+        constDeclPart.constDecl = ConstDecl.parse(s);
+
         leaveParser("const decl part");
-        return null;
+        return constDeclPart;
     }/*End parse*/
 
     @Override

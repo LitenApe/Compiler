@@ -6,8 +6,4 @@ Parser:   <program>
    5:    write('x'); 
 Parser:     <block>
 Parser:       <const decl part>
-Parser:       </const decl part>
-Parser:       <var decl part>
-Parser:       </var decl part>
-Parser:       <func decl>
-Error in line 4: Expected a function but found a begin!
+Error in line 4: Expected a const but found a begin!

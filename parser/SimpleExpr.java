@@ -1,5 +1,8 @@
 package parser;
 
+import scanner.*;
+import static scanner.TokenKind.*;
+
 public class SimpleExpr extends PascalSyntax{
 
     public SimpleExpr(int n){
@@ -14,4 +17,10 @@ public class SimpleExpr extends PascalSyntax{
     public void prettyPrint(){
 
     }/*End prettyPrint*/
+
+    public static SimpleExpr parse(Scanner s){
+        enterParser("simple expr");
+        leaveParser("simple expr");
+        return null;
+    }
 }/*End class*/

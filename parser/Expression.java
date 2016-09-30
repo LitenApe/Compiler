@@ -5,6 +5,10 @@ import static scanner.TokenKind.*;
 
 public class Expression extends PascalSyntax{
 
+    SimpleExpr firstValue;
+    SimpleExpr secondValue;
+    RelOperator relOperator;
+
     public Expression(int n){
         super(n);
     }/*End constructor*/
@@ -21,8 +25,14 @@ public class Expression extends PascalSyntax{
 
     public static Expression parse(Scanner s) {
         enterParser("expression");
+
+        Expression expression = new Expression(s.curLineNum());
+        expression.firstValue = SimpleExpr.parse(s);
+        expression.relOperator = RelOperator.parse(s);
+        expression.secondValue = SimpleExpr.parse(s);
+
         leaveParser("expression");
-        return null;
+        return expression;
     }/*End parse*/
 
 }/*End class*/

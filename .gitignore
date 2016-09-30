@@ -9,6 +9,7 @@ testFF/
 *.pdf
 *.res
 *.s
+*.log
 
 compS.sh
 testS.sh
