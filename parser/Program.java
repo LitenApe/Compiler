@@ -9,7 +9,7 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 public class Program extends PascalDecl{
-    Block proBlock;
+    Block progBlock;
     Scanner s;
 
     public Program(String id, int lNum){
@@ -17,20 +17,20 @@ public class Program extends PascalDecl{
     } /* End of constructor */
 
     public static Program parse(Scanner s){
-        // valid program start?
         enterParser("program");
         s.skip(programToken);
+        s.test(nameToken);
+
+        Program p = new Program(s.curToken.id, s.curLineNum());
         s.skip(nameToken);
         s.skip(semicolonToken);
 
-
-        // generate a program object and return it
-        Program prog = new Program(s.curToken.identify(), s.curLineNum());
-        // generate a block here
+        p.progBlock = Block.parse(s);
+        // p.progBlock.context = p;
         s.skip(dotToken);
 
         leaveParser("program");
-        return prog; //TODO: Return Program instance
+        return p;
     } /* End of parse */
 
     @Override

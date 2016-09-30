@@ -4,4 +4,5 @@
 Parser:   <program>
    4: begin 
    5:    write('x'); 
-Error in line 4: Expected a . but found a begin!
+Parser:     <block>
+Error in line 5: Expected a end but found a name!
