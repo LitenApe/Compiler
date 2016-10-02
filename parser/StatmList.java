@@ -1,9 +1,12 @@
 package parser;
 
+import java.util.ArrayList;
 import scanner.*;
 import static scanner.TokenKind.*;
 
 public class StatmList extends PascalSyntax{
+
+    public ArrayList<Statement> stmLst = new ArrayList<>();
 
     public StatmList(int n){
         super(n);
@@ -16,22 +19,21 @@ public class StatmList extends PascalSyntax{
     public static StatmList parse(Scanner s){
         enterParser("statm list");
 
-        if(s.curToken.kind == assignToken){
+        StatmList stmL = new StatmList(s.curLineNum());
 
-        // }else if(s.curToken.getTokenKind() == compoundToken){
+        while(true){
 
-        // }else if(s.curToken == emptyToken){
+            Statement statm = new Statement(s.curLineNum());
+            statm.parse(s);
+            stmL.stmLst.add(statm);
 
-        }else if(s.curToken.getTokenKind() == ifToken){
-
-        // }else if(s.curToken == procToken){
-
-        }else if(s.curToken.getTokenKind() == whileToken){
-
+            if(s.curToken.kind != semicolonToken){
+                break;
+            }
         }
 
         leaveParser("statm list");
-        return null;
+        return stmL;
     }/*End parse*/
 
     @Override

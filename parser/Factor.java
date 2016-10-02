@@ -16,6 +16,9 @@ public abstract class Factor extends PascalSyntax{
 
     public static Factor parse(Scanner s) {
         enterParser("factor");
+
+        //TODO: Factor is hard. puta.
+
         leaveParser("factor");
         return null;
     }/*End parse*/

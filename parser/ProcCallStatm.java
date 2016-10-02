@@ -1,9 +1,12 @@
 package parser;
 
+import java.util.ArrayList;
 import scanner.*;
 import static scanner.TokenKind.*;
 
 public class ProcCallStatm extends Statement{
+
+    public ArrayList<Expression> exp = new ArrayList<>();
 
     public ProcCallStatm(int n){
         super(n);
@@ -19,9 +22,24 @@ public class ProcCallStatm extends Statement{
     }
 
     public static ProcCallStatm parse(Scanner s) {
-        enterParser("proc call statm");
-        leaveParser("proc call statm");
-        return null; //TODO: Return instance ProcCallStatm
+        enterParser("proc call");
+        ProcCallStatm procCall = new ProcCallStatm(s.curLineNum());
+
+        s.skip(nameToken);
+        s.skip(leftParToken);
+        while(true){
+            Expression exprsn = new Expression(s.curLineNum());
+            exprsn.parse(s);
+            procCall.exp.add(exprsn);
+
+            if(s.curToken.kind != commaToken){
+                break;
+            }
+        }
+        s.skip(rightParToken);
+
+        leaveParser("proc call");
+        return procCall; //TODO: Return instance ProcCallStatm
     }
 
 } /* End of class */

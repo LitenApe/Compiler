@@ -21,18 +21,27 @@ public class Block extends PascalSyntax{
 
         //Instanciate a new block to return to caller
         Block block = new Block(s.curLineNum());
-
         //Return instances of instance variables
-        block.constDeclPart = ConstDeclPart.parse(s);
-        block.varDeclPart = VarDeclPart.parse(s);
-        block.funcDecl = FuncDecl.parse(s);
-
+        ////TODO: Double check after TS is done with his classes
         s.skip(beginToken);
+        switch(s.curToken.kind){
+            case constToken:
+                block.constDeclPart = ConstDeclPart.parse(s);
+                break;
+            case varToken:
+                block.varDeclPart = VarDeclPart.parse(s);
+                break;
+            case functionToken:
+                block.funcDecl = FuncDecl.parse(s);
+                break;
+            case procedureToken:
+                block.procDecl = ProcDecl.parse(s);
+                break;
+            default:
+                block.statmList = StatmList.parse(s);
+        }
 
-        block.statmList = StatmList.parse(s);
         s.skip(endToken);
-        block.procDecl = ProcDecl.parse(s);
-
         leaveParser("block");
         return block;
     }/*End parse*/

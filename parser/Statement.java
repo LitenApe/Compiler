@@ -3,7 +3,7 @@ package parser;
 import scanner.*;
 import static scanner.TokenKind.*;
 
-public abstract class Statement extends PascalSyntax{
+public class Statement extends PascalSyntax{
 
     public Statement(int n){
         super(n);
@@ -21,7 +21,7 @@ public abstract class Statement extends PascalSyntax{
 
     public static Statement parse(Scanner s) {
         enterParser("statement");
-
+        
         Statement st = null;
         switch (s.curToken.kind) {
             case beginToken:
