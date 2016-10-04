@@ -23,8 +23,8 @@ public abstract class Factor extends PascalSyntax{
         enterParser("factor");
 
         Factor factor = null;
-        switch(s.nextToken.kind){
-            case leftBracketToken: //Variables
+        switch(s.curToken.kind){
+            case leftBracketToken: //Variables, rm l8r
                 factor = Variable.parse(s);
                 break;
             case leftParToken: //Func call

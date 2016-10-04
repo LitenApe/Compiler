@@ -22,6 +22,7 @@ public class FuncCall extends Factor{
         FuncCall fCall = new FuncCall(s.curLineNum());
         s.skip(leftParToken);
         while(s.curToken.kind != rightParToken){
+            System.out.println("wuut");
             fCall.expression = Expression.parse(s);
             s.skip(commaToken);
         }
