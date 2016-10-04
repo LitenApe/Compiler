@@ -4,6 +4,8 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 public class FuncCall extends Factor{
+    String name = "";
+    Expression expression = null;
 
     public FuncCall(int n){
         super(n);
@@ -16,8 +18,16 @@ public class FuncCall extends Factor{
 
     public static FuncCall parse(Scanner s) {
         enterParser("func call");
+
+        FuncCall fCall = new FuncCall(s.curLineNum());
+        s.skip(leftParToken);
+        while(s.curToken.kind != rightParToken){
+            fCall.expression = Expression.parse(s);
+            s.skip(commaToken);
+        }
+        s.skip(rightParToken);
         leaveParser("func call");
-        return null;
+        return fCall;
     }/*End parse*/
 
     @Override
