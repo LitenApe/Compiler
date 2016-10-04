@@ -4,6 +4,11 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 public abstract class Factor extends PascalSyntax{
+    UnsignedConstant uConstant = null;
+    // Variable variable = null;
+    // FuncCall funcCall = null;
+    InnerExpr innerExpression = null;
+    Negation negation = null;
 
     public Factor(int n){
         super(n);
@@ -17,10 +22,20 @@ public abstract class Factor extends PascalSyntax{
     public static Factor parse(Scanner s) {
         enterParser("factor");
 
-        //TODO: Factor is hard. puta.
+        Factor factor = null;
+        switch(s.nextToken.kind){
+            case leftBracketToken: //Variables
+                factor = Variable.parse(s);
+                break;
+            case leftParToken: //Func call
+                factor = FuncCall.parse(s);
+                break;
+            default:
+                factor = Variable.parse(s);
+        }/*End switch*/
 
         leaveParser("factor");
-        return null;
+        return factor;
     }/*End parse*/
 
     @Override
