@@ -35,10 +35,10 @@ public class Expression extends PascalSyntax{
             if(kind == s.curToken.kind){
                 System.out.println("Inside: "+s.curToken.kind);
                 expression.relOperator = RelOperator.parse(s);
+                expression.secondValue = SimpleExpr.parse(s);
             }
         }
         System.out.println("after: "+s.curToken.id);
-        expression.secondValue = SimpleExpr.parse(s);
         // s.skip(s.curToken.kind);
         System.out.println("after second value: "+s.curToken.id);
         leaveParser("expression");
