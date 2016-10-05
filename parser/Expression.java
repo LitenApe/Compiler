@@ -28,9 +28,19 @@ public class Expression extends PascalSyntax{
 
         Expression expression = new Expression(s.curLineNum());
         expression.firstValue = SimpleExpr.parse(s);
-        expression.relOperator = RelOperator.parse(s);
-        expression.secondValue = SimpleExpr.parse(s);
 
+        // System.out.println("DJFKLSJDJFL: "+s.curToken.kind.toString());
+        // System.out.println("DJFKLSJDJFL: "+s.nextToken.kind.toString());
+        for (TokenKind kind : RelOperator.operators){
+            if(kind == s.curToken.kind){
+                System.out.println("Inside: "+s.curToken.kind);
+                expression.relOperator = RelOperator.parse(s);
+            }
+        }
+        System.out.println("after: "+s.curToken.id);
+        expression.secondValue = SimpleExpr.parse(s);
+        // s.skip(s.curToken.kind);
+        System.out.println("after second value: "+s.curToken.id);
         leaveParser("expression");
         return expression;
     }/*End parse*/

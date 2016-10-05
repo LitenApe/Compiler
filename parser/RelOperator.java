@@ -2,8 +2,12 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
+import java.util.ArrayList;
 
 public class RelOperator extends Operator{
+
+    public static TokenKind[] operators = {equalToken,notEqualToken,lessToken,
+                                           lessEqualToken,greaterToken,greaterEqualToken};
 
     public RelOperator(int n){
         super(n);
