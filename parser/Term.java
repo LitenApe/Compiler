@@ -18,7 +18,11 @@ public class Term extends PascalSyntax{
 
         Term trm = new Term(s.curLineNum());
 
-        System.out.println("term: " + s.curToken.identify());
+        if(s.curToken.kind == nameToken ||
+            s.curToken.kind == intValToken ||
+            s.curToken.kind == charValToken){
+                Factor.parse(s);
+            }
 
         leaveParser("term");
         return trm;

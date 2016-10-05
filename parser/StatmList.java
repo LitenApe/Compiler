@@ -27,6 +27,8 @@ public class StatmList extends PascalSyntax{
 
             if(s.curToken.kind != semicolonToken){
                 break;
+            }else{
+                s.skip(semicolonToken);
             }
         }
 

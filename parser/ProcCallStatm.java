@@ -39,6 +39,8 @@ public class ProcCallStatm extends Statement{
 
                 if(s.curToken.kind != commaToken){
                     break;
+                }else{
+                    s.skip(commaToken);
                 }
             }
 
