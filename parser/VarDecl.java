@@ -7,7 +7,7 @@ import types.*;
 public class VarDecl extends PascalDecl{
 
     public String name = "";
-    public Type tpe = null;
+    public TypeDecl tpe = null;
 
     public VarDecl(String id, int lNum){
         super(id, lNum);
@@ -21,8 +21,8 @@ public class VarDecl extends PascalDecl{
         vDcl.name = s.curToken.id;
         s.skip(nameToken);
         s.skip(colonToken);
-        s.tpe = TypeDecl.parse(s);
-        s.skip(semiColonToken);
+        vDcl.tpe = TypeDecl.parse(s);
+        s.skip(semicolonToken);
 
         leaveParser("var decl");
         return vDcl;
