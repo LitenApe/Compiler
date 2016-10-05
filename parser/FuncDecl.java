@@ -15,6 +15,9 @@ public class FuncDecl extends ProcDecl{
 
     public static FuncDecl parse(Scanner s){
         enterParser("func decl");
+
+        
+
         leaveParser("func decl");
         return null;
     }/*End parse*/

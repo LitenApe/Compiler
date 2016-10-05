@@ -5,7 +5,8 @@ import static scanner.TokenKind.*;
 
 public class ConstDecl extends PascalDecl{
 
-    public String name = "", constant = "";
+    public String name = "";
+    public Constant cnst = null;
 
     public ConstDecl(String id, int lNum){
         super(id, lNum);
@@ -45,9 +46,14 @@ public class ConstDecl extends PascalDecl{
         enterParser("const decl");
 
         s.test(nameToken);
-        ConstDecl constD = new ConstDecl(s.curLineNum());
+        ConstDecl constD = new ConstDecl(s.curToken.id,s.curLineNum());
+        constD.name = s.curToken.id;
+        s.skip(nameToken);
+        constD.cnst = Constant.parse(s);
+
+        // not done!
 
         leaveParser("const decl");
-        return null;
+        return constD;
     }
 }/*End class*/

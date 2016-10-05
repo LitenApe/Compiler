@@ -23,9 +23,7 @@ public class StatmList extends PascalSyntax{
 
         while(true){
 
-            Statement statm = new Statement(s.curLineNum());
-            statm.parse(s);
-            stmL.stmLst.add(statm);
+            stmL.stmLst.add(Statement.parse(s));
 
             if(s.curToken.kind != semicolonToken){
                 break;
