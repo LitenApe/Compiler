@@ -28,21 +28,16 @@ public class SimpleExpr extends PascalSyntax{
 
         SimpleExpr simExpr = new SimpleExpr(s.curLineNum());
 
-        if(s.curToken.kind == addToken){
-            simExpr.prefix.add(addToken);
-            s.skip(addToken);
-        }else if(s.curToken.kind == subtractToken){
-            simExpr.prefix.add(subtractToken);
-            s.skip(subtractToken);
+        if(s.curToken.kind.isPrefixOpr()){
+            simExpr.prefix.add(s.curToken.kind);
+            s.skip(simExpr.prefix.get(simExpr.prefix.size() - 1));
         }
 
         while(true){
             simExpr.trm.add(Term.parse(s));
             s.readNextToken();
 
-            if(s.curToken.kind != addToken &&
-                s.curToken.kind != subtractToken &&
-                s.curToken.kind != orToken){
+            if(!s.curToken.kind.isTermOpr()){
                 break;
             }
 
