@@ -3,7 +3,7 @@ package parser;
 import scanner.*;
 import static scanner.TokenKind.*;
 
-public class Statement extends PascalSyntax{
+public abstract class Statement extends PascalSyntax{
 
     public Statement(int n){
         super(n);

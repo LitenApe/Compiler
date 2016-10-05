@@ -18,6 +18,8 @@ public class Term extends PascalSyntax{
 
         Term trm = new Term(s.curLineNum());
 
+        System.out.println("term: " + s.curToken.identify());
+
         leaveParser("term");
         return trm;
     }
