@@ -1,10 +1,35 @@
 package parser;
 
+import scanner.*;
+import static scanner.TokenKind.*;
+
 public class ParamDecl extends PascalDecl{
+
+    // name : : : type name
+
+    public String name = "";
+    public String tName = "";
 
     public ParamDecl(String id, int lNum){
         super(id, lNum);
     }/*Enc constructor*/
+
+    public static ParamDecl parse(Scanner s){
+        enterParser("param decl");
+
+        ParamDecl parDecl = new ParamDecl(s.curLineNum());
+
+        s.test(nameToken);
+        parDecl.name = s.curToken.id;
+
+        s.skip(colonToken);
+
+        s.test(nameToken);
+        parDecl.tName = s.curToken.id;
+
+        leaveParser("param decl")
+        return parDecl;
+    }
 
     @Override
     public String identify() {
@@ -30,7 +55,7 @@ public class ParamDecl extends PascalDecl{
     public void checkWhetherValue(PascalSyntax where){
 
     }/*End checkWhetherValue*/
-    
+
     @Override
     public void prettyPrint(){
 
