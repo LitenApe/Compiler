@@ -34,6 +34,7 @@ public abstract class Factor extends PascalSyntax{
                 else{
                     factor = UnsignedConstant.parse(s);
                 }
+                break;
             case notToken: //Variables, rm l8r
                 factor = Negation.parse(s);
                 break;
@@ -42,6 +43,7 @@ public abstract class Factor extends PascalSyntax{
                 break;
             default:
                 factor = UnsignedConstant.parse(s);
+                break;
         }/*End switch*/
 
         leaveParser("factor");
