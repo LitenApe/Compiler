@@ -31,7 +31,7 @@ public class AssignStatm extends Statement{
 
         s.skip(assignToken);
 
-        s.test(nameToken)
+        s.test(nameToken);
         ex = new Expression(s.curLineNum());
 
         leaveParser("assign statm");
