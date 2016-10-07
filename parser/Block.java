@@ -6,11 +6,11 @@ import static scanner.TokenKind.*;
 
 public class Block extends PascalSyntax{
 
-    public ConstDeclPart constDeclPart;
-    public VarDeclPart varDeclPart;
-    public FuncDecl funcDecl;
-    public ProcDecl procDecl;
-    public StatmList statmList;
+    public ConstDeclPart constDeclPart = null;
+    public VarDeclPart varDeclPart = null;
+    public FuncDecl funcDecl = null;
+    public ProcDecl procDecl = null;
+    public StatmList statmList = null;
 
     public Block(int lineNum){
         super(lineNum);
@@ -53,7 +53,19 @@ public class Block extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-
+        Main.log.prettyPrintLn("begin");
+        if(constDeclPart != null){
+            constDeclPart.prettyPrint();
+        }else if(varDeclPart != null){
+            varDeclPart.prettyPrint();
+        }else if(funcDecl != null){
+            funcDecl.prettyPrint();
+        }else if(procDecl != null){
+            procDecl.prettyPrint();
+        }else if(statmList != null){
+            statmList.prettyPrint();
+        }
+        Main.log.prettyPrint("end");
     }/*End prettyPrint*/
 
 }/*End class*/

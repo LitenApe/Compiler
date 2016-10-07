@@ -1,6 +1,7 @@
 package parser;
 
 import java.util.ArrayList;
+import main.Main;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -20,7 +21,7 @@ public class SimpleExpr extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-
+        Main.log.prettyPrint("SomeShitHere");
     }/*End prettyPrint*/
 
     public static SimpleExpr parse(Scanner s){

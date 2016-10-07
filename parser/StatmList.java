@@ -38,6 +38,10 @@ public class StatmList extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-
+        for(Statement stLst : stmLst){
+            if(stLst != null){
+                stLst.prettyPrint();
+            }
+        }
     }/*End prettyPrint*/
 } /* End of class */
