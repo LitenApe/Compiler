@@ -19,7 +19,7 @@ public class Negation extends Factor{
         enterParser("negation");
 
         s.skip(notToken);
-        Negation negation = new Negations(s.curLineNum());
+        Negation negation = new Negation(s.curLineNum());
         negation.factor = Factor.parse(s);
 
         leaveParser("negation");

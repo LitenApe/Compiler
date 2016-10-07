@@ -1,4 +1,6 @@
 package parser;
+import scanner.Scanner;
+import static scanner.TokenKind.*;
 
 public class NamedConst extends UnsignedConstant{
 
@@ -11,7 +13,7 @@ public class NamedConst extends UnsignedConstant{
         enterParser("named const");
 
         NamedConst namedConst = new NamedConst(s.curLineNum());
-        namedConst.name = s.curToken.id; 
+        namedConst.name = s.curToken.id;
 
         leaveParser("named const");
         return namedConst;
