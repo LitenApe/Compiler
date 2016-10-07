@@ -21,7 +21,6 @@ public abstract class Factor extends PascalSyntax{
 
     public static Factor parse(Scanner s) {
         enterParser("factor");
-        // s.test(TEST TOKEN?left par/left bracket?)
 
         Factor factor = null;
         switch(s.curToken.kind){
@@ -44,7 +43,7 @@ public abstract class Factor extends PascalSyntax{
             default:
                 factor = UnsignedConstant.parse(s);
         }/*End switch*/
-        
+
         leaveParser("factor");
         return factor;
     }/*End parse*/
