@@ -5,9 +5,9 @@ import static scanner.TokenKind.*;
 
 public class Expression extends PascalSyntax{
 
-    SimpleExpr firstValue;
-    SimpleExpr secondValue;
-    RelOperator relOperator;
+    SimpleExpr firstValue = null;
+    SimpleExpr secondValue = null;
+    RelOperator relOperator = null;
 
     public Expression(int n){
         super(n);
@@ -15,7 +15,15 @@ public class Expression extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-
+        if(firstValue != null){
+            firstValue.prettyPrint();
+        }
+        if(relOperator != null){
+            relOperator.prettyPrint();
+        }
+        if(secondValue != null){
+            secondValue.prettyPrint();
+        }
     }/*End prettyPrint*/
 
     @Override

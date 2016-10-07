@@ -1,13 +1,14 @@
 package parser;
 
 import java.util.ArrayList;
+import main.Main;
 import scanner.*;
 import static scanner.TokenKind.*;
 
 public class ProcCallStatm extends Statement{
 
     public ArrayList<Expression> exp = new ArrayList<>();
-    public String name = "";
+    public String name = null;
 
     public ProcCallStatm(int n){
         super(n);
@@ -19,7 +20,15 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void prettyPrint() {
-
+        if(name != null){
+            Main.log.prettyPrint("  " + name +"(");
+            for(Expression ep : exp){
+                if(ep != null){
+                    ep.prettyPrint();
+                }
+            }
+            Main.log.prettyPrint(");");
+        }
     }
 
     public static ProcCallStatm parse(Scanner s) {
