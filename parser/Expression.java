@@ -13,6 +13,22 @@ public class Expression extends PascalSyntax{
         super(n);
     }/*End constructor*/
 
+    public static Expression parse(Scanner s) {
+        enterParser("expression");
+
+        Expression expression = new Expression(s.curLineNum());
+        expression.firstValue = SimpleExpr.parse(s);
+
+        for (TokenKind kind : RelOperator.operators){
+            if(kind == s.curToken.kind){
+                expression.relOperator = RelOperator.parse(s);
+                expression.secondValue = SimpleExpr.parse(s);
+            }
+        }
+        leaveParser("expression");
+        return expression;
+    }/*End parse*/
+    
     @Override
     public void prettyPrint(){
         if(firstValue != null){
@@ -30,21 +46,4 @@ public class Expression extends PascalSyntax{
     public String identify() {
         return "<Expression> on line " + lineNum;
     } /* End of identify */
-
-    public static Expression parse(Scanner s) {
-        enterParser("expression");
-
-        Expression expression = new Expression(s.curLineNum());
-        expression.firstValue = SimpleExpr.parse(s);
-
-        for (TokenKind kind : RelOperator.operators){
-            if(kind == s.curToken.kind){
-                expression.relOperator = RelOperator.parse(s);
-                expression.secondValue = SimpleExpr.parse(s);
-            }
-        }
-        leaveParser("expression");
-        return expression;
-    }/*End parse*/
-
 }/*End class*/

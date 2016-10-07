@@ -20,6 +20,8 @@ public class FuncCall extends Factor{
         enterParser("func call");
 
         FuncCall fCall = new FuncCall(s.curLineNum());
+        // s.test(nameToken); //tests for later
+        // fCall.name = s.curToken.id; //tests for later
         s.skip(leftParToken);
         while(s.curToken.kind != rightParToken){
             fCall.expression = Expression.parse(s);

@@ -40,7 +40,6 @@ public class Block extends PascalSyntax{
             default:
                 block.statmList = StatmList.parse(s);
         }
-
         s.skip(endToken);
         leaveParser("block");
         return block;

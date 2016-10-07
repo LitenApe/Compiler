@@ -10,16 +10,6 @@ public class CharLiteral extends UnsignedConstant{
         super(n);
     }/*End constructor*/
 
-    @Override
-    public String identify() {
-        return "<CompoundStatm> on line " + lineNum;
-    } /* End of identify */
-
-    @Override
-    public void prettyPrint(){
-
-    }/*End prettyPrint*/
-
     public static CharLiteral parse(Scanner s) {
         enterParser("char literal");
 
@@ -30,4 +20,13 @@ public class CharLiteral extends UnsignedConstant{
         return charLiteral;
     }/*End parse*/
 
+    @Override
+    public String identify() {
+        return "<CompoundStatm> on line " + lineNum;
+    } /* End of identify */
+
+    @Override
+    public void prettyPrint(){
+
+    }/*End prettyPrint*/
 }/*End class*/

@@ -13,6 +13,7 @@ public class ConstDeclPart extends PascalSyntax{
     public static ConstDeclPart parse(Scanner s){
         enterParser("const decl part");
 
+        s.skip(constToken);
         ConstDeclPart constDeclPart = new ConstDeclPart(s.curLineNum());
 
         constDeclPart.constDecl = ConstDecl.parse(s);
