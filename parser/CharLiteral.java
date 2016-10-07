@@ -5,6 +5,7 @@ import static scanner.TokenKind.*;
 
 public class CharLiteral extends UnsignedConstant{
 
+    char charValue;
     public CharLiteral(int n){
         super(n);
     }/*End constructor*/
@@ -21,8 +22,12 @@ public class CharLiteral extends UnsignedConstant{
 
     public static CharLiteral parse(Scanner s) {
         enterParser("char literal");
+
+        CharLiteral charLiteral = new CharLiteral(s.curLineNum());
+        charLiteral.charValue = s.curToken.charVal;
+
         leaveParser("char literal");
-        return null;
+        return charLiteral;
     }/*End parse*/
 
 }/*End class*/
