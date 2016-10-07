@@ -21,19 +21,30 @@ public abstract class Factor extends PascalSyntax{
 
     public static Factor parse(Scanner s) {
         enterParser("factor");
+        // s.test(TEST TOKEN?left par/left bracket?)
 
         Factor factor = null;
         switch(s.curToken.kind){
-            case leftBracketToken: //Variables, rm l8r
-                factor = Variable.parse(s);
+            case nameToken:
+                if (s.nextToken.kind == leftBracketToken){
+                    factor = Variable.parse(s);
+                }
+                else if (s.nextToken.kind == leftParToken){
+                    factor = FuncCall.parse(s);
+                }
+                else{
+                    factor = UnsignedConstant.parse(s);
+                }
+            case notToken: //Variables, rm l8r
+                factor = Negation.parse(s);
                 break;
             case leftParToken: //Func call
-                factor = FuncCall.parse(s);
+                factor = InnerExpr.parse(s);
                 break;
             default:
-                factor = Variable.parse(s);
+                factor = UnsignedConstant.parse(s);
         }/*End switch*/
-
+        
         leaveParser("factor");
         return factor;
     }/*End parse*/
