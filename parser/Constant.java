@@ -31,6 +31,6 @@ public class Constant extends PascalSyntax{
         }
         constant.uConstant = UnsignedConstant.parse(s);
         leaveParser("constant");
-        return null; //remember changing back
+        return constant; //remember changing back
     }
 }/*End class*/

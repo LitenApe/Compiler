@@ -20,6 +20,12 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void prettyPrint() {
+        // Main.log.prettyIndent();
+        // Main.log.prettyPrint(name);
+        // for (Expression e : exp){
+        //     e.prettyPrint();
+        // }
+        // Main.log.prettyOutdent();
         if(name != null){
             Main.log.prettyPrint("  " + name +"(");
             for(Expression ep : exp){

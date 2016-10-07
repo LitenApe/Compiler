@@ -28,10 +28,10 @@ public class Expression extends PascalSyntax{
         leaveParser("expression");
         return expression;
     }/*End parse*/
-    
+
     @Override
     public void prettyPrint(){
-        if(firstValue != null){
+        if (firstValue != null){
             firstValue.prettyPrint();
         }
         if(relOperator != null){

@@ -28,6 +28,6 @@ public class NumberLiteral extends UnsignedConstant{
 
     @Override
     public void prettyPrint(){
-
+        
     }/*End prettyPrint*/
 }/*End class*/

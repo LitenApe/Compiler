@@ -2,6 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public class CharLiteral extends UnsignedConstant{
 
@@ -27,6 +28,6 @@ public class CharLiteral extends UnsignedConstant{
 
     @Override
     public void prettyPrint(){
-
+        
     }/*End prettyPrint*/
 }/*End class*/

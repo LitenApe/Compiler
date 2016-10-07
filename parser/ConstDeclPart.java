@@ -2,6 +2,7 @@ package parser;
 
 import scanner.Scanner;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public class ConstDeclPart extends PascalSyntax{
 
@@ -30,8 +31,11 @@ public class ConstDeclPart extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-
-    }
+        Main.log.prettyPrintLn("const");
+        if (constDecl != null){
+            constDecl.prettyPrint();
+        }
+    }/*End prettyprint*/
 
     @Override
     public String identify() {
