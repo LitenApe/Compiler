@@ -19,13 +19,7 @@ public abstract class UnsignedConstant extends Factor{
     public static UnsignedConstant parse(Scanner s) {
         enterParser("unsigned constant");
 
-        UnsignedConstant unsignedConstant = null;
         
-        switch(s.curToken.kind){
-            case nameToken:
-                unsignedConstant =
-
-        }/*End switch*/
 
         leaveParser("unsigned constant");
         return null;
