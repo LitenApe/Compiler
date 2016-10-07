@@ -6,6 +6,8 @@ import types.*;
 
 public class VarDecl extends PascalDecl{
 
+    // name : : : type : ;
+
     public String name = "";
     public TypeDecl tpe = null;
 
@@ -16,12 +18,18 @@ public class VarDecl extends PascalDecl{
     public static VarDecl parse(Scanner s){
         enterParser("var decl");
 
-        s.test(nameToken);
         VarDecl vDcl = new VarDecl(s.curToken.id,s.curLineNum());
+
+        s.test(nameToken);
         vDcl.name = s.curToken.id;
-        s.skip(nameToken);
+
+        s.readNextToken();
+
         s.skip(colonToken);
+
+        s.test(nameToken);
         vDcl.tpe = TypeDecl.parse(s);
+
         s.skip(semicolonToken);
 
         leaveParser("var decl");

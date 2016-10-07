@@ -5,9 +5,26 @@ import static scanner.TokenKind.*;
 
 public class IfStatm extends Statement{
 
+    // if : expression : then : statement : else : statement
+    Expression exp = null;
+
     public IfStatm(int n){
         super(n);
     } /* End of public */
+
+    public static IfStatm parse(Scanner s) {
+        enterParser("if statm");
+
+        IfStatm ifStat = new IfStatm(s.curLineNum());
+
+        s.skip(ifToken);
+        ifStat.exp = Expression.parse(s);
+
+        
+
+        leaveParser("if statm");
+        return ifStat;
+    }/*End parse*/
 
     @Override public String identify() {
         return "<IfStatm> on line " + lineNum;
@@ -17,11 +34,5 @@ public class IfStatm extends Statement{
     public void prettyPrint() {
 
     }
-
-    public static IfStatm parse(Scanner s) {
-        enterParser("if statm");
-        leaveParser("if statm");
-        return null;
-    }/*End parse*/
 
 } /* End of class */

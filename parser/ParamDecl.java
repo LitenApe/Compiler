@@ -17,7 +17,7 @@ public class ParamDecl extends PascalDecl{
     public static ParamDecl parse(Scanner s){
         enterParser("param decl");
 
-        ParamDecl parDecl = new ParamDecl(s.curLineNum());
+        ParamDecl parDecl = new ParamDecl(s.curToken.id, s.curLineNum());
 
         s.test(nameToken);
         parDecl.name = s.curToken.id;
@@ -27,7 +27,7 @@ public class ParamDecl extends PascalDecl{
         s.test(nameToken);
         parDecl.tName = s.curToken.id;
 
-        leaveParser("param decl")
+        leaveParser("param decl");
         return parDecl;
     }
 
