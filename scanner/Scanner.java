@@ -13,6 +13,7 @@ public class Scanner {
     private int sourcePos = 0;
     public int nrOfLines = 0,nrOfTokens = 0,nrOfChars = 0,nrOfComments=0;
     private HashMap<String, TokenKind> tokenKinds = new HashMap<>();
+    private boolean printedStats = false;
 
     public Scanner(String fileName) {
         sourceFileName = fileName;
@@ -74,10 +75,13 @@ public class Scanner {
 
         if(sourceFile == null){ // print out statistics
             nextToken = new Token(eofToken,getFileLineNum());
-            System.out.println("Number of lines read: " + nrOfLines);
-            System.out.println("Number of tokens generated: " + nrOfTokens);
-            System.out.println("Number of chars iterated: " + nrOfChars);
-            System.out.println("Number of comments ignored: " + nrOfComments);
+            if(!printedStats){
+                System.out.println("Number of lines read: " + nrOfLines);
+                System.out.println("Number of tokens generated: " + nrOfTokens);
+                System.out.println("Number of chars iterated: " + nrOfChars);
+                System.out.println("Number of comments ignored: " + nrOfComments);
+                printedStats = true;
+            }
         }
 
         while(nextToken == null){ // jump over white spaces

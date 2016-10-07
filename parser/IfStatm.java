@@ -7,6 +7,8 @@ public class IfStatm extends Statement{
 
     // if : expression : then : statement : else : statement
     Expression exp = null;
+    Statement stat = null;
+    Statement elseExp = null;
 
     public IfStatm(int n){
         super(n);
@@ -19,8 +21,14 @@ public class IfStatm extends Statement{
 
         s.skip(ifToken);
         ifStat.exp = Expression.parse(s);
+        s.skip(thenToken);
 
-        
+        ifStat.stat = Statement.parse(s);
+
+        if(s.curToken.kind == elseToken){
+            s.skip(elseToken);
+            ifStat.elseExp = Statement.parse(s);
+        }
 
         leaveParser("if statm");
         return ifStat;
