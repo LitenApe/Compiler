@@ -21,13 +21,35 @@ Pascal kompilator
   - [x] Part 1: Scanner
     - [x] Ignore/Remove Comments
     - [x] Find and create tokens
+    - [x] mini.pas
+    - [x] eater.pas
+    - [x] opers.pas
+    - [x] primes.pas
+    - [x] 10star.pas
+    - [x] gcd.pas
   - [ ] Part 2: Parser
     - [x] Create classes
-    - [ ] Drink Water
-    - [ ] Cry in a corner
-    - [ ] Find the reason for the existence of life
-    - [ ] Check if the pascal program is correctly written syntactically
+    - [x] Drink Water
+    - [x] Cry in a corner
+    - [x] mini.pas
+    - [ ] eater.pas
+    - [ ] opers.pas
+    - [ ] primes.pas
+    - [ ] 10star.pas
+    - [ ] gcd.pas
     - [ ] Generate a syntax three
     - [ ] Sleep
   - [ ] Part 3: Checker
+    - [ ] mini.pas
+    - [ ] eater.pas
+    - [ ] opers.pas
+    - [ ] primes.pas
+    - [ ] 10star.pas
+    - [ ] gcd.pas
   - [ ] Part 4: Code generator
+    - [ ] mini.pas
+    - [ ] eater.pas
+    - [ ] opers.pas
+    - [ ] primes.pas
+    - [ ] 10star.pas
+    - [ ] gcd.pas
