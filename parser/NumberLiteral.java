@@ -5,6 +5,8 @@ import static scanner.TokenKind.*;
 
 public class NumberLiteral extends UnsignedConstant{
 
+    int digit;
+
     public NumberLiteral(int n){
         super(n);
     }/*End constructor*/
@@ -16,12 +18,16 @@ public class NumberLiteral extends UnsignedConstant{
 
     public static NumberLiteral parse(Scanner s) {
         enterParser("number literal");
+
+        NumberLiteral numberLiteral = new NumberLiteral(s.curLineNum());
+        numberLiteral.digit = s.curToken.intVal;
+
         leaveParser("number literal");
-        return null;
+        return numberLiteral;
     }/*End parse*/
 
     @Override
     public void prettyPrint(){
-
+        
     }/*End prettyPrint*/
 }/*End class*/

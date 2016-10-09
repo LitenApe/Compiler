@@ -23,4 +23,8 @@ public class RelOperator extends Operator{
         leaveParser("rel operator");
         return null;
     }/*End parse*/
+
+    @Override
+    public void prettyPrint() {
+    }
 }/*End class*/

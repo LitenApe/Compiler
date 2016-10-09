@@ -13,24 +13,6 @@ public class Expression extends PascalSyntax{
         super(n);
     }/*End constructor*/
 
-    @Override
-    public void prettyPrint(){
-        if(firstValue != null){
-            firstValue.prettyPrint();
-        }
-        if(relOperator != null){
-            relOperator.prettyPrint();
-        }
-        if(secondValue != null){
-            secondValue.prettyPrint();
-        }
-    }/*End prettyPrint*/
-
-    @Override
-    public String identify() {
-        return "<Expression> on line " + lineNum;
-    } /* End of identify */
-
     public static Expression parse(Scanner s) {
         enterParser("expression");
 
@@ -47,4 +29,21 @@ public class Expression extends PascalSyntax{
         return expression;
     }/*End parse*/
 
+    @Override
+    public void prettyPrint(){
+        if (firstValue != null){
+            firstValue.prettyPrint();
+        }
+        if(relOperator != null){
+            relOperator.prettyPrint();
+        }
+        if(secondValue != null){
+            secondValue.prettyPrint();
+        }
+    }/*End prettyPrint*/
+
+    @Override
+    public String identify() {
+        return "<Expression> on line " + lineNum;
+    } /* End of identify */
 }/*End class*/

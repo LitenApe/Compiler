@@ -22,7 +22,7 @@ public class Block extends PascalSyntax{
         //Instanciate a new block to return to caller
         Block block = new Block(s.curLineNum());
         //Return instances of instance variables
-        ////TODO: Check if s.skip(endToken) should be prior or after
+        //TODO: Check if s.skip(endToken) should be prior or after
         s.skip(beginToken);
         switch(s.curToken.kind){
             case constToken:
@@ -40,7 +40,6 @@ public class Block extends PascalSyntax{
             default:
                 block.statmList = StatmList.parse(s);
         }
-
         s.skip(endToken);
         leaveParser("block");
         return block;

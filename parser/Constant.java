@@ -26,12 +26,11 @@ public class Constant extends PascalSyntax{
         enterParser("constant");
 
         Constant constant = new Constant(s.curLineNum());
-        constant.prefixOpr = PrefixOperator.parse(s);
+        if (s.curToken.kind.isPrefixOpr()) {
+            constant.prefixOpr = PrefixOperator.parse(s);
+        }
         constant.uConstant = UnsignedConstant.parse(s);
-
-        System.out.println(constant.identify());
-
         leaveParser("constant");
-        return null; //remember changing back
+        return constant; //remember changing back
     }
 }/*End class*/

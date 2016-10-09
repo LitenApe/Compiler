@@ -2,12 +2,24 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public class CharLiteral extends UnsignedConstant{
 
+    char charValue;
     public CharLiteral(int n){
         super(n);
     }/*End constructor*/
+
+    public static CharLiteral parse(Scanner s) {
+        enterParser("char literal");
+
+        CharLiteral charLiteral = new CharLiteral(s.curLineNum());
+        charLiteral.charValue = s.curToken.charVal;
+
+        leaveParser("char literal");
+        return charLiteral;
+    }/*End parse*/
 
     @Override
     public String identify() {
@@ -16,13 +28,6 @@ public class CharLiteral extends UnsignedConstant{
 
     @Override
     public void prettyPrint(){
-
+        
     }/*End prettyPrint*/
-
-    public static CharLiteral parse(Scanner s) {
-        enterParser("char literal");
-        leaveParser("char literal");
-        return null;
-    }/*End parse*/
-
 }/*End class*/

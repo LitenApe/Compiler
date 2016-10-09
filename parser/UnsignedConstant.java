@@ -1,11 +1,8 @@
 package parser;
-
 import scanner.*;
 import static scanner.TokenKind.*;
 
 public abstract class UnsignedConstant extends Factor{
-
-    String name = "";
 
     public UnsignedConstant(int n){
         super(n);
@@ -22,8 +19,7 @@ public abstract class UnsignedConstant extends Factor{
         UnsignedConstant unsignedConstant = null;
         switch(s.curToken.kind){
             case nameToken:
-                //TODO:
-                unsignedConstant.name = s.curToken.id;
+                unsignedConstant = NamedConst.parse(s);
             case intValToken:
                 unsignedConstant = NumberLiteral.parse(s);
                 break;
@@ -33,7 +29,7 @@ public abstract class UnsignedConstant extends Factor{
         }/*End switch*/
 
         leaveParser("unsigned constant");
-        return null;
+        return unsignedConstant;
     }/*End parse*/
 
     //TODO: prettyPrint?
