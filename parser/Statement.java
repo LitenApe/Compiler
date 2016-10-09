@@ -5,7 +5,7 @@ import static scanner.TokenKind.*;
 
 public abstract class Statement extends PascalSyntax{
 
-    Statement statemnt = null;
+    public PascalSyntax statemnt = null;
 
     public Statement(int n){
         super(n);
@@ -47,8 +47,6 @@ public abstract class Statement extends PascalSyntax{
             default:
                 st = EmptyStatm.parse(s); break;
         }
-
-        // st.statemnt = st;
 
         leaveParser("statement");
         return st;
