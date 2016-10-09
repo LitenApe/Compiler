@@ -29,16 +29,14 @@ Pascal kompilator
     - [x] gcd.pas
   - [ ] Part 2: Parser
     - [x] Create classes
-    - [x] Drink Water
-    - [x] Cry in a corner
+    - [ ] Parse method
+    - [ ] Pretty print
     - [x] mini.pas
     - [ ] eater.pas
     - [ ] opers.pas
     - [ ] primes.pas
     - [ ] 10star.pas
     - [ ] gcd.pas
-    - [ ] Generate a syntax three
-    - [ ] Sleep
   - [ ] Part 3: Checker
     - [ ] mini.pas
     - [ ] eater.pas
