@@ -8,7 +8,7 @@ import static scanner.TokenKind.*;
 public class ProcCallStatm extends Statement{
 
     public ArrayList<Expression> exp = new ArrayList<>();
-    public String name = null;
+    public NamedConst namedConst = null;
 
     public ProcCallStatm(int n){
         super(n);
@@ -27,8 +27,8 @@ public class ProcCallStatm extends Statement{
         // }
         // Main.log.prettyOutdent();
         System.out.println("Proc call");
-        if(name != null){
-            Main.log.prettyPrint(name +"(");
+        if(namedConst != null){
+            Main.log.prettyPrint(namedConst.name +"(");
             for(Expression ep : exp){
                 if(ep != null){
                     ep.prettyPrint();
@@ -42,9 +42,7 @@ public class ProcCallStatm extends Statement{
         enterParser("proc call");
         ProcCallStatm procCall = new ProcCallStatm(s.curLineNum());
 
-        s.test(nameToken);
-        procCall.name = s.curToken.id;
-        s.skip(nameToken);
+        procCall.namedConst = NamedConst.parse(s);
 
         if(s.curToken.kind == leftParToken){
             s.skip(leftParToken);
@@ -59,12 +57,11 @@ public class ProcCallStatm extends Statement{
                     s.skip(commaToken);
                 }
             }
-
             s.skip(rightParToken);
         }
 
         leaveParser("proc call");
-        return procCall; //TODO: Return instance ProcCallStatm
+        return procCall;
     }
 
 } /* End of class */

@@ -8,7 +8,7 @@ public class VarDecl extends PascalDecl{
     // name : : : type : ;
 
     public NamedConst namedConst = null;
-    public TypeDecl tpe = null;
+    public Type tpe = null;
 
     public VarDecl(String id, int lNum){
         super(id, lNum);
@@ -20,7 +20,7 @@ public class VarDecl extends PascalDecl{
         VarDecl vDcl = new VarDecl(s.curToken.id,s.curLineNum());
         vDcl.namedConst = NamedConst.parse(s);
         s.skip(colonToken);
-        vDcl.tpe = TypeDecl.parse(s);
+        vDcl.tpe = Type.parse(s);
         s.skip(semicolonToken);
 
         leaveParser("var decl");
