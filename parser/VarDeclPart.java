@@ -2,8 +2,11 @@ package parser;
 
 import scanner.Scanner;
 import static scanner.TokenKind.*;
+import java.util.ArrayList;
 
 public class VarDeclPart extends PascalSyntax{
+
+    ArrayList<VarDecl> varDecls = new ArrayList<>();
 
     public VarDeclPart(int n){
         super(n);
@@ -16,6 +19,14 @@ public class VarDeclPart extends PascalSyntax{
 
     public static VarDeclPart parse(Scanner s){
         enterParser("var decl part");
+
+        VarDeclPart varDeclPart = new VarDeclPart(s.curLineNum());
+        s.skip(varToken);
+        while(s.curToken.kind == nameToken &&
+                s.nextToken.kind == semicolonToken){
+            varDeclPart.varDecls.add(VarDecl.parse(s));
+        }/*End while*/
+
         leaveParser("var decl part");
         return null;
     }/*End parse*/

@@ -2,13 +2,12 @@ package parser;
 
 import scanner.Scanner;
 import static scanner.TokenKind.*;
-import types.*;
 
 public class VarDecl extends PascalDecl{
 
     // name : : : type : ;
 
-    public String name = "";
+    public NamedConst namedConst = null;
     public TypeDecl tpe = null;
 
     public VarDecl(String id, int lNum){
@@ -19,17 +18,9 @@ public class VarDecl extends PascalDecl{
         enterParser("var decl");
 
         VarDecl vDcl = new VarDecl(s.curToken.id,s.curLineNum());
-
-        s.test(nameToken);
-        vDcl.name = s.curToken.id;
-
-        s.readNextToken();
-
+        vDcl.namedConst = NamedConst.parse(s);
         s.skip(colonToken);
-
-        s.test(nameToken);
         vDcl.tpe = TypeDecl.parse(s);
-
         s.skip(semicolonToken);
 
         leaveParser("var decl");

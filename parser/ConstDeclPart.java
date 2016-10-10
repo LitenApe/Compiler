@@ -7,23 +7,18 @@ import java.util.ArrayList;
 
 public class ConstDeclPart extends PascalSyntax{
 
-    static ArrayList<ConstDecl> constDeclarations = new ArrayList<>();
+    ArrayList<ConstDecl> constDeclarations = new ArrayList<>();
     public ConstDeclPart(int n){
         super(n);
     }/*End constructor*/
 
     public static ConstDeclPart parse(Scanner s){
         enterParser("const decl part");
-
-        System.out.println("Before "+s.curToken.id);
         s.skip(constToken);
-        System.out.println("After "+s.curToken.id);
         ConstDeclPart constDeclPart = new ConstDeclPart(s.curLineNum());
-        while(s.curToken.kind == nameToken && s.nextToken.kind == equalToken){
-            System.out.println("cur: "+s.curToken.id);
-            System.out.println("next: "+s.nextToken.id);
-            constDeclarations.add(ConstDecl.parse(s));
-            s.skip(s.curToken.kind);
+        while(s.curToken.kind == nameToken &&
+                s.nextToken.kind == equalToken){
+            constDeclPart.constDeclarations.add(ConstDecl.parse(s));
         }
         leaveParser("const decl part");
         return constDeclPart;

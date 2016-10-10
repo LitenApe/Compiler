@@ -36,7 +36,17 @@ public class TypeDecl extends PascalDecl{
 
     public static TypeDecl parse(Scanner s) {
         enterParser("type decl");
+
+        TypeDecl typeDecl = null;
+        if (s.curToken.kind == nameToken){
+            NamedConst namedConst = NamedConst.parse(s);
+            typeDecl = new TypeDecl(namedConst.name,s.curLineNum());
+        }else{
+            ArrayType arrayType = ArrayType.parse(s);
+            typeDecl = new TypeDecl(arrayType.name,s.curLineNum());
+        }
+
         leaveParser("type decl");
-        return null;
+        return typeDecl;
     }/*End parse*/
 }/*End class*/
