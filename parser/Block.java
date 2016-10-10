@@ -23,7 +23,6 @@ public class Block extends PascalSyntax{
         Block block = new Block(s.curLineNum());
         //Return instances of instance variables
         //TODO: Check if s.skip(endToken) should be prior or after
-        s.skip(beginToken);
         switch(s.curToken.kind){
             case constToken:
                 block.constDeclPart = ConstDeclPart.parse(s);
@@ -38,6 +37,7 @@ public class Block extends PascalSyntax{
                 block.procDecl = ProcDecl.parse(s);
                 break;
             default:
+                s.skip(beginToken);
                 block.statmList = StatmList.parse(s);
         }
         s.skip(endToken);

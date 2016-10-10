@@ -3,11 +3,11 @@ package parser;
 import scanner.Scanner;
 import static scanner.TokenKind.*;
 import main.Main;
+import java.util.ArrayList;
 
 public class ConstDeclPart extends PascalSyntax{
 
-    // ArrayList<ConstDecl> constDeclarations = new ArrayList<>();
-    ConstDecl constDecl = null;
+    static ArrayList<ConstDecl> constDeclarations = new ArrayList<>();
     public ConstDeclPart(int n){
         super(n);
     }/*End constructor*/
@@ -15,16 +15,16 @@ public class ConstDeclPart extends PascalSyntax{
     public static ConstDeclPart parse(Scanner s){
         enterParser("const decl part");
 
+        System.out.println("Before "+s.curToken.id);
         s.skip(constToken);
+        System.out.println("After "+s.curToken.id);
         ConstDeclPart constDeclPart = new ConstDeclPart(s.curLineNum());
-        constDeclPart.constDecl = ConstDecl.parse(s);
-        // while(s.curToken.kind != semicolonToken){
-            // ConstDecl constDecl = ConstDecl.parse(s);
-            // constDeclarations.add(constDecl);
-        // }
-        //TODO: Const Decl Part should have many ConstDecls. What to do here?
-        // s.skip(constToken);
-
+        while(s.curToken.kind == nameToken && s.nextToken.kind == equalToken){
+            System.out.println("cur: "+s.curToken.id);
+            System.out.println("next: "+s.nextToken.id);
+            constDeclarations.add(ConstDecl.parse(s));
+            s.skip(s.curToken.kind);
+        }
         leaveParser("const decl part");
         return constDeclPart;
     }/*End parse*/
@@ -32,8 +32,10 @@ public class ConstDeclPart extends PascalSyntax{
     @Override
     public void prettyPrint(){
         Main.log.prettyPrintLn("const");
-        if (constDecl != null){
-            constDecl.prettyPrint();
+        if (!constDeclarations.isEmpty()){
+            for (ConstDecl cd : constDeclarations) {
+                Main.log.prettyPrintLn(cd.name);
+            }
         }
     }/*End prettyprint*/
 

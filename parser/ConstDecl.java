@@ -6,8 +6,7 @@ import static scanner.TokenKind.*;
 public class ConstDecl extends PascalDecl{
 
     // name : = : constant : ;
-
-    public String name = "";
+    public NamedConst namedConstant= null;
     public Constant cnst = null;
 
     public ConstDecl(String id, int lNum){
@@ -20,7 +19,7 @@ public class ConstDecl extends PascalDecl{
         ConstDecl constD = new ConstDecl(s.curToken.id,s.curLineNum());
 
         s.test(nameToken);
-        constD.name = s.curToken.id;
+        constD.namedConstant = NamedConst.parse(s);
 
         s.skip(equalToken);
         constD.cnst = Constant.parse(s);
