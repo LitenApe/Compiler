@@ -6,7 +6,7 @@ import static scanner.TokenKind.*;
 
 public class StatmList extends PascalSyntax{
 
-    public ArrayList<Statement> stmLst = new ArrayList<>();
+    public ArrayList<PascalSyntax> stmLst = new ArrayList<>();
 
     public StatmList(int n){
         super(n);
@@ -38,7 +38,8 @@ public class StatmList extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-        for(Statement stLst : stmLst){
+        System.out.println("Statement List");
+        for(PascalSyntax stLst : stmLst){
             if(stLst != null){
                 stLst.prettyPrint();
             }

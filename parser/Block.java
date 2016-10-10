@@ -52,7 +52,9 @@ public class Block extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
+        System.out.println("Block");
         Main.log.prettyPrintLn("begin");
+        Main.log.prettyIndent();
         if(constDeclPart != null){
             constDeclPart.prettyPrint();
         }else if(varDeclPart != null){
@@ -64,6 +66,7 @@ public class Block extends PascalSyntax{
         }else if(statmList != null){
             statmList.prettyPrint();
         }
+        Main.log.prettyOutdent();
         Main.log.prettyPrint("end");
     }/*End prettyPrint*/
 

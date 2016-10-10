@@ -5,7 +5,7 @@ import static scanner.TokenKind.*;
 
 public abstract class Statement extends PascalSyntax{
 
-    public PascalSyntax statemnt = null;
+    public PascalSyntax stmnt = null;
 
     public Statement(int n){
         super(n);
@@ -18,8 +18,9 @@ public abstract class Statement extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-        if(statemnt != null){
-            statemnt.prettyPrint();
+        System.out.println("Statement");
+        if(stmnt != null){
+            stmnt.prettyPrint();
         }
     }/*End prettyPrint*/
 

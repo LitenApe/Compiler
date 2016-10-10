@@ -26,8 +26,9 @@ public class ProcCallStatm extends Statement{
         //     e.prettyPrint();
         // }
         // Main.log.prettyOutdent();
+        System.out.println("Proc call");
         if(name != null){
-            Main.log.prettyPrint("  " + name +"(");
+            Main.log.prettyPrint(name +"(");
             for(Expression ep : exp){
                 if(ep != null){
                     ep.prettyPrint();
