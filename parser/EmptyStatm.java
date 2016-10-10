@@ -22,6 +22,6 @@ public class EmptyStatm extends Statement{
 
     @Override
     public void prettyPrint(){
-
+        System.out.println("Empty Statment");
     }/*End prettyPrint*/
 } /* End of class */

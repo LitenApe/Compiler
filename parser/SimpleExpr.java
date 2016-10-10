@@ -21,7 +21,7 @@ public class SimpleExpr extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-        Main.log.prettyPrint("SomeShitHere");
+        Main.log.prettyPrint("Simple Expression");
     }/*End prettyPrint*/
 
     public static SimpleExpr parse(Scanner s){

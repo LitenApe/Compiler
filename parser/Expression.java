@@ -31,6 +31,7 @@ public class Expression extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
+        System.out.println("Expression");
         if (firstValue != null){
             firstValue.prettyPrint();
         }
