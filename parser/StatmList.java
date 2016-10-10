@@ -1,6 +1,7 @@
 package parser;
 
 import java.util.ArrayList;
+import main.Main;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -42,6 +43,8 @@ public class StatmList extends PascalSyntax{
         for(PascalSyntax stLst : stmLst){
             if(stLst != null){
                 stLst.prettyPrint();
+            }else{
+                Main.log.prettyPrintLn("");
             }
         }
     }/*End prettyPrint*/

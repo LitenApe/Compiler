@@ -5,6 +5,7 @@ import static scanner.TokenKind.*;
 
 public abstract class Statement extends PascalSyntax{
 
+    // find which kind of statement it is....
     public PascalSyntax stmnt = null;
 
     public Statement(int n){
