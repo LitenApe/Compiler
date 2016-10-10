@@ -7,6 +7,8 @@ import static scanner.TokenKind.*;
 
 public class SimpleExpr extends PascalSyntax{
 
+    // prefix opr : term : term opr
+
     public ArrayList<TokenKind> prefix = new ArrayList<>();
     public ArrayList<Term> trm = new ArrayList<>();
     public ArrayList<SimpleExpr> simplLst = new ArrayList<>();

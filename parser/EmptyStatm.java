@@ -5,6 +5,9 @@ import static scanner.TokenKind.*;
 
 public class EmptyStatm extends Statement{
 
+    // it's name is empty statm..... which means it's empty
+    // why do you even look
+
     public EmptyStatm(int n){
         super(n);
     } /* End of constructor */
