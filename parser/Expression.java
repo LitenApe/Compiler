@@ -21,7 +21,7 @@ public class Expression extends PascalSyntax{
         if(s.curToken.kind.isRelOpr()){
             expression.relOperator = RelOperator.parse(s);
             expression.secondValue = SimpleExpr.parse(s);
-
+        }
         leaveParser("expression");
         return expression;
     }/*End parse*/

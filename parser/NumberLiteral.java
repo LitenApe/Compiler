@@ -20,7 +20,12 @@ public class NumberLiteral extends UnsignedConstant{
         enterParser("number literal");
 
         NumberLiteral numberLiteral = new NumberLiteral(s.curLineNum());
+
+        s.test(intValToken);
+
         numberLiteral.digit = s.curToken.intVal;
+        
+        s.skip(intValToken);
 
         leaveParser("number literal");
         return numberLiteral;

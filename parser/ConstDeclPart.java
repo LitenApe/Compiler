@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public class ConstDeclPart extends PascalSyntax{
 
+    // const : const decl
+
     ArrayList<ConstDecl> constDeclarations = new ArrayList<>();
     public ConstDeclPart(int n){
         super(n);
@@ -15,11 +17,14 @@ public class ConstDeclPart extends PascalSyntax{
     public static ConstDeclPart parse(Scanner s){
         enterParser("const decl part");
         s.skip(constToken);
+
         ConstDeclPart constDeclPart = new ConstDeclPart(s.curLineNum());
+        
         while(s.curToken.kind == nameToken &&
                 s.nextToken.kind == equalToken){
             constDeclPart.constDeclarations.add(ConstDecl.parse(s));
         }
+
         leaveParser("const decl part");
         return constDeclPart;
     }/*End parse*/
@@ -32,7 +37,7 @@ public class ConstDeclPart extends PascalSyntax{
                 Main.log.prettyPrintLn(cd.name);
             }
         }
-    }/*End prettyprint*/
+    }/* End prettyprint */
 
     @Override
     public String identify() {
