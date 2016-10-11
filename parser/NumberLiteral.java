@@ -21,14 +21,9 @@ public class NumberLiteral extends UnsignedConstant{
 
         NumberLiteral numberLiteral = new NumberLiteral(s.curLineNum());
 
-        // s.test(intValToken);
+        s.test(intValToken);
         numberLiteral.digit = s.curToken.intVal;
-<<<<<<< HEAD
-
         s.skip(intValToken);
-=======
-        // s.skip(intValToken); //TODO: If uncommented this is an issue. to do this.
->>>>>>> 7e06c4b49b9e2680401cc27300dfa6343d2af58f
 
         leaveParser("number literal");
         return numberLiteral;
