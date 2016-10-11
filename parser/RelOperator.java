@@ -6,8 +6,7 @@ import java.util.ArrayList;
 
 public class RelOperator extends Operator{
 
-    public static TokenKind[] operators = {equalToken,notEqualToken,lessToken,
-                                           lessEqualToken,greaterToken,greaterEqualToken};
+    public TokenKind opr = null;
 
     public RelOperator(int n){
         super(n);
@@ -21,10 +20,16 @@ public class RelOperator extends Operator{
     public static RelOperator parse(Scanner s) {
         enterParser("rel operator");
 
-        
+        RelOperator rOpr = new RelOperator(s.curLineNum());
+
+        if(s.curToken.kind.isRelOpr()){
+            rOpr.opr = s.curToken.kind;
+        }
+
+        s.skip(rOpr.opr);
 
         leaveParser("rel operator");
-        return null;
+        return rOpr;
     }/*End parse*/
 
     @Override
