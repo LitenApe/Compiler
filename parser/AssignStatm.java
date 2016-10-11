@@ -7,8 +7,8 @@ public class AssignStatm extends Statement{
 
     // variable : := : expression
 
-    public static Variable varb = null;
-    public static Expression ex;
+    public static Variable variable = null;
+    public static Expression expression = null;
 
     public AssignStatm(int n){
         super(n);
@@ -26,11 +26,9 @@ public class AssignStatm extends Statement{
 
         AssignStatm as = new AssignStatm(s.curLineNum());
 
-        as.varb = Variable.parse(s);
-
+        as.variable = Variable.parse(s);
         s.skip(assignToken);
-
-        ex = new Expression(s.curLineNum());
+        as.expression = Expression.parse(s);
 
         leaveParser("assign statm");
         return as;
