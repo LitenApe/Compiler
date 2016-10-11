@@ -7,8 +7,8 @@ public class ParamDecl extends PascalDecl{
 
     // name : : : type name
 
-    public String name = "";
-    public String tName = "";
+    public NamedConst name = null;
+    public String tName = null;
 
     public ParamDecl(String id, int lNum){
         super(id, lNum);
@@ -19,13 +19,13 @@ public class ParamDecl extends PascalDecl{
 
         ParamDecl parDecl = new ParamDecl(s.curToken.id, s.curLineNum());
 
-        s.test(nameToken);
-        parDecl.name = s.curToken.id;
+        parDecl.name = NamedConst.parse(s);
 
         s.skip(colonToken);
 
         s.test(nameToken);
         parDecl.tName = s.curToken.id;
+        s.skip(nameToken);
 
         leaveParser("param decl");
         return parDecl;

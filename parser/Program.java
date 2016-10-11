@@ -9,9 +9,9 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 public class Program extends PascalDecl{
-    Block progBlock;
-    String progName = null;
-    Scanner s;
+    Block progBlock = null;
+    NamedConst progName = null;
+    Scanner s = null;
 
     public Program(String id, int lNum){
         super(id, lNum);
@@ -20,12 +20,10 @@ public class Program extends PascalDecl{
     public static Program parse(Scanner s){
         enterParser("program");
         s.skip(programToken);
-        s.test(nameToken);
 
         Program p = new Program(s.curToken.id, s.curLineNum());
-        p.progName = s.curToken.id.toLowerCase();
+        p.progName = NamedConst.parse(s);
 
-        s.skip(nameToken);
         s.skip(semicolonToken);
 
         p.progBlock = Block.parse(s);
@@ -63,7 +61,7 @@ public class Program extends PascalDecl{
 
     @Override
     public void prettyPrint(){
-        Main.log.prettyPrintLn("program " + progName + ";");
+        Main.log.prettyPrintLn("program " + progName.name + ";");
         progBlock.prettyPrint();
         Main.log.prettyPrint(".");
     }/*End prettyPrint*/

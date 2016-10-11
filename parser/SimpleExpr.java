@@ -38,16 +38,13 @@ public class SimpleExpr extends PascalSyntax{
 
         while(true){
             simExpr.trm.add(Term.parse(s));
-            s.readNextToken();
 
             if(!s.curToken.kind.isTermOpr()){
                 break;
             }
 
             simExpr.prefix.add(s.curToken.kind);
-            s.readNextToken();
         }
-
         leaveParser("simple expr");
         return simExpr;
     }

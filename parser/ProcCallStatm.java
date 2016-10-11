@@ -20,13 +20,6 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void prettyPrint() {
-        // Main.log.prettyIndent();
-        // Main.log.prettyPrint(name);
-        // for (Expression e : exp){
-        //     e.prettyPrint();
-        // }
-        // Main.log.prettyOutdent();
-        System.out.println("Proc call");
         if(namedConst != null){
             Main.log.prettyPrint(namedConst.name +"(");
             for(Expression ep : exp){
@@ -47,9 +40,7 @@ public class ProcCallStatm extends Statement{
         if(s.curToken.kind == leftParToken){
             s.skip(leftParToken);
             while(true){
-                Expression exprsn = new Expression(s.curLineNum());
-                exprsn.parse(s);
-                procCall.exp.add(exprsn);
+                procCall.exp.add(Expression.parse(s));
 
                 if(s.curToken.kind != commaToken){
                     break;

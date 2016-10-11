@@ -52,7 +52,6 @@ public class Block extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-        System.out.println("Block");
         Main.log.prettyPrintLn("begin");
         Main.log.prettyIndent();
         if(constDeclPart != null){

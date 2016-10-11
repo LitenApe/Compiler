@@ -129,7 +129,6 @@ public class Scanner {
             }
             if(nextToken == null) newToken += charArr[++sourcePos];
         }
-
         nrOfTokens++;
         Main.log.noteToken(nextToken);
     }

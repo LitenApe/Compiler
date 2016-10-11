@@ -4,7 +4,7 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 public class FuncCall extends Factor{
-    String name = "";
+    NamedConst name = null;
     Expression expression = null;
 
     public FuncCall(int n){
@@ -20,8 +20,8 @@ public class FuncCall extends Factor{
         enterParser("func call");
 
         FuncCall fCall = new FuncCall(s.curLineNum());
-        // s.test(nameToken); //tests for later
-        // fCall.name = s.curToken.id; //tests for later
+        fCall.name = NamedConst.parse(s);
+        
         s.skip(leftParToken);
         while(s.curToken.kind != rightParToken){
             fCall.expression = Expression.parse(s);

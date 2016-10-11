@@ -15,7 +15,6 @@ public class Expression extends PascalSyntax{
 
     public static Expression parse(Scanner s) {
         enterParser("expression");
-
         Expression expression = new Expression(s.curLineNum());
         expression.firstValue = SimpleExpr.parse(s);
 
@@ -31,7 +30,6 @@ public class Expression extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-        System.out.println("Expression");
         if (firstValue != null){
             firstValue.prettyPrint();
         }
