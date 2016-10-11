@@ -6,9 +6,9 @@ import static scanner.TokenKind.*;
 public class FuncDecl extends ProcDecl{
 
     // function : name : param decl list : : : type name : ; : block : ;
-    public String funcName = null;
+    public NamedConst funcName = null;
     public ParamDeclList pDclLst = null;
-    public String tName = null;
+    public TypeName tName = null;
     public Block blk = null;
 
     public FuncDecl(String id, int lNum){
@@ -26,24 +26,16 @@ public class FuncDecl extends ProcDecl{
         FuncDecl fDcl = new FuncDecl(s.curToken.id, s.curLineNum());
 
         s.skip(functionToken);
-        s.test(nameToken);
-
-        fDcl.funcName = s.curToken.id;
-        s.skip(nameToken);
+        fDcl.funcName = NamedConst.parse(s);
 
         if(s.curToken.kind == leftParToken){
             fDcl.pDclLst = ParamDeclList.parse(s);
         }
         s.skip(colonToken);
-
-        s.test(nameToken);
-        fDcl.tName = s.curToken.id;
-        s.skip(nameToken);
-
+        fDcl.tName = TypeName.parse(s);
         s.skip(semicolonToken);
         fDcl.blk = Block.parse(s);
         s.skip(semicolonToken);
-
 
         leaveParser("func decl");
         return fDcl;

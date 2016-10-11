@@ -10,10 +10,12 @@ public class NamedConst extends UnsignedConstant{
     }/*End constructor*/
 
     public static NamedConst parse(Scanner s) {
+        // enterParser("named const");
         NamedConst namedConst = new NamedConst(s.curLineNum());
         s.test(nameToken);
         namedConst.name = s.curToken.id;
         s.skip(nameToken);
+        // leaveParser("named const");
         return namedConst;
     }/*End parse*/
 
