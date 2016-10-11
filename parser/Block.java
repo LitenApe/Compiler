@@ -19,28 +19,29 @@ public class Block extends PascalSyntax{
     public static Block parse(Scanner s){
         enterParser("block");
 
-        //Instanciate a new block to return to caller
         Block block = new Block(s.curLineNum());
-        //Return instances of instance variables
-        //TODO: Check if s.skip(endToken) should be prior or after
-        switch(s.curToken.kind){
-            case constToken:
-                block.constDeclPart = ConstDeclPart.parse(s);
-                break;
-            case varToken:
-                block.varDeclPart = VarDeclPart.parse(s);
-                break;
-            case functionToken:
-                block.funcDecl = FuncDecl.parse(s);
-                break;
-            case procedureToken:
-                block.procDecl = ProcDecl.parse(s);
-                break;
-            default:
-                s.skip(beginToken);
-                block.statmList = StatmList.parse(s);
+
+        if (s.curToken.kind == constToken){
+            block.constDeclPart = ConstDeclPart.parse(s);
         }
+        if (s.curToken.kind == varToken){
+            block.varDeclPart = VarDeclPart.parse(s);
+        }
+
+        while(s.curToken.kind != beginToken){
+            if (s.curToken.kind == functionToken){
+                block.funcDecl = FuncDecl.parse(s);
+            }
+            if (s.curToken.kind == procedureToken){
+                block.procDecl = ProcDecl.parse(s);
+            }
+            s.skip(s.curToken.kind);
+        }
+
+        s.skip(beginToken);
+        block.statmList = StatmList.parse(s);
         s.skip(endToken);
+
         leaveParser("block");
         return block;
     }/*End parse*/
