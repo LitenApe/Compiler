@@ -14,8 +14,10 @@ public class CharLiteral extends UnsignedConstant{
     public static CharLiteral parse(Scanner s) {
         enterParser("char literal");
 
+        // s.test(charValToken);
         CharLiteral charLiteral = new CharLiteral(s.curLineNum());
         charLiteral.charValue = s.curToken.charVal;
+        // s.skip(charValToken);
 
         leaveParser("char literal");
         return charLiteral;
@@ -28,6 +30,6 @@ public class CharLiteral extends UnsignedConstant{
 
     @Override
     public void prettyPrint(){
-        
+
     }/*End prettyPrint*/
 }/*End class*/

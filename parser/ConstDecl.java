@@ -18,7 +18,7 @@ public class ConstDecl extends PascalDecl{
 
         ConstDecl constD = new ConstDecl(s.curToken.id,s.curLineNum());
 
-        constD.namedConstant = NamedConst.parse(s); //TODO: TS, det her er named constant for navn.
+        constD.namedConstant = NamedConst.parse(s);
 
         s.skip(equalToken);
         constD.cnst = Constant.parse(s);
