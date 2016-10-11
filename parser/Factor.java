@@ -46,7 +46,6 @@ public abstract class Factor extends PascalSyntax{
                 factor = UnsignedConstant.parse(s);
                 break;
         }/*End switch*/
-
         leaveParser("factor");
         return factor;
     }/*End parse*/
