@@ -38,14 +38,6 @@
         </java>
     </target>
 
-    <!-- <target name="run" depends="jar,arguments" description="Kjør JAR-fil">
-        <java jar="pascal2016.jar" fork="true">
-            <arg value="-testscanner"/>
-            <arg value="pascal/testFiles/${file_path}"/>
-            <arg value="-logS"/>
-        </java>
-    </target> -->
-
     <target name="arguments" unless="file">
         <input addProperty="file_path" message="Type in path: "/>
     </target>

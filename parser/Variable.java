@@ -16,7 +16,6 @@ public class Variable extends Factor{
         enterParser("variable");
 
         Variable variable = new Variable(s.curLineNum());
-        s.test(nameToken);
         variable.name = NamedConst.parse(s);
 
         if (s.curToken.kind == leftBracketToken){
