@@ -33,7 +33,7 @@ public abstract class Factor extends PascalSyntax{
                 }
                 else{
                     //TODO: Kan være funksjon eller UnsignedConstant uansett
-                    factor = UnsignedConstant.parse(s);
+                    factor = Variable.parse(s);
                 }
                 break;
             case notToken:
