@@ -31,7 +31,7 @@ public abstract class UnsignedConstant extends Factor{
                 unsignedConstant = CharLiteral.parse(s);
                 break;
         }/*End switch*/
-        
+
         s.skip(s.curToken.kind);
         leaveParser("unsigned constant");
         return unsignedConstant;

@@ -20,6 +20,9 @@ public class RelOperator extends Operator{
 
     public static RelOperator parse(Scanner s) {
         enterParser("rel operator");
+
+        
+
         leaveParser("rel operator");
         return null;
     }/*End parse*/

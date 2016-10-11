@@ -6,8 +6,8 @@ import static scanner.TokenKind.*;
 public class Expression extends PascalSyntax{
 
     SimpleExpr firstValue = null;
-    SimpleExpr secondValue = null;
     RelOperator relOperator = null;
+    SimpleExpr secondValue = null;
 
     public Expression(int n){
         super(n);
@@ -18,12 +18,10 @@ public class Expression extends PascalSyntax{
         Expression expression = new Expression(s.curLineNum());
         expression.firstValue = SimpleExpr.parse(s);
 
-        for (TokenKind kind : RelOperator.operators){
-            if(kind == s.curToken.kind){
-                expression.relOperator = RelOperator.parse(s);
-                expression.secondValue = SimpleExpr.parse(s);
-            }
-        }
+        if(s.curToken.kind.isRelOpr()){
+            expression.relOperator = RelOperator.parse(s);
+            expression.secondValue = SimpleExpr.parse(s);
+
         leaveParser("expression");
         return expression;
     }/*End parse*/

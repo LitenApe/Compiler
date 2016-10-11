@@ -32,7 +32,7 @@ public abstract class Factor extends PascalSyntax{
                     factor = FuncCall.parse(s);
                 }
                 else{
-                    //TODO: Kan være funksjon eller variabel uansett
+                    //TODO: Kan være funksjon eller UnsignedConstant uansett
                     factor = UnsignedConstant.parse(s);
                 }
                 break;
