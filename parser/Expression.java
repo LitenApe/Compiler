@@ -22,6 +22,7 @@ public class Expression extends PascalSyntax{
             expression.relOperator = RelOperator.parse(s);
             expression.secondValue = SimpleExpr.parse(s);
         }
+        
         leaveParser("expression");
         return expression;
     }/*End parse*/

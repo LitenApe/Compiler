@@ -5,6 +5,8 @@ import static scanner.TokenKind.*;
 
 public class Constant extends PascalSyntax{
 
+    // prefix opr : unsigned opr
+
     PrefixOperator prefixOpr;
     UnsignedConstant uConstant;
 

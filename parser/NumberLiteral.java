@@ -24,8 +24,13 @@ public class NumberLiteral extends UnsignedConstant{
         s.test(intValToken);
 
         numberLiteral.digit = s.curToken.intVal;
-        
+
+        System.out.println("NL: -s: " + s.curToken.identify());
+
         s.skip(intValToken);
+
+        System.out.println("NL: -c: " + s.curToken.identify());
+        System.out.println("NL: -n: " + s.nextToken.identify());
 
         leaveParser("number literal");
         return numberLiteral;

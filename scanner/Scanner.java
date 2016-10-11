@@ -129,6 +129,8 @@ public class Scanner {
             }
             if(nextToken == null) newToken += charArr[++sourcePos];
         }
+        if(curToken != null)
+            System.out.println("from scanner: " + curToken.identify());
         nrOfTokens++;
         Main.log.noteToken(nextToken);
     }

@@ -19,9 +19,8 @@ public class ConstDeclPart extends PascalSyntax{
         s.skip(constToken);
 
         ConstDeclPart constDeclPart = new ConstDeclPart(s.curLineNum());
-        
-        while(s.curToken.kind == nameToken &&
-                s.nextToken.kind == equalToken){
+
+        while(s.curToken.kind == nameToken){
             constDeclPart.constDeclarations.add(ConstDecl.parse(s));
         }
 
