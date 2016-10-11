@@ -25,7 +25,7 @@ public class ParamDeclList extends PascalSyntax{
         s.skip(leftParToken);
 
         while (s.curToken.kind != rightParToken){
-            listOfParamDecls.add(ParamDecl.parse(s));
+            pDeclList.listOfParamDecls.add(ParamDecl.parse(s));
 
             if (s.curToken.kind == semicolonToken){
                 s.skip(semicolonToken);

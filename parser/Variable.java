@@ -24,6 +24,7 @@ public class Variable extends Factor{
             s.skip(rightBracketToken);
         }
 
+        //TODO: Kan være variable uten expression (?) 
         leaveParser("variable");
         return variable;
     }/*End parse*/

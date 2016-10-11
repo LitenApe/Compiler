@@ -23,9 +23,16 @@ public class VarDeclPart extends PascalSyntax{
         VarDeclPart varDeclPart = new VarDeclPart(s.curLineNum());
         s.skip(varToken);
 
+        //TODO: What is this plzzzz
+        // while(s.curToken.kind == nameToken &&
+        //         s.nextToken.kind == semicolonToken){
+        //     varDeclPart.varDecls.add(VarDecl.parse(s));
+        // }/*End while*/
+
         while(s.curToken.kind == nameToken){
-            varDeclPart.varDecls.add(VarDecl.parse(s));
-        }/*End while*/
+           varDeclPart.varDecls.add(VarDecl.parse(s));
+       }/*End while*/
+
 
         leaveParser("var decl part");
         return varDeclPart;

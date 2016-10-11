@@ -32,13 +32,14 @@ public abstract class Factor extends PascalSyntax{
                     factor = FuncCall.parse(s);
                 }
                 else{
+                    //TODO: Kan være funksjon eller variabel uansett
                     factor = UnsignedConstant.parse(s);
                 }
                 break;
-            case notToken: //Variables, rm l8r
+            case notToken:
                 factor = Negation.parse(s);
                 break;
-            case leftParToken: //Func call
+            case leftParToken:
                 factor = InnerExpr.parse(s);
                 break;
             default:
