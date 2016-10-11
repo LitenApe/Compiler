@@ -14,10 +14,7 @@ public class CharLiteral extends UnsignedConstant{
     public static CharLiteral parse(Scanner s) {
         enterParser("char literal");
 
-<<<<<<< HEAD
         s.test(charValToken);
-=======
->>>>>>> 2007c08a1b052c62197d6a66f6da8ef79e58cf3f
         CharLiteral charLiteral = new CharLiteral(s.curLineNum());
 
         s.test(charValToken);
