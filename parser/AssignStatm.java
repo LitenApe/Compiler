@@ -26,12 +26,10 @@ public class AssignStatm extends Statement{
 
         AssignStatm as = new AssignStatm(s.curLineNum());
 
-        s.test(nameToken);
         as.varb = Variable.parse(s);
 
         s.skip(assignToken);
 
-        s.test(nameToken);
         ex = new Expression(s.curLineNum());
 
         leaveParser("assign statm");
