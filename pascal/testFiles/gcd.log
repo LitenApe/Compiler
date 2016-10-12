@@ -1,10 +1,10 @@
-   1: program GCD;
+   1: program GCD; 
 Parser:   <program>
-   2: /* A program to compute the {greatest common} of two numbers,
-   3:    i.e., the biggest number by which the two original
-   4:    numbers can be divided without a remainder. */
-   5:
-   6: const v1 = 1071; v2 = 462;
+   2: /* A program to compute the {greatest common} of two numbers, 
+   3:    i.e., the biggest number by which the two original 
+   4:    numbers can be divided without a remainder. */ 
+   5:  
+   6: const v1 = 1071; v2 = 462; 
 Parser:     <block>
 Parser:       <const decl part>
 Parser:         <const decl>
@@ -19,8 +19,8 @@ Parser:         <const decl>
 Parser:           <constant>
 Parser:             <unsigned constant>
 Parser:               <number literal>
-   7:
-   8: var res: integer;
+   7:  
+   8: var res: integer; 
 Parser:               </number literal>
 Parser:             </unsigned constant>
 Parser:           </constant>
@@ -30,8 +30,8 @@ Parser:       <var decl part>
 Parser:         <var decl>
 Parser:           <type>
 Parser:             <type name>
-   9:
-  10: function GCD (m: integer; n: integer): integer;
+   9:  
+  10: function GCD (m: integer; n: integer): integer; 
 Parser:             </type name>
 Parser:           </type>
 Parser:         </var decl>
@@ -48,9 +48,9 @@ Parser:             </type name>
 Parser:           </param decl>
 Parser:         </param decl list>
 Parser:         <type name>
-  11: begin
+  11: begin 
 Parser:         </type name>
-  12:    if n = 0 then
+  12:    if n = 0 then 
 Parser:         <block>
 Parser:           <statm list>
 Parser:             <statement>
@@ -71,7 +71,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-  13:       GCD := m
+  13:       GCD := m 
 Parser:                           </number literal>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
@@ -82,13 +82,13 @@ Parser:                 <statement>
 Parser:                   <assign statm>
 Parser:                     <variable>
 Parser:                     </variable>
-  14:    else
+  14:    else 
 Parser:                     <expression>
 Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-  15:       GCD := GCD(n, m mod n)
+  15:       GCD := GCD(n, m mod n) 
 Parser:                             </variable>
 Parser:                           </factor>
 Parser:                         </term>
@@ -126,7 +126,7 @@ Parser:                                     <factor opr>
 Parser:                                     </factor opr>
 Parser:                                     <factor>
 Parser:                                       <variable>
-  16: end; { GCD }
+  16: end; { GCD } 
 Parser:                                       </variable>
 Parser:                                     </factor>
 Parser:                                   </term>
@@ -142,10 +142,10 @@ Parser:                 </statement>
 Parser:               </if-statm>
 Parser:             </statement>
 Parser:           </statm list>
-  17:
-  18: begin
+  17:  
+  18: begin 
 Parser:         </block>
-  19:    res := GCD(v1,v2);
+  19:    res := GCD(v1,v2); 
 Parser:       </func decl>
 Parser:       <statm list>
 Parser:         <statement>
@@ -177,7 +177,7 @@ Parser:                             </factor>
 Parser:                           </term>
 Parser:                         </simple expr>
 Parser:                       </expression>
-  20:    write('G', 'C', 'D', '(', v1, ',', v2, ')', '=', res, eol);
+  20:    write('G', 'C', 'D', '(', v1, ',', v2, ')', '=', res, eol); 
 Parser:                     </func call>
 Parser:                   </factor>
 Parser:                 </term>
@@ -311,7 +311,7 @@ Parser:                   </factor>
 Parser:                 </term>
 Parser:               </simple expr>
 Parser:             </expression>
-  21: end.
+  21: end. 
 Parser:           </proc call>
 Parser:         </statement>
 Parser:         <statement>
@@ -327,17 +327,14 @@ const
   v2 = 462;
 var
   res: integer;
-
 function gcd (m: integer; n: integer): integer;
 begin
   if n = 0 then
-    gcd := m
+    res := gcd(v1, v2)
   else
-    gcd := gcd(n, m mod n)
-end; {gcd}
-
+    res := gcd(v1, v2)
+end;
 begin
-  res := gcd(v1, v2);
-  write('G', 'C', 'D', '(', v1, ',', v2, ')', '=', res, eol);
-
+  res := gcd(v1, v2)
+  write('G''C''D''('v1','v2')''='reseol);
 end.

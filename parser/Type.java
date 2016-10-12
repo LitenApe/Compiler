@@ -25,11 +25,6 @@ public abstract class Type extends PascalSyntax{
     }/*End parse*/
 
     @Override
-    public void prettyPrint(){
-
-    }/*End prettyPrint*/
-
-    @Override
     public String identify() {
         return "<type> on line " + lineNum;
     } /* End of identify */

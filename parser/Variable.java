@@ -2,6 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public class Variable extends Factor{
 
@@ -11,6 +12,16 @@ public class Variable extends Factor{
     public Variable(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void prettyPrint(){
+        name.prettyPrint();
+        if (expression != null){
+            Main.log.prettyPrint(" [");
+            expression.prettyPrint();
+            Main.log.prettyPrint("] ");
+        }
+    }/*End prettyPrint*/
 
     public static Variable parse(Scanner s) {
         enterParser("variable");
@@ -24,7 +35,7 @@ public class Variable extends Factor{
             s.skip(rightBracketToken);
         }
 
-        //TODO: Kan være variable uten expression (?) 
+        //TODO: Kan være variable uten expression (?)
         leaveParser("variable");
         return variable;
     }/*End parse*/
@@ -33,9 +44,4 @@ public class Variable extends Factor{
     public String identify() {
         return "<Variable> on line " + lineNum;
     } /* End of identify */
-
-    @Override
-    public void prettyPrint(){
-
-    }/*End prettyPrint*/
 }/*End class*/

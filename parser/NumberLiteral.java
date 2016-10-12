@@ -13,6 +13,11 @@ public class NumberLiteral extends UnsignedConstant{
     }/*End constructor*/
 
     @Override
+    public void prettyPrint(){
+        Main.log.prettyPrint(""+digit);
+    }/*End prettyPrint*/
+
+    @Override
     public String identify() {
         return "<NumberLiteral> on line " + lineNum;
     } /* End of identify */
@@ -29,9 +34,4 @@ public class NumberLiteral extends UnsignedConstant{
         leaveParser("number literal");
         return numberLiteral;
     }/*End parse*/
-
-    @Override
-    public void prettyPrint(){
-        Main.log.prettyPrint(""+digit);
-    }/*End prettyPrint*/
 }/*End class*/

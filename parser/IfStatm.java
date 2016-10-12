@@ -2,6 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public class IfStatm extends Statement{
 
@@ -13,6 +14,24 @@ public class IfStatm extends Statement{
     public IfStatm(int n){
         super(n);
     } /* End of public */
+
+    @Override
+    public void prettyPrint() {
+        Main.log.prettyPrint("if ");
+        exp.prettyPrint();
+        Main.log.prettyPrintLn(" then");
+        Main.log.prettyIndent();
+        stat.prettyPrint();
+        Main.log.prettyOutdent();
+
+        if (elseExp != null){
+            Main.log.prettyPrintLn("else");
+            Main.log.prettyIndent();
+            elseExp.prettyPrint();
+            Main.log.prettyOutdent();
+
+        }
+    }/*End prettyprint*/
 
     public static IfStatm parse(Scanner s) {
         enterParser("if-statm");
@@ -37,10 +56,4 @@ public class IfStatm extends Statement{
     @Override public String identify() {
         return "<IfStatm> on line " + lineNum;
     } /* End of identify */
-
-    @Override
-    public void prettyPrint() {
-
-    }
-
 } /* End of class */

@@ -12,6 +12,11 @@ public class TypeName extends Type{
         super(lNum);
     }/*End constructor*/
 
+    @Override
+    public void prettyPrint(){
+        namedConstant.prettyPrint();
+    }/*End prettyPrint*/
+
     public static TypeName parse(Scanner s) {
         enterParser("type name");
 
@@ -21,11 +26,6 @@ public class TypeName extends Type{
         leaveParser("type name");
         return typeName;
     }/*End parse*/
-
-    @Override
-    public void prettyPrint(){
-
-    }/*End prettyPrint*/
 
     @Override
     public String identify() {

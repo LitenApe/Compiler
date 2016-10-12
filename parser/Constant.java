@@ -15,14 +15,17 @@ public class Constant extends PascalSyntax{
     }/*End constructor*/
 
     @Override
+    public void prettyPrint(){
+        if (prefixOpr != null){
+            prefixOpr.prettyPrint();
+        }
+        uConstant.prettyPrint(); 
+    }/*End prettyPrint*/
+
+    @Override
     public String identify(){
         return "<constant> on line " + lineNum;
     }/*End identify*/
-
-    @Override
-    public void prettyPrint(){
-
-    }/*End prettyPrint*/
 
     public static Constant parse(Scanner s){
         enterParser("constant");

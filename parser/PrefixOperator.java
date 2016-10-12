@@ -34,6 +34,9 @@ public class PrefixOperator extends Operator{
         return po;
     }/*End parse*/
 
-    //TODO: prettyPrint?
+    @Override
+    public void prettyPrint(){
+        Main.log.prettyPrint(prefix.toString());
+    }/*End prettyPrint*/
 
 }/*End class*/

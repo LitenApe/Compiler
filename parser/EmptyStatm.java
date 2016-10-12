@@ -19,8 +19,11 @@ public class EmptyStatm extends Statement{
 
     public static EmptyStatm parse(Scanner s) {
         enterParser("empty statm");
+
+        EmptyStatm emptyStatm = new EmptyStatm(s.curLineNum());
+
         leaveParser("empty statm");
-        return null;
+        return emptyStatm;
     }/*End parse*/
 
     @Override

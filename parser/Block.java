@@ -52,17 +52,21 @@ public class Block extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-        Main.log.prettyPrintLn("begin");
-        Main.log.prettyIndent();
         if(constDeclPart != null){
             constDeclPart.prettyPrint();
-        }else if(varDeclPart != null){
+        }
+        if(varDeclPart != null){
             varDeclPart.prettyPrint();
-        }else if(funcDecl != null){
+        }
+        if(funcDecl != null){
             funcDecl.prettyPrint();
-        }else if(procDecl != null){
+        }
+        if(procDecl != null){
             procDecl.prettyPrint();
-        }else if(statmList != null){
+        }
+        if(statmList != null){
+            Main.log.prettyPrintLn("begin");
+            Main.log.prettyIndent(); 
             statmList.prettyPrint();
         }
         Main.log.prettyOutdent();

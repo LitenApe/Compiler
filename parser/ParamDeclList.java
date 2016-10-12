@@ -3,6 +3,7 @@ package parser;
 import scanner.*;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
+import main.Main;
 
 public class ParamDeclList extends PascalSyntax{
 
@@ -12,6 +13,18 @@ public class ParamDeclList extends PascalSyntax{
         super(n);
         listOfParamDecls = new ArrayList<>();
     }
+
+    @Override
+    public void prettyPrint(){
+        Main.log.prettyPrint(" (");
+        for (ParamDecl p : listOfParamDecls){
+            p.prettyPrint();
+            if (listOfParamDecls.get(listOfParamDecls.size()-1) != p){
+                Main.log.prettyPrint("; ");
+            }
+        }
+        Main.log.prettyPrint(")");
+    }/*End prettyPrint*/
 
     @Override
     public String identify() {
@@ -36,9 +49,4 @@ public class ParamDeclList extends PascalSyntax{
         leaveParser("param decl list");
         return pDeclList;
     }/*End parse*/
-
-    @Override
-    public void prettyPrint(){
-
-    }/*End prettyPrint*/
 }

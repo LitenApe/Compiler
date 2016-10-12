@@ -3,6 +3,7 @@ package parser;
 import scanner.*;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
+import main.Main;
 
 public class RelOperator extends Operator{
 
@@ -12,6 +13,11 @@ public class RelOperator extends Operator{
         super(n);
     }/*Enc constructor*/
 
+    @Override
+    public void prettyPrint(){
+        Main.log.prettyPrint(" "+opr.toString()+" ");
+    }
+    
     @Override
     public String identify() {
         return "<RelOperator> on line " + lineNum;
@@ -31,8 +37,4 @@ public class RelOperator extends Operator{
         leaveParser("rel opr");
         return rOpr;
     }/*End parse*/
-
-    @Override
-    public void prettyPrint() {
-    }
 }/*End class*/

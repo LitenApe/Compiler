@@ -2,6 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public class ConstDecl extends PascalDecl{
 
@@ -12,6 +13,14 @@ public class ConstDecl extends PascalDecl{
     public ConstDecl(String id, int lNum){
         super(id, lNum);
     }/*Enc constructor*/
+
+    @Override
+    public void prettyPrint(){
+        namedConstant.prettyPrint();
+        Main.log.prettyPrint(" = ");
+        cnst.prettyPrint();
+        Main.log.prettyPrintLn(";");
+    }/*End prettyPrint*/
 
     public static ConstDecl parse(Scanner s){
         enterParser("const decl");
@@ -53,9 +62,4 @@ public class ConstDecl extends PascalDecl{
     public void checkWhetherValue(PascalSyntax where){
 
     }/*End checkWhetherValue*/
-
-    @Override
-    public void prettyPrint(){
-
-    }/*End prettyPrint*/
 }/*End class*/

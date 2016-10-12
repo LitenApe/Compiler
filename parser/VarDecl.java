@@ -2,6 +2,7 @@ package parser;
 
 import scanner.Scanner;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public class VarDecl extends PascalDecl{
 
@@ -13,6 +14,14 @@ public class VarDecl extends PascalDecl{
     public VarDecl(String id, int lNum){
         super(id, lNum);
     }/*Enc constructor*/
+
+    @Override
+    public void prettyPrint(){
+        namedConst.prettyPrint();
+        Main.log.prettyPrint(": ");
+        tpe.prettyPrint();
+        Main.log.prettyPrintLn(";");
+    }/*End prettyPrint*/
 
     public static VarDecl parse(Scanner s){
         enterParser("var decl");

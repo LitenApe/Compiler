@@ -2,6 +2,7 @@ package parser;
 
 import scanner.Scanner;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public class FuncDecl extends ProcDecl{
 
@@ -19,6 +20,22 @@ public class FuncDecl extends ProcDecl{
     public String identify() {
         return "<FuncDecl> " + name + " on line " + lineNum;
     } /* End of identify */
+
+    @Override
+    public void prettyPrint(){
+        Main.log.prettyPrint("function ");
+        funcName.prettyPrint();
+
+        if (pDclLst != null){
+            pDclLst.prettyPrint();
+        }
+
+        Main.log.prettyPrint(": ");
+        tName.prettyPrint();
+        Main.log.prettyPrintLn(";");
+        blk.prettyPrint();
+        Main.log.prettyPrintLn(";");
+    }/*End prettyPrint*/
 
     public static FuncDecl parse(Scanner s){
         enterParser("func decl");
@@ -40,11 +57,6 @@ public class FuncDecl extends ProcDecl{
         leaveParser("func decl");
         return fDcl;
     }/*End parse*/
-
-    @Override
-    public void prettyPrint(){
-
-    }/*End prettyPrint*/
 
     //TODO: this class doesnt override any of the 4 abstract methods in ProcDecl
     //which is inherited from PascalDecl. If needed, we need to implement this

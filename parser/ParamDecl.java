@@ -2,6 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public class ParamDecl extends PascalDecl{
 
@@ -13,6 +14,13 @@ public class ParamDecl extends PascalDecl{
     public ParamDecl(String id, int lNum){
         super(id, lNum);
     }/*Enc constructor*/
+
+    @Override
+    public void prettyPrint(){
+        name.prettyPrint();
+        Main.log.prettyPrint(": ");
+        tName.prettyPrint();
+    }/*End prettyPrint*/
 
     public static ParamDecl parse(Scanner s){
         enterParser("param decl");
@@ -53,9 +61,4 @@ public class ParamDecl extends PascalDecl{
     public void checkWhetherValue(PascalSyntax where){
 
     }/*End checkWhetherValue*/
-
-    @Override
-    public void prettyPrint(){
-
-    }/*End prettyPrint*/
 }/*End class*/

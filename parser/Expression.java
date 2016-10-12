@@ -29,13 +29,9 @@ public class Expression extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-        if (firstValue != null){
-            firstValue.prettyPrint();
-        }
+        firstValue.prettyPrint();
         if(relOperator != null){
             relOperator.prettyPrint();
-        }
-        if(secondValue != null){
             secondValue.prettyPrint();
         }
     }/*End prettyPrint*/

@@ -2,6 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public class AssignStatm extends Statement{
 
@@ -16,15 +17,15 @@ public class AssignStatm extends Statement{
 
     @Override
     public void prettyPrint(){
-        System.out.println("assign statment");
+        variable.prettyPrint();
+        Main.log.prettyPrint(" := ");
+        expression.prettyPrint();
     }/*End prettyPrint*/
 
     @Override
     public String identify() {
         return "<AssignStatm> on line " + lineNum;
     } /* End of identify */
-
-    //TODO: prettyPrint?
 
     public static AssignStatm parse(Scanner s) {
         enterParser("assign statm");

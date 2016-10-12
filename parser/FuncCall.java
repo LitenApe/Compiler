@@ -2,17 +2,34 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
+import java.util.ArrayList;
+import main.Main;
 
 public class FuncCall extends Factor{
 
     // name : ( : expression : , : )
 
     NamedConst name = null;
-    Expression expression = null;
+    ArrayList<Expression> expressions = new ArrayList<>();
 
     public FuncCall(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void prettyPrint(){
+        name.prettyPrint();
+        if (expressions != null){
+            Main.log.prettyPrint("(");
+            for (Expression e : expressions){
+                e.prettyPrint();
+                if (e != expressions.get(expressions.size()-1)){
+                    Main.log.prettyPrint(", ");
+                }
+            }
+            Main.log.prettyPrintLn(")");
+        }
+    }/*End prettyPrint*/
 
     @Override
     public String identify() {
@@ -27,11 +44,12 @@ public class FuncCall extends Factor{
         if(s.curToken.kind == leftParToken){
             s.skip(leftParToken);
             while(true){
-                fCall.expression = Expression.parse(s);
+                fCall.expressions.add(Expression.parse(s));
                 if(s.curToken.kind != commaToken){
-                    break;
+                    break; //TODO: ERROR
+                }else{
+                    s.skip(commaToken);
                 }
-                s.skip(commaToken);
             }
             s.skip(rightParToken);
         }
@@ -39,11 +57,4 @@ public class FuncCall extends Factor{
         leaveParser("func call");
         return fCall;
     }/*End parse*/
-
-    @Override
-    public void prettyPrint(){
-
-    }/*End prettyPrint*/
-
-
 }/*End class*/

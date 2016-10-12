@@ -32,6 +32,6 @@ Parser:     </block>
 Parser:   </program>
 program mini;
 begin
-  write('x');
+  write('x') ;
 
 end.

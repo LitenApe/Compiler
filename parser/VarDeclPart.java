@@ -3,6 +3,7 @@ package parser;
 import scanner.Scanner;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
+import main.Main;
 
 public class VarDeclPart extends PascalSyntax{
 
@@ -11,6 +12,16 @@ public class VarDeclPart extends PascalSyntax{
     public VarDeclPart(int n){
         super(n);
     } /* End of constructor */
+
+    @Override
+    public void prettyPrint(){
+        Main.log.prettyPrintLn("var");
+        Main.log.prettyIndent();
+        for (VarDecl v : varDecls){
+            v.prettyPrint();
+        }
+        Main.log.prettyOutdent();
+    }/*End prettyPrint*/
 
     @Override
     public String identify() {
@@ -23,12 +34,6 @@ public class VarDeclPart extends PascalSyntax{
         VarDeclPart varDeclPart = new VarDeclPart(s.curLineNum());
         s.skip(varToken);
 
-        //TODO: What is this plzzzz
-        // while(s.curToken.kind == nameToken &&
-        //         s.nextToken.kind == semicolonToken){
-        //     varDeclPart.varDecls.add(VarDecl.parse(s));
-        // }/*End while*/
-
         while(s.curToken.kind == nameToken){
            varDeclPart.varDecls.add(VarDecl.parse(s));
        }/*End while*/
@@ -37,9 +42,4 @@ public class VarDeclPart extends PascalSyntax{
         leaveParser("var decl part");
         return varDeclPart;
     }/*End parse*/
-
-    @Override
-    public void prettyPrint(){
-
-    }/*End prettyPrint*/
 } /* End of class */

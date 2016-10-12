@@ -31,15 +31,17 @@ public class ConstDeclPart extends PascalSyntax{
     @Override
     public void prettyPrint(){
         Main.log.prettyPrintLn("const");
+        Main.log.prettyIndent();
         if (!constDeclarations.isEmpty()){
             for (ConstDecl cd : constDeclarations) {
-                Main.log.prettyPrintLn(cd.name);
+                cd.prettyPrint(); 
             }
         }
+        Main.log.prettyOutdent();
     }/* End prettyprint */
 
     @Override
-    public String identify() {
+    public String identify(){
         return "<ConstDeclPart> on line " + lineNum;
     } /* End of identify */
 
