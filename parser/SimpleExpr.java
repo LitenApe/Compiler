@@ -8,7 +8,7 @@ import static scanner.TokenKind.*;
 public class SimpleExpr extends PascalSyntax{
 
     // prefix opr : term : term opr
-    public TokenKind prefix = null;
+    public PrefixOperator prefix = null;
     public ArrayList<TermOperator> termOpr = new ArrayList<>();
     public ArrayList<Term> term = new ArrayList<>();
 
@@ -31,8 +31,7 @@ public class SimpleExpr extends PascalSyntax{
         SimpleExpr simExpr = new SimpleExpr(s.curLineNum());
 
         if(s.curToken.kind.isPrefixOpr()){
-            simExpr.prefix = s.curToken.kind;
-            s.skip(s.curToken.kind);
+            simExpr.prefix = PrefixOperator.parse(s);
         }
 
         while(true){

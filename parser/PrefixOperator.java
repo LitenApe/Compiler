@@ -1,9 +1,12 @@
 package parser;
 
+import main.Main;
 import scanner.*;
 import static scanner.TokenKind.*;
 
 public class PrefixOperator extends Operator{
+
+    public TokenKind prefix = null;
 
     public PrefixOperator(int n){
         super(n);
@@ -15,9 +18,20 @@ public class PrefixOperator extends Operator{
     } /* End of identify */
 
     public static PrefixOperator parse(Scanner s) {
-        enterParser("prefix operator");
-        leaveParser("prefix operator");
-        return null;
+        enterParser("prefix opr");
+
+        PrefixOperator po = new PrefixOperator(s.curLineNum());
+
+        if(s.curToken.kind.isPrefixOpr()){
+            po.prefix = s.curToken.kind;
+            s.skip(po.prefix);
+        }else{
+            // FEIL
+            Main.error("FDSAFS");
+        }
+
+        leaveParser("prefix opr");
+        return po;
     }/*End parse*/
 
     //TODO: prettyPrint?
