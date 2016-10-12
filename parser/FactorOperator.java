@@ -15,7 +15,7 @@ public class FactorOperator extends Operator{
     public String identify() {
         return "<FactorOperator> on line " + lineNum;
     } /* End of identify */
-
+    
     public static FactorOperator parse(Scanner s) {
         enterParser("factor opr");
 
