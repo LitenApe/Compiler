@@ -5,6 +5,8 @@ import static scanner.TokenKind.*;
 
 public class FactorOperator extends Operator{
 
+    TokenKind tokenKind = null;
+
     public FactorOperator(int n){
         super(n);
     }/*Enc constructor*/
@@ -17,13 +19,13 @@ public class FactorOperator extends Operator{
     public static FactorOperator parse(Scanner s) {
         enterParser("factor opr");
 
-        FactorOperator fOpr = null;
+        FactorOperator fOpr = new FactorOperator(s.curLineNum());
 
         if(s.curToken.kind.isFactorOpr()){
-            fOpr = new FactorOperator(s.curLineNum());
+            fOpr.tokenKind = s.curToken.kind;
             s.skip(s.curToken.kind);
         }else{
-            s.skip(s.curToken.kind);
+            s.skip(s.curToken.kind); // TODO: This shit need to fail.
         }
 
         leaveParser("factor opr");

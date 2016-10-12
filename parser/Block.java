@@ -35,7 +35,6 @@ public class Block extends PascalSyntax{
             if (s.curToken.kind == procedureToken){
                 block.procDecl = ProcDecl.parse(s);
             }
-            s.skip(s.curToken.kind);
         }
 
         s.skip(beginToken);

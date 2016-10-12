@@ -5,6 +5,8 @@ import static scanner.TokenKind.*;
 
 public class TermOperator extends Operator{
 
+    TokenKind tokenKind = null;
+
     public TermOperator(int n){
         super(n);
     }/*Enc constructor*/
@@ -15,9 +17,18 @@ public class TermOperator extends Operator{
     } /* End of identify */
 
     public static TermOperator parse(Scanner s) {
-        enterParser("term operator");
-        leaveParser("term operator");
-        return null;
+        enterParser("term opr");
+
+        TermOperator operator = new TermOperator(s.curLineNum());
+        s.test(s.curToken.kind);
+        if(s.curToken.kind.isTermOpr()){
+            operator.tokenKind = s.curToken.kind;
+            s.skip(s.curToken.kind);
+        }else{
+            s.skip(s.curToken.kind); // TODO: THIS SHIT NEEDS TO FAIL
+        }
+        leaveParser("term opr");
+        return operator;
     }/*End parse*/
 
     //TODO: prettyPrint?
