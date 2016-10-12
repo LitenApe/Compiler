@@ -23,9 +23,9 @@ public class FuncDecl extends ProcDecl{
     public static FuncDecl parse(Scanner s){
         enterParser("func decl");
 
-        FuncDecl fDcl = new FuncDecl(s.curToken.id, s.curLineNum());
-
         s.skip(functionToken);
+
+        FuncDecl fDcl = new FuncDecl(s.curToken.id, s.curLineNum());
         fDcl.funcName = NamedConst.parse(s);
 
         if(s.curToken.kind == leftParToken){

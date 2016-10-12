@@ -18,7 +18,7 @@ public class RelOperator extends Operator{
     } /* End of identify */
 
     public static RelOperator parse(Scanner s) {
-        enterParser("rel operator");
+        enterParser("rel opr");
 
         RelOperator rOpr = new RelOperator(s.curLineNum());
 
@@ -28,7 +28,7 @@ public class RelOperator extends Operator{
 
         s.skip(rOpr.opr);
 
-        leaveParser("rel operator");
+        leaveParser("rel opr");
         return rOpr;
     }/*End parse*/
 

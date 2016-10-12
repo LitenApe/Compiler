@@ -15,7 +15,7 @@ public class IfStatm extends Statement{
     } /* End of public */
 
     public static IfStatm parse(Scanner s) {
-        enterParser("if statm");
+        enterParser("if-statm");
 
         IfStatm ifStat = new IfStatm(s.curLineNum());
 
@@ -30,7 +30,7 @@ public class IfStatm extends Statement{
             ifStat.elseExp = Statement.parse(s);
         }
 
-        leaveParser("if statm");
+        leaveParser("if-statm");
         return ifStat;
     }/*End parse*/
 

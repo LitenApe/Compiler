@@ -4,6 +4,9 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 public class FuncCall extends Factor{
+
+    // name : ( : expression : , : )
+
     NamedConst name = null;
     Expression expression = null;
 
@@ -21,13 +24,18 @@ public class FuncCall extends Factor{
 
         FuncCall fCall = new FuncCall(s.curLineNum());
         fCall.name = NamedConst.parse(s);
-        
-        s.skip(leftParToken);
-        while(s.curToken.kind != rightParToken){
-            fCall.expression = Expression.parse(s);
-            s.skip(commaToken);
+        if(s.curToken.kind == leftParToken){
+            s.skip(leftParToken);
+            while(true){
+                fCall.expression = Expression.parse(s);
+                if(s.curToken.kind != commaToken){
+                    break;
+                }
+                s.skip(commaToken);
+            }
+            s.skip(rightParToken);
         }
-        s.skip(rightParToken);
+
         leaveParser("func call");
         return fCall;
     }/*End parse*/
