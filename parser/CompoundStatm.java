@@ -28,7 +28,7 @@ public class CompoundStatm extends Statement{
         s.skip(endToken);
 
         leaveParser("compound statm");
-        return null;
+        return cmdStatm;
     }/*End parse*/
 
     @Override

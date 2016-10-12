@@ -34,7 +34,7 @@ public class ParamDeclList extends PascalSyntax{
 
         s.skip(rightParToken);
         leaveParser("param decl list");
-        return null;
+        return pDeclList;
     }/*End parse*/
 
     @Override

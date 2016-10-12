@@ -29,7 +29,7 @@ public class FactorOperator extends Operator{
         }
 
         leaveParser("factor opr");
-        return null;
+        return fOpr;
     }/*End parse*/
 
     @Override
