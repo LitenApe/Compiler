@@ -74,7 +74,7 @@ public class Scanner {
 
         if(sourceFile == null){ // print out statistics
             nextToken = new Token(eofToken,getFileLineNum());
-            if(curToken.kind == eofToken){
+            if(nextToken.kind == eofToken && curToken.kind != eofToken){
                 System.out.println("Number of lines read: " + nrOfLines);
                 System.out.println("Number of tokens generated: " + nrOfTokens);
                 System.out.println("Number of chars iterated: " + nrOfChars);

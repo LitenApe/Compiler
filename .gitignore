@@ -1,7 +1,5 @@
 failFiles/
 classes/
-resLogs/
-testFF/
 
 .DS_Store
 
@@ -9,7 +7,6 @@ testFF/
 *.pdf
 *.res
 *.s
-*.log
 
 compS.sh
 testS.sh
