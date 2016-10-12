@@ -1,6 +1,6 @@
 package parser;
 import scanner.Scanner;
-import static scanner.TokenKind.*; 
+import static scanner.TokenKind.*;
 
 public class InnerExpr extends Factor{
 
