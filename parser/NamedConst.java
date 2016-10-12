@@ -1,6 +1,7 @@
 package parser;
 import scanner.Scanner;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public class NamedConst extends UnsignedConstant{
 
@@ -23,6 +24,6 @@ public class NamedConst extends UnsignedConstant{
 
     @Override
     public void prettyPrint(){
-
+        Main.log.prettyPrint(name);
     }/*End prettyPrint*/
 }/*End class*/

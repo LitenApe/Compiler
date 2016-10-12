@@ -22,7 +22,17 @@ public class SimpleExpr extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-        Main.log.prettyPrint("Simple Expression");
+        if (prefix != null){
+            prefix.prettyPrint();
+        }
+
+        for(int i = 0; i < term.size(); i++){
+            term.get(i).prettyPrint();
+            if(i < termOpr.size()){
+                termOpr.get(i).prettyPrint();
+            }
+        }
+
     }/*End prettyPrint*/
 
     public static SimpleExpr parse(Scanner s){

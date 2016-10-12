@@ -15,6 +15,11 @@ public class AssignStatm extends Statement{
     } /* End of constructor */
 
     @Override
+    public void prettyPrint(){
+        System.out.println("assign statment");
+    }/*End prettyPrint*/
+
+    @Override
     public String identify() {
         return "<AssignStatm> on line " + lineNum;
     } /* End of identify */

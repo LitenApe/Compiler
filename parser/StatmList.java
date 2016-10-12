@@ -43,7 +43,9 @@ public class StatmList extends PascalSyntax{
             if(stLst != null){
                 stLst.prettyPrint();
             }else{
+                Main.log.prettyOutdent();
                 Main.log.prettyPrintLn("");
+                Main.log.prettyIndent();
             }
         }
     }/*End prettyPrint*/

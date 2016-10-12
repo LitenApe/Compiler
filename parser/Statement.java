@@ -6,7 +6,7 @@ import static scanner.TokenKind.*;
 public abstract class Statement extends PascalSyntax{
 
     // find which kind of statement it is....
-    public PascalSyntax stmnt = null;
+    public Statement stmnt = null;
 
     public Statement(int n){
         super(n);
@@ -17,13 +17,12 @@ public abstract class Statement extends PascalSyntax{
         return "<Statement> on line " + lineNum;
     } /* End of identify */
 
-    @Override
-    public void prettyPrint(){
-        System.out.println("Statement");
-        if(stmnt != null){
-            stmnt.prettyPrint();
-        }
-    }/*End prettyPrint*/
+    // @Override
+    // public void prettyPrint(){
+    //     if(stmnt != null){
+    //         stmnt.prettyPrint();
+    //     }
+    // }/*End prettyPrint*/
 
     public static Statement parse(Scanner s) {
         enterParser("statement");

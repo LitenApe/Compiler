@@ -34,6 +34,8 @@ public class Term extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-
+        for (PascalSyntax p : fac) {
+            p.prettyPrint(); 
+        }
     }/*End prettyPrint*/
 } /* End of class */

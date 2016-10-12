@@ -32,6 +32,6 @@ public class CharLiteral extends UnsignedConstant{
 
     @Override
     public void prettyPrint(){
-
+        Main.log.prettyPrint("'"+charValue+"'");
     }/*End prettyPrint*/
 }/*End class*/

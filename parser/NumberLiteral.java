@@ -2,6 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public class NumberLiteral extends UnsignedConstant{
 
@@ -31,6 +32,6 @@ public class NumberLiteral extends UnsignedConstant{
 
     @Override
     public void prettyPrint(){
-
+        Main.log.prettyPrint(""+digit);
     }/*End prettyPrint*/
 }/*End class*/

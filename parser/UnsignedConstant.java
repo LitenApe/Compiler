@@ -32,7 +32,4 @@ public abstract class UnsignedConstant extends Factor{
         leaveParser("unsigned constant");
         return unsignedConstant;
     }/*End parse*/
-
-    //TODO: prettyPrint?
-
 }/*End class*/
