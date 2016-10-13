@@ -6,7 +6,7 @@ import static scanner.TokenKind.*;
 
 public class InnerExpr extends Factor{
 
-    Expression expr = null;
+    Expression expression = null;
 
     public InnerExpr(int n){
         super(n);
@@ -17,7 +17,7 @@ public class InnerExpr extends Factor{
 
         s.skip(leftParToken);
         InnerExpr innerExpr = new InnerExpr(s.curLineNum());
-        innerExpr.expr = Expression.parse(s);
+        innerExpr.expression = Expression.parse(s);
         s.skip(rightParToken);
 
         leaveParser("inner expr");
@@ -28,7 +28,7 @@ public class InnerExpr extends Factor{
     public void prettyPrint(){
         Main.log.prettyPrint("(");
 
-        expr.prettyPrint();
+        expression.prettyPrint();
 
         Main.log.prettyPrint(")");
     }/*End prettyPrint*/

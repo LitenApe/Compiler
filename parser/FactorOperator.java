@@ -26,7 +26,7 @@ public class FactorOperator extends Operator{
             fOpr.tokenKind = s.curToken.kind;
             s.skip(s.curToken.kind);
         }else{
-            s.skip(s.curToken.kind); // TODO: This shit need to fail.
+            Main.error("Expected a factor operator on + " + s.curLineNum() + ", but found :" + s.curToken.kind.toString()); // TODO: This shit need to fail.
         }
 
         leaveParser("factor opr: " + fOpr.tokenKind.toString());

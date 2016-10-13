@@ -9,7 +9,7 @@ public class ParamDecl extends PascalDecl{
     // name : : : type name
 
     public NamedConst name = null;
-    public TypeName tName = null;
+    public TypeName typeName = null;
 
     public ParamDecl(String id, int lNum){
         super(id, lNum);
@@ -19,22 +19,22 @@ public class ParamDecl extends PascalDecl{
     public void prettyPrint(){
         name.prettyPrint();
         Main.log.prettyPrint(": ");
-        tName.prettyPrint();
+        typeName.prettyPrint();
     }/*End prettyPrint*/
 
     public static ParamDecl parse(Scanner s){
         enterParser("param decl");
 
-        ParamDecl parDecl = new ParamDecl(s.curToken.id, s.curLineNum());
+        ParamDecl paramDecl = new ParamDecl(s.curToken.id, s.curLineNum());
 
-        parDecl.name = NamedConst.parse(s);
+        paramDecl.name = NamedConst.parse(s);
 
         s.skip(colonToken);
 
-        parDecl.tName = TypeName.parse(s);
+        paramDecl.typeName = TypeName.parse(s);
 
         leaveParser("param decl");
-        return parDecl;
+        return paramDecl;
     }
 
     @Override

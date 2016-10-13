@@ -14,7 +14,7 @@ Parser:                 <term>
 Parser:                   <factor>
 Parser:                     <unsigned constant>
 Parser:                       <char literal>
-Parser:                       </char literal>
+Parser:                       </char literal: x>
 Parser:                     </unsigned constant>
 Parser:                   </factor>
 Parser:                 </term>

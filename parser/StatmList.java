@@ -7,7 +7,7 @@ import static scanner.TokenKind.*;
 
 public class StatmList extends PascalSyntax{
 
-    public ArrayList<PascalSyntax> stmLst = new ArrayList<>();
+    public ArrayList<PascalSyntax> statmList = new ArrayList<>();
 
     public StatmList(int n){
         super(n);
@@ -20,11 +20,11 @@ public class StatmList extends PascalSyntax{
     public static StatmList parse(Scanner s){
         enterParser("statm list");
 
-        StatmList stmL = new StatmList(s.curLineNum());
+        StatmList statmList = new StatmList(s.curLineNum());
 
         while(true){
 
-            stmL.stmLst.add(Statement.parse(s));
+            statmList.statmList.add(Statement.parse(s));
 
             if(s.curToken.kind != semicolonToken){
                 break;
@@ -34,15 +34,15 @@ public class StatmList extends PascalSyntax{
         }
 
         leaveParser("statm list");
-        return stmL;
+        return statmList;
     }/*End parse*/
 
     @Override
     public void prettyPrint(){
-        System.out.println(stmLst.size());
-        for(PascalSyntax stLst : stmLst){
-            System.out.println("StatmList: " + stLst.identify());
-            stLst.prettyPrint();
+        System.out.println(statmList.size());
+        for(PascalSyntax s : statmList){
+            System.out.println("StatmList: " + s.identify());
+            s.prettyPrint();
         }
     }/*End prettyPrint*/
 } /* End of class */

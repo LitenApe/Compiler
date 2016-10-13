@@ -26,8 +26,7 @@ public class PrefixOperator extends Operator{
             po.prefix = s.curToken.kind;
             s.skip(po.prefix);
         }else{
-            // FEIL
-            Main.error("FDSAFS");
+            Main.error("Expexted a prefix operator on line " + s.curLineNum() + ", but found: " + s.curToken.kind.toString());
         }
 
         leaveParser("prefix opr");

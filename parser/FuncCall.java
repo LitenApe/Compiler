@@ -27,7 +27,7 @@ public class FuncCall extends Factor{
                     Main.log.prettyPrint(", ");
                 }
             }
-            Main.log.prettyPrintLn(")");
+            Main.log.prettyPrint(");");
         }
     }/*End prettyPrint*/
 

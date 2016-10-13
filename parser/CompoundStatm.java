@@ -7,7 +7,7 @@ import static scanner.TokenKind.*;
 public class CompoundStatm extends Statement{
 
     // begin : statm list : end
-    StatmList stmLst = null;
+    StatmList statmList = null;
 
     public CompoundStatm(int n){
         super(n);
@@ -20,16 +20,16 @@ public class CompoundStatm extends Statement{
 
     public static CompoundStatm parse(Scanner s) {
         enterParser("compound statm");
-        CompoundStatm cmdStatm = new CompoundStatm(s.curLineNum());
+        CompoundStatm compoundStatm = new CompoundStatm(s.curLineNum());
 
         s.skip(beginToken);
 
-        cmdStatm.stmLst = StatmList.parse(s);
+        compoundStatm.statmList = StatmList.parse(s);
 
         s.skip(endToken);
 
         leaveParser("compound statm");
-        return cmdStatm;
+        return compoundStatm;
     }/*End parse*/
 
     @Override
@@ -37,7 +37,7 @@ public class CompoundStatm extends Statement{
         Main.log.prettyPrintLn("begin");
         Main.log.prettyIndent();
 
-        stmLst.prettyPrint();
+        statmList.prettyPrint();
 
         Main.log.prettyOutdent();
         Main.log.prettyPrintLn("end;");

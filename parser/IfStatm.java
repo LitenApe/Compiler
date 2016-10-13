@@ -31,8 +31,8 @@ public class IfStatm extends Statement{
             Main.log.prettyPrintLn("else");
             Main.log.prettyIndent();
             elseExp.prettyPrint();
-            System.out.println("If: " + elseExp.identify());
             Main.log.prettyOutdent();
+            System.out.println("If: " + elseExp.identify());
         }
     }/*End prettyprint*/
 

@@ -34,6 +34,5 @@ public class EmptyStatm extends Statement{
         Main.log.prettyPrintLn("");
 
         Main.log.prettyIndent();
-
     }/*End prettyPrint*/
 } /* End of class */

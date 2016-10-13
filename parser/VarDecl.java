@@ -8,8 +8,8 @@ public class VarDecl extends PascalDecl{
 
     // name : : : type : ;
 
-    public NamedConst namedConst = null;
-    public Type tpe = null;
+    public NamedConst namedConstant = null;
+    public Type type = null;
 
     public VarDecl(String id, int lNum){
         super(id, lNum);
@@ -17,23 +17,23 @@ public class VarDecl extends PascalDecl{
 
     @Override
     public void prettyPrint(){
-        namedConst.prettyPrint();
+        namedConstant.prettyPrint();
         Main.log.prettyPrint(": ");
-        tpe.prettyPrint();
+        type.prettyPrint();
         Main.log.prettyPrintLn(";");
     }/*End prettyPrint*/
 
     public static VarDecl parse(Scanner s){
         enterParser("var decl");
 
-        VarDecl vDcl = new VarDecl(s.curToken.id,s.curLineNum());
-        vDcl.namedConst = NamedConst.parse(s);
+        VarDecl varDecl = new VarDecl(s.curToken.id,s.curLineNum());
+        varDecl.namedConstant = NamedConst.parse(s);
         s.skip(colonToken);
-        vDcl.tpe = Type.parse(s);
+        varDecl.type = Type.parse(s);
         s.skip(semicolonToken);
 
         leaveParser("var decl");
-        return vDcl;
+        return varDecl;
     }
 
     @Override

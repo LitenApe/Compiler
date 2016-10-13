@@ -8,7 +8,7 @@ public class ConstDecl extends PascalDecl{
 
     // name : = : constant : ;
     public NamedConst namedConstant= null;
-    public Constant cnst = null;
+    public Constant constant = null;
 
     public ConstDecl(String id, int lNum){
         super(id, lNum);
@@ -18,24 +18,24 @@ public class ConstDecl extends PascalDecl{
     public void prettyPrint(){
         namedConstant.prettyPrint();
         Main.log.prettyPrint(" = ");
-        cnst.prettyPrint();
+        constant.prettyPrint();
         Main.log.prettyPrintLn(";");
     }/*End prettyPrint*/
 
     public static ConstDecl parse(Scanner s){
         enterParser("const decl");
 
-        ConstDecl constD = new ConstDecl(s.curToken.id,s.curLineNum());
+        ConstDecl constDecl = new ConstDecl(s.curToken.id,s.curLineNum());
 
-        constD.namedConstant = NamedConst.parse(s);
+        constDecl.namedConstant = NamedConst.parse(s);
 
         s.skip(equalToken);
-        constD.cnst = Constant.parse(s);
+        constDecl.constant = Constant.parse(s);
 
         s.skip(semicolonToken);
 
-        leaveParser("const decl: " + constD.namedConstant.name);
-        return constD;
+        leaveParser("const decl: " + constDecl.namedConstant.name);
+        return constDecl;
     }
 
     @Override

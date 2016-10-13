@@ -8,9 +8,9 @@ public class FuncDecl extends ProcDecl{
 
     // function : name : param decl list : : : type name : ; : block : ;
     public NamedConst funcName = null;
-    public ParamDeclList pDclLst = null;
-    public TypeName tName = null;
-    public Block blk = null;
+    public ParamDeclList pDeclList = null;
+    public TypeName typeName = null;
+    public Block block = null;
 
     public FuncDecl(String id, int lNum){
         super(id, lNum);
@@ -26,19 +26,17 @@ public class FuncDecl extends ProcDecl{
         Main.log.prettyPrint("function ");
         funcName.prettyPrint();
 
-        if (pDclLst != null){
-            pDclLst.prettyPrint();
+        if (pDeclList != null){
+            pDeclList.prettyPrint();
         }
 
         Main.log.prettyPrint(": ");
-        tName.prettyPrint();
+        typeName.prettyPrint();
         Main.log.prettyPrintLn(";");
-        blk.prettyPrint();
+        block.prettyPrint();
         Main.log.prettyPrint("; {");
         funcName.prettyPrint();
         Main.log.prettyPrintLn("}\n");
-
-
     }/*End prettyPrint*/
 
     public static FuncDecl parse(Scanner s){
@@ -46,20 +44,20 @@ public class FuncDecl extends ProcDecl{
 
         s.skip(functionToken);
 
-        FuncDecl fDcl = new FuncDecl(s.curToken.id, s.curLineNum());
-        fDcl.funcName = NamedConst.parse(s);
+        FuncDecl fDecl = new FuncDecl(s.curToken.id, s.curLineNum());
+        fDecl.funcName = NamedConst.parse(s);
 
         if(s.curToken.kind == leftParToken){
-            fDcl.pDclLst = ParamDeclList.parse(s);
+            fDecl.pDeclList = ParamDeclList.parse(s);
         }
         s.skip(colonToken);
-        fDcl.tName = TypeName.parse(s);
+        fDecl.typeName = TypeName.parse(s);
         s.skip(semicolonToken);
-        fDcl.blk = Block.parse(s);
+        fDecl.block = Block.parse(s);
         s.skip(semicolonToken);
 
-        leaveParser("func decl: " + fDcl.funcName.name);
-        return fDcl;
+        leaveParser("func decl: " + fDecl.funcName.name);
+        return fDecl;
     }/*End parse*/
 
     //TODO: this class doesnt override any of the 4 abstract methods in ProcDecl

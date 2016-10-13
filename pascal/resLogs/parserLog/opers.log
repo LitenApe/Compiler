@@ -27,7 +27,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: n>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -39,7 +39,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: o>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -51,7 +51,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: t>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -63,7 +63,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -74,7 +74,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -85,7 +85,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -97,7 +97,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: =>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -109,7 +109,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -122,7 +122,7 @@ Parser:                           <factor>
 Parser:                             <negation>
 Parser:                               <factor>
 Parser:                                 <variable>
-Parser:                                 </variable>
+Parser:                                 </variable: x>
 Parser:                               </factor>
 Parser:                             </negation>
 Parser:                           </factor>
@@ -134,7 +134,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: eol>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -160,7 +160,7 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-Parser:                         </variable>
+Parser:                         </variable: false>
 Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
@@ -174,7 +174,7 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-Parser:                         </variable>
+Parser:                         </variable: true>
 Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
@@ -218,7 +218,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -229,7 +229,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -241,7 +241,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: a>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -253,7 +253,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: n>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -265,7 +265,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: d>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -277,53 +277,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <variable>
-Parser:                             </variable>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -334,13 +288,59 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: y>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal:  >
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal: =>
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal:  >
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                           <factor opr>
-Parser:                           </factor opr>
+Parser:                           </factor opr: and>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: y>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -350,7 +350,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: eol>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -365,7 +365,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -376,7 +376,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -388,7 +388,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: o>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -400,7 +400,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: r>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -412,53 +412,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <variable>
-Parser:                             </variable>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -469,7 +423,53 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: y>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal:  >
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal: =>
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal:  >
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                         <term opr>
@@ -477,7 +477,7 @@ Parser:                         </term opr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: y>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -487,7 +487,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: eol>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -513,7 +513,7 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-Parser:                         </variable>
+Parser:                         </variable: false>
 Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
@@ -523,7 +523,7 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-Parser:                         </variable>
+Parser:                         </variable: false>
 Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
@@ -537,7 +537,7 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-Parser:                         </variable>
+Parser:                         </variable: false>
 Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
@@ -547,7 +547,7 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-Parser:                         </variable>
+Parser:                         </variable: true>
 Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
@@ -562,7 +562,7 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-Parser:                         </variable>
+Parser:                         </variable: true>
 Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
@@ -572,7 +572,7 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-Parser:                         </variable>
+Parser:                         </variable: false>
 Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
@@ -586,7 +586,7 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-Parser:                         </variable>
+Parser:                         </variable: true>
 Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
@@ -596,7 +596,7 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-Parser:                         </variable>
+Parser:                         </variable: true>
 Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
@@ -637,7 +637,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: ->
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -649,7 +649,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -660,7 +660,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -671,7 +671,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -683,7 +683,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: =>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -695,7 +695,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -708,7 +708,7 @@ Parser:                         </prefix opr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -718,7 +718,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: eol>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -734,7 +734,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: +>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -746,7 +746,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -757,7 +757,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -768,7 +768,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -780,7 +780,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: =>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -792,7 +792,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -805,7 +805,7 @@ Parser:                         </prefix opr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -815,7 +815,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: eol>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -842,7 +842,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 17>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -860,7 +860,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 11>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -876,7 +876,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 0>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -921,7 +921,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -932,7 +932,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -944,7 +944,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: +>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -956,53 +956,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <variable>
-Parser:                             </variable>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -1013,7 +967,53 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: y>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal:  >
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal: =>
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal:  >
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                         <term opr>
@@ -1021,7 +1021,7 @@ Parser:                         </term opr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: y>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -1031,7 +1031,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: eol>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -1046,7 +1046,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -1057,7 +1057,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -1069,7 +1069,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: ->
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -1081,53 +1081,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <variable>
-Parser:                             </variable>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -1138,7 +1092,53 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: y>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal:  >
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal: =>
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal:  >
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                         <term opr>
@@ -1146,7 +1146,7 @@ Parser:                         </term opr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: y>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -1156,7 +1156,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: eol>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -1171,7 +1171,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -1182,7 +1182,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -1194,7 +1194,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal: *>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -1206,53 +1206,7 @@ Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <variable>
-Parser:                             </variable>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
-Parser:                             </unsigned constant>
-Parser:                           </factor>
-Parser:                         </term>
-Parser:                       </simple expr>
-Parser:                     </expression>
-Parser:                     <expression>
-Parser:                       <simple expr>
-Parser:                         <term>
-Parser:                           <factor>
-Parser:                             <unsigned constant>
-Parser:                               <char literal>
-Parser:                               </char literal>
+Parser:                               </char literal:  >
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -1263,13 +1217,59 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: y>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal:  >
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal: =>
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <unsigned constant>
+Parser:                               <char literal>
+Parser:                               </char literal:  >
+Parser:                             </unsigned constant>
+Parser:                           </factor>
+Parser:                         </term>
+Parser:                       </simple expr>
+Parser:                     </expression>
+Parser:                     <expression>
+Parser:                       <simple expr>
+Parser:                         <term>
+Parser:                           <factor>
+Parser:                             <variable>
+Parser:                             </variable: x>
 Parser:                           </factor>
 Parser:                           <factor opr>
-Parser:                           </factor opr>
+Parser:                           </factor opr: *>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: y>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -1279,7 +1279,7 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: eol>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -1294,18 +1294,18 @@ Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <variable>
-Parser:                             </variable>
+Parser:                             </variable: y>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
 Parser:                       <rel opr>
-Parser:                       </rel opr>
+Parser:                       </rel opr: <>>
 Parser:                       <simple expr>
 Parser:                         <term>
 Parser:                           <factor>
 Parser:                             <unsigned constant>
 Parser:                               <number literal>
-Parser:                               </number literal>
+Parser:                               </number literal: 0>
 Parser:                             </unsigned constant>
 Parser:                           </factor>
 Parser:                         </term>
@@ -1322,7 +1322,7 @@ Parser:                                 <simple expr>
 Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <variable>
-Parser:                                       </variable>
+Parser:                                       </variable: x>
 Parser:                                     </factor>
 Parser:                                   </term>
 Parser:                                 </simple expr>
@@ -1333,7 +1333,7 @@ Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <unsigned constant>
 Parser:                                         <char literal>
-Parser:                                         </char literal>
+Parser:                                         </char literal:  >
 Parser:                                       </unsigned constant>
 Parser:                                     </factor>
 Parser:                                   </term>
@@ -1345,7 +1345,7 @@ Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <unsigned constant>
 Parser:                                         <char literal>
-Parser:                                         </char literal>
+Parser:                                         </char literal: d>
 Parser:                                       </unsigned constant>
 Parser:                                     </factor>
 Parser:                                   </term>
@@ -1357,7 +1357,7 @@ Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <unsigned constant>
 Parser:                                         <char literal>
-Parser:                                         </char literal>
+Parser:                                         </char literal: i>
 Parser:                                       </unsigned constant>
 Parser:                                     </factor>
 Parser:                                   </term>
@@ -1369,7 +1369,7 @@ Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <unsigned constant>
 Parser:                                         <char literal>
-Parser:                                         </char literal>
+Parser:                                         </char literal: v>
 Parser:                                       </unsigned constant>
 Parser:                                     </factor>
 Parser:                                   </term>
@@ -1381,53 +1381,7 @@ Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <unsigned constant>
 Parser:                                         <char literal>
-Parser:                                         </char literal>
-Parser:                                       </unsigned constant>
-Parser:                                     </factor>
-Parser:                                   </term>
-Parser:                                 </simple expr>
-Parser:                               </expression>
-Parser:                               <expression>
-Parser:                                 <simple expr>
-Parser:                                   <term>
-Parser:                                     <factor>
-Parser:                                       <variable>
-Parser:                                       </variable>
-Parser:                                     </factor>
-Parser:                                   </term>
-Parser:                                 </simple expr>
-Parser:                               </expression>
-Parser:                               <expression>
-Parser:                                 <simple expr>
-Parser:                                   <term>
-Parser:                                     <factor>
-Parser:                                       <unsigned constant>
-Parser:                                         <char literal>
-Parser:                                         </char literal>
-Parser:                                       </unsigned constant>
-Parser:                                     </factor>
-Parser:                                   </term>
-Parser:                                 </simple expr>
-Parser:                               </expression>
-Parser:                               <expression>
-Parser:                                 <simple expr>
-Parser:                                   <term>
-Parser:                                     <factor>
-Parser:                                       <unsigned constant>
-Parser:                                         <char literal>
-Parser:                                         </char literal>
-Parser:                                       </unsigned constant>
-Parser:                                     </factor>
-Parser:                                   </term>
-Parser:                                 </simple expr>
-Parser:                               </expression>
-Parser:                               <expression>
-Parser:                                 <simple expr>
-Parser:                                   <term>
-Parser:                                     <factor>
-Parser:                                       <unsigned constant>
-Parser:                                         <char literal>
-Parser:                                         </char literal>
+Parser:                                         </char literal:  >
 Parser:                                       </unsigned constant>
 Parser:                                     </factor>
 Parser:                                   </term>
@@ -1438,13 +1392,59 @@ Parser:                                 <simple expr>
 Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <variable>
-Parser:                                       </variable>
+Parser:                                       </variable: y>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression>
+Parser:                                 <simple expr>
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <unsigned constant>
+Parser:                                         <char literal>
+Parser:                                         </char literal:  >
+Parser:                                       </unsigned constant>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression>
+Parser:                                 <simple expr>
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <unsigned constant>
+Parser:                                         <char literal>
+Parser:                                         </char literal: =>
+Parser:                                       </unsigned constant>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression>
+Parser:                                 <simple expr>
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <unsigned constant>
+Parser:                                         <char literal>
+Parser:                                         </char literal:  >
+Parser:                                       </unsigned constant>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression>
+Parser:                                 <simple expr>
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable: x>
 Parser:                                     </factor>
 Parser:                                     <factor opr>
-Parser:                                     </factor opr>
+Parser:                                     </factor opr: div>
 Parser:                                     <factor>
 Parser:                                       <variable>
-Parser:                                       </variable>
+Parser:                                       </variable: y>
 Parser:                                     </factor>
 Parser:                                   </term>
 Parser:                                 </simple expr>
@@ -1454,7 +1454,7 @@ Parser:                                 <simple expr>
 Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <variable>
-Parser:                                       </variable>
+Parser:                                       </variable: eol>
 Parser:                                     </factor>
 Parser:                                   </term>
 Parser:                                 </simple expr>
@@ -1469,7 +1469,7 @@ Parser:                                 <simple expr>
 Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <variable>
-Parser:                                       </variable>
+Parser:                                       </variable: x>
 Parser:                                     </factor>
 Parser:                                   </term>
 Parser:                                 </simple expr>
@@ -1480,7 +1480,7 @@ Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <unsigned constant>
 Parser:                                         <char literal>
-Parser:                                         </char literal>
+Parser:                                         </char literal:  >
 Parser:                                       </unsigned constant>
 Parser:                                     </factor>
 Parser:                                   </term>
@@ -1492,7 +1492,7 @@ Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <unsigned constant>
 Parser:                                         <char literal>
-Parser:                                         </char literal>
+Parser:                                         </char literal: m>
 Parser:                                       </unsigned constant>
 Parser:                                     </factor>
 Parser:                                   </term>
@@ -1504,7 +1504,7 @@ Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <unsigned constant>
 Parser:                                         <char literal>
-Parser:                                         </char literal>
+Parser:                                         </char literal: o>
 Parser:                                       </unsigned constant>
 Parser:                                     </factor>
 Parser:                                   </term>
@@ -1516,7 +1516,7 @@ Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <unsigned constant>
 Parser:                                         <char literal>
-Parser:                                         </char literal>
+Parser:                                         </char literal: d>
 Parser:                                       </unsigned constant>
 Parser:                                     </factor>
 Parser:                                   </term>
@@ -1528,53 +1528,7 @@ Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <unsigned constant>
 Parser:                                         <char literal>
-Parser:                                         </char literal>
-Parser:                                       </unsigned constant>
-Parser:                                     </factor>
-Parser:                                   </term>
-Parser:                                 </simple expr>
-Parser:                               </expression>
-Parser:                               <expression>
-Parser:                                 <simple expr>
-Parser:                                   <term>
-Parser:                                     <factor>
-Parser:                                       <variable>
-Parser:                                       </variable>
-Parser:                                     </factor>
-Parser:                                   </term>
-Parser:                                 </simple expr>
-Parser:                               </expression>
-Parser:                               <expression>
-Parser:                                 <simple expr>
-Parser:                                   <term>
-Parser:                                     <factor>
-Parser:                                       <unsigned constant>
-Parser:                                         <char literal>
-Parser:                                         </char literal>
-Parser:                                       </unsigned constant>
-Parser:                                     </factor>
-Parser:                                   </term>
-Parser:                                 </simple expr>
-Parser:                               </expression>
-Parser:                               <expression>
-Parser:                                 <simple expr>
-Parser:                                   <term>
-Parser:                                     <factor>
-Parser:                                       <unsigned constant>
-Parser:                                         <char literal>
-Parser:                                         </char literal>
-Parser:                                       </unsigned constant>
-Parser:                                     </factor>
-Parser:                                   </term>
-Parser:                                 </simple expr>
-Parser:                               </expression>
-Parser:                               <expression>
-Parser:                                 <simple expr>
-Parser:                                   <term>
-Parser:                                     <factor>
-Parser:                                       <unsigned constant>
-Parser:                                         <char literal>
-Parser:                                         </char literal>
+Parser:                                         </char literal:  >
 Parser:                                       </unsigned constant>
 Parser:                                     </factor>
 Parser:                                   </term>
@@ -1585,13 +1539,59 @@ Parser:                                 <simple expr>
 Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <variable>
-Parser:                                       </variable>
+Parser:                                       </variable: y>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression>
+Parser:                                 <simple expr>
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <unsigned constant>
+Parser:                                         <char literal>
+Parser:                                         </char literal:  >
+Parser:                                       </unsigned constant>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression>
+Parser:                                 <simple expr>
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <unsigned constant>
+Parser:                                         <char literal>
+Parser:                                         </char literal: =>
+Parser:                                       </unsigned constant>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression>
+Parser:                                 <simple expr>
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <unsigned constant>
+Parser:                                         <char literal>
+Parser:                                         </char literal:  >
+Parser:                                       </unsigned constant>
+Parser:                                     </factor>
+Parser:                                   </term>
+Parser:                                 </simple expr>
+Parser:                               </expression>
+Parser:                               <expression>
+Parser:                                 <simple expr>
+Parser:                                   <term>
+Parser:                                     <factor>
+Parser:                                       <variable>
+Parser:                                       </variable: x>
 Parser:                                     </factor>
 Parser:                                     <factor opr>
-Parser:                                     </factor opr>
+Parser:                                     </factor opr: mod>
 Parser:                                     <factor>
 Parser:                                       <variable>
-Parser:                                       </variable>
+Parser:                                       </variable: y>
 Parser:                                     </factor>
 Parser:                                   </term>
 Parser:                                 </simple expr>
@@ -1601,7 +1601,7 @@ Parser:                                 <simple expr>
 Parser:                                   <term>
 Parser:                                     <factor>
 Parser:                                       <variable>
-Parser:                                       </variable>
+Parser:                                       </variable: eol>
 Parser:                                     </factor>
 Parser:                                   </term>
 Parser:                                 </simple expr>
@@ -1634,7 +1634,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 17>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1646,7 +1646,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 17>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1662,7 +1662,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 17>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1676,7 +1676,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 11>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1692,7 +1692,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 17>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1704,7 +1704,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 0>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1723,7 +1723,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 11>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1735,7 +1735,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 17>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1753,7 +1753,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 11>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1767,7 +1767,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 11>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1783,7 +1783,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 17>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1795,7 +1795,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 0>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1812,7 +1812,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 0>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1824,7 +1824,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 17>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1840,7 +1840,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 0>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1854,7 +1854,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 11>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1870,7 +1870,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 0>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1882,7 +1882,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-Parser:                           </number literal>
+Parser:                           </number literal: 0>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
 Parser:                     </term>
@@ -1942,7 +1942,6 @@ begin
     
     end;
 end;
-
 begin
   test(17, 17);
   test(17, -11);
@@ -1955,7 +1954,6 @@ begin
   test(0, 0);
 
 end;
-
 begin
   testunaryboolean();
   testunarynumeric();

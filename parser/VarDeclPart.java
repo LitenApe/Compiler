@@ -38,7 +38,6 @@ public class VarDeclPart extends PascalSyntax{
            varDeclPart.varDecls.add(VarDecl.parse(s));
        }/*End while*/
 
-
         leaveParser("var decl part");
         return varDeclPart;
     }/*End parse*/

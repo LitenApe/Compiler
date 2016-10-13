@@ -9,8 +9,8 @@ public class ProcDecl extends PascalDecl{
     // proc : name : param decl list : ; : block : ;
 
     public NamedConst procName = null;
-    public ParamDeclList paramDcl = null;
-    public Block blk = null;
+    public ParamDeclList paramDecl = null;
+    public Block block = null;
 
     public ProcDecl(String id, int lNum){
         super(id, lNum);
@@ -21,35 +21,35 @@ public class ProcDecl extends PascalDecl{
         Main.log.prettyPrint("procedure ");
         procName.prettyPrint();
 
-        if (paramDcl != null){
-            paramDcl.prettyPrint();
+        if (paramDecl != null){
+            paramDecl.prettyPrint();
         }
 
         Main.log.prettyPrintLn(";");
-        blk.prettyPrint();
-        Main.log.prettyPrintLn(";\n");
+        block.prettyPrint();
+        Main.log.prettyPrintLn(";");
 
     }/*End prettyPrint*/
 
     public static ProcDecl parse(Scanner s){
         enterParser("proc decl");
 
-        ProcDecl pDcl = new ProcDecl(s.curToken.id, s.curLineNum());
+        ProcDecl procDecl = new ProcDecl(s.curToken.id, s.curLineNum());
 
         s.skip(procedureToken);
-        pDcl.procName = NamedConst.parse(s);
+        procDecl.procName = NamedConst.parse(s);
 
         if(s.curToken.kind == leftParToken){
-            pDcl.paramDcl = ParamDeclList.parse(s);
+            procDecl.paramDecl = ParamDeclList.parse(s);
         }
 
         s.skip(semicolonToken);
-        pDcl.blk = Block.parse(s);
+        procDecl.block = Block.parse(s);
 
         s.skip(semicolonToken);
 
         leaveParser("proc decl");
-        return pDcl;
+        return procDecl;
     }/*End parse*/
 
     @Override
