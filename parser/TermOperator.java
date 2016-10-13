@@ -14,7 +14,7 @@ public class TermOperator extends Operator{
 
     @Override
     public void prettyPrint(){
-        Main.log.prettyPrint("Term Operator");
+        Main.log.prettyPrint(" " + tokenKind.toString() + " ");
     }/*End prettyPrint*/
 
     @Override
@@ -37,5 +37,4 @@ public class TermOperator extends Operator{
         return operator;
     }/*End parse*/
 
-    //TODO: prettyPrint?
 }/*End class*/

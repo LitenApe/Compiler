@@ -34,6 +34,12 @@ public class CompoundStatm extends Statement{
 
     @Override
     public void prettyPrint(){
-        Main.log.prettyPrint("Compound Statement");
+        Main.log.prettyPrintLn("begin");
+        Main.log.prettyIndent();
+
+        stmLst.prettyPrint();
+
+        Main.log.prettyOutdent();
+        Main.log.prettyPrintLn("end;");
     }/*End prettyPrint*/
 } /* End of class */

@@ -20,6 +20,7 @@ public class AssignStatm extends Statement{
         variable.prettyPrint();
         Main.log.prettyPrint(" := ");
         expression.prettyPrint();
+        Main.log.prettyPrintLn("");
     }/*End prettyPrint*/
 
     @Override

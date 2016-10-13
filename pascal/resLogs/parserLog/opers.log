@@ -1932,11 +1932,16 @@ program operatortest;
 procedure testbinarynumeric;
 procedure test (x: integer; y: integer);
 begin
-  write(x, ' ', '+', ' ', y, ' ', '=', ' ', xTerm Operatory, eol);
-  write(x, ' ', '-', ' ', y, ' ', '=', ' ', xTerm Operatory, eol);
+  write(x, ' ', '+', ' ', y, ' ', '=', ' ', x + y, eol);
+  write(x, ' ', '-', ' ', y, ' ', '=', ' ', x - y, eol);
   write(x, ' ', '*', ' ', y, ' ', '=', ' ', xFactor Operatory, eol);
   if y <> 0 then
-    Compound Statementend;
+    begin
+      write(x, ' ', 'd', 'i', 'v', ' ', y, ' ', '=', ' ', xFactor Operatory, eol);
+      write(x, ' ', 'm', 'o', 'd', ' ', y, ' ', '=', ' ', xFactor Operatory, eol);
+    
+    end;
+end;
 
 begin
   test(17, 17);

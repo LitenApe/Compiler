@@ -1182,13 +1182,32 @@ var
   day: integer;
   ix: integer;
 begin
-  y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1if month = 3 then
+  y := y + 1
+  y := y + 1
+  y := y + 1
+  y := y + 1
+  y := y + 1
+  y := y + 1
+  y := y + 1
+  y := y + 1
+  y := y + 1
+  y := y + 1
+  y := y + 1
+  y := y + 1
+  y := y + 1
+  y := y + 1
+  if month = 3 then
     write(day, ' ', 'M', 'a', 'r', 'c', 'h', ' ', y, eol);
-  else
-    write(day, ' ', 'A', 'p', 'r', 'i', 'l', ' ', y, eol);
+  elsewrite(day, ' ', 'A', 'p', 'r', 'i', 'l', ' ', y, eol);
 
 end;
 
 begin
-  y := yTerm Operator1while y <= 2020 do
-    Compound Statementend.
+  y := y + 1
+  while y <= 2020 do
+    begin
+      easter(y);
+      y := y + 1
+    
+    end;
+end.
