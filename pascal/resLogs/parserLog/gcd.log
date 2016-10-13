@@ -333,7 +333,8 @@ begin
   if n = 0 then
     res := gcd(v1, v2)
     
-  elseres := gcd(v1, v2)
+  else
+    res := gcd(v1, v2)
     
 end; {gcd}
 

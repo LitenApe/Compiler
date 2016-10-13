@@ -1164,6 +1164,7 @@ Parser:   </program>
 program easter;
 var
   y: integer;
+
 procedure easter (y: integer);
 var
   a: integer;
@@ -1198,7 +1199,8 @@ begin
   y := y + 1
   if month = 3 then
     write(day, ' ', 'M', 'a', 'r', 'c', 'h', ' ', y, eol);
-  elsewrite(day, ' ', 'A', 'p', 'r', 'i', 'l', ' ', y, eol);
+  else
+    write(day, ' ', 'A', 'p', 'r', 'i', 'l', ' ', y, eol);
 
 end;
 
