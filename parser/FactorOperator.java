@@ -29,7 +29,7 @@ public class FactorOperator extends Operator{
             s.skip(s.curToken.kind); // TODO: This shit need to fail.
         }
 
-        leaveParser("factor opr");
+        leaveParser("factor opr: " + fOpr.tokenKind.toString());
         return fOpr;
     }/*End parse*/
 

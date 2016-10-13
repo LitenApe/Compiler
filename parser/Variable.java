@@ -36,7 +36,7 @@ public class Variable extends Factor{
         }
 
         //TODO: Kan være variable uten expression (?)
-        leaveParser("variable");
+        leaveParser("variable: " + variable.name.name);
         return variable;
     }/*End parse*/
 

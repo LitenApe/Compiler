@@ -54,7 +54,7 @@ public class FuncCall extends Factor{
             s.skip(rightParToken);
         }
 
-        leaveParser("func call");
+        leaveParser("func call: " + fCall.name.name);
         return fCall;
     }/*End parse*/
 }/*End class*/

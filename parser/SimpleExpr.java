@@ -22,9 +22,8 @@ public class SimpleExpr extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-        if (prefix != null){
+        if (prefix != null)
             prefix.prettyPrint();
-        }
 
         for(int i = 0; i < term.size(); i++){
             term.get(i).prettyPrint();

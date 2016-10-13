@@ -21,7 +21,7 @@ public class CharLiteral extends UnsignedConstant{
         charLiteral.charValue = s.curToken.charVal;
         s.skip(charValToken);
 
-        leaveParser("char literal");
+        leaveParser("char literal: " + charLiteral.charValue);
         return charLiteral;
     }/*End parse*/
 

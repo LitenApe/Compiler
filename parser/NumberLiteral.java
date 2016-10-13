@@ -31,7 +31,7 @@ public class NumberLiteral extends UnsignedConstant{
         numberLiteral.digit = s.curToken.intVal;
         s.skip(intValToken);
 
-        leaveParser("number literal");
+        leaveParser("number literal: " + numberLiteral.digit);
         return numberLiteral;
     }/*End parse*/
 }/*End class*/

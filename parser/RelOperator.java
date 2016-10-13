@@ -17,7 +17,7 @@ public class RelOperator extends Operator{
     public void prettyPrint(){
         Main.log.prettyPrint(" "+opr.toString()+" ");
     }
-    
+
     @Override
     public String identify() {
         return "<RelOperator> on line " + lineNum;
@@ -34,7 +34,7 @@ public class RelOperator extends Operator{
 
         s.skip(rOpr.opr);
 
-        leaveParser("rel opr");
+        leaveParser("rel opr: " + rOpr.opr.toString());
         return rOpr;
     }/*End parse*/
 }/*End class*/
