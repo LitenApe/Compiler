@@ -146,6 +146,7 @@ const
 var
   i: integer;
 begin
-  i := i1while i < n do
+  i := iTerm Operator1while i < n do
     Compound Statementwrite(eol);
+
 end.

@@ -1182,11 +1182,13 @@ var
   day: integer;
   ix: integer;
 begin
-  y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1if month = 3 then
-    write(day' ''M''a''r''c''h'' 'yeol);
+  y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1y := yTerm Operator1if month = 3 then
+    write(day, ' ', 'M', 'a', 'r', 'c', 'h', ' ', y, eol);
   else
-    write(day' ''A''p''r''i''l'' 'yeol);
+    write(day, ' ', 'A', 'p', 'r', 'i', 'l', ' ', y, eol);
+
 end;
+
 begin
-  y := y1while y <= 2020 do
+  y := yTerm Operator1while y <= 2020 do
     Compound Statementend.

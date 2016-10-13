@@ -1932,25 +1932,29 @@ program operatortest;
 procedure testbinarynumeric;
 procedure test (x: integer; y: integer);
 begin
-  write(x' ''+'' 'y' ''='' 'xyeol);
-  write(x' ''-'' 'y' ''='' 'xyeol);
-  write(x' ''*'' 'y' ''='' 'xyeol);
+  write(x, ' ', '+', ' ', y, ' ', '=', ' ', xTerm Operatory, eol);
+  write(x, ' ', '-', ' ', y, ' ', '=', ' ', xTerm Operatory, eol);
+  write(x, ' ', '*', ' ', y, ' ', '=', ' ', xFactor Operatory, eol);
   if y <> 0 then
     Compound Statementend;
+
 begin
-  test(1717);
-  test(17-11);
-  test(170);
-  test(-1117);
-  test(-11-11);
-  test(170);
-  test(017);
-  test(0-11);
-  test(00);
+  test(17, 17);
+  test(17, -11);
+  test(17, 0);
+  test(-11, 17);
+  test(-11, -11);
+  test(17, 0);
+  test(0, 17);
+  test(0, -11);
+  test(0, 0);
+
 end;
+
 begin
   testunaryboolean();
   testunarynumeric();
   testbinaryboolean();
   testbinarynumeric();
+
 end.

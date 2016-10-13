@@ -58,6 +58,11 @@ public class Block extends PascalSyntax{
         if(varDeclPart != null){
             varDeclPart.prettyPrint();
         }
+
+        if(constDeclPart != null && varDeclPart != null && funcDecl != null){
+            Main.log.prettyPrintLn("");
+        }
+
         if(funcDecl != null){
             funcDecl.prettyPrint();
         }
@@ -66,7 +71,7 @@ public class Block extends PascalSyntax{
         }
         if(statmList != null){
             Main.log.prettyPrintLn("begin");
-            Main.log.prettyIndent(); 
+            Main.log.prettyIndent();
             statmList.prettyPrint();
         }
         Main.log.prettyOutdent();

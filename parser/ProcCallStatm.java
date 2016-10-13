@@ -23,8 +23,9 @@ public class ProcCallStatm extends Statement{
         if(namedConst != null){
             Main.log.prettyPrint(namedConst.name +"(");
             for(Expression ep : exp){
-                if(ep != null){
-                    ep.prettyPrint();
+                ep.prettyPrint();
+                if(ep != exp.get(exp.size() - 1)){
+                    Main.log.prettyPrint(", ");
                 }
             }
             Main.log.prettyPrintLn(");");

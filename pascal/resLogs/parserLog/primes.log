@@ -869,11 +869,13 @@ var
   i: integer;
   nprinted: integer;
 begin
-  i := i1i := i1while i <= limit do
+  i := iTerm Operator1i := iTerm Operator1while i <= limit do
     Compound Statementwrite(eol);
 end;
+
 begin
-  i := i1while i <= limit do
+  i := iTerm Operator1while i <= limit do
     Compound Statementfindprimes();
   printprimes();
+
 end.

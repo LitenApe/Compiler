@@ -34,7 +34,11 @@ public class FuncDecl extends ProcDecl{
         tName.prettyPrint();
         Main.log.prettyPrintLn(";");
         blk.prettyPrint();
-        Main.log.prettyPrintLn(";");
+        Main.log.prettyPrint("; {");
+        funcName.prettyPrint();
+        Main.log.prettyPrintLn("}\n");
+
+
     }/*End prettyPrint*/
 
     public static FuncDecl parse(Scanner s){

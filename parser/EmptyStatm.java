@@ -1,5 +1,6 @@
 package parser;
 
+import main.Main;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -28,6 +29,11 @@ public class EmptyStatm extends Statement{
 
     @Override
     public void prettyPrint(){
-        System.out.println("Empty Statment");
+        Main.log.prettyOutdent();
+
+        Main.log.prettyPrintLn("");
+
+        Main.log.prettyIndent();
+
     }/*End prettyPrint*/
 } /* End of class */
