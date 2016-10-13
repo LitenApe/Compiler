@@ -33,5 +33,4 @@ Parser:   </program>
 program mini;
 begin
   write('x');
-
 end.

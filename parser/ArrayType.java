@@ -39,7 +39,7 @@ public class ArrayType extends Type{
 
     @Override
     public void prettyPrint(){
-
+        Main.log.prettyPrint("Array Type");
     }/*End prettyPrint*/
 
     @Override

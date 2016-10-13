@@ -1,4 +1,6 @@
 package parser;
+
+import main.Main;
 import scanner.Scanner;
 import static scanner.TokenKind.*;
 
@@ -21,9 +23,10 @@ public class InnerExpr extends Factor{
         leaveParser("inner expr");
         return innerExpr;
     }/*End parse*/
+
     @Override
     public void prettyPrint(){
-
+        Main.log.prettyPrint("Inner Expression");
     }/*End prettyPrint*/
 
 

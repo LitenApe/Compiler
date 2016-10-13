@@ -1,5 +1,6 @@
 package parser;
 
+import main.Main;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -22,7 +23,7 @@ public abstract class Operator extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-
+        Main.log.prettyPrint("Operator");
     }/*End prettyPrint*/
 
 }/*End class*/

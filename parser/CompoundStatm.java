@@ -1,5 +1,6 @@
 package parser;
 
+import main.Main;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -33,6 +34,6 @@ public class CompoundStatm extends Statement{
 
     @Override
     public void prettyPrint(){
-
+        Main.log.prettyPrint("Compound Statement");
     }/*End prettyPrint*/
 } /* End of class */

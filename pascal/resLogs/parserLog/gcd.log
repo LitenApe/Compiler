@@ -322,8 +322,19 @@ Parser:       </statm list>
 Parser:     </block>
 Parser:   </program>
 program gcd;
+const
+  v1 = 1071;
+  v2 = 462;
+var
+  res: integer;
+function gcd (m: integer; n: integer): integer;
 begin
-  const
-  v1
-  v2
+  if n = 0 then
+    res := gcd(v1, v2)
+  else
+    res := gcd(v1, v2)
+end;
+begin
+  res := gcd(v1, v2)
+  write('G''C''D''('v1','v2')''='reseol);
 end.

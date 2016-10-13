@@ -1162,5 +1162,31 @@ Parser:       </statm list>
 Parser:     </block>
 Parser:   </program>
 program easter;
+var
+  y: integer;
+procedure easter (y: integer);
+var
+  a: integer;
+  b: integer;
+  c: integer;
+  d: integer;
+  e: integer;
+  f: integer;
+  g: integer;
+  h: integer;
+  i: integer;
+  k: integer;
+  l: integer;
+  m: integer;
+  month: integer;
+  day: integer;
+  ix: integer;
 begin
-end.
+  y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1y := y1if month = 3 then
+    write(day' ''M''a''r''c''h'' 'yeol);
+  else
+    write(day' ''A''p''r''i''l'' 'yeol);
+end;
+begin
+  y := y1while y <= 2020 do
+    Compound Statementend.

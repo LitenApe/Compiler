@@ -1,5 +1,6 @@
 package parser;
 
+import main.Main;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -10,6 +11,11 @@ public class TermOperator extends Operator{
     public TermOperator(int n){
         super(n);
     }/*Enc constructor*/
+
+    @Override
+    public void prettyPrint(){
+        Main.log.prettyPrint("Term Operator");
+    }/*End prettyPrint*/
 
     @Override
     public String identify() {

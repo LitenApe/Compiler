@@ -859,7 +859,21 @@ Parser:       </statm list>
 Parser:     </block>
 Parser:   </program>
 program primes;
+const
+  limit = 1000;
+var
+  prime: Array Type;
+  i: integer;
+procedure printprimes;
+var
+  i: integer;
+  nprinted: integer;
 begin
-  const
-  limit
+  i := i1i := i1while i <= limit do
+    Compound Statementwrite(eol);
+end;
+begin
+  i := i1while i <= limit do
+    Compound Statementfindprimes();
+  printprimes();
 end.

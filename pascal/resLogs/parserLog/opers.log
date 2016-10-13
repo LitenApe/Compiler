@@ -1929,5 +1929,28 @@ Parser:       </statm list>
 Parser:     </block>
 Parser:   </program>
 program operatortest;
+procedure testbinarynumeric;
+procedure test (x: integer; y: integer);
 begin
+  write(x' ''+'' 'y' ''='' 'xyeol);
+  write(x' ''-'' 'y' ''='' 'xyeol);
+  write(x' ''*'' 'y' ''='' 'xyeol);
+  if y <> 0 then
+    Compound Statementend;
+begin
+  test(1717);
+  test(17-11);
+  test(170);
+  test(-1117);
+  test(-11-11);
+  test(170);
+  test(017);
+  test(0-11);
+  test(00);
+end;
+begin
+  testunaryboolean();
+  testunarynumeric();
+  testbinaryboolean();
+  testbinarynumeric();
 end.

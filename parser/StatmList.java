@@ -40,13 +40,7 @@ public class StatmList extends PascalSyntax{
     @Override
     public void prettyPrint(){
         for(PascalSyntax stLst : stmLst){
-            if(stLst != null){
-                stLst.prettyPrint();
-            }else{
-                Main.log.prettyOutdent();
-                Main.log.prettyPrintLn("");
-                Main.log.prettyIndent();
-            }
+            stLst.prettyPrint();
         }
     }/*End prettyPrint*/
 } /* End of class */

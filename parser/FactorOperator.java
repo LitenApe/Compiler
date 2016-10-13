@@ -1,5 +1,6 @@
 package parser;
 
+import main.Main;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -15,7 +16,7 @@ public class FactorOperator extends Operator{
     public String identify() {
         return "<FactorOperator> on line " + lineNum;
     } /* End of identify */
-    
+
     public static FactorOperator parse(Scanner s) {
         enterParser("factor opr");
 
@@ -34,7 +35,7 @@ public class FactorOperator extends Operator{
 
     @Override
     public void prettyPrint(){
-
+        Main.log.prettyPrint("Factor Operator");
     }/*End prettyPrint*/
 
 }/*End class*/

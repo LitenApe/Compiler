@@ -32,7 +32,6 @@ public class SimpleExpr extends PascalSyntax{
                 termOpr.get(i).prettyPrint();
             }
         }
-
     }/*End prettyPrint*/
 
     public static SimpleExpr parse(Scanner s){

@@ -141,7 +141,11 @@ Parser:       </statm list>
 Parser:     </block>
 Parser:   </program>
 program tenstars;
+const
+  n = 10;
+var
+  i: integer;
 begin
-  const
-  n
+  i := i1while i < n do
+    Compound Statementwrite(eol);
 end.
