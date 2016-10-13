@@ -862,8 +862,9 @@ program primes;
 const
   limit = 1000;
 var
-  prime: Array Type;
+  prime: array [2..limit] of boolean;
   i: integer;
+
 procedure printprimes;
 var
   i: integer;
@@ -875,7 +876,7 @@ begin
     begin
       if prime [i]  then
         begin
-          if Inner ExpressionFactor OperatorInner Expression then
+          if (nprinted > 0) and (nprinted mod 10 = 0) then
             write(eol);
           p4(i);
           i := i + 1

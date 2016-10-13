@@ -35,7 +35,7 @@ public class FactorOperator extends Operator{
 
     @Override
     public void prettyPrint(){
-        Main.log.prettyPrint("Factor Operator");
+        Main.log.prettyPrint(" " + tokenKind.toString() + " ");
     }/*End prettyPrint*/
 
 }/*End class*/

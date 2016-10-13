@@ -39,7 +39,18 @@ public class ArrayType extends Type{
 
     @Override
     public void prettyPrint(){
-        Main.log.prettyPrint("Array Type");
+        Main.log.prettyPrint("array [");
+
+        preConstant.prettyPrint();
+
+        Main.log.prettyPrint("..");
+
+        postConstant.prettyPrint();
+
+        Main.log.prettyPrint("] of ");
+
+        type.prettyPrint();
+
     }/*End prettyPrint*/
 
     @Override

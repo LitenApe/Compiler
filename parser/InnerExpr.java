@@ -26,7 +26,11 @@ public class InnerExpr extends Factor{
 
     @Override
     public void prettyPrint(){
-        Main.log.prettyPrint("Inner Expression");
+        Main.log.prettyPrint("(");
+
+        expr.prettyPrint();
+
+        Main.log.prettyPrint(")");
     }/*End prettyPrint*/
 
 
