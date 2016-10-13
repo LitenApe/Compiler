@@ -28,9 +28,9 @@ Pascal kompilator
     - [x] 10star.pas
     - [x] gcd.pas
   - [ ] Part 2: Parser
-    - [x] Create classes
+    - [x] Create classes  
     - [x] Parse method  
-    - [ ] Pretty print  
+    - [ ] Pretty print
     - [x] mini.pas
     - [ ] eater.pas
     - [ ] opers.pas
