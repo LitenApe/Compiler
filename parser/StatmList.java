@@ -20,21 +20,21 @@ public class StatmList extends PascalSyntax{
     public static StatmList parse(Scanner s){
         enterParser("statm list");
 
-        StatmList statmList = new StatmList(s.curLineNum());
+        StatmList sList = new StatmList(s.curLineNum());
 
         while(true){
 
-            statmList.statmList.add(Statement.parse(s));
-
+            sList.statmList.add(Statement.parse(s));
+            sList.statmList.get(sList.statmList.size() - 1).prettyPrint();
             if(s.curToken.kind != semicolonToken){
                 break;
-            }else{
-                s.skip(semicolonToken);
             }
+
+            s.skip(semicolonToken);
         }
 
         leaveParser("statm list");
-        return statmList;
+        return sList;
     }/*End parse*/
 
     @Override

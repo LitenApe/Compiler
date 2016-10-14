@@ -1202,7 +1202,8 @@ begin
   else
     write(day, ' ', 'A', 'p', 'r', 'i', 'l', ' ', y, eol);
 
-end;
+end; {easter}
+
 begin
   y := y + 1
   while y <= 2020 do

@@ -1941,7 +1941,8 @@ begin
       write(x, ' ', 'm', 'o', 'd', ' ', y, ' ', '=', ' ', x mod y, eol);
     
     end;
-end;
+end; {test}
+
 begin
   test(17, 17);
   test(17, -11);
@@ -1953,7 +1954,8 @@ begin
   test(0, -11);
   test(0, 0);
 
-end;
+end; {testbinarynumeric}
+
 begin
   testunaryboolean();
   testunarynumeric();

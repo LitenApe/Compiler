@@ -886,7 +886,8 @@ begin
     
     end;
   write(eol);
-end;
+end; {printprimes}
+
 begin
   i := i + 1
   while i <= limit do

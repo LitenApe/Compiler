@@ -37,11 +37,11 @@ public class AssignStatm extends Statement{
         AssignStatm as = new AssignStatm(s.curLineNum());
 
         as.variable = Variable.parse(s);
-        
+
         s.skip(assignToken);
 
         as.expression = Expression.parse(s);
-
+        as.prettyPrint();
         leaveParser("assign statm");
         return as;
     }/*End parse*/
