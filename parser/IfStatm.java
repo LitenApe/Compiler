@@ -24,7 +24,7 @@ public class IfStatm extends Statement{
         stat.prettyPrint();
         Main.log.prettyOutdent();
 
-        System.out.println(exp.identify());
+        // System.out.println(exp.identify());
 
 
         if (elseExp != null){
@@ -32,7 +32,7 @@ public class IfStatm extends Statement{
             Main.log.prettyIndent();
             elseExp.prettyPrint();
             Main.log.prettyOutdent();
-            System.out.println("If: " + elseExp.identify());
+            // System.out.println("If: " + elseExp.identify());
         }
     }/*End prettyprint*/
 

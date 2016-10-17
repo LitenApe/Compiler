@@ -39,9 +39,9 @@ public class StatmList extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-        System.out.println(statmList.size());
+        // System.out.println(statmList.size());
         for(PascalSyntax s : statmList){
-            System.out.println("StatmList: " + s.identify());
+            // System.out.println("StatmList: " + s.identify());
             s.prettyPrint();
         }
     }/*End prettyPrint*/
