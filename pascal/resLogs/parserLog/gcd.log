@@ -14,7 +14,7 @@ Parser:               <number literal>
 Parser:               </number literal>
 Parser:             </unsigned constant>
 Parser:           </constant>
-Parser:         </const decl: v1>
+Parser:         </const decl>
 Parser:         <const decl>
 Parser:           <constant>
 Parser:             <unsigned constant>
@@ -24,7 +24,7 @@ Parser:               <number literal>
 Parser:               </number literal>
 Parser:             </unsigned constant>
 Parser:           </constant>
-Parser:         </const decl: v2>
+Parser:         </const decl>
 Parser:       </const decl part>
 Parser:       <var decl part>
 Parser:         <var decl>
@@ -123,7 +123,7 @@ Parser:                                       <variable>
 Parser:                                       </variable>
 Parser:                                     </factor>
 Parser:                                     <factor opr>
-Parser:                                     </factor opr: mod>
+Parser:                                     </factor opr>
 Parser:                                     <factor>
 Parser:                                       <variable>
   16: end; { GCD } 
@@ -132,7 +132,7 @@ Parser:                                     </factor>
 Parser:                                   </term>
 Parser:                                 </simple expr>
 Parser:                               </expression>
-Parser:                             </func call: gcd>
+Parser:                             </func call>
 Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
@@ -146,7 +146,7 @@ Parser:           </statm list>
   18: begin 
 Parser:         </block>
   19:    res := GCD(v1,v2); 
-Parser:       </func decl: gcd>
+Parser:       </func decl>
 Parser:       <statm list>
 Parser:         <statement>
 Parser:           <assign statm>
@@ -178,7 +178,7 @@ Parser:                           </term>
 Parser:                         </simple expr>
 Parser:                       </expression>
   20:    write('G', 'C', 'D', '(', v1, ',', v2, ')', '=', res, eol); 
-Parser:                     </func call: gcd>
+Parser:                     </func call>
 Parser:                   </factor>
 Parser:                 </term>
 Parser:               </simple expr>
@@ -331,9 +331,9 @@ var
 function gcd (m: integer; n: integer): integer;
 begin
   if n = 0 then
-    res := gcd(v1, v2);
+    gcd := m
   else
-    res := gcd(v1, v2);
+    gcd := gcd(n, m mod n)
 end; {gcd}
 
 begin

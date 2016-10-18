@@ -28,7 +28,7 @@ public class ProcCallStatm extends Statement{
                     Main.log.prettyPrint(", ");
                 }
             }
-            Main.log.prettyPrintLn(");");
+            Main.log.prettyPrint(")");
         }
     }
 

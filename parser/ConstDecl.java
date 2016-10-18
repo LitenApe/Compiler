@@ -34,7 +34,7 @@ public class ConstDecl extends PascalDecl{
 
         s.skip(semicolonToken);
 
-        leaveParser("const decl: " + constDecl.namedConstant.name);
+        leaveParser("const decl");
         return constDecl;
     }
 

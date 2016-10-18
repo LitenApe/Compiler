@@ -29,7 +29,7 @@ public class FactorOperator extends Operator{
             Main.error("Expected a factor operator on + " + s.curLineNum() + ", but found :" + s.curToken.kind.toString()); // TODO: This shit need to fail.
         }
 
-        leaveParser("factor opr: " + fOpr.tokenKind.toString());
+        leaveParser("factor opr");
         return fOpr;
     }/*End parse*/
 

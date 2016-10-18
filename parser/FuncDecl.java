@@ -56,7 +56,7 @@ public class FuncDecl extends ProcDecl{
         fDecl.block = Block.parse(s);
         s.skip(semicolonToken);
 
-        leaveParser("func decl: " + fDecl.funcName.name);
+        leaveParser("func decl");
         return fDecl;
     }/*End parse*/
 

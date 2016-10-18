@@ -11,7 +11,7 @@ Parser:               <number literal>
 Parser:               </number literal>
 Parser:             </unsigned constant>
 Parser:           </constant>
-Parser:         </const decl: n>
+Parser:         </const decl>
 Parser:       </const decl part>
 Parser:       <var decl part>
 Parser:         <var decl>
@@ -146,12 +146,12 @@ const
 var
   i: integer;
 begin
-  i := i + 1
+  i := 0;
   while i < n do
     begin
       write('*');
-      i := i + 1
-    end;
+      i := i + 1end;
+  ;
   write(eol);
 
 end.

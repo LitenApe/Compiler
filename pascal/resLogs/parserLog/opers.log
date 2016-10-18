@@ -337,7 +337,7 @@ Parser:                             <variable>
 Parser:                             </variable>
 Parser:                           </factor>
 Parser:                           <factor opr>
-Parser:                           </factor opr: and>
+Parser:                           </factor opr>
 Parser:                           <factor>
 Parser:                             <variable>
 Parser:                             </variable>
@@ -1266,7 +1266,7 @@ Parser:                             <variable>
 Parser:                             </variable>
 Parser:                           </factor>
 Parser:                           <factor opr>
-Parser:                           </factor opr: *>
+Parser:                           </factor opr>
 Parser:                           <factor>
 Parser:                             <variable>
 Parser:                             </variable>
@@ -1441,7 +1441,7 @@ Parser:                                       <variable>
 Parser:                                       </variable>
 Parser:                                     </factor>
 Parser:                                     <factor opr>
-Parser:                                     </factor opr: div>
+Parser:                                     </factor opr>
 Parser:                                     <factor>
 Parser:                                       <variable>
 Parser:                                       </variable>
@@ -1588,7 +1588,7 @@ Parser:                                       <variable>
 Parser:                                       </variable>
 Parser:                                     </factor>
 Parser:                                     <factor opr>
-Parser:                                     </factor opr: mod>
+Parser:                                     </factor opr>
 Parser:                                     <factor>
 Parser:                                       <variable>
 Parser:                                       </variable>
@@ -1941,6 +1941,8 @@ begin
       write(x, ' ', 'm', 'o', 'd', ' ', y, ' ', '=', ' ', x mod y, eol);
     
     end;
+  
+  
 end; {test}
 
 begin

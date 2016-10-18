@@ -17,7 +17,7 @@ Parser:               <number literal>
 Parser:               </number literal>
 Parser:             </unsigned constant>
 Parser:           </constant>
-Parser:         </const decl: limit>
+Parser:         </const decl>
 Parser:       </const decl part>
 Parser:       <var decl part>
 Parser:         <var decl>
@@ -131,7 +131,7 @@ Parser:                                     </number literal>
 Parser:                                   </unsigned constant>
 Parser:                                 </factor>
 Parser:                                 <factor opr>
-Parser:                                 </factor opr: *>
+Parser:                                 </factor opr>
 Parser:                                 <factor>
 Parser:                                   <variable>
   20:       while i2 <= Limit do 
@@ -573,7 +573,7 @@ Parser:                                               </expression>
 Parser:                                             </inner expr>
 Parser:                                           </factor>
 Parser:                                           <factor opr>
-Parser:                                           </factor opr: and>
+Parser:                                           </factor opr>
 Parser:                                           <factor>
 Parser:                                             <inner expr>
 Parser:                                               <expression>
@@ -584,7 +584,7 @@ Parser:                                                       <variable>
 Parser:                                                       </variable>
 Parser:                                                     </factor>
 Parser:                                                     <factor opr>
-Parser:                                                     </factor opr: mod>
+Parser:                                                     </factor opr>
 Parser:                                                     <factor>
 Parser:                                                       <unsigned constant>
 Parser:                                                         <number literal>
@@ -870,31 +870,36 @@ var
   i: integer;
   nprinted: integer;
 begin
-  i := i + 1
-  i := i + 1
+  i := 2;
+  nprinted := 0;
   while i <= limit do
     begin
       if prime [i]  then
         begin
           if (nprinted > 0) and (nprinted mod 10 = 0) then
-            write(eol);
+            write(eol)
+          
+          ;
           p4(i);
-          i := i + 1
+          nprinted := nprinted + 1;
         
         end;
-      i := i + 1
+      
+      
+      ;
+      i := i + 1;
     
     end;
-  write(eol);
-end; {printprimes}
+  ;
+  write(eol)end; {printprimes}
 
 begin
-  i := i + 1
+  i := 2;
   while i <= limit do
     begin
-      i := i + 1
-      i := i + 1
-    end;
+      prime [i]  := true;
+      i := i + 1end;
+  ;
   findprimes();
   printprimes();
 

@@ -23,13 +23,14 @@ public class IfStatm extends Statement{
         Main.log.prettyIndent();
         stat.prettyPrint();
         Main.log.prettyOutdent();
-
+        Main.log.prettyPrintLn("");
         if (elseExp != null){
             Main.log.prettyPrintLn("else");
             Main.log.prettyIndent();
             elseExp.prettyPrint();
             Main.log.prettyOutdent();
         }
+        Main.log.prettyPrintLn("");
     }/*End prettyprint*/
 
     public static IfStatm parse(Scanner s) {

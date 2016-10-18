@@ -38,7 +38,10 @@ public class StatmList extends PascalSyntax{
     @Override
     public void prettyPrint(){
         for(Statement s : statmList){
+            // System.out.println(statmList.size());
             s.prettyPrint();
+            if(statmList.size() >= 2 && s != statmList.get(statmList.size() - 1))
+                Main.log.prettyPrintLn(";");
         }
     }/*End prettyPrint*/
 } /* End of class */
