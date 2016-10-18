@@ -34,7 +34,7 @@ public class RelOperator extends Operator{
 
         s.skip(rOpr.opr);
 
-        leaveParser("rel opr: " + rOpr.opr.toString());
+        leaveParser("rel opr");
         return rOpr;
     }/*End parse*/
 }/*End class*/

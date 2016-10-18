@@ -21,9 +21,6 @@ public class AssignStatm extends Statement{
         Main.log.prettyPrint(" := ");
         expression.prettyPrint();
         Main.log.prettyPrintLn("");
-
-        System.out.println("Assign Statm: " + variable.identify());
-        System.out.println("Assign Statm: " + expression.identify());
     }/*End prettyPrint*/
 
     @Override
@@ -41,7 +38,7 @@ public class AssignStatm extends Statement{
         s.skip(assignToken);
 
         as.expression = Expression.parse(s);
-        as.prettyPrint();
+
         leaveParser("assign statm");
         return as;
     }/*End parse*/
