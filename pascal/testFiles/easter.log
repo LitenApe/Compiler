@@ -1200,8 +1200,7 @@ begin
   if month = 3 then
     write(day, ' ', 'M', 'a', 'r', 'c', 'h', ' ', y, eol)
   else
-    write(day, ' ', 'A', 'p', 'r', 'i', 'l', ' ', y, eol)
-  ;
+    write(day, ' ', 'A', 'p', 'r', 'i', 'l', ' ', y, eol);
 
 end; {easter}
 
@@ -1212,5 +1211,5 @@ begin
       easter(y);
       y := y + 1;
     
-    end;
+    end
 end.

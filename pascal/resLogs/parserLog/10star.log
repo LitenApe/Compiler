@@ -8,10 +8,10 @@ Parser:           <constant>
 Parser:             <unsigned constant>
 Parser:               <number literal>
    3: var i : integer; 
-Parser:               </number literal: 10>
+Parser:               </number literal>
 Parser:             </unsigned constant>
 Parser:           </constant>
-Parser:         </const decl: n>
+Parser:         </const decl>
 Parser:       </const decl part>
 Parser:       <var decl part>
 Parser:         <var decl>
@@ -27,7 +27,7 @@ Parser:       <statm list>
 Parser:         <statement>
 Parser:           <assign statm>
 Parser:             <variable>
-Parser:             </variable: i>
+Parser:             </variable>
 Parser:             <expression>
 Parser:               <simple expr>
 Parser:                 <term>
@@ -35,7 +35,7 @@ Parser:                   <factor>
 Parser:                     <unsigned constant>
 Parser:                       <number literal>
    6:    while i < N do begin 
-Parser:                       </number literal: 0>
+Parser:                       </number literal>
 Parser:                     </unsigned constant>
 Parser:                   </factor>
 Parser:                 </term>
@@ -50,17 +50,17 @@ Parser:               <simple expr>
 Parser:                 <term>
 Parser:                   <factor>
 Parser:                     <variable>
-Parser:                     </variable: i>
+Parser:                     </variable>
 Parser:                   </factor>
 Parser:                 </term>
 Parser:               </simple expr>
 Parser:               <rel opr>
-Parser:               </rel opr: <>
+Parser:               </rel opr>
 Parser:               <simple expr>
 Parser:                 <term>
 Parser:                   <factor>
 Parser:                     <variable>
-Parser:                     </variable: n>
+Parser:                     </variable>
 Parser:                   </factor>
 Parser:                 </term>
 Parser:               </simple expr>
@@ -77,7 +77,7 @@ Parser:                           <term>
 Parser:                             <factor>
 Parser:                               <unsigned constant>
 Parser:                                 <char literal>
-Parser:                                 </char literal: *>
+Parser:                                 </char literal>
 Parser:                               </unsigned constant>
 Parser:                             </factor>
 Parser:                           </term>
@@ -88,13 +88,13 @@ Parser:                   </statement>
 Parser:                   <statement>
 Parser:                     <assign statm>
 Parser:                       <variable>
-Parser:                       </variable: i>
+Parser:                       </variable>
 Parser:                       <expression>
 Parser:                         <simple expr>
 Parser:                           <term>
 Parser:                             <factor>
 Parser:                               <variable>
-Parser:                               </variable: i>
+Parser:                               </variable>
 Parser:                             </factor>
 Parser:                           </term>
 Parser:                           <term opr>
@@ -104,7 +104,7 @@ Parser:                           <term>
 Parser:                             <factor>
 Parser:                               <unsigned constant>
 Parser:                                 <number literal>
-Parser:                                 </number literal: 1>
+Parser:                                 </number literal>
 Parser:                               </unsigned constant>
 Parser:                             </factor>
 Parser:                           </term>
@@ -125,7 +125,7 @@ Parser:               <simple expr>
 Parser:                 <term>
 Parser:                   <factor>
 Parser:                     <variable>
-Parser:                     </variable: eol>
+Parser:                     </variable>
 Parser:                   </factor>
 Parser:                 </term>
 Parser:               </simple expr>
@@ -146,12 +146,12 @@ const
 var
   i: integer;
 begin
-  i := i + 1
+  i := 0;
   while i < n do
     begin
       write('*');
-      i := i + 1
-    end;
+      i := i + 1end;
+  ;
   write(eol);
 
 end.

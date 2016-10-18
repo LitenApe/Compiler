@@ -26,8 +26,8 @@ public class IfStatm extends Statement{
 
         // System.out.println(exp.identify());
 
-
         if (elseExp != null){
+            Main.log.prettyPrintLn("");
             Main.log.prettyPrintLn("else");
             Main.log.prettyIndent();
             elseExp.prettyPrint();

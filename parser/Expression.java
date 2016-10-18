@@ -30,7 +30,6 @@ public class Expression extends PascalSyntax{
     @Override
     public void prettyPrint(){
         firstValue.prettyPrint();
-        System.out.println("Ex: " + firstValue.identify());
         if(relOperator != null){
             relOperator.prettyPrint();
             secondValue.prettyPrint();

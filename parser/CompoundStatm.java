@@ -40,6 +40,6 @@ public class CompoundStatm extends Statement{
         statmList.prettyPrint();
 
         Main.log.prettyOutdent();
-        Main.log.prettyPrintLn("end;");
+        Main.log.prettyPrintLn("end");
     }/*End prettyPrint*/
 } /* End of class */

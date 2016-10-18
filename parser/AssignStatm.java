@@ -8,8 +8,8 @@ public class AssignStatm extends Statement{
 
     // variable : := : expression
 
-    public static Variable variable = null;
-    public static Expression expression = null;
+    public Variable variable = null;
+    public Expression expression = null;
 
     public AssignStatm(int n){
         super(n);
@@ -20,10 +20,10 @@ public class AssignStatm extends Statement{
         variable.prettyPrint();
         Main.log.prettyPrint(" := ");
         expression.prettyPrint();
-        Main.log.prettyPrintLn("");
 
         // System.out.println("Assign Statm: " + variable.identify());
         // System.out.println("Assign Statm: " + expression.identify());
+
     }/*End prettyPrint*/
 
     @Override
