@@ -10,11 +10,10 @@ public class Block extends PascalSyntax{
     public ConstDeclPart constDeclPart = null;
     public VarDeclPart varDeclPart = null;
     public StatmList statmList = null;
-    public ArrayList<ProcDecl> procAndFuncDecls;
+    public ArrayList<ProcDecl> procAndFuncDecls = new ArrayList<>();
 
     public Block(int lineNum){
         super(lineNum);
-        procAndFuncDecls = new ArrayList<>();
     }/*End constructor*/
 
     public static Block parse(Scanner s){
@@ -32,8 +31,7 @@ public class Block extends PascalSyntax{
         while(s.curToken.kind != beginToken){
             if (s.curToken.kind == functionToken){
                 block.procAndFuncDecls.add(FuncDecl.parse(s));
-            }
-            if (s.curToken.kind == procedureToken){
+            }else if (s.curToken.kind == procedureToken){
                 block.procAndFuncDecls.add(ProcDecl.parse(s));
             }
         }
@@ -60,19 +58,22 @@ public class Block extends PascalSyntax{
             varDeclPart.prettyPrint();
         }
 
-        if((constDeclPart != null || varDeclPart != null) && procAndFuncDecls != null){
+        if((constDeclPart != null || varDeclPart != null) && procAndFuncDecls.size() > 0){
             Main.log.prettyPrintLn("");
         }
 
-        if(procAndFuncDecls != null){
-            for (ProcDecl p : procAndFuncDecls)
+        if(procAndFuncDecls.size() > 0){
+            for (ProcDecl p : procAndFuncDecls){
                 p.prettyPrint();
+                Main.log.prettyPrintLn("");
+            }
         }
-        if(statmList != null){
-            Main.log.prettyPrintLn("begin");
-            Main.log.prettyIndent();
-            statmList.prettyPrint();
-        }
+
+        Main.log.prettyPrintLn("begin");
+        Main.log.prettyIndent();
+
+        statmList.prettyPrint();
+
         Main.log.prettyOutdent();
         Main.log.prettyPrint("end");
     }/*End prettyPrint*/

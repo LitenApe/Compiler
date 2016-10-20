@@ -150,7 +150,7 @@ begin
   while i < n do
     begin
       write('*');
-      i := i + 1end;
+      i := i + 1end
   ;
   write(eol);
 

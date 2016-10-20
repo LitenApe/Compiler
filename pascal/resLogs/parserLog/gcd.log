@@ -333,8 +333,7 @@ begin
   if n = 0 then
     gcd := m
   else
-    gcd := gcd(n, m mod n)
-end; {gcd}
+    gcd := gcd(n, m mod n)end; {gcd}
 
 begin
   res := gcd(v1, v2);

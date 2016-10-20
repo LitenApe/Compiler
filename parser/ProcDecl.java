@@ -29,7 +29,7 @@ public class ProcDecl extends PascalDecl{
         block.prettyPrint();
         Main.log.prettyPrint("; {");
         procName.prettyPrint();
-        Main.log.prettyPrintLn("}\n");
+        Main.log.prettyPrintLn("}");
 
     }/*End prettyPrint*/
 

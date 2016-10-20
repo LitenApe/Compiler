@@ -865,6 +865,35 @@ var
   prime: array [2..limit] of boolean;
   i: integer;
 
+procedure findprimes;
+var
+  i1: integer;
+  i2: integer;
+begin
+  i1 := 2;
+  while i1 <= limit do
+    begin
+      i2 := 2 * i1;
+      while i2 <= limit do
+        begin
+          prime [i2]  := false;
+          i2 := i2 + i1end
+      ;
+      i1 := i1 + 1end
+end; {findprimes}
+
+procedure p4 (x: integer);
+begin
+  if x < 1000 then
+    write(' ');
+  if x < 100 then
+    write(' ');
+  if x < 10 then
+    write(' ');
+  write(x);
+
+end; {p4}
+
 procedure printprimes;
 var
   i: integer;
@@ -877,19 +906,15 @@ begin
       if prime [i]  then
         begin
           if (nprinted > 0) and (nprinted mod 10 = 0) then
-            write(eol)
-          
-          ;
+            write(eol);
           p4(i);
           nprinted := nprinted + 1;
         
-        end;
-      
-      
+        end
       ;
       i := i + 1;
     
-    end;
+    end
   ;
   write(eol)end; {printprimes}
 
@@ -898,7 +923,7 @@ begin
   while i <= limit do
     begin
       prime [i]  := true;
-      i := i + 1end;
+      i := i + 1end
   ;
   findprimes();
   printprimes();
