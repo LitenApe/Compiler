@@ -20,16 +20,16 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void prettyPrint() {
+        Main.log.prettyPrint(namedConst.name +"(");
         if(namedConst != null){
-            Main.log.prettyPrint(namedConst.name +"(");
             for(Expression ep : exp){
                 ep.prettyPrint();
                 if(ep != exp.get(exp.size() - 1)){
                     Main.log.prettyPrint(", ");
                 }
             }
-            Main.log.prettyPrint(")");
         }
+        Main.log.prettyPrint(")");
     }
 
     public static ProcCallStatm parse(Scanner s) {

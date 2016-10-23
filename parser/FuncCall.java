@@ -19,16 +19,16 @@ public class FuncCall extends Factor{
     @Override
     public void prettyPrint(){
         name.prettyPrint();
+        Main.log.prettyPrint("(");
         if (expressions != null){
-            Main.log.prettyPrint("(");
             for (Expression e : expressions){
                 e.prettyPrint();
                 if (e != expressions.get(expressions.size()-1)){
                     Main.log.prettyPrint(", ");
                 }
             }
-            Main.log.prettyPrint(")");
         }
+        Main.log.prettyPrint(")");
     }/*End prettyPrint*/
 
     @Override
