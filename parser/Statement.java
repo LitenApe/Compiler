@@ -2,6 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
+import main.Main;
 
 public abstract class Statement extends PascalSyntax{
 
@@ -13,7 +14,6 @@ public abstract class Statement extends PascalSyntax{
     public String identify() {
         return "<Statement> on line " + lineNum;
     } /* End of identify */
-
     public static Statement parse(Scanner s) {
         enterParser("statement");
 
@@ -38,7 +38,6 @@ public abstract class Statement extends PascalSyntax{
             default:
                 st = EmptyStatm.parse(s); break;
         }
-
         leaveParser("statement");
         return st;
     }/*End parse*/
