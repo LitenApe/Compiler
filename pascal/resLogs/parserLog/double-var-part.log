@@ -11,3 +11,4 @@ Parser:             </type name>
 Parser:           </type>
 Parser:         </var decl>
 Parser:       </var decl part>
+Error on line 3: Expected a begin but found a var!

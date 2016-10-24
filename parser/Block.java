@@ -33,6 +33,8 @@ public class Block extends PascalSyntax{
                 block.procAndFuncDecls.add(FuncDecl.parse(s));
             }else if (s.curToken.kind == procedureToken){
                 block.procAndFuncDecls.add(ProcDecl.parse(s));
+            }else{
+                Main.error("Error on line " + s.curLineNum() + ": Expected a begin but found a " + s.curToken.kind.toString() + "!");
             }
         }
 

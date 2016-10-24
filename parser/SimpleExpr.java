@@ -40,6 +40,9 @@ public class SimpleExpr extends PascalSyntax{
 
         if(s.curToken.kind.isPrefixOpr()){
             simExpr.prefix = PrefixOperator.parse(s);
+            if(s.curToken.kind.isPrefixOpr()){
+                Main.error("Expected a value but found a " + s.curToken.kind.toString() + "!");
+            }
         }
 
         while(true){
