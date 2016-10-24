@@ -20,8 +20,9 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void prettyPrint() {
-        if(namedConst != null){
-            Main.log.prettyPrint(namedConst.name +"(");
+        namedConst.prettyPrint();
+        if (!exp.isEmpty()) {
+            Main.log.prettyPrint("(");
             for(Expression ep : exp){
                 ep.prettyPrint();
                 if(ep != exp.get(exp.size() - 1)){

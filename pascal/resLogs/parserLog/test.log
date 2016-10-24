@@ -1,14 +1,15 @@
-   1: program DoubleVarPart; 
+   1: /* Et minimalt Pascal-program */ 
+   2: program Mini; 
 Parser:   <program>
-   2: var a: char; 
+   3: var res: integer; 
 Parser:     <block>
 Parser:       <var decl part>
 Parser:         <var decl>
 Parser:           <type>
 Parser:             <type name>
-   3: var b: boolean; 
+   4: const a = 0; 
 Parser:             </type name>
 Parser:           </type>
 Parser:         </var decl>
 Parser:       </var decl part>
-Error on line 3: Expected a begin but found a var!
+Error on line 4: Expected a begin but found a const!

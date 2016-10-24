@@ -1,19 +1,19 @@
-   1:  
-   2: /* This program prints all primes less than 1000 
-   3:    using a technique called "The sieve of Eratosthenes". */ 
-   4:  
-   5: program Primes; 
+   1:
+   2: /* This program prints all primes less than 1000
+   3:    using a technique called "The sieve of Eratosthenes". */
+   4:
+   5: program Primes;
 Parser:   <program>
-   6:  
-   7: const Limit = 1000; 
+   6:
+   7: const Limit = 1000;
 Parser:     <block>
 Parser:       <const decl part>
 Parser:         <const decl>
 Parser:           <constant>
 Parser:             <unsigned constant>
 Parser:               <number literal>
-   8:  
-   9: var prime : array [2..Limit] of Boolean; 
+   8:
+   9: var prime : array [2..Limit] of Boolean;
 Parser:               </number literal>
 Parser:             </unsigned constant>
 Parser:           </constant>
@@ -37,7 +37,7 @@ Parser:                 </unsigned constant>
 Parser:               </constant>
 Parser:               <type>
 Parser:                 <type name>
-  10:     i	  : integer; 
+  10:     i	  : integer;
 Parser:                 </type name>
 Parser:               </type>
 Parser:             </array-type>
@@ -46,30 +46,30 @@ Parser:         </var decl>
 Parser:         <var decl>
 Parser:           <type>
 Parser:             <type name>
-  11:  
-  12: procedure FindPrimes; 
+  11:
+  12: procedure FindPrimes;
 Parser:             </type name>
 Parser:           </type>
 Parser:         </var decl>
 Parser:       </var decl part>
 Parser:       <proc decl>
-  13: var i1 : integer; 
+  13: var i1 : integer;
 Parser:         <block>
 Parser:           <var decl part>
 Parser:             <var decl>
 Parser:               <type>
 Parser:                 <type name>
-  14:     I2 : Integer; 
+  14:     I2 : Integer;
 Parser:                 </type name>
 Parser:               </type>
 Parser:             </var decl>
 Parser:             <var decl>
 Parser:               <type>
 Parser:                 <type name>
-  15: begin 
+  15: begin
 Parser:                 </type name>
 Parser:               </type>
-  16:    i1 := 2; 
+  16:    i1 := 2;
 Parser:             </var decl>
 Parser:           </var decl part>
 Parser:           <statm list>
@@ -83,7 +83,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-  17:    while i1 <= Limit do 
+  17:    while i1 <= Limit do
 Parser:                           </number literal>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
@@ -109,13 +109,13 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-  18:    begin 
+  18:    begin
 Parser:                         </variable>
 Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
 Parser:                 </expression>
-  19:       i2 := 2*i1; 
+  19:       i2 := 2*i1;
 Parser:                 <statement>
 Parser:                   <compound statm>
 Parser:                     <statm list>
@@ -136,7 +136,7 @@ Parser:                                 <factor opr>
 Parser:                                 </factor opr>
 Parser:                                 <factor>
 Parser:                                   <variable>
-  20:       while i2 <= Limit do 
+  20:       while i2 <= Limit do
 Parser:                                   </variable>
 Parser:                                 </factor>
 Parser:                               </term>
@@ -161,13 +161,13 @@ Parser:                             <simple expr>
 Parser:                               <term>
 Parser:                                 <factor>
 Parser:                                   <variable>
-  21:       begin 
+  21:       begin
 Parser:                                   </variable>
 Parser:                                 </factor>
 Parser:                               </term>
 Parser:                             </simple expr>
 Parser:                           </expression>
-  22: 	 prime[i2] := false; 
+  22: 	 prime[i2] := false;
 Parser:                           <statement>
 Parser:                             <compound statm>
 Parser:                               <statm list>
@@ -190,7 +190,7 @@ Parser:                                       <simple expr>
 Parser:                                         <term>
 Parser:                                           <factor>
 Parser:                                             <variable>
-  23: 	 i2 := i2+i1 
+  23: 	 i2 := i2+i1
 Parser:                                             </variable>
 Parser:                                           </factor>
 Parser:                                         </term>
@@ -211,7 +211,7 @@ Parser:                                             </variable>
 Parser:                                           </factor>
 Parser:                                         </term>
 Parser:                                         <term opr>
-  24:       end; 
+  24:       end;
 Parser:                                         </term opr>
 Parser:                                         <term>
 Parser:                                           <factor>
@@ -224,7 +224,7 @@ Parser:                                     </expression>
 Parser:                                   </assign statm>
 Parser:                                 </statement>
 Parser:                               </statm list>
-  25:       i1 := i1 + 1 
+  25:       i1 := i1 + 1
 Parser:                             </compound statm>
 Parser:                           </statement>
 Parser:                         </while-statm>
@@ -242,13 +242,13 @@ Parser:                                   </variable>
 Parser:                                 </factor>
 Parser:                               </term>
 Parser:                               <term opr>
-  26:    end 
+  26:    end
 Parser:                               </term opr>
 Parser:                               <term>
 Parser:                                 <factor>
 Parser:                                   <unsigned constant>
 Parser:                                     <number literal>
-  27: end; {FindPrimes} 
+  27: end; {FindPrimes}
 Parser:                                     </number literal>
 Parser:                                   </unsigned constant>
 Parser:                                 </factor>
@@ -263,8 +263,8 @@ Parser:                 </statement>
 Parser:               </while-statm>
 Parser:             </statement>
 Parser:           </statm list>
-  28:  
-  29: procedure P4 (x	: integer); 
+  28:
+  29: procedure P4 (x	: integer);
 Parser:         </block>
 Parser:       </proc decl>
 Parser:       <proc decl>
@@ -273,9 +273,9 @@ Parser:           <param decl>
 Parser:             <type name>
 Parser:             </type name>
 Parser:           </param decl>
-  30: begin 
+  30: begin
 Parser:         </param decl list>
-  31:    if x < 1000 then write(' '); 
+  31:    if x < 1000 then write(' ');
 Parser:         <block>
 Parser:           <statm list>
 Parser:             <statement>
@@ -316,7 +316,7 @@ Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
 Parser:                     </expression>
-  32:    if x <  100 then write(' '); 
+  32:    if x <  100 then write(' ');
 Parser:                   </proc call>
 Parser:                 </statement>
 Parser:               </if-statm>
@@ -359,7 +359,7 @@ Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
 Parser:                     </expression>
-  33:    if x <   10 then write(' '); 
+  33:    if x <   10 then write(' ');
 Parser:                   </proc call>
 Parser:                 </statement>
 Parser:               </if-statm>
@@ -402,7 +402,7 @@ Parser:                           </factor>
 Parser:                         </term>
 Parser:                       </simple expr>
 Parser:                     </expression>
-  34:    write(x); 
+  34:    write(x);
 Parser:                   </proc call>
 Parser:                 </statement>
 Parser:               </if-statm>
@@ -419,7 +419,7 @@ Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
 Parser:                 </expression>
-  35: end; {P4} 
+  35: end; {P4}
 Parser:               </proc call>
 Parser:             </statement>
 Parser:             <statement>
@@ -427,28 +427,28 @@ Parser:               <empty statm>
 Parser:               </empty statm>
 Parser:             </statement>
 Parser:           </statm list>
-  36:  
-  37: procedure PrintPrimes; 
+  36:
+  37: procedure PrintPrimes;
 Parser:         </block>
 Parser:       </proc decl>
 Parser:       <proc decl>
-  38: var i	     : integer; 
+  38: var i	     : integer;
 Parser:         <block>
 Parser:           <var decl part>
 Parser:             <var decl>
 Parser:               <type>
 Parser:                 <type name>
-  39:     NPrinted : integer; 
+  39:     NPrinted : integer;
 Parser:                 </type name>
 Parser:               </type>
 Parser:             </var decl>
 Parser:             <var decl>
 Parser:               <type>
 Parser:                 <type name>
-  40: begin 
+  40: begin
 Parser:                 </type name>
 Parser:               </type>
-  41:    i := 2;  NPrinted := 0; 
+  41:    i := 2;  NPrinted := 0;
 Parser:             </var decl>
 Parser:           </var decl part>
 Parser:           <statm list>
@@ -480,7 +480,7 @@ Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <unsigned constant>
 Parser:                           <number literal>
-  42:    while i <= Limit do 
+  42:    while i <= Limit do
 Parser:                           </number literal>
 Parser:                         </unsigned constant>
 Parser:                       </factor>
@@ -506,13 +506,13 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-  43:    begin 
+  43:    begin
 Parser:                         </variable>
 Parser:                       </factor>
 Parser:                     </term>
 Parser:                   </simple expr>
 Parser:                 </expression>
-  44:       if prime[i] then 
+  44:       if prime[i] then
 Parser:                 <statement>
 Parser:                   <compound statm>
 Parser:                     <statm list>
@@ -533,13 +533,13 @@ Parser:                                           </factor>
 Parser:                                         </term>
 Parser:                                       </simple expr>
 Parser:                                     </expression>
-  45:       begin 
+  45:       begin
 Parser:                                   </variable>
 Parser:                                 </factor>
 Parser:                               </term>
 Parser:                             </simple expr>
 Parser:                           </expression>
-  46: 	 if (NPrinted > 0) and (NPrinted mod 10 = 0) then write(eol); 
+  46: 	 if (NPrinted > 0) and (NPrinted mod 10 = 0) then write(eol);
 Parser:                           <statement>
 Parser:                             <compound statm>
 Parser:                               <statm list>
@@ -625,7 +625,7 @@ Parser:                                               </factor>
 Parser:                                             </term>
 Parser:                                           </simple expr>
 Parser:                                         </expression>
-  47: 	 P4(i);  NPrinted := NPrinted + 1; 
+  47: 	 P4(i);  NPrinted := NPrinted + 1;
 Parser:                                       </proc call>
 Parser:                                     </statement>
 Parser:                                   </if-statm>
@@ -662,7 +662,7 @@ Parser:                                         <term>
 Parser:                                           <factor>
 Parser:                                             <unsigned constant>
 Parser:                                               <number literal>
-  48:       end; 
+  48:       end;
 Parser:                                               </number literal>
 Parser:                                             </unsigned constant>
 Parser:                                           </factor>
@@ -676,7 +676,7 @@ Parser:                                   <empty statm>
 Parser:                                   </empty statm>
 Parser:                                 </statement>
 Parser:                               </statm list>
-  49:       i := i + 1; 
+  49:       i := i + 1;
 Parser:                             </compound statm>
 Parser:                           </statement>
 Parser:                         </if-statm>
@@ -699,7 +699,7 @@ Parser:                               <term>
 Parser:                                 <factor>
 Parser:                                   <unsigned constant>
 Parser:                                     <number literal>
-  50:    end; 
+  50:    end;
 Parser:                                     </number literal>
 Parser:                                   </unsigned constant>
 Parser:                                 </factor>
@@ -713,7 +713,7 @@ Parser:                         <empty statm>
 Parser:                         </empty statm>
 Parser:                       </statement>
 Parser:                     </statm list>
-  51:    write(eol) 
+  51:    write(eol)
 Parser:                   </compound statm>
 Parser:                 </statement>
 Parser:               </while-statm>
@@ -725,7 +725,7 @@ Parser:                   <simple expr>
 Parser:                     <term>
 Parser:                       <factor>
 Parser:                         <variable>
-  52: end; {PrintPrimes} 
+  52: end; {PrintPrimes}
 Parser:                         </variable>
 Parser:                       </factor>
 Parser:                     </term>
@@ -734,10 +734,10 @@ Parser:                 </expression>
 Parser:               </proc call>
 Parser:             </statement>
 Parser:           </statm list>
-  53:  
-  54: begin {main program} 
+  53:
+  54: begin {main program}
 Parser:         </block>
-  55:    i := 2; 
+  55:    i := 2;
 Parser:       </proc decl>
 Parser:       <statm list>
 Parser:         <statement>
@@ -750,7 +750,7 @@ Parser:                 <term>
 Parser:                   <factor>
 Parser:                     <unsigned constant>
 Parser:                       <number literal>
-  56:    while i <= Limit do begin prime[i] := true;  i := i+1 end; 
+  56:    while i <= Limit do begin prime[i] := true;  i := i+1 end;
 Parser:                       </number literal>
 Parser:                     </unsigned constant>
 Parser:                   </factor>
@@ -837,9 +837,9 @@ Parser:                       </expression>
 Parser:                     </assign statm>
 Parser:                   </statement>
 Parser:                 </statm list>
-  57:  
-  58:    /* Find and print the primes: */ 
-  59:    FindPrimes;  PrintPrimes; 
+  57:
+  58:    /* Find and print the primes: */
+  59:    FindPrimes;  PrintPrimes;
 Parser:               </compound statm>
 Parser:             </statement>
 Parser:           </while-statm>
@@ -850,7 +850,7 @@ Parser:           </proc call>
 Parser:         </statement>
 Parser:         <statement>
 Parser:           <proc call>
-  60: end. {main program} 
+  60: end. {main program}
 Parser:           </proc call>
 Parser:         </statement>
 Parser:         <statement>
@@ -861,14 +861,14 @@ Parser:       </statm list>
 Parser:     </block>
 Parser:   </program>
 program primes;
-const 
+const
   limit = 1000;
-var 
+var
   prime: array [2..limit] of boolean;
   i: integer;
 
 procedure findprimes;
-var 
+var
   i1: integer;
   i2: integer;
 begin
@@ -898,7 +898,7 @@ begin
 end; {p4}
 
 procedure printprimes;
-var 
+var
   i: integer;
   nprinted: integer;
 begin
@@ -927,7 +927,7 @@ begin
       prime[i] := true;
       i := i + 1
     end;
-  findprimes();
-  printprimes();
+  findprimes;
+  printprimes;
 
 end.

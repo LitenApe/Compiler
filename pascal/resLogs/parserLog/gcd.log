@@ -339,5 +339,5 @@ end; {gcd}
 begin
   res := gcd(v1, v2);
   write('G', 'C', 'D', '(', v1, ',', v2, ')', '=', res, eol);
-
+  
 end.

@@ -42,5 +42,6 @@ public class StatmList extends PascalSyntax{
             if(s != statmList.get(statmList.size() - 1))
                 Main.log.prettyPrintLn(";");
         }
+        Main.log.prettyPrintLn("");
     }/*End prettyPrint*/
 } /* End of class */

@@ -29,10 +29,5 @@ public class EmptyStatm extends Statement{
 
     @Override
     public void prettyPrint(){
-        Main.log.prettyOutdent();
-
-        Main.log.prettyPrintLn("");
-
-        Main.log.prettyIndent();
     }/*End prettyPrint*/
 } /* End of class */

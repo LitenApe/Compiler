@@ -15,7 +15,7 @@ public class ArrayType extends Type{
     }/*Enc constructor*/
 
     public static ArrayType parse(Scanner s) {
-        enterParser("array type");
+        enterParser("array-type");
 
         ArrayType arrType = new ArrayType(s.curLineNum());
 
@@ -33,7 +33,7 @@ public class ArrayType extends Type{
 
         arrType.type = Type.parse(s);
 
-        leaveParser("array type");
+        leaveParser("array-type");
         return arrType;
     }/*End parse*/
 

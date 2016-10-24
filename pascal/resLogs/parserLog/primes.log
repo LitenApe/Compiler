@@ -22,7 +22,7 @@ Parser:       </const decl part>
 Parser:       <var decl part>
 Parser:         <var decl>
 Parser:           <type>
-Parser:             <array type>
+Parser:             <array-type>
 Parser:               <constant>
 Parser:                 <unsigned constant>
 Parser:                   <number literal>
@@ -38,7 +38,7 @@ Parser:                 <type name>
   10:     i	  : integer; 
 Parser:                 </type name>
 Parser:               </type>
-Parser:             </array type>
+Parser:             </array-type>
 Parser:           </type>
 Parser:         </var decl>
 Parser:         <var decl>
@@ -876,10 +876,11 @@ begin
       i2 := 2 * i1;
       while i2 <= limit do
         begin
-          prime [i2]  := false;
-          i2 := i2 + i1end
-      ;
-      i1 := i1 + 1end
+          prime[i2] := false;
+          i2 := i2 + i1
+        end;
+      i1 := i1 + 1
+    end
 end; {findprimes}
 
 procedure p4 (x: integer);
@@ -891,7 +892,7 @@ begin
   if x < 10 then
     write(' ');
   write(x);
-
+  
 end; {p4}
 
 procedure printprimes;
@@ -903,29 +904,28 @@ begin
   nprinted := 0;
   while i <= limit do
     begin
-      if prime [i]  then
+      if prime[i] then
         begin
           if (nprinted > 0) and (nprinted mod 10 = 0) then
             write(eol);
           p4(i);
           nprinted := nprinted + 1;
-        
-        end
-      ;
+          
+        end;
       i := i + 1;
-    
-    end
-  ;
-  write(eol)end; {printprimes}
+      
+    end;
+  write(eol)
+end; {printprimes}
 
 begin
   i := 2;
   while i <= limit do
     begin
-      prime [i]  := true;
-      i := i + 1end
-  ;
-  findprimes();
-  printprimes();
-
+      prime[i] := true;
+      i := i + 1
+    end;
+  findprimes;
+  printprimes;
+  
 end.

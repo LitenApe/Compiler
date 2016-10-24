@@ -60,7 +60,7 @@ public class Block extends PascalSyntax{
             varDeclPart.prettyPrint();
         }
 
-        if((constDeclPart != null || varDeclPart != null) && procAndFuncDecls.size() > 0){
+        if(procAndFuncDecls.size() > 0){
             Main.log.prettyPrintLn("");
         }
 

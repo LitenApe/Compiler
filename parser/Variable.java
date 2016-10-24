@@ -17,9 +17,9 @@ public class Variable extends Factor{
     public void prettyPrint(){
         name.prettyPrint();
         if (expression != null){
-            Main.log.prettyPrint(" [");
+            Main.log.prettyPrint("[");
             expression.prettyPrint();
-            Main.log.prettyPrint("] ");
+            Main.log.prettyPrint("]");
         }
     }/*End prettyPrint*/
 
