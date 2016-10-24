@@ -1,0 +1,13 @@
+   1: program DoubleVarPart; 
+Parser:   <program>
+   2: var a: char; 
+Parser:     <block>
+Parser:       <var decl part>
+Parser:         <var decl>
+Parser:           <type>
+Parser:             <type name>
+   3: var b: boolean; 
+Parser:             </type name>
+Parser:           </type>
+Parser:         </var decl>
+Parser:       </var decl part>
