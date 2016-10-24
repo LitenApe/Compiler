@@ -29,6 +29,7 @@ public class IfStatm extends Statement{
             Main.log.prettyPrintLn("else");
             Main.log.prettyIndent();
             elseExp.prettyPrint();
+            Main.log.prettyPrintLn("");
             Main.log.prettyOutdent();
         }
     }/*End prettyprint*/
