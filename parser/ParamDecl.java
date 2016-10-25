@@ -16,6 +16,12 @@ public class ParamDecl extends PascalDecl{
     }/*Enc constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+        // namedConstant.check(curScope,lib);
+        typeName.check(curScope,lib);
+        curScope.addDecl(name.toString(),this);
+    }
+    @Override
     public void prettyPrint(){
         name.prettyPrint();
         Main.log.prettyPrint(": ");

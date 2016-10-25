@@ -17,6 +17,15 @@ public class ProcDecl extends PascalDecl{
     }/*Enc constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+        procName.check(curScope,lib);
+        if (paramDecl != null)
+            paramDecl.check(curScope,lib);
+        block.check(curScope,lib);
+        curScope.addDecl(name.toString(),this);
+    }
+
+    @Override
     public void prettyPrint(){
         Main.log.prettyPrint("procedure ");
         procName.prettyPrint();
@@ -54,10 +63,6 @@ public class ProcDecl extends PascalDecl{
         return procDecl;
     }/*End parse*/
 
-    @Override
-    public void check(Block curScope, Library outerScope){
-        System.out.println("AOUCH");
-    }
 
     @Override
     public String toString(){

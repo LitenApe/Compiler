@@ -16,6 +16,12 @@ public class VarDecl extends PascalDecl{
     }/*Enc constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+        namedConstant.check(curScope,lib);
+        type.check(curScope,lib); //TODO: Remove? 
+    }
+
+    @Override
     public void prettyPrint(){
         namedConstant.prettyPrint();
         Main.log.prettyPrint(": ");

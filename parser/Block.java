@@ -28,12 +28,22 @@ public class Block extends PascalSyntax{
 
     public PascalDecl findDecl(String id, PascalSyntax where){
         PascalDecl found = decls.get(id);
+        System.out.println("1. MADYAR: AKE: "+id);
         if (found != null){
             Main.log.noteBinding(id,where,found);
+            System.out.print("ABCDEFGH BAJKLSD: "+found.identify());
             return found;
         }
-        if (outerScope != null)
-            return outerScope.findDecl(id,where);
+
+        if (outerScope != null){
+            PascalDecl p = outerScope.findDecl(id,where);
+            // if (p == null) //testing
+            //     System.out.println("TESTING");
+            // else
+            //     System.out.println("MYAAR: "+p.identify());
+            return p;
+        }
+
         where.error("Name " + id + " is unknown!");
         return null;
     }
@@ -49,7 +59,7 @@ public class Block extends PascalSyntax{
             varDeclPart.check(this, lib);
 
         for(ProcDecl p : procAndFuncDecls)
-            addDecl(p.toString(),p);
+            p.check(curScope,lib);
 
         statmList.check(this, lib);
     }

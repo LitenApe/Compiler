@@ -17,6 +17,16 @@ public class FuncDecl extends ProcDecl{
     }/*Enc constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+        funcName.check(curScope,lib);
+        if (pDeclList != null)
+            pDeclList.check(curScope,lib);
+        typeName.check(curScope,lib);
+        block.check(curScope,lib);
+        curScope.addDecl(name.toString(),this);
+    }
+
+    @Override
     public void prettyPrint(){
         Main.log.prettyPrint("function ");
         funcName.prettyPrint();

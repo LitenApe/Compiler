@@ -13,14 +13,12 @@ public class VarDeclPart extends PascalSyntax{
         super(n);
     } /* End of constructor */
 
-    public void addDecl(Block curScope, Library outerScope){
-        for(PascalDecl p : varDecls)
-            curScope.addDecl(p.toString(), p);
-    }
-
     @Override
     public void check(Block curScope, Library lib){
-
+        for(PascalDecl p : varDecls){
+            p.check(curScope,lib);
+            curScope.addDecl(p.toString(), p);
+        }
     }
 
     @Override

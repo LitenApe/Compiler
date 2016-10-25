@@ -17,6 +17,12 @@ public class Program extends PascalDecl{
         super(id, lNum);
     } /* End of constructor */
 
+    @Override
+    public void check(Block curScope, Library lib){
+        // progNamecheck(curScope, lib);
+        progBlock.check(curScope, lib);
+    }
+
     public static Program parse(Scanner s){
         enterParser("program");
         s.skip(programToken);
@@ -33,11 +39,6 @@ public class Program extends PascalDecl{
         leaveParser("program");
         return p;
     } /* End of parse */
-
-    public void check(Library uno, Library dos){
-        System.out.println("Program");
-        progBlock.check(uno, dos);
-    }
 
     @Override
     public String identify() {
