@@ -37,6 +37,11 @@ public class VarDecl extends PascalDecl{
     }
 
     @Override
+    public String toString(){
+        return namedConstant.toString();
+    }
+
+    @Override
     public String identify() {
         return "<VarDecl> " + name + " on line " + lineNum;
     } /* End of identify */

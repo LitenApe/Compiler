@@ -17,11 +17,6 @@ public class FuncDecl extends ProcDecl{
     }/*Enc constructor*/
 
     @Override
-    public String identify() {
-        return "<FuncDecl> " + name + " on line " + lineNum;
-    } /* End of identify */
-
-    @Override
     public void prettyPrint(){
         Main.log.prettyPrint("function ");
         funcName.prettyPrint();
@@ -59,6 +54,16 @@ public class FuncDecl extends ProcDecl{
         leaveParser("func decl");
         return fDecl;
     }/*End parse*/
+
+    @Override
+    public String toString(){
+        return funcName.toString();
+    }
+
+    @Override
+    public String identify() {
+        return "<FuncDecl> " + name + " on line " + lineNum;
+    } /* End of identify */
 
     //TODO: this class doesnt override any of the 4 abstract methods in ProcDecl
     //which is inherited from PascalDecl. If needed, we need to implement this

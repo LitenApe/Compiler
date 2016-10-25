@@ -39,6 +39,11 @@ public class ConstDecl extends PascalDecl{
     }
 
     @Override
+    public String toString(){
+        return namedConstant.toString();
+    }
+
+    @Override
     public String identify() {
         return "<ConstDecl> " + name + " on line " + lineNum;
     } /* End of identify */

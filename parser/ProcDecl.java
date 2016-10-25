@@ -55,6 +55,11 @@ public class ProcDecl extends PascalDecl{
     }/*End parse*/
 
     @Override
+    public String toString(){
+        return procName.toString();
+    }
+
+    @Override
     public String identify() {
         return "<ProcDecl> " + name + " on line " + lineNum;
     } /* End of identify */
