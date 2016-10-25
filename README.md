@@ -25,13 +25,13 @@ Pascal kompilator
     - [x] primes.pas
     - [x] 10star.pas
     - [x] gcd.pas
-  - [ ] Part 2: Parser
+  - [x] Part 2: Parser
     - [x] mini.pas
-    - [ ] eater.pas
-    - [ ] opers.pas
-    - [ ] primes.pas
-    - [ ] 10star.pas
-    - [ ] gcd.pas
+    - [x] eater.pas
+    - [x] opers.pas
+    - [x] primes.pas
+    - [x] 10star.pas
+    - [x] gcd.pas
   - [ ] Part 3: Checker
     - [ ] mini.pas
     - [ ] eater.pas
