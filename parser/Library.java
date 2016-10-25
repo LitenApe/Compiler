@@ -13,7 +13,7 @@ public class Library extends Block{
         super(lineNum);
     }/*End of constructor*/
 
-    public void addDeclarations(PascalDecl decls){
+    public void addDecl(PascalDecl decls){
         String name = decls.toString();  // this variable is for readability.
 
         if(declarations.containsKey(name))
@@ -22,7 +22,7 @@ public class Library extends Block{
         declarations.put(name, decls);
     }/*End of addConstants*/
 
-    public void findDeclarations(String name){
-        System.out.println("fdsa");
+    public PascalDecl findDecl(String name){
+        return declarations.get(name);
     }/*End of findDeclarations*/
 }/*End of class*/

@@ -14,11 +14,11 @@ public class ConstDeclPart extends PascalSyntax{
         super(n);
     }/*End constructor*/
 
-    public void addDecl(Library curScope){
+    public void addDecl(Block curScope, Library outerScope){
         for(PascalDecl p : constDeclarations)
-            curScope.addDeclarations(p);
+            curScope.addDecl(p.toString(), p);
     }
-    
+
     @Override
     public void check(Block curScope, Library lib){
 

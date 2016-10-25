@@ -35,6 +35,7 @@ public class Program extends PascalDecl{
     } /* End of parse */
 
     public void check(Library uno, Library dos){
+        System.out.println("Program");
         progBlock.check(uno, dos);
     }
 

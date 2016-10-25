@@ -25,17 +25,21 @@ public class Block extends PascalSyntax{
             this.decls.put(id,declaration);
     }
 
+    public PascalDecl findDecl(String id, PascalSyntax ps){
+        return decls.get(id);
+    }
+
     @Override
     public void check(Block curScope, Library lib){
+        System.out.println("Block");
         if(constDeclPart != null)
-            constDeclPart.addDecl(lib); //TODO: id and decl params
+            constDeclPart.addDecl(curScope, lib);
 
         if(varDeclPart != null)
-            varDeclPart.addDecl(lib); //TODO; id and decl params
+            varDeclPart.addDecl(curScope, lib);
 
-        if(!procAndFuncDecls.isEmpty())
-            for(ProcDecl p : procAndFuncDecls)
-                curScope.addDecl(p.procName.name,p);
+        for(ProcDecl p : procAndFuncDecls)
+            addDecl(p.toString(),p);
 
         statmList.check(curScope, lib);
     }

@@ -13,9 +13,9 @@ public class VarDeclPart extends PascalSyntax{
         super(n);
     } /* End of constructor */
 
-    public void addDecl(Library curScope){
+    public void addDecl(Block curScope, Library outerScope){
         for(PascalDecl p : varDecls)
-            curScope.addDeclarations(p);
+            curScope.addDecl(p.toString(), p);
     }
 
     @Override

@@ -55,6 +55,11 @@ public class ProcDecl extends PascalDecl{
     }/*End parse*/
 
     @Override
+    public void check(Block curScope, Library outerScope){
+        System.out.println("AOUCH");
+    }
+
+    @Override
     public String toString(){
         return procName.toString();
     }

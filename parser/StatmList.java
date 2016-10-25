@@ -15,9 +15,11 @@ public class StatmList extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-
+        System.out.println("Statement List");
+        for(PascalSyntax ps : statmList)
+            ps.check(curScope, lib);
     }
-    
+
     @Override public String identify() {
         return "<StatmList> on line " + lineNum;
     } /* End of identify */
@@ -49,8 +51,4 @@ public class StatmList extends PascalSyntax{
         }
         Main.log.prettyPrintLn("");
     }/*End prettyPrint*/
-
-    public void check(Library uno, Library currentScope){
-        System.out.println("Im inside Statement list");
-    }
 } /* End of class */

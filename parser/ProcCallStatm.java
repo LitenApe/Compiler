@@ -9,6 +9,7 @@ public class ProcCallStatm extends Statement{
 
     public ArrayList<Expression> exp = new ArrayList<>();
     public NamedConst namedConst = null;
+    public ProcDecl procRef = null;
 
     public ProcCallStatm(int n){
         super(n);
@@ -16,9 +17,21 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
+        System.out.println("Proc Call");
 
+        PascalDecl d = curScope.findDecl(namedConst.toString(), this);
+
+        if(d == null)
+            d = lib.findDecl(namedConst.toString());
+
+        procRef = (ProcDecl) d;
+
+        if(d != null)
+            Main.log.noteBinding(namedConst.toString() , this , procRef);
+        else
+            System.out.println("FYCK");
     }
-    
+
     @Override public String identify() {
         return "<ProcCallStatm> on line " + lineNum;
     } /* End of identify */
