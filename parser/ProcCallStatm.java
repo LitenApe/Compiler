@@ -14,6 +14,11 @@ public class ProcCallStatm extends Statement{
         super(n);
     } /* End of constructor */
 
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
     @Override public String identify() {
         return "<ProcCallStatm> on line " + lineNum;
     } /* End of identify */

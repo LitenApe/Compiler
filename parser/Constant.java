@@ -15,11 +15,16 @@ public class Constant extends PascalSyntax{
     }/*End constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
+    @Override
     public void prettyPrint(){
         if (prefixOpr != null){
             prefixOpr.prettyPrint();
         }
-        uConstant.prettyPrint(); 
+        uConstant.prettyPrint();
     }/*End prettyPrint*/
 
     @Override

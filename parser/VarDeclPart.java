@@ -13,6 +13,16 @@ public class VarDeclPart extends PascalSyntax{
         super(n);
     } /* End of constructor */
 
+    public void addDecl(Library curScope){
+        for(PascalDecl p : varDecls)
+            curScope.addDeclarations(p);
+    }
+
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
+
     @Override
     public void prettyPrint(){
         Main.log.prettyPrintLn("var");
@@ -22,11 +32,6 @@ public class VarDeclPart extends PascalSyntax{
         }
         Main.log.prettyOutdent();
     }/*End prettyPrint*/
-
-    public void addDecls(Library curScope){
-        for(PascalDecl p : varDecls)
-            curScope.addDeclarations(p);
-    }
 
     @Override
     public String identify() {

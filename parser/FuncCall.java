@@ -17,6 +17,11 @@ public class FuncCall extends Factor{
     }/*End constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
+    @Override
     public void prettyPrint(){
         name.prettyPrint();
         if (!expressions.isEmpty()){

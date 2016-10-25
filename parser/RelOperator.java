@@ -14,6 +14,11 @@ public class RelOperator extends Operator{
     }/*Enc constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
+    @Override
     public void prettyPrint(){
         Main.log.prettyPrint(" "+opr.toString()+" ");
     }

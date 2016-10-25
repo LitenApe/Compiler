@@ -16,6 +16,11 @@ public class IfStatm extends Statement{
     } /* End of public */
 
     @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
+    @Override
     public void prettyPrint() {
         Main.log.prettyPrint("if ");
         exp.prettyPrint();

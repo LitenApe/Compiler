@@ -4,6 +4,7 @@ import scanner.*;
 import main.*;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Block extends PascalSyntax{
 
@@ -11,10 +12,33 @@ public class Block extends PascalSyntax{
     public VarDeclPart varDeclPart = null;
     public StatmList statmList = null;
     public ArrayList<ProcDecl> procAndFuncDecls = new ArrayList<>();
+    public HashMap<String, PascalDecl> decls = new HashMap<>();
 
     public Block(int lineNum){
         super(lineNum);
     }/*End constructor*/
+
+    public void addDecl(String id, PascalDecl declaration){
+        if (decls.containsKey(id))
+            declaration.error(id + " declared twice in same block!");
+        else
+            this.decls.put(id,declaration);
+    }
+
+    @Override
+    public void check(Block curScope, Library lib){
+        if(constDeclPart != null)
+            constDeclPart.addDecl(lib); //TODO: id and decl params
+
+        if(varDeclPart != null)
+            varDeclPart.addDecl(lib); //TODO; id and decl params
+
+        if(!procAndFuncDecls.isEmpty())
+            for(ProcDecl p : procAndFuncDecls)
+                curScope.addDecl(p.procName.name,p);
+
+        statmList.check(curScope, lib);
+    }
 
     public static Block parse(Scanner s){
         enterParser("block");
@@ -74,22 +98,6 @@ public class Block extends PascalSyntax{
         Main.log.prettyOutdent();
         Main.log.prettyPrint("end");
     }/*End prettyPrint*/
-
-    public void check(Library uno, Library dos){
-        Library currentScope = new Library(lineNum);
-
-        if(constDeclPart != null)
-            constDeclPart.addDecls(currentScope);
-
-        if(varDeclPart != null)
-            varDeclPart.addDecls(currentScope);
-
-        if(procAndFuncDecls != null)
-            for(PascalDecl p : procAndFuncDecls)
-                currentScope.addDeclarations(p);
-
-        statmList.check(uno, currentScope);
-    }
 
     @Override
     public String identify() {

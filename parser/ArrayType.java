@@ -14,6 +14,11 @@ public class ArrayType extends Type{
         super(lNum);
     }/*Enc constructor*/
 
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
     public static ArrayType parse(Scanner s) {
         enterParser("array-type");
 

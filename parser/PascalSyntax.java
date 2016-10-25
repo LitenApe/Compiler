@@ -14,10 +14,10 @@ public abstract class PascalSyntax {
 	return lineNum < 0;
     }
 
-    // Del 3: abstract void check(Block curScope, Library lib);
+    abstract public String identify(); //del 2
+    abstract public void prettyPrint(); //del 2
+    abstract void check(Block curScope, Library lib); //del 3
     // Del 4: abstract void genCode(CodeFile f);
-    abstract public String identify();
-    abstract public void prettyPrint();
 
     public void error(String message) {
 	Main.error("Error at line " + lineNum + ": " + message);

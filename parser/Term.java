@@ -12,6 +12,11 @@ public class Term extends PascalSyntax{
         super(n);
     } /* End of constructor */
 
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
     public static Term parse(Scanner s){
         enterParser("term");
 

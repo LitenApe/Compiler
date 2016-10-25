@@ -27,7 +27,10 @@ public abstract class PascalDecl extends PascalSyntax {
         return null;
     }/*End parse*/
 
-    //TODO: prettyPrint?
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
 
     /**
      * checkWhetherAssignable: Utility method to check whether this PascalDecl is

@@ -13,6 +13,11 @@ public class TermOperator extends Operator{
     }/*Enc constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
+    @Override
     public void prettyPrint(){
         Main.log.prettyPrint(" " + tokenKind.toString() + " ");
     }/*End prettyPrint*/

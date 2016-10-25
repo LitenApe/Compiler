@@ -13,6 +13,11 @@ public class PrefixOperator extends Operator{
     }/*Enc constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
+    @Override
     public String identify() {
         return "<PrefixOperator> on line " + lineNum;
     } /* End of identify */

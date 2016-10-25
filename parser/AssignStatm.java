@@ -16,6 +16,11 @@ public class AssignStatm extends Statement{
     } /* End of constructor */
 
     @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
+    @Override
     public void prettyPrint(){
         variable.prettyPrint();
         Main.log.prettyPrint(" := ");

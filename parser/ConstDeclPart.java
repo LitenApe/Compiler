@@ -14,6 +14,16 @@ public class ConstDeclPart extends PascalSyntax{
         super(n);
     }/*End constructor*/
 
+    public void addDecl(Library curScope){
+        for(PascalDecl p : constDeclarations)
+            curScope.addDeclarations(p);
+    }
+    
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
+
     public static ConstDeclPart parse(Scanner s){
         enterParser("const decl part");
         s.skip(constToken);
@@ -39,11 +49,6 @@ public class ConstDeclPart extends PascalSyntax{
         }
         Main.log.prettyOutdent();
     }/* End prettyprint */
-
-    public void addDecls(Library curScope){
-        for(PascalDecl p : constDeclarations)
-            curScope.addDeclarations(p);
-    }
 
     @Override
     public String identify(){

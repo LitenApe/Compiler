@@ -13,6 +13,11 @@ public class FactorOperator extends Operator{
     }/*Enc constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
+    @Override
     public String identify() {
         return "<FactorOperator> on line " + lineNum;
     } /* End of identify */

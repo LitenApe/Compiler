@@ -16,6 +16,11 @@ public class Negation extends Factor{
         return "<Negation> on line " + lineNum;
     } /* End of identify */
 
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
     public static Negation parse(Scanner s) {
         enterParser("negation");
 

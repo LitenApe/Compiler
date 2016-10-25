@@ -11,6 +11,11 @@ public class CharLiteral extends UnsignedConstant{
         super(n);
     }/*End constructor*/
 
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
     public static CharLiteral parse(Scanner s) {
         enterParser("char literal");
 

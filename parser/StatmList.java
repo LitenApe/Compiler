@@ -13,6 +13,11 @@ public class StatmList extends PascalSyntax{
         super(n);
     } /* End of constructor */
 
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
     @Override public String identify() {
         return "<StatmList> on line " + lineNum;
     } /* End of identify */

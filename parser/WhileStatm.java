@@ -13,6 +13,11 @@ public class WhileStatm extends Statement{
     } /* End of constructor */
 
     @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
+    @Override
     public String identify() {
         return "<while-statm> on line " + lineNum;
     }

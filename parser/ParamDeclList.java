@@ -15,6 +15,11 @@ public class ParamDeclList extends PascalSyntax{
     }
 
     @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
+    @Override
     public void prettyPrint(){
         Main.log.prettyPrint(" (");
         for (ParamDecl p : listOfParamDecls){

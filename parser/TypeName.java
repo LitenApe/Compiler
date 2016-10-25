@@ -13,6 +13,11 @@ public class TypeName extends Type{
     }/*End constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
+    @Override
     public void prettyPrint(){
         namedConstant.prettyPrint();
     }/*End prettyPrint*/

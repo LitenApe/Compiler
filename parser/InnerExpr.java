@@ -12,6 +12,11 @@ public class InnerExpr extends Factor{
         super(n);
     }/*End constructor*/
 
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
     public static InnerExpr parse(Scanner s) {
         enterParser("inner expr");
 

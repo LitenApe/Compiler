@@ -13,6 +13,11 @@ public class NumberLiteral extends UnsignedConstant{
     }/*End constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
+    @Override
     public void prettyPrint(){
         Main.log.prettyPrint(""+digit);
     }/*End prettyPrint*/

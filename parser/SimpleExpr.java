@@ -16,6 +16,11 @@ public class SimpleExpr extends PascalSyntax{
         super(n);
     }/*End Constructor*/
 
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
     @Override public String identify() {
         return "<SimpleExpr> on line " + lineNum;
     } /* End of identify */

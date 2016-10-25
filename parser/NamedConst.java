@@ -10,6 +10,11 @@ public class NamedConst extends UnsignedConstant{
         super(n);
     }/*End constructor*/
 
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
     public static NamedConst parse(Scanner s) {
         // enterParser("named const");
         NamedConst namedConst = new NamedConst(s.curLineNum());

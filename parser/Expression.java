@@ -13,6 +13,11 @@ public class Expression extends PascalSyntax{
         super(n);
     }/*End constructor*/
 
+    @Override
+    public void check(Block curScope, Library lib){
+
+    }
+    
     public static Expression parse(Scanner s) {
         enterParser("expression");
         Expression expression = new Expression(s.curLineNum());
