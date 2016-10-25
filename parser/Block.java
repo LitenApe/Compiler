@@ -13,6 +13,7 @@ public class Block extends PascalSyntax{
     public StatmList statmList = null;
     public ArrayList<ProcDecl> procAndFuncDecls = new ArrayList<>();
     public HashMap<String, PascalDecl> decls = new HashMap<>();
+    public Block outerScope = null;
 
     public Block(int lineNum){
         super(lineNum);
@@ -25,23 +26,32 @@ public class Block extends PascalSyntax{
             this.decls.put(id,declaration);
     }
 
-    public PascalDecl findDecl(String id, PascalSyntax ps){
-        return decls.get(id);
+    public PascalDecl findDecl(String id, PascalSyntax where){
+        PascalDecl found = decls.get(id);
+        if (found != null){
+            Main.log.noteBinding(id,where,found);
+            return found;
+        }
+        if (outerScope != null)
+            return outerScope.findDecl(id,where);
+        where.error("Name " + id + " is unknown!");
+        return null;
     }
 
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("Block");
+        outerScope = curScope;
         if(constDeclPart != null)
-            constDeclPart.addDecl(curScope, lib);
+            constDeclPart.check(this, lib);
 
         if(varDeclPart != null)
-            varDeclPart.addDecl(curScope, lib);
+            varDeclPart.check(this, lib);
 
         for(ProcDecl p : procAndFuncDecls)
             addDecl(p.toString(),p);
 
-        statmList.check(curScope, lib);
+        statmList.check(this, lib);
     }
 
     public static Block parse(Scanner s){

@@ -21,14 +21,9 @@ public class ProcCallStatm extends Statement{
 
         PascalDecl d = curScope.findDecl(namedConst.toString(), this);
 
-        if(d == null)
-            d = lib.findDecl(namedConst.toString());
-
         procRef = (ProcDecl) d;
 
-        if(d != null)
-            Main.log.noteBinding(namedConst.toString() , this , procRef);
-        else
+        if (procRef == null)
             System.out.println("FYCK");
     }
 

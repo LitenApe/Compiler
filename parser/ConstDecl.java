@@ -15,6 +15,12 @@ public class ConstDecl extends PascalDecl{
     }/*Enc constructor*/
 
     @Override
+    public void check(Block curScope, Library lib){
+        namedConstant.check(curScope,lib);
+        constant.check(curScope,lib);
+        curScope.addDecl(namedConstant.toString(),this);
+    }
+    @Override
     public void prettyPrint(){
         namedConstant.prettyPrint();
         Main.log.prettyPrint(" = ");

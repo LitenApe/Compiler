@@ -15,9 +15,9 @@ public class CompoundStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-
+        
     }
-    
+
     @Override
     public String identify() {
         return "<CompoundStatm> on line " + lineNum;

@@ -15,9 +15,8 @@ public class Expression extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-
     }
-    
+
     public static Expression parse(Scanner s) {
         enterParser("expression");
         Expression expression = new Expression(s.curLineNum());

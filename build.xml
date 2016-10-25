@@ -31,10 +31,10 @@
 
     <target name="run" depends="jar,arguments" description="Kjør JAR-fil">
         <java jar="pascal2016.jar" fork="true">
-            <arg value="-logB"/>
-            <arg value="pascal/testFiles/${file_path}"/>
             <arg value="-logT"/>
+            <arg value="pascal/testFiles/${file_path}"/>
             <arg value="-testchecker"/>
+            <!-- <arg value="-logB"/> -->
         </java>
     </target>
 
