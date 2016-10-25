@@ -13,18 +13,16 @@ public class Library extends Block{
         super(lineNum);
     }/*End of constructor*/
 
-    public void addDeclarations(ArrayList<ConstDecl> decls){
-        for(PascalDecl d : decls){
-            String name = d.toString();  // this variable is for readability.
+    public void addDeclarations(PascalDecl decls){
+        String name = decls.toString();  // this variable is for readability.
 
-            if(declarations.containsKey(name))
-                Main.error(name + " is declared twice in the same block");
+        if(declarations.containsKey(name))
+            Main.error(name + " is declared twice in the same block");
 
-            declarations.put(name, d);
-        }
+        declarations.put(name, decls);
     }/*End of addConstants*/
 
-    public PascalDecl findDeclarations(String name){
-        return  declarations.get(name);
+    public void findDeclarations(String name){
+        System.out.println("fdsa");
     }/*End of findDeclarations*/
 }/*End of class*/

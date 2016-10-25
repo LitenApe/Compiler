@@ -34,6 +34,10 @@ public class Program extends PascalDecl{
         return p;
     } /* End of parse */
 
+    public void check(Library uno, Library dos){
+        progBlock.check(uno, dos);
+    }
+
     @Override
     public String identify() {
         return "<program> " + name + " on line " + lineNum;

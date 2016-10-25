@@ -32,13 +32,11 @@ public class Main {
 
             Scanner s = new Scanner(sourceFileName);
             if (testScanner)
-            doTestScanner(s);
+                doTestScanner(s);
             else if (testParser)
-            doTestParser(s);
-            // Del 3:
-            // else if (testChecker)
-            //     doTestChecker(s);
-            // Del 4:
+                doTestParser(s);
+            else if (testChecker)
+                doTestChecker(s);
             // else
             //     doRunRealCompiler(s);
         } catch (PascalError e) {
@@ -51,12 +49,10 @@ public class Main {
         System.exit(exitStatus);
     }
 
-
     public static boolean useUnderscore() {
         // Should global names start with an '_'? Not with Linux/Unix.
         return ! OS.matches(".*n.*x.*");
     }
-
 
     private static void readArgs(String arg[]) {
         for (int i = 0;  i < arg.length;  i++) {
@@ -93,13 +89,10 @@ public class Main {
         baseFileName = baseFileName.substring(0,baseFileName.length()-4);
     }
 
-
     private static void doTestScanner(Scanner s) {
         while (s.nextToken.kind != eofToken)
         s.readNextToken();
     }
-
-
 
     private static void doTestParser(Scanner s) {
         Program prog = Program.parse(s);
@@ -109,21 +102,16 @@ public class Main {
         prog.prettyPrint();
     }
 
-
-
-    /* Del 3:
     private static void doTestChecker(Scanner s) {
-    Program prog = Program.parse(s);
-    if (s.curToken.kind != eofToken)
-    error("Scanner error: Garbage after the program!");
-    if (log.doLogPrettyPrint)
-    prog.prettyPrint();
+        Program prog = Program.parse(s);
+        if (s.curToken.kind != eofToken)
+        error("Scanner error: Garbage after the program!");
+        if (log.doLogPrettyPrint)
+        prog.prettyPrint();
 
-    library = new Library();
-    prog.check(library, library);
-}
-*/
-
+        Library library = new Library(s.curLineNum());
+        prog.check(library, library);
+    }
 
 /* Del 4:
 private static void doRunRealCompiler(Scanner s) {
@@ -149,74 +137,71 @@ assembleCode();
 }
 */
 
+    private static void assembleCode() {
+        String pName = baseFileName;
+        String sName = baseFileName + ".s";
 
-private static void assembleCode() {
-    String pName = baseFileName;
-    String sName = baseFileName + ".s";
+        String cmd[] = new String[8];
+        cmd[0] = "gcc";  cmd[1] = "-m32";
+        cmd[2] = "-o";   cmd[3] = pName;
+        cmd[4] = sName;
+        cmd[5] = "-L.";  cmd[6] = "-L/hom/inf2100";  cmd[7] = "-lpas2016";
 
-    String cmd[] = new String[8];
-    cmd[0] = "gcc";  cmd[1] = "-m32";
-    cmd[2] = "-o";   cmd[3] = pName;
-    cmd[4] = sName;
-    cmd[5] = "-L.";  cmd[6] = "-L/hom/inf2100";  cmd[7] = "-lpas2016";
-
-    System.out.print("Running");
-    for (String s: cmd) {
-        if (s.contains(" "))
-        System.out.print(" '" + s + "'");
-        else
-        System.out.print(" " + s);
-    }
-    System.out.println();
-
-    try {
-        String line;
-        Process p = Runtime.getRuntime().exec(cmd);
-
-        // Print any output from the assembly process:
-        BufferedReader out = new BufferedReader
-        (new InputStreamReader(p.getInputStream()));
-        BufferedReader err = new BufferedReader
-        (new InputStreamReader(p.getErrorStream()));
-
-        while ((line = out.readLine()) != null) {
-            System.out.println(line);
+        System.out.print("Running");
+        for (String s: cmd) {
+            if (s.contains(" "))
+            System.out.print(" '" + s + "'");
+            else
+            System.out.print(" " + s);
         }
-        while ((line = err.readLine()) != null) {
-            System.out.println(line);
+        System.out.println();
+
+        try {
+            String line;
+            Process p = Runtime.getRuntime().exec(cmd);
+
+            // Print any output from the assembly process:
+            BufferedReader out = new BufferedReader
+            (new InputStreamReader(p.getInputStream()));
+            BufferedReader err = new BufferedReader
+            (new InputStreamReader(p.getErrorStream()));
+
+            while ((line = out.readLine()) != null) {
+                System.out.println(line);
+            }
+            while ((line = err.readLine()) != null) {
+                System.out.println(line);
+            }
+            out.close();  err.close();
+            p.waitFor();
+        } catch (Exception err) {
+            error("Assembly errors detected.");
         }
-        out.close();  err.close();
-        p.waitFor();
-    } catch (Exception err) {
-        error("Assembly errors detected.");
     }
-}
 
+    // Error message utilities:
+    public static void error(String message) {
+        log.noteError(message);
+        throw new PascalError(message);
+    }
 
-// Error message utilities:
+    public static void error(int lineNum, String message) {
+        error("Error in " +
+        (lineNum<0 ? "last line" : "line "+lineNum) +
+        ": " + message);
+    }
 
-public static void error(String message) {
-    log.noteError(message);
-    throw new PascalError(message);
-}
+    private static void usage() {
+        error("Usage: java -jar pascal2016.jar " +
+        "[-log{B|P|S|T|Y}] [-test{checker|parser|scanner}] file");
+    }
 
-public static void error(int lineNum, String message) {
-    error("Error in " +
-    (lineNum<0 ? "last line" : "line "+lineNum) +
-    ": " + message);
-}
+    public static void panic(String where) {
+        error("PANIC! Programming error in " + where);
+    }
 
-private static void usage() {
-    error("Usage: java -jar pascal2016.jar " +
-    "[-log{B|P|S|T|Y}] [-test{checker|parser|scanner}] file");
-}
-
-public static void panic(String where) {
-    error("PANIC! Programming error in " + where);
-}
-
-public static void warning(String message) {
-    log.noteError(message);
-    System.err.println(message);
-}
+    public static void warning(String message) {
+        log.noteError(message);
+        System.err.println(message);
+    }
 }

@@ -23,6 +23,11 @@ public class VarDeclPart extends PascalSyntax{
         Main.log.prettyOutdent();
     }/*End prettyPrint*/
 
+    public void addDecls(Library curScope){
+        for(PascalDecl p : varDecls)
+            curScope.addDeclarations(p);
+    }
+
     @Override
     public String identify() {
         return "<VarDeclPart> on line " + lineNum;

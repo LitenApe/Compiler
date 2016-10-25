@@ -44,4 +44,8 @@ public class StatmList extends PascalSyntax{
         }
         Main.log.prettyPrintLn("");
     }/*End prettyPrint*/
+
+    public void check(Library uno, Library currentScope){
+        System.out.println("Im inside Statement list");
+    }
 } /* End of class */

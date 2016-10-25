@@ -34,11 +34,16 @@ public class ConstDeclPart extends PascalSyntax{
         Main.log.prettyIndent();
         if (!constDeclarations.isEmpty()){
             for (ConstDecl cd : constDeclarations) {
-                cd.prettyPrint(); 
+                cd.prettyPrint();
             }
         }
         Main.log.prettyOutdent();
     }/* End prettyprint */
+
+    public void addDecls(Library curScope){
+        for(PascalDecl p : constDeclarations)
+            curScope.addDeclarations(p);
+    }
 
     @Override
     public String identify(){

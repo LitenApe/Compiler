@@ -47,11 +47,6 @@ public class Block extends PascalSyntax{
     }/*End parse*/
 
     @Override
-    public String identify() {
-        return "<Block> on line " + lineNum;
-    } /* End of identify */
-
-    @Override
     public void prettyPrint(){
         if(constDeclPart != null){
             constDeclPart.prettyPrint();
@@ -79,5 +74,26 @@ public class Block extends PascalSyntax{
         Main.log.prettyOutdent();
         Main.log.prettyPrint("end");
     }/*End prettyPrint*/
+
+    public void check(Library uno, Library dos){
+        Library currentScope = new Library(lineNum);
+
+        if(constDeclPart != null)
+            constDeclPart.addDecls(currentScope);
+
+        if(varDeclPart != null)
+            varDeclPart.addDecls(currentScope);
+
+        if(procAndFuncDecls != null)
+            for(PascalDecl p : procAndFuncDecls)
+                currentScope.addDeclarations(p);
+
+        statmList.check(uno, currentScope);
+    }
+
+    @Override
+    public String identify() {
+        return "<Block> on line " + lineNum;
+    } /* End of identify */
 
 }/*End class*/
