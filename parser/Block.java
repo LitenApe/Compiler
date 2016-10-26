@@ -28,10 +28,12 @@ public class Block extends PascalSyntax{
 
     public PascalDecl findDecl(String id, PascalSyntax where){
         PascalDecl found = decls.get(id);
-        System.out.println("1. MADYAR: AKE: "+id);
+        System.out.println("in block");
+        PascalSyntax found_2 = null;
+
         if (found != null){
             Main.log.noteBinding(id,where,found);
-            System.out.print("ABCDEFGH BAJKLSD: "+found.identify());
+            // System.out.print("ABCDEFGH BAJKLSD: "+found.identify());
             return found;
         }
 
@@ -42,10 +44,21 @@ public class Block extends PascalSyntax{
             // else
             //     System.out.println("MYAAR: "+p.identify());
             return p;
+        }else{
+            System.out.println("in block calling before finddecl");
+            found_2 = findDecl_2(id,where);
         }
 
+        if (found_2 != null) {
+            
+        }
         where.error("Name " + id + " is unknown!");
         return null;
+    }
+
+    public static PascalSyntax findDecl_2(String id, PascalSyntax where){
+        System.out.println("in block calling before finddecl");
+        return Library.findDecl_2(id,where);
     }
 
     @Override

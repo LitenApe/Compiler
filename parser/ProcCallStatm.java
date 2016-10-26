@@ -66,6 +66,9 @@ public class ProcCallStatm extends Statement{
             s.skip(rightParToken);
         }
 
+        if (procCall.namedConst.toString().equalsIgnoreCase("write")){
+            Library.write = procCall;
+        }
         leaveParser("proc call");
         return procCall;
     }
