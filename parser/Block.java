@@ -50,10 +50,22 @@ public class Block extends PascalSyntax{
         }
 
         if (found_2 != null) {
-            
+
         }
         where.error("Name " + id + " is unknown!");
         return null;
+        System.out.println("1. MADYAR: AKE: "+id);
+
+        if (found != null)
+            Main.log.noteBinding(id,where,found);
+
+        if (outerScope != null && found == null)
+            found = outerScope.findDecl(id,where);
+
+        // if(found == null)
+        //     found = lib.findDecl(id,where);
+
+        return found;
     }
 
     public static PascalSyntax findDecl_2(String id, PascalSyntax where){

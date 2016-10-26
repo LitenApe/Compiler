@@ -9,6 +9,7 @@ public class Library extends Block{
     // store everything that is created for this libaries scope
     public static HashMap<String, PascalSyntax> declarations = new HashMap<>();   // Happy ? "YES I AM :D:D:D" : "Readable name";
     public static ProcCallStatm write = null;
+    public static HashMap<String, PascalDecl> procedures = new HashMap<>();   // Happy ? "YES I AM :D:D:D" : "Readable name";
 
     public Library(int lineNum){
         super(lineNum);
@@ -31,6 +32,10 @@ public class Library extends Block{
         }
 
         System.out.println("after : "+found.toString());
+    @Override
+    public PascalDecl findDecl(String id, PascalSyntax where){
+        System.out.println("2. MADYAR: AKE: "+id);
+        PascalDecl found = procedures.get(id);
 
         if (found != null)
             // Main.log.noteBinding(id,where,found);
