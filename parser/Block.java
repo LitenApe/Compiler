@@ -29,23 +29,17 @@ public class Block extends PascalSyntax{
     public PascalDecl findDecl(String id, PascalSyntax where){
         PascalDecl found = decls.get(id);
         System.out.println("1. MADYAR: AKE: "+id);
-        if (found != null){
+
+        if (found != null)
             Main.log.noteBinding(id,where,found);
-            System.out.print("ABCDEFGH BAJKLSD: "+found.identify());
-            return found;
-        }
 
-        if (outerScope != null){
-            PascalDecl p = outerScope.findDecl(id,where);
-            // if (p == null) //testing
-            //     System.out.println("TESTING");
-            // else
-            //     System.out.println("MYAAR: "+p.identify());
-            return p;
-        }
+        if (outerScope != null && found == null)
+            found = outerScope.findDecl(id,where);
 
-        where.error("Name " + id + " is unknown!");
-        return null;
+        // if(found == null)
+        //     found = lib.findDecl(id,where);
+
+        return found;
     }
 
     @Override
