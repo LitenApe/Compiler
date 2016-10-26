@@ -33,35 +33,14 @@ public class Block extends PascalSyntax{
 
         if (found != null){
             Main.log.noteBinding(id,where,found);
-            // System.out.print("ABCDEFGH BAJKLSD: "+found.identify());
-            return found;
         }
-
-        if (outerScope != null){
-            PascalDecl p = outerScope.findDecl(id,where);
-            // if (p == null) //testing
-            //     System.out.println("TESTING");
-            // else
-            //     System.out.println("MYAAR: "+p.identify());
-            return p;
-        }else{
-            System.out.println("in block calling before finddecl");
-            //Gammel funksjon var her
-        }
-
-        where.error("Name " + id + " is unknown!");
-        return null;
-        System.out.println("1. MADYAR: AKE: "+id);
-
-        if (found != null)
-            Main.log.noteBinding(id,where,found);
 
         if (outerScope != null && found == null)
             found = outerScope.findDecl(id,where);
 
         // if(found == null)
         //     found = lib.findDecl(id,where);
-
+        where.error("Name " + id + " is unknown!");
         return found;
     }
 

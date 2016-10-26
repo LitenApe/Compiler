@@ -16,24 +16,6 @@ public class Library extends Block{
     }/*End of constructor*/
 
     // @Override
-    public static PascalSyntax findDecl_2(String id, PascalSyntax where){
-        PascalSyntax found = null;
-        System.out.println("in library with "+id);
-        System.out.println("2.1 CLASS: "+where.toString());
-        // System.out.println("2. MADYAR: AKE: "+id);t
-
-        switch(id){
-            case "write":
-                found = new ProcCallStatm(where.lineNum);
-                System.out.println("write");
-                declarations.put("write",found); break;
-            default:
-                found = where; break;
-        }
-
-        System.out.println("after : "+found.toString());
-
-    @Override
     public PascalDecl findDecl(String id, PascalSyntax where){
         System.out.println("2. MADYAR: AKE: "+id);
         PascalDecl found = procedures.get(id);
