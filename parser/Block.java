@@ -46,12 +46,9 @@ public class Block extends PascalSyntax{
             return p;
         }else{
             System.out.println("in block calling before finddecl");
-            found_2 = findDecl_2(id,where);
+            //Gammel funksjon var her
         }
 
-        if (found_2 != null) {
-
-        }
         where.error("Name " + id + " is unknown!");
         return null;
         System.out.println("1. MADYAR: AKE: "+id);
@@ -66,11 +63,6 @@ public class Block extends PascalSyntax{
         //     found = lib.findDecl(id,where);
 
         return found;
-    }
-
-    public static PascalSyntax findDecl_2(String id, PascalSyntax where){
-        System.out.println("in block calling before finddecl");
-        return Library.findDecl_2(id,where);
     }
 
     @Override

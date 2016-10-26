@@ -32,6 +32,7 @@ public class Library extends Block{
         }
 
         System.out.println("after : "+found.toString());
+
     @Override
     public PascalDecl findDecl(String id, PascalSyntax where){
         System.out.println("2. MADYAR: AKE: "+id);
