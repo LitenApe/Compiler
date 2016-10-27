@@ -6,7 +6,8 @@ import static scanner.TokenKind.*;
 
 public class Term extends PascalSyntax{
 
-    public ArrayList<PascalSyntax> factors = new ArrayList<>();
+    public ArrayList<Factor> factors = new ArrayList<>();
+    public ArrayList<Operator> factorOpr = new ArrayList<>();
 
     public Term(int n){
         super(n);
@@ -28,7 +29,7 @@ public class Term extends PascalSyntax{
         term.factors.add(Factor.parse(s));
 
         while(s.curToken.kind.isFactorOpr()) {
-            term.factors.add(FactorOperator.parse(s));
+            term.factorOpr.add(FactorOperator.parse(s));
             term.factors.add(Factor.parse(s));
         }
 
@@ -43,8 +44,10 @@ public class Term extends PascalSyntax{
 
     @Override
     public void prettyPrint(){
-        for (PascalSyntax p : factors) {
-            p.prettyPrint();
+        for(int i = 0; i < factors.size(); i++){
+            factors.get(i).prettyPrint();
+            if(i < factorOpr.size())
+                factorOpr.get(i).prettyPrint();
         }
     }/*End prettyPrint*/
 } /* End of class */
