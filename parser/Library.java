@@ -13,6 +13,11 @@ public class Library extends Block{
     public Library(int lineNum){
         super(lineNum);
         procedures.put("write",new ProcDecl("write",0));
+        procedures.put("integer",new TypeDecl("integer",0));
+        procedures.put("boolean",new TypeDecl("boolean",0));
+        procedures.put("char",new TypeDecl("char",0));
+        procedures.put("eol",new TypeDecl("eol",0));
+
     }/*End of constructor*/
 
     // @Override

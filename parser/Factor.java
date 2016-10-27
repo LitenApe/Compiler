@@ -4,7 +4,7 @@ import scanner.*;
 import static scanner.TokenKind.*;
 
 public abstract class Factor extends PascalSyntax{
-
+    
     public Factor(int n){
         super(n);
     }/*End constructor*/
