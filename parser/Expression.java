@@ -2,12 +2,15 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
+import types.Type;
 
 public class Expression extends PascalSyntax{
 
     SimpleExpr firstValue = null;
     RelOperator relOperator = null;
     SimpleExpr secondValue = null;
+
+    types.Type type = null;
 
     public Expression(int n){
         super(n);
@@ -16,9 +19,14 @@ public class Expression extends PascalSyntax{
     @Override
     public void check(Block curScope, Library lib){
         firstValue.check(curScope,lib);
+        type = firstValue.type;
         if (relOperator != null){
-            relOperator.check(curScope,lib);
             secondValue.check(curScope,lib);
+            String oprName = relOperator.opr.toString();
+            System.out.println("DEF: "+type);
+            System.out.println("GHI: "+secondValue.type);
+            type.checkType(secondValue.type,oprName+" operands",this,"Operands to "+oprName+" are of different type!");
+            type = lib.booleanType;
         }
     }
 

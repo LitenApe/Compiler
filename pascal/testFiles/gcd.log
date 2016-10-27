@@ -1,0 +1,2 @@
+Type check = operands on line 12: type Integer vs type Integer
+Binding on line 20: write was declared as <proc decl> write in the library
