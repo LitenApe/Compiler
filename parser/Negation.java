@@ -3,10 +3,13 @@ package parser;
 import main.Main;
 import scanner.*;
 import static scanner.TokenKind.*;
+import types.BoolType;
 
 public class Negation extends Factor{
 
     Factor factor = null;
+    BoolType type = new BoolType();
+
     public Negation(int n){
         super(n);
     }/*End constructor*/
@@ -20,7 +23,7 @@ public class Negation extends Factor{
     public void check(Block curScope, Library lib){
 
     }
-    
+
     public static Negation parse(Scanner s) {
         enterParser("negation");
 
