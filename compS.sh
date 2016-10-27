@@ -1,84 +1,34 @@
-# get current path
-curPath=$(pwd)
-# set path for directories
-resPath="$curPath/pascal/resLogs/scannerLog/"
-fasPath="$curPath/pascal/testFF/scanner/"
+function diffFiles {
+    curPath=$(pwd)
 
-# scanner
-# retrieve log files
-resultater=$(ls $resPath)
-fasit=$(ls $fasPath)
+    # set path for directories
+    fasPath="$curPath/pascal/testFF/$1/"
+    resPath="$curPath/pascal/resLogs/$2/"
 
-# make it into an array
-resultater=$resultater | cut -d ' ' -f 1,2,3,4,5,6
-fasit=$fasit | cut -d ' ' -f 1,2,3,4,5,6
+    # retrieve log files
+    resultater=$(ls $resPath)
+    fasit=$(ls $fasPath)
 
-# iterate through the files
-echo ""
-echo "TESTING SCANNER LOGS"
-for fas in $fasit; do
-  for res in $resultater; do
-    if [[ $res == $fas ]]; then
-      tester="$(diff -b "$resPath$res" "$fasPath$fas")"
-      if [[ ${#tester} -eq 0 ]]; then
-        echo "Passed:" $fas
-      else
-        echo "Failed:" $fas
-      fi
-    fi
-  done
-done
+    # split files into an array
+    resultater=$resultater | cut -d ' ' -f 1,2,3,4,5,6
+    fasit=$fasit | cut -d ' ' -f 1,2,3,4,5,6
 
-resPath="$curPath/pascal/resLogs/parserLog/"
-fasPath="$curPath/pascal/testFF/parser/"
-
-# parser
-# retrieve log files
-resultater=$(ls $resPath)
-fasit=$(ls $fasPath)
-
-# make it into an array
-resultater=$resultater | cut -d ' ' -f 1,2,3,4,5,6
-fasit=$fasit | cut -d ' ' -f 1,2,3,4,5,6
-
-echo ""
-echo "TESTING PARSER LOGS"
-for fas in $fasit; do
-  for res in $resultater; do
-    if [[ $res == $fas ]]; then
-      tester="$(diff -b "$resPath$res" "$fasPath$fas")"
-      if [[ ${#tester} -eq 0 ]]; then
-        echo "Passed:" $fas
-      else
-        echo "Failed:" $fas
-      fi
-    fi
-  done
-done
-
-resPath="$curPath/pascal/resLogs/checkerLog/"
-fasPath="$curPath/pascal/testFF/checker/"
-
-# checker
-# retrieve log files
-resultater=$(ls $resPath)
-fasit=$(ls $fasPath)
-
-# make it into an array
-resultater=$resultater | cut -d ' ' -f 1,2,3,4,5,6
-fasit=$fasit | cut -d ' ' -f 1,2,3,4,5,6
-
-echo ""
-echo "TESTING CHECKER LOGS"
-for fas in $fasit; do
-  for res in $resultater; do
-    if [[ $res == $fas ]]; then
-      tester="$(diff -b "$resPath$res" "$fasPath$fas")"
-      if [[ ${#tester} -eq 0 ]]; then
-        echo "Passed:" $fas
-      else
-        echo "Failed:" $fas
-      fi
-    fi
-  done
-done
+    echo ""
+    echo "TESTING $3 LOGS:"
+    # iterate and diff the files
+    for fas in $fasit; do
+        for res in $resultater; do
+            if [[ $res == $fas ]]; then
+                tester="$(diff -b "$resPath$res" "$fasPath$fas")"
+                if [[ ${#tester} -eq 0 ]]; then
+                    echo "Passed:" $fas
+                else
+                    echo "Failed:" $fas
+                fi
+            fi
+        done
+    done
+}
+diffFiles scanner scannerLog SCANNER
+diffFiles parser parserLog PARSER
+diffFiles checker checkerLog CHECKER

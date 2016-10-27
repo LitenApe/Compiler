@@ -44,9 +44,8 @@ public class ProcDecl extends PascalDecl{
     public static ProcDecl parse(Scanner s){
         enterParser("proc decl");
 
-        ProcDecl procDecl = new ProcDecl(s.curToken.id, s.curLineNum());
-
         s.skip(procedureToken);
+        ProcDecl procDecl = new ProcDecl(s.curToken.id, s.curLineNum());
         procDecl.procName = NamedConst.parse(s);
 
         if(s.curToken.kind == leftParToken){
@@ -70,7 +69,7 @@ public class ProcDecl extends PascalDecl{
 
     @Override
     public String identify() {
-        return procName == null ? "<proc decl> " + name + " in library" : "<proc decl> " + name + " on line " + lineNum;
+        return procName == null ? "<proc decl> " + name + " in the library" : "<proc decl> " + name + " on line " + lineNum;
     } /* End of identify */
 
     @Override
