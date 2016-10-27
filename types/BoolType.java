@@ -5,6 +5,10 @@ public class BoolType extends Type {
     	return "type Boolean";
     }
 
+    public String toString(){
+        return "boolean";
+    }
+
     @Override public int size() {
     	return 4;
     }

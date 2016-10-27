@@ -6,7 +6,7 @@ import main.*;
 
 public class TypeName extends Type{
 
-    NamedConst namedConstant = null;
+    public NamedConst namedConstant = null;
 
     public TypeName(int lNum){
         super(lNum);
@@ -14,7 +14,7 @@ public class TypeName extends Type{
 
     @Override
     public void check(Block curScope, Library lib){
-        
+        namedConstant.check(curScope, lib);
     }
 
     @Override

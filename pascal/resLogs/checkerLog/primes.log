@@ -1,6 +1,15 @@
+Binding on line 9: integer was declared as <type decl> integer in the library
+Binding on line 9: integer was declared as <type decl> integer in the library
+Binding on line 13: integer was declared as <type decl> integer in the library
+Binding on line 13: integer was declared as <type decl> integer in the library
+Type check < operands on line 31: type Integer vs type Integer
 Binding on line 31: write was declared as <proc decl> write in the library
+Type check < operands on line 32: type Integer vs type Integer
 Binding on line 32: write was declared as <proc decl> write in the library
+Type check < operands on line 33: type Integer vs type Integer
 Binding on line 33: write was declared as <proc decl> write in the library
 Binding on line 34: write was declared as <proc decl> write in the library
+Binding on line 38: integer was declared as <type decl> integer in the library
+Binding on line 38: integer was declared as <type decl> integer in the library
 Binding on line 51: write was declared as <proc decl> write in the library
 Error at line 59: Name findprimes is unknown!

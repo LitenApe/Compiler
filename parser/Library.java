@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 public class Library extends Block{
-    types.BoolType booleanType = new types.BoolType();
-    types.CharType characterType = new types.CharType();
-    types.IntType integerType = new types.IntType();
+    public static types.BoolType booleanType = new types.BoolType();
+    public static types.CharType characterType = new types.CharType();
+    public static types.IntType integerType = new types.IntType();
 
     // store everything that is created for this libaries scope
     // public static HashMap<String, PascalSyntax> declarations = new HashMap<>();   // Happy ? "YES I AM :D:D:D" : "Readable name";

@@ -4,6 +4,7 @@ import scanner.Scanner;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
 import main.Main;
+import types.*;
 
 public class VarDeclPart extends PascalSyntax{
 
@@ -15,9 +16,10 @@ public class VarDeclPart extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        for(PascalDecl p : varDecls){
+        for(VarDecl p : varDecls){
             p.check(curScope,lib);
             curScope.addDecl(p.toString(), p);
+            PascalDecl proc = lib.findDecl(p.type.toString(), this);
         }
     }
 

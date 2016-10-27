@@ -9,7 +9,8 @@ public class VarDecl extends PascalDecl{
     // name : : : type : ;
 
     public NamedConst namedConstant = null;
-    public Type type = null;
+    public Type mType = null;
+    public types.Type type = null;
 
     public VarDecl(String id, int lNum){
         super(id, lNum);
@@ -18,14 +19,15 @@ public class VarDecl extends PascalDecl{
     @Override
     public void check(Block curScope, Library lib){
         namedConstant.check(curScope,lib);
-        type.check(curScope,lib); //TODO: Remove? 
+        mType.check(curScope,lib);
+        type = lib.integerType;
     }
 
     @Override
     public void prettyPrint(){
         namedConstant.prettyPrint();
         Main.log.prettyPrint(": ");
-        type.prettyPrint();
+        mType.prettyPrint();
         Main.log.prettyPrintLn(";");
     }/*End prettyPrint*/
 
@@ -35,7 +37,7 @@ public class VarDecl extends PascalDecl{
         VarDecl varDecl = new VarDecl(s.curToken.id,s.curLineNum());
         varDecl.namedConstant = NamedConst.parse(s);
         s.skip(colonToken);
-        varDecl.type = Type.parse(s);
+        varDecl.mType = Type.parse(s);
         s.skip(semicolonToken);
 
         leaveParser("var decl");

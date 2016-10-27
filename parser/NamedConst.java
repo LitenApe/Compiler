@@ -5,7 +5,8 @@ import main.Main;
 
 public class NamedConst extends UnsignedConstant{
 
-    String name = "";
+    public String name = "";
+    public types.Type type = null;
 
     public NamedConst(int n){
         super(n);
@@ -13,7 +14,8 @@ public class NamedConst extends UnsignedConstant{
 
     @Override
     public void check(Block curScope, Library lib){
-
+        if(name.equals("integer"))
+            type = lib.integerType;
     }
 
     public static NamedConst parse(Scanner s) {
