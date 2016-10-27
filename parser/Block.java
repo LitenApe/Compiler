@@ -40,9 +40,8 @@ public class Block extends PascalSyntax{
             found = outerScope.findDecl(id,where);
         }
 
-        // if(found == null)
-        //     found = lib.findDecl(id,where);
-        where.error("Name " + id + " is unknown!");
+        if(found == null)
+            where.error("Name " + id + " is unknown!");
         return found;
     }
 

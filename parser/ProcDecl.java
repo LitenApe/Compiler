@@ -7,7 +7,6 @@ import main.Main;
 public class ProcDecl extends PascalDecl{
 
     // proc : name : param decl list : ; : block : ;
-
     public NamedConst procName = null;
     public ParamDeclList paramDecl = null;
     public Block block = null;
@@ -71,7 +70,7 @@ public class ProcDecl extends PascalDecl{
 
     @Override
     public String identify() {
-        return "<ProcDecl> " + name + " on line " + lineNum;
+        return procName == null ? "<proc decl> " + name + " in library" : "<proc decl> " + name + " on line " + lineNum;
     } /* End of identify */
 
     @Override
