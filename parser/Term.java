@@ -14,7 +14,10 @@ public class Term extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-
+        for(PascalSyntax ps : factors){
+            ps.check(curScope, lib);
+            System.out.println(ps.identify());
+        }
     }
 
     public static Term parse(Scanner s){

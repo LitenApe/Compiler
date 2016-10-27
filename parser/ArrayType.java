@@ -3,7 +3,6 @@ package parser;
 import scanner.Scanner;
 import static scanner.TokenKind.*;
 import main.*;
-import types.ArrayType;
 
 public class ArrayType extends Type{
 
@@ -39,7 +38,6 @@ public class ArrayType extends Type{
         s.skip(ofToken);
 
         arrType.pType = Type.parse(s);
-        arrType.type = new types.ArrayType();
 
         leaveParser("array-type");
         return arrType;

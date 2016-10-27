@@ -1,6 +1,6 @@
    1: /* Test program 'easter' 
    2:                 ======== 
-   3:    Computes Easter Sunday for the years 2010-2020.  
+   3:    Computes Easter Sunday for the years 2010-2020. 
    4: */ 
    5:  
    6: program Easter; 
@@ -12,7 +12,7 @@ Parser:       <var decl part>
 Parser:         <var decl>
 Parser:           <type>
 Parser:             <type name>
-   9:     
+   9:  
   10: procedure easter (y: integer); 
 Parser:             </type name>
 Parser:           </type>

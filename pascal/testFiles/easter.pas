@@ -1,12 +1,12 @@
 /* Test program 'easter'
                 ========
-   Computes Easter Sunday for the years 2010-2020. 
+   Computes Easter Sunday for the years 2010-2020.
 */
 
 program Easter;
 
 var y: integer;
-   
+
 procedure easter (y: integer);
 var
    a: integer;  b: integer;  c: integer;  d: integer;  e: integer;
