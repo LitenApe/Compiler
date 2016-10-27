@@ -28,7 +28,6 @@ public class Block extends PascalSyntax{
 
     public PascalDecl findDecl(String id, PascalSyntax where){
         PascalDecl found = decls.get(id);
-        System.out.println("in block");
         PascalSyntax found_2 = null;
 
         if (found != null){
@@ -37,7 +36,7 @@ public class Block extends PascalSyntax{
         }
 
         if (outerScope != null && found == null){
-            System.out.println("Instance: "+outerScope.toString());
+        //     System.out.println("Instance: "+outerScope.toString());
             found = outerScope.findDecl(id,where);
         }
 
@@ -48,7 +47,6 @@ public class Block extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Block");
         outerScope = curScope;
         if(constDeclPart != null)
             constDeclPart.check(this, lib);

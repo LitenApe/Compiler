@@ -17,9 +17,15 @@ public class IfStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-
+        System.out.println("Expression: " + exp.identify());
+        System.out.println("Statement: " + stat.identify());
+        exp.check(curScope, lib);
+        stat.check(curScope, lib);
+        if(elseExp != null){
+            elseExp.check(curScope, lib);
+        }
     }
-    
+
     @Override
     public void prettyPrint() {
         Main.log.prettyPrint("if ");
