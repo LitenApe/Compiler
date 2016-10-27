@@ -25,6 +25,7 @@ public class ProcCallStatm extends Statement{
 
         if (procRef == null)
             System.out.println("FYCK");
+
     }
 
     @Override public String identify() {

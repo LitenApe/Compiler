@@ -35,8 +35,10 @@ public class Block extends PascalSyntax{
             Main.log.noteBinding(id,where,found);
         }
 
-        if (outerScope != null && found == null)
+        if (outerScope != null && found == null){
+            System.out.println("Instance: "+outerScope.toString());
             found = outerScope.findDecl(id,where);
+        }
 
         // if(found == null)
         //     found = lib.findDecl(id,where);
