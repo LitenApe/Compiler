@@ -22,6 +22,7 @@ public class FuncDecl extends ProcDecl{
         if (pDeclList != null)
             pDeclList.check(curScope,lib);
         typeName.check(curScope,lib);
+
         block.check(curScope,lib);
         curScope.addDecl(name.toString(),this);
     }
@@ -72,7 +73,7 @@ public class FuncDecl extends ProcDecl{
 
     @Override
     public String identify() {
-        return "<FuncDecl> " + name + " on line " + lineNum;
+        return "<func decl> " + name + " on line " + lineNum;
     } /* End of identify */
 
     //TODO: this class doesnt override any of the 4 abstract methods in ProcDecl

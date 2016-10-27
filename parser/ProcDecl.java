@@ -20,11 +20,11 @@ public class ProcDecl extends PascalDecl{
     public void check(Block curScope, Library lib){
         outerScope = curScope;
 
-        procName.check(curScope,lib);
+        procName.check(block,lib);
         if (paramDecl != null)
             paramDecl.check(block,lib);
 
-        block.check(curScope,lib);
+        block.check(outerScope,lib);
         curScope.addDecl(name.toString(),this);
     }
 

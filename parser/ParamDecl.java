@@ -48,7 +48,7 @@ public class ParamDecl extends PascalDecl{
 
     @Override
     public String identify() {
-        return "<ParamDecl> " + name + " on line " + lineNum;
+        return type != null ? "<type decl> " + type.toString() + " in the library" : "<ParamDecl> " + name + " on line " + lineNum;
     } /* End of identify */
 
     @Override

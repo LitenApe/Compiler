@@ -2,7 +2,7 @@ package parser;
 
 import scanner.Scanner;
 import static scanner.TokenKind.*;
-import main.*;
+import main.Main;
 
 public class TypeName extends Type{
 
@@ -30,6 +30,7 @@ public class TypeName extends Type{
         }
 
         namedConstant.check(curScope, lib);
+        Main.log.noteBinding(type.toString(), this, type);
     }
 
     @Override
@@ -49,6 +50,6 @@ public class TypeName extends Type{
 
     @Override
     public String identify() {
-        return "<TypName> on line " + lineNum;
+        return "<type decl> on line " + lineNum;
     } /* End of identify */
 }/*End class*/
