@@ -16,7 +16,7 @@ public class Term extends PascalSyntax{
     public void check(Block curScope, Library lib){
 
     }
-    
+
     public static Term parse(Scanner s){
         enterParser("term");
 

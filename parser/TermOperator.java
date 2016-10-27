@@ -16,7 +16,7 @@ public class TermOperator extends Operator{
     public void check(Block curScope, Library lib){
 
     }
-    
+
     @Override
     public void prettyPrint(){
         Main.log.prettyPrint(" " + tokenKind.toString() + " ");

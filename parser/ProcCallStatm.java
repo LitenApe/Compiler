@@ -17,14 +17,8 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Proc Call");
-
         PascalDecl d = curScope.findDecl(namedConst.toString(), this);
-
         procRef = (ProcDecl) d;
-
-        if (procRef == null)
-            System.out.println("FYCK");
     }
 
     @Override public String identify() {
@@ -66,9 +60,6 @@ public class ProcCallStatm extends Statement{
             s.skip(rightParToken);
         }
 
-        if (procCall.namedConst.toString().equalsIgnoreCase("write")){
-            Library.write = procCall;
-        }
         leaveParser("proc call");
         return procCall;
     }

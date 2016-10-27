@@ -15,6 +15,12 @@ public class Expression extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
+        firstValue.check(curScope,lib);
+        if (relOperator != null){
+            relOperator.check(curScope,lib);
+            secondValue.check(curScope,lib);
+        }
+
     }
 
     public static Expression parse(Scanner s) {

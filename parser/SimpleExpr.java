@@ -18,9 +18,18 @@ public class SimpleExpr extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
+        if (prefix != null)
+            prefix.check(curScope,lib);
 
+        //NOTE: Farlig hvorfor rappe hvis du er så farlig
+        for(int i = 0; i < term.size(); i++){
+            term.get(i).check(curScope,lib);
+            if(i < termOpr.size()){
+                termOpr.get(i).check(curScope,lib);
+            }
+        }
     }
-    
+
     @Override public String identify() {
         return "<SimpleExpr> on line " + lineNum;
     } /* End of identify */
