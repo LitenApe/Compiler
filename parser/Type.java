@@ -12,7 +12,7 @@ public abstract class Type extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        
+
     }
     public static Type parse(Scanner s) {
         enterParser("type");

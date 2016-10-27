@@ -33,10 +33,7 @@ public class Block extends PascalSyntax{
 
         if (found != null){
             Main.log.noteBinding(id,where,found);
-<<<<<<< HEAD
             return found;
-=======
->>>>>>> 7514a65ef14b5d62daccc418941ffb061846ebc0
         }
 
         if (outerScope != null && found == null){
