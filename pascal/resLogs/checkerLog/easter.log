@@ -1,19 +1,20 @@
 Binding on line 8: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
-Binding on line 11: integer was declared as <type decl> integer in the library
+Binding on line 10: integer was declared as <ParamDecl> y on line 10
+Binding on line 12: integer was declared as <type decl> integer in the library
+Binding on line 12: integer was declared as <type decl> integer in the library
+Binding on line 12: integer was declared as <type decl> integer in the library
+Binding on line 12: integer was declared as <type decl> integer in the library
+Binding on line 12: integer was declared as <type decl> integer in the library
+Binding on line 13: integer was declared as <type decl> integer in the library
+Binding on line 13: integer was declared as <type decl> integer in the library
+Binding on line 13: integer was declared as <type decl> integer in the library
+Binding on line 13: integer was declared as <type decl> integer in the library
+Binding on line 13: integer was declared as <type decl> integer in the library
+Binding on line 14: integer was declared as <type decl> integer in the library
+Binding on line 14: integer was declared as <type decl> integer in the library
+Binding on line 16: integer was declared as <type decl> integer in the library
+Binding on line 17: integer was declared as <type decl> integer in the library
+Binding on line 19: integer was declared as <type decl> integer in the library
 Type check = operands on line 37: type Integer vs type Integer
 Binding on line 38: write was declared as <proc decl> write in the library
 Binding on line 40: write was declared as <proc decl> write in the library

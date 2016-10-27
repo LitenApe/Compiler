@@ -19,7 +19,7 @@ public class VarDeclPart extends PascalSyntax{
         for(VarDecl p : varDecls){
             p.check(curScope,lib);
             curScope.addDecl(p.toString(), p);
-            PascalDecl proc = lib.findDecl(p.type.toString(), this);
+            Main.log.noteBinding(p.type.toString(), p, p);
         }
     }
 

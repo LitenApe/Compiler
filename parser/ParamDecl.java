@@ -10,6 +10,7 @@ public class ParamDecl extends PascalDecl{
 
     public NamedConst name = null;
     public TypeName typeName = null;
+    public types.Type type = null;
 
     public ParamDecl(String id, int lNum){
         super(id, lNum);
@@ -17,9 +18,11 @@ public class ParamDecl extends PascalDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        // name.check(curScope,lib);
         typeName.check(curScope,lib);
         curScope.addDecl(name.toString(),this);
+        type = typeName.type;
+        if (type != null)
+            Main.log.noteBinding(type.toString(), this, this);
     }
     @Override
     public void prettyPrint(){

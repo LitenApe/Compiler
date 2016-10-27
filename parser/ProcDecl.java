@@ -10,6 +10,7 @@ public class ProcDecl extends PascalDecl{
     public NamedConst procName = null;
     public ParamDeclList paramDecl = null;
     public Block block = null;
+    public Block outerScope = null;
 
     public ProcDecl(String id, int lNum){
         super(id, lNum);
@@ -17,9 +18,12 @@ public class ProcDecl extends PascalDecl{
 
     @Override
     public void check(Block curScope, Library lib){
+        outerScope = curScope;
+
         procName.check(curScope,lib);
         if (paramDecl != null)
-            paramDecl.check(curScope,lib);
+            paramDecl.check(block,lib);
+
         block.check(curScope,lib);
         curScope.addDecl(name.toString(),this);
     }

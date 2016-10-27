@@ -7,6 +7,7 @@ import main.*;
 public class TypeName extends Type{
 
     public NamedConst namedConstant = null;
+    public types.Type type = null;
 
     public TypeName(int lNum){
         super(lNum);
@@ -14,6 +15,20 @@ public class TypeName extends Type{
 
     @Override
     public void check(Block curScope, Library lib){
+        switch(namedConstant.name){
+            case "integer":
+                type = lib.integerType;
+                break;
+            case "boolean":
+                type = lib.booleanType;
+                break;
+            case "char":
+                type = lib.characterType;
+                break;
+            default:
+                break;
+        }
+
         namedConstant.check(curScope, lib);
     }
 

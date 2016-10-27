@@ -1,2 +1,3 @@
+Binding on line 6: boolean was declared as <ParamDecl> x on line 6
 Binding on line 8: write was declared as <proc decl> write in the library
 Error at line 12: Name test is unknown!
