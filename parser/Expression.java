@@ -20,7 +20,6 @@ public class Expression extends PascalSyntax{
             relOperator.check(curScope,lib);
             secondValue.check(curScope,lib);
         }
-
     }
 
     public static Expression parse(Scanner s) {

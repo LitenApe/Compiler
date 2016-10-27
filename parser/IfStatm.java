@@ -17,11 +17,12 @@ public class IfStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Expression: " + exp.identify());
-        System.out.println("Statement: " + stat.identify());
+        System.out.println("if>Expression: " + exp.identify());
+        System.out.println("if>Statement: " + stat.identify());
         exp.check(curScope, lib);
         stat.check(curScope, lib);
         if(elseExp != null){
+            System.out.println("if>Else: " + elseExp.identify());
             elseExp.check(curScope, lib);
         }
     }

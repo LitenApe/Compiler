@@ -3,10 +3,12 @@ package parser;
 import scanner.*;
 import static scanner.TokenKind.*;
 import main.Main;
+import types.IntType;
 
 public class NumberLiteral extends UnsignedConstant{
 
-    int digit;
+    public int digit;
+    public IntType type = new IntType();
 
     public NumberLiteral(int n){
         super(n);
@@ -16,7 +18,7 @@ public class NumberLiteral extends UnsignedConstant{
     public void check(Block curScope, Library lib){
 
     }
-    
+
     @Override
     public void prettyPrint(){
         Main.log.prettyPrint(""+digit);

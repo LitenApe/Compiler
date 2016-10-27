@@ -3,10 +3,13 @@ package parser;
 import scanner.*;
 import static scanner.TokenKind.*;
 import main.Main;
+import types.CharType;
 
 public class CharLiteral extends UnsignedConstant{
 
     char charValue;
+    CharType type = new CharType();
+    
     public CharLiteral(int n){
         super(n);
     }/*End constructor*/
@@ -15,7 +18,7 @@ public class CharLiteral extends UnsignedConstant{
     public void check(Block curScope, Library lib){
 
     }
-    
+
     public static CharLiteral parse(Scanner s) {
         enterParser("char literal");
 

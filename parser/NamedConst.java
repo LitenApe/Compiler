@@ -6,6 +6,7 @@ import main.Main;
 public class NamedConst extends UnsignedConstant{
 
     String name = "";
+
     public NamedConst(int n){
         super(n);
     }/*End constructor*/

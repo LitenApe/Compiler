@@ -3,12 +3,14 @@ package parser;
 import scanner.Scanner;
 import static scanner.TokenKind.*;
 import main.*;
+import types.ArrayType;
 
 public class ArrayType extends Type{
 
     public Constant preConstant = null;
     public Constant postConstant = null;
-    public Type type = null;
+    public Type pType = null;
+    public types.ArrayType type = null;
 
     public ArrayType(int lNum){
         super(lNum);
@@ -18,7 +20,7 @@ public class ArrayType extends Type{
     public void check(Block curScope, Library lib){
 
     }
-    
+
     public static ArrayType parse(Scanner s) {
         enterParser("array-type");
 
@@ -36,7 +38,8 @@ public class ArrayType extends Type{
         s.skip(rightBracketToken);
         s.skip(ofToken);
 
-        arrType.type = Type.parse(s);
+        arrType.pType = Type.parse(s);
+        arrType.type = new types.ArrayType();
 
         leaveParser("array-type");
         return arrType;
@@ -54,7 +57,7 @@ public class ArrayType extends Type{
 
         Main.log.prettyPrint("] of ");
 
-        type.prettyPrint();
+        pType.prettyPrint();
 
     }/*End prettyPrint*/
 
