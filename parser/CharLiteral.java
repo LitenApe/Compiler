@@ -8,15 +8,16 @@ import types.CharType;
 public class CharLiteral extends UnsignedConstant{
 
     char charValue;
-    CharType type = new CharType();
-    
+    CharType type = null;
+
     public CharLiteral(int n){
         super(n);
     }/*End constructor*/
 
     @Override
     public void check(Block curScope, Library lib){
-
+        type = lib.characterType;
+        super.type = this.type;
     }
 
     public static CharLiteral parse(Scanner s) {

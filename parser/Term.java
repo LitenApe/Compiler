@@ -3,11 +3,13 @@ package parser;
 import java.util.ArrayList;
 import scanner.*;
 import static scanner.TokenKind.*;
+import types.Type;
 
 public class Term extends PascalSyntax{
 
     public ArrayList<Factor> factors = new ArrayList<>();
     public ArrayList<Operator> factorOpr = new ArrayList<>();
+    public types.Type type = null;
 
     public Term(int n){
         super(n);
@@ -15,9 +17,9 @@ public class Term extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        for(PascalSyntax ps : factors){
-            ps.check(curScope, lib);
-            System.out.println(ps.identify());
+        for(Factor f : factors){
+            f.check(curScope, lib);
+            type = f.type;
         }
     }
 

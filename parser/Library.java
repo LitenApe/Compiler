@@ -5,18 +5,20 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 public class Library extends Block{
+    types.BoolType booleanType = new types.BoolType();
+    types.CharType characterType = new types.CharType();
+    types.IntType integerType = new types.IntType();
 
     // store everything that is created for this libaries scope
     // public static HashMap<String, PascalSyntax> declarations = new HashMap<>();   // Happy ? "YES I AM :D:D:D" : "Readable name";
     public static HashMap<String, PascalDecl> procedures = new HashMap<>();   // Happy ? "YES I AM :D:D:D" : "Readable name";
-
     public Library(int lineNum){
         super(lineNum);
         procedures.put("write",new ProcDecl("write",0));
         procedures.put("integer",new TypeDecl("integer",0));
         procedures.put("boolean",new TypeDecl("boolean",0));
         procedures.put("char",new TypeDecl("char",0));
-        procedures.put("eol",new TypeDecl("eol",0));
+        procedures.put("eol",new ConstDecl("eol",0));
 
     }/*End of constructor*/
 

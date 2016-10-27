@@ -2,9 +2,11 @@ package parser;
 import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
+import types.*;
 
 public abstract class Factor extends PascalSyntax{
-    
+
+    types.Type type = null;
     public Factor(int n){
         super(n);
     }/*End constructor*/
