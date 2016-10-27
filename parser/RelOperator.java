@@ -15,9 +15,9 @@ public class RelOperator extends Operator{
 
     @Override
     public void check(Block curScope, Library lib){
-
+        
     }
-    
+
     @Override
     public void prettyPrint(){
         Main.log.prettyPrint(" "+opr.toString()+" ");
@@ -25,7 +25,7 @@ public class RelOperator extends Operator{
 
     @Override
     public String identify() {
-        return "<RelOperator> on line " + lineNum;
+        return "<rel opr> on line " + lineNum;
     } /* End of identify */
 
     public static RelOperator parse(Scanner s) {

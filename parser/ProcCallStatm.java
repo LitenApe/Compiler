@@ -17,15 +17,8 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Proc Call");
-
         PascalDecl d = curScope.findDecl(namedConst.toString(), this);
-
         procRef = (ProcDecl) d;
-
-        if (procRef == null)
-            System.out.println("FYCK");
-
     }
 
     @Override public String identify() {

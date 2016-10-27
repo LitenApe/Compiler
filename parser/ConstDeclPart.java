@@ -16,10 +16,8 @@ public class ConstDeclPart extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        for(ConstDecl p : constDeclarations){
+        for(ConstDecl p : constDeclarations)
             p.check(curScope,lib);
-            curScope.addDecl(p.toString(), p);
-        }
     }
 
     public static ConstDeclPart parse(Scanner s){

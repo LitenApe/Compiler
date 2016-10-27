@@ -15,7 +15,9 @@ public class Variable extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        
+        name.check(curScope,lib);
+        if (expression != null)
+            expression.check(curScope,lib);
     }
 
     @Override

@@ -24,7 +24,6 @@ public class Library extends Block{
             Main.log.noteBinding(id,where,found);
             return found;
         }
-
         return null;
     }/*End of findDecl*/
 
