@@ -28,7 +28,6 @@ public class SimpleExpr extends PascalSyntax{
             term.get(i).check(curScope,lib);
 
             if(type == null)
-                System.out.println("<simple expr> " + term.get(i));
                 type = term.get(i).type;
 
             if(i < termOpr.size()){

@@ -14,7 +14,7 @@ public class Block extends PascalSyntax{
     public ArrayList<ProcDecl> procAndFuncDecls = new ArrayList<>();
     public HashMap<String, PascalDecl> decls = new HashMap<>();
     public Block outerScope = null;
-    public static Library library = Main.library;
+    public static Library library;
 
     public Block(int lineNum){
         super(lineNum);
@@ -29,7 +29,6 @@ public class Block extends PascalSyntax{
     }
 
     public PascalDecl findDecl(String id, PascalSyntax where){
-        System.out.println("<block> " + id + " : " + where);
         // check the current scope after the decleration
         PascalDecl found = decls.get(id);
 
@@ -38,15 +37,10 @@ public class Block extends PascalSyntax{
             found = outerScope.findDecl(id,where);
 
         // check library after the decleration
-        System.out.println("<block> step 3:");
-        try{
-            if(found == null)
-                found = library.findDecl(id,where);
-        }catch(Exception e){
-            System.out.println("Dafaq?: " + library);
-        }
+        if(found == null)
+            found = library.findDecl(id,where);
+
         // still nothing? dammit
-        System.out.println("<block> step 4:");
         if(found == null)
             where.error("Name " + id + " is unknown!");
         else
@@ -59,8 +53,7 @@ public class Block extends PascalSyntax{
     @Override
     public void check(Block curScope, Library lib){
         outerScope = curScope;
-        if(lib == null)
-            System.out.println("Hellas");
+        library = lib;
 
         if(constDeclPart != null)
             constDeclPart.check(this, lib);

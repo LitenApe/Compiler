@@ -1,2 +1,2 @@
-Binding on line 6: x was declared as <param decl> x on line 6
+Binding on line 6: boolean was declared as <type decl> boolean in the library
 Error at line 8: Name x is unknown!

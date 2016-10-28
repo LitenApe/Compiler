@@ -9,7 +9,7 @@ import java.io.*;
 public class Main {
     public static final String version = "2016-09-07";
 
-    public static parser.Library library;
+    public static parser.Library library = new Library(0);;
     public static LogFile log = new LogFile();
 
     private static String sourceFileName, baseFileName;
@@ -109,7 +109,6 @@ public class Main {
         if (log.doLogPrettyPrint)
         prog.prettyPrint();
 
-        library = new Library(0);
         prog.check(library, library);
     }
 

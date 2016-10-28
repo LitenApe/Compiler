@@ -19,7 +19,6 @@ public class Term extends PascalSyntax{
     public void check(Block curScope, Library lib){
         for(Factor f : factors){
             f.check(curScope, lib);
-            System.out.println("<term> " + f);
             type = f.type;
         }
     }
