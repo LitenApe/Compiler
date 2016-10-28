@@ -33,7 +33,7 @@ Pascal kompilator
     - [x] 10star.pas
     - [x] gcd.pas
   - [ ] Part 3: Checker
-    - [ ] mini.pas
+    - [x] mini.pas
     - [ ] eater.pas
     - [ ] opers.pas
     - [ ] primes.pas
