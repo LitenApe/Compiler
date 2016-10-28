@@ -10,7 +10,6 @@ public class VarDecl extends PascalDecl{
 
     public NamedConst namedConstant = null;
     public Type mType = null;
-    public types.Type type = null;
     public PascalDecl decl = null;
 
     public VarDecl(String id, int lNum){

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import main.Main;
 import scanner.*;
 import static scanner.TokenKind.*;
-import types.*;
 
 public class SimpleExpr extends PascalSyntax{
 
@@ -12,7 +11,7 @@ public class SimpleExpr extends PascalSyntax{
     public PrefixOperator prefix = null;
     public ArrayList<TermOperator> termOpr = new ArrayList<>();
     public ArrayList<Term> term = new ArrayList<>();
-    public types.Type type = null;
+    public types.Type type;
 
     public SimpleExpr(int n){
         super(n);

@@ -6,7 +6,6 @@ import main.Main;
 public class NamedConst extends UnsignedConstant{
 
     public String name = "";
-    public types.Type type = null;
 
     public NamedConst(int n){
         super(n);

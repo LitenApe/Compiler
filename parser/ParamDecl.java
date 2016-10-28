@@ -10,7 +10,6 @@ public class ParamDecl extends PascalDecl{
 
     public NamedConst name = null;
     public TypeName typeName = null;
-    public types.Type type = null;
     public PascalDecl decl = null;
 
     public ParamDecl(String id, int lNum){

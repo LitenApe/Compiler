@@ -6,6 +6,8 @@ import main.*;
 
 public abstract class Type extends PascalSyntax{
 
+    public types.Type type = null;
+
     public Type(int lNum){
         super(lNum);
     }/*End constructor*/
@@ -14,7 +16,7 @@ public abstract class Type extends PascalSyntax{
     public void check(Block curScope, Library lib){
 
     }
-    
+
     public static Type parse(Scanner s) {
         enterParser("type");
 

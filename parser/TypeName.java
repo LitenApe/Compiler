@@ -7,7 +7,6 @@ import main.Main;
 public class TypeName extends Type{
 
     public NamedConst namedConstant = null;
-    public types.Type type = null;
 
     public TypeName(int lNum){
         super(lNum);

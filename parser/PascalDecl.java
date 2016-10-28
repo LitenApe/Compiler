@@ -29,7 +29,7 @@ public abstract class PascalDecl extends PascalSyntax {
 
     @Override
     public void check(Block curScope, Library lib){
-        
+
     }
 
     /**
