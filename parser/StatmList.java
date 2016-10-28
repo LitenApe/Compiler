@@ -15,8 +15,12 @@ public class StatmList extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        for(PascalSyntax ps : statmList)
+        try{
+            for(PascalSyntax ps : statmList)
             ps.check(curScope, lib);
+        }catch(Exception e){
+            System.out.println("5: The problem occurs in statement list");
+        }
     }
 
     @Override public String identify() {
@@ -33,7 +37,6 @@ public class StatmList extends PascalSyntax{
             if(s.curToken.kind != semicolonToken){
                 break;
             }
-
             s.skip(semicolonToken);
         }
 

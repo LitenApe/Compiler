@@ -31,7 +31,7 @@ public class FuncDecl extends ProcDecl{
         if (pDeclList != null)
             pDeclList.check(block,lib);
 
-        block.check(block,lib);
+        block.check(curScope,lib);
     }/*End of checker*/
 
     @Override

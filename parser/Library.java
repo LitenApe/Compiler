@@ -11,6 +11,7 @@ public class Library extends Block{
 
   // Happy ? "YES I AM :D:D:D" : "Readable name";
     public static HashMap<String, PascalDecl> procedures = new HashMap<>();   // Happy ? "YES I AM :D:D:D" : "Readable name";
+
     public Library(int lineNum){
         super(lineNum);
         procedures.put("write",new ProcDecl("write",0));
@@ -20,7 +21,6 @@ public class Library extends Block{
         procedures.put("eol",new ConstDecl("eol",0));
     }/*End of constructor*/
 
-    // @Override
     public PascalDecl findDecl(String id, PascalSyntax where){
         PascalDecl found = procedures.get(id);
 
@@ -29,6 +29,10 @@ public class Library extends Block{
 
         return found;
     }/*End of findDecl*/
+
+    public void addDecl(String id, PascalDecl pd){
+        procedures.put(id, pd);
+    }/*End of decl*/
 
     public PascalDecl getDecl(String id){
         return procedures.get(id);

@@ -8,7 +8,7 @@ import types.IntType;
 public class NumberLiteral extends UnsignedConstant{
 
     public int digit;
-    public IntType type = null; 
+    public IntType type = null;
 
     public NumberLiteral(int n){
         super(n);
@@ -18,6 +18,7 @@ public class NumberLiteral extends UnsignedConstant{
     public void check(Block curScope, Library lib){
         type = lib.integerType;
         super.type = this.type;
+        System.out.println("Number: " + digit);
     }
 
     @Override

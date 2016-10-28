@@ -21,7 +21,7 @@ public class Block extends PascalSyntax{
     }/*End constructor*/
 
     public void addDecl(String id, PascalDecl declaration){
-        System.out.println("Adding: " + id);
+        System.out.println("Adding: " + id + " in " + this);
         if (decls.containsKey(id))
             declaration.error(id + " declared twice in same block!");
         else

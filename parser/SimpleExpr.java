@@ -20,18 +20,38 @@ public class SimpleExpr extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
+        System.out.println("<simple expr> " + curScope + " : " + term.size());
         if (prefix != null)
             prefix.check(curScope,lib);
 
         //NOTE: Farlig hvorfor rappe hvis du er så farlig
         for(int i = 0; i < term.size(); i++){
-            term.get(i).check(curScope,lib);
+            try{
+                term.get(i).check(curScope,lib);
+            }catch(Exception e){
+                System.out.println("4: Are you the cursed one? - simple expr");
+            }
 
             if(type == null)
-                type = term.get(i).type;
+                try{
+                    type = term.get(i).type;
+                }catch(Exception e){
+                    System.out.println("1: This muther f is causing a problem - simpl expr");
+                }
+            else{
+                try{
+                    Main.log.noteTypeCheck(type, termOpr.get(i - 1).toString(), term.get(i).type, this);
+                }catch(Exception e){
+                    System.out.println("2: This muther fucker is causing problems - simpl expr");
+                }
+            }
 
             if(i < termOpr.size()){
-                termOpr.get(i).check(curScope,lib);
+                try{
+                    termOpr.get(i).check(curScope,lib);
+                }catch(Exception e){
+                    System.out.println("3: This piece of shit here is causing the problem - simpl expr");
+                }
             }
         }
     }

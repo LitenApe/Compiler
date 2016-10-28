@@ -16,9 +16,11 @@ public class Variable extends Factor{
     @Override
     public void check(Block curScope, Library lib){
         name.check(curScope,lib);
+        System.out.println("Variable: " + name);
         if (expression != null)
             expression.check(curScope,lib);
-        lib.findDecl(name.name,this);
+
+        curScope.findDecl(name.name,this);
     }
 
     @Override
