@@ -26,11 +26,15 @@ public class SimpleExpr extends PascalSyntax{
         //NOTE: Farlig hvorfor rappe hvis du er så farlig
         for(int i = 0; i < term.size(); i++){
             term.get(i).check(curScope,lib);
+
+            if(type == null)
+                System.out.println("<simple expr> " + term.get(i));
+                type = term.get(i).type;
+
             if(i < termOpr.size()){
                 termOpr.get(i).check(curScope,lib);
             }
         }
-        type = new IntType();
     }
 
     @Override public String identify() {

@@ -14,6 +14,7 @@ public class Block extends PascalSyntax{
     public ArrayList<ProcDecl> procAndFuncDecls = new ArrayList<>();
     public HashMap<String, PascalDecl> decls = new HashMap<>();
     public Block outerScope = null;
+    public Library lib = null;
 
     public Block(int lineNum){
         super(lineNum);
@@ -27,27 +28,30 @@ public class Block extends PascalSyntax{
     }
 
     public PascalDecl findDecl(String id, PascalSyntax where){
+        // check the current scope after the decleration
         PascalDecl found = decls.get(id);
-        PascalSyntax found_2 = null;
 
-        if (found != null){
-            Main.log.noteBinding(id,where,found);
-            return found;
-        }
-
-        if (outerScope != null && found == null){
-        //     System.out.println("Instance: "+outerScope.toString());
+        // check outer scopes after decleration
+        while(outerScope != null && found == null)
             found = outerScope.findDecl(id,where);
-        }
 
+        // check library after the decleration
+        if(found == null)
+            lib.findDecl(id,where);
+
+        // still nothing? dammit
         if(found == null)
             where.error("Name " + id + " is unknown!");
+
+        // NOTE: We want only one return, not hundreds..
         return found;
     }
 
     @Override
     public void check(Block curScope, Library lib){
         outerScope = curScope;
+        this.lib = lib;
+
         if(constDeclPart != null)
             constDeclPart.check(this, lib);
 

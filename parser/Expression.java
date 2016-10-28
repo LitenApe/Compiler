@@ -23,8 +23,6 @@ public class Expression extends PascalSyntax{
         if (relOperator != null){
             secondValue.check(curScope,lib);
             String oprName = relOperator.opr.toString();
-            System.out.println("DEF: "+type);
-            System.out.println("GHI: "+secondValue.type);
             type.checkType(secondValue.type,oprName+" operands",this,"Operands to "+oprName+" are of different type!");
             type = lib.booleanType;
         }

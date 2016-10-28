@@ -19,7 +19,6 @@ public class VarDeclPart extends PascalSyntax{
         for(VarDecl p : varDecls){
             p.check(curScope,lib);
             curScope.addDecl(p.toString(), p);
-            Main.log.noteBinding(p.type.toString(), p, p);
         }
     }
 
@@ -35,7 +34,7 @@ public class VarDeclPart extends PascalSyntax{
 
     @Override
     public String identify() {
-        return "<VarDeclPart> on line " + lineNum;
+        return "<var decl part> on line " + lineNum;
     } /* End of identify */
 
     public static VarDeclPart parse(Scanner s){

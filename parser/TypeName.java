@@ -30,7 +30,6 @@ public class TypeName extends Type{
         }
 
         namedConstant.check(curScope, lib);
-        Main.log.noteBinding(type.toString(), this, type);
     }
 
     @Override
