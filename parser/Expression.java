@@ -1,8 +1,9 @@
 package parser;
 
 import scanner.*;
-import static scanner.TokenKind.*;
 import types.Type;
+import main.Main;
+import static scanner.TokenKind.*;
 
 public class Expression extends PascalSyntax{
 
@@ -26,6 +27,7 @@ public class Expression extends PascalSyntax{
             type.checkType(secondValue.type,oprName+" operands",this,"Operands to "+oprName+" are of different type!");
             type = lib.booleanType;
         }
+        Main.log.noteTypeCheck(type, firstValue.toString(), secondValue.type, this);
     }
 
     public static Expression parse(Scanner s) {
