@@ -43,8 +43,8 @@ public class Block extends PascalSyntax{
         // still nothing? dammit
         if(found == null)
             where.error("Name " + id + " is unknown!");
-        else
-            Main.log.noteBinding(id, where, found);
+
+        Main.log.noteBinding(id, where, found);
 
         // NOTE: We want only one return, not hundreds..
         return found;

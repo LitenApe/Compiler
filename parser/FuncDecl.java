@@ -11,6 +11,7 @@ public class FuncDecl extends ProcDecl{
     public ParamDeclList pDeclList = null;
     public TypeName typeName = null;
     public Block block = null;
+    public PascalDecl returnValue = null;
 
     public FuncDecl(String id, int lNum){
         super(id, lNum);
@@ -19,12 +20,18 @@ public class FuncDecl extends ProcDecl{
     @Override
     public void check(Block curScope, Library lib){
         funcName.check(curScope,lib);
+        curScope.addDecl(name, this);
+
         if (pDeclList != null)
             pDeclList.check(block,lib);
+
         typeName.check(block,lib);
+        returnValue = lib.getDecl(typeName.toString());
+
+        curScope.findDecl(typeName.toString(), returnValue);
+        Main.log.noteBinding(typeName.toString(), this, returnValue);
+
         block.check(curScope,lib);
-        
-        curScope.addDecl(name.toString(),this);
     }
 
     @Override
