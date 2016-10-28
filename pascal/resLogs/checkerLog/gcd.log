@@ -1,2 +1,2 @@
-Binding on line 8: integer was declared as <var decl> res on line 8
-Error at line 10: Name m is unknown!
+Binding on line 8: integer was declared as <type decl> integer in the library
+Error at line 10: Name integer is unknown!

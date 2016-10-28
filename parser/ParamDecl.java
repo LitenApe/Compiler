@@ -11,6 +11,7 @@ public class ParamDecl extends PascalDecl{
     public NamedConst name = null;
     public TypeName typeName = null;
     public types.Type type = null;
+    public PascalDecl decl = null;
 
     public ParamDecl(String id, int lNum){
         super(id, lNum);
@@ -19,9 +20,16 @@ public class ParamDecl extends PascalDecl{
     @Override
     public void check(Block curScope, Library lib){
         typeName.check(curScope,lib);
-        curScope.addDecl(name.toString(),this);
         type = typeName.type;
-        curScope.findDecl(name.name,this);
+
+        if(typeName.toString().equals("integer")||typeName.toString().equals("boolean")||typeName.toString().equals("char"))
+            decl = lib.getDecl(typeName.toString());
+
+        if(decl == null)
+            decl = this;
+
+        decl.lineNum = super.lineNum;
+        curScope.addDecl(name.toString(),this);
     }
     @Override
     public void prettyPrint(){

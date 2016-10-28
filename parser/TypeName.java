@@ -51,4 +51,8 @@ public class TypeName extends Type{
     public String identify() {
         return "<type decl> on line " + lineNum;
     } /* End of identify */
+
+    public String toString(){
+        return namedConstant.name;
+    }/*End of toString*/
 }/*End class*/

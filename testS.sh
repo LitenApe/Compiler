@@ -22,7 +22,8 @@ fi
 curPath=$(pwd)
 
 # compile the source file
-ant jar
+touch runLog.log
+ant jar > runLog.log
 
 # iterate through the pascal files
 for f in $(find pascal/testFiles -type f -name '*.pas'); do

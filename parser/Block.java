@@ -14,13 +14,14 @@ public class Block extends PascalSyntax{
     public ArrayList<ProcDecl> procAndFuncDecls = new ArrayList<>();
     public HashMap<String, PascalDecl> decls = new HashMap<>();
     public Block outerScope = null;
-    public Library lib = null;
+    public static Library library = Main.library;
 
     public Block(int lineNum){
         super(lineNum);
     }/*End constructor*/
 
     public void addDecl(String id, PascalDecl declaration){
+        System.out.println("Adding: " + id);
         if (decls.containsKey(id))
             declaration.error(id + " declared twice in same block!");
         else
@@ -28,20 +29,28 @@ public class Block extends PascalSyntax{
     }
 
     public PascalDecl findDecl(String id, PascalSyntax where){
+        System.out.println("<block> " + id + " : " + where);
         // check the current scope after the decleration
         PascalDecl found = decls.get(id);
 
         // check outer scopes after decleration
-        while(outerScope != null && found == null)
+        if(outerScope != null && found == null)
             found = outerScope.findDecl(id,where);
 
         // check library after the decleration
-        if(found == null)
-            lib.findDecl(id,where);
-
+        System.out.println("<block> step 3:");
+        try{
+            if(found == null)
+                found = library.findDecl(id,where);
+        }catch(Exception e){
+            System.out.println("Dafaq?: " + library);
+        }
         // still nothing? dammit
+        System.out.println("<block> step 4:");
         if(found == null)
             where.error("Name " + id + " is unknown!");
+        else
+            Main.log.noteBinding(id, where, found);
 
         // NOTE: We want only one return, not hundreds..
         return found;
@@ -50,7 +59,8 @@ public class Block extends PascalSyntax{
     @Override
     public void check(Block curScope, Library lib){
         outerScope = curScope;
-        this.lib = lib;
+        if(lib == null)
+            System.out.println("Hellas");
 
         if(constDeclPart != null)
             constDeclPart.check(this, lib);

@@ -36,7 +36,7 @@ public class CharLiteral extends UnsignedConstant{
 
     @Override
     public String identify() {
-        return "<CompoundStatm> on line " + lineNum;
+        return "<compound statm> on line " + lineNum;
     } /* End of identify */
 
     @Override

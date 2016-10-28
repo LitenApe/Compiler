@@ -18,6 +18,7 @@ public class ParamDeclList extends PascalSyntax{
     public void check(Block curScope, Library lib){
         for(ParamDecl pd : listOfParamDecls){
             pd.check(curScope, lib);
+            curScope.findDecl(pd.typeName.toString(), pd.decl);
         }
     }
 

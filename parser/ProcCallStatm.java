@@ -7,8 +7,8 @@ import static scanner.TokenKind.*;
 
 public class ProcCallStatm extends Statement{
 
-    public ArrayList<Expression> exp = new ArrayList<>();
     public NamedConst namedConst = null;
+    public ArrayList<Expression> exp = new ArrayList<>();
     public ProcDecl procRef = null;
 
     public ProcCallStatm(int n){
@@ -17,12 +17,17 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        PascalDecl d = curScope.findDecl(namedConst.toString(), this);
-        procRef = (ProcDecl) d;
+        namedConst.check(curScope, lib);
+
+        for(Expression e : exp)
+            e.check(curScope, lib);
+
+        PascalSyntax pd = curScope.findDecl(namedConst.toString(), this);
+        procRef = (ProcDecl) pd;
     }
 
     @Override public String identify() {
-        return "<ProcCallStatm> on line " + lineNum;
+        return "<proc call statm> on line " + lineNum;
     } /* End of identify */
 
     @Override

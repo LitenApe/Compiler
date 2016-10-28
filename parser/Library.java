@@ -9,8 +9,7 @@ public class Library extends Block{
     public static types.CharType characterType = new types.CharType();
     public static types.IntType integerType = new types.IntType();
 
-    // store everything that is created for this libaries scope
-    // public static HashMap<String, PascalSyntax> declarations = new HashMap<>();   // Happy ? "YES I AM :D:D:D" : "Readable name";
+  // Happy ? "YES I AM :D:D:D" : "Readable name";
     public static HashMap<String, PascalDecl> procedures = new HashMap<>();   // Happy ? "YES I AM :D:D:D" : "Readable name";
     public Library(int lineNum){
         super(lineNum);
@@ -19,19 +18,20 @@ public class Library extends Block{
         procedures.put("boolean",new TypeDecl("boolean",0));
         procedures.put("char",new TypeDecl("char",0));
         procedures.put("eol",new ConstDecl("eol",0));
-
     }/*End of constructor*/
 
     // @Override
     public PascalDecl findDecl(String id, PascalSyntax where){
+        PascalDecl found = procedures.get(id);
+
         if (!procedures.containsKey(id))
             where.error("Name " + id + " is unknown!");
-        else{
-            PascalDecl found = procedures.get(id);
-            Main.log.noteBinding(id,where,found);
-            return found;
-        }
-        return null;
+
+        return found;
     }/*End of findDecl*/
+
+    public PascalDecl getDecl(String id){
+        return procedures.get(id);
+    }/*End of getDecl*/
 
 }/*End of class*/

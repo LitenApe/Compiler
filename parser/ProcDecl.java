@@ -73,7 +73,7 @@ public class ProcDecl extends PascalDecl{
 
     @Override
     public String identify() {
-        return procName == null ? "<proc decl> " + name + " in the library" : "<proc decl> " + name + " on line " + lineNum;
+        return name.equals("write") ? "<proc decl> " + name + " in the library":"<proc decl> " + name + " on line " + lineNum;
     } /* End of identify */
 
     @Override

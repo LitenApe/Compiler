@@ -11,6 +11,7 @@ public class VarDecl extends PascalDecl{
     public NamedConst namedConstant = null;
     public Type mType = null;
     public types.Type type = null;
+    public PascalDecl decl = null;
 
     public VarDecl(String id, int lNum){
         super(id, lNum);
@@ -21,6 +22,13 @@ public class VarDecl extends PascalDecl{
         namedConstant.check(curScope,lib);
         mType.check(curScope,lib);
         type = lib.integerType;
+        if(mType.toString().equals("integer")||mType.toString().equals("boolean")||mType.toString().equals("char"))
+            decl = lib.getDecl(mType.toString());
+        else
+            decl = this;
+
+        decl.lineNum = super.lineNum;
+        curScope.addDecl(namedConstant.name, this);
     }
 
     @Override
@@ -51,6 +59,7 @@ public class VarDecl extends PascalDecl{
 
     @Override
     public String identify() {
+        System.out.println(decl);
         return "<var decl> " + name + " on line " + lineNum;
     } /* End of identify */
 

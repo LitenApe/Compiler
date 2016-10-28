@@ -20,10 +20,10 @@ public class FuncDecl extends ProcDecl{
     public void check(Block curScope, Library lib){
         funcName.check(curScope,lib);
         if (pDeclList != null)
-            pDeclList.check(curScope,lib);
-        typeName.check(curScope,lib);
-
+            pDeclList.check(block,lib);
+        typeName.check(block,lib);
         block.check(curScope,lib);
+        
         curScope.addDecl(name.toString(),this);
     }
 
