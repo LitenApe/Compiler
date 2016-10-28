@@ -20,19 +20,19 @@ public class FuncDecl extends ProcDecl{
     @Override
     public void check(Block curScope, Library lib){
         funcName.check(curScope,lib);
+
+        returnValue = lib.getDecl(typeName.toString());
+        returnValue.lineNum = lineNum;
+
         curScope.addDecl(name, this);
+
+        block.findDecl(typeName.toString(), returnValue);
 
         if (pDeclList != null)
             pDeclList.check(block,lib);
 
-        typeName.check(block,lib);
-        returnValue = lib.getDecl(typeName.toString());
-
-        curScope.findDecl(typeName.toString(), returnValue);
-        Main.log.noteBinding(typeName.toString(), this, returnValue);
-
-        block.check(curScope,lib);
-    }
+        block.check(block,lib);
+    }/*End of checker*/
 
     @Override
     public void prettyPrint(){

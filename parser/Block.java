@@ -1,7 +1,7 @@
 package parser;
 
 import scanner.*;
-import main.*;
+import main.Main;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ public class Block extends PascalSyntax{
     public ArrayList<ProcDecl> procAndFuncDecls = new ArrayList<>();
     public HashMap<String, PascalDecl> decls = new HashMap<>();
     public Block outerScope = null;
-    public static Library library;
+    public static Library library = Main.library;
 
     public Block(int lineNum){
         super(lineNum);
@@ -53,7 +53,7 @@ public class Block extends PascalSyntax{
     @Override
     public void check(Block curScope, Library lib){
         outerScope = curScope;
-        library = lib;
+        library = lib; //NOTE: why does it not work without this???
 
         if(constDeclPart != null)
             constDeclPart.check(this, lib);
