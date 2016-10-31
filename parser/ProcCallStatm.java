@@ -17,14 +17,14 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Proc call statm");
-        // namedConst.check(curScope, lib);
-        //
-        // for(Expression e : exp)
-        //     e.check(curScope, lib);
-        //
-        // PascalSyntax pd = curScope.findDecl(namedConst.toString(), this);
-        // procRef = (ProcDecl) pd;
+        System.out.println("[x] Procedure Call Statement");
+        namedConst.check(curScope, lib);
+
+        for(Expression e : exp)
+            e.check(curScope, lib);
+
+        PascalSyntax pd = curScope.findDecl(namedConst.toString(), this);
+        procRef = (ProcDecl) pd;
     }
 
     @Override public String identify() {

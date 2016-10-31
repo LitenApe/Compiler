@@ -17,7 +17,7 @@ public class IfStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("if statm");
+        System.out.println("[ ] If Statment");
         // try{
             // exp.check(curScope, lib);
         // }catch(Exception err){

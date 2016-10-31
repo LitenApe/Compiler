@@ -15,7 +15,7 @@ public class RelOperator extends Operator{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Rel Operator");
+        System.out.println("[ ] Rel Operator");
         // System.out.println("Rel opr: " + opr.toString());
     }
 

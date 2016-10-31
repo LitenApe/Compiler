@@ -15,7 +15,7 @@ public class Variable extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Variable");
+        System.out.println("[ ] Variable");
         // name.check(curScope,lib);
         // System.out.println("Variable: " + name);
         // if (expression != null)

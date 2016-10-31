@@ -16,7 +16,7 @@ public class Constant extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Constant");
+        System.out.println("[ ] Constantant");
     }
 
     @Override

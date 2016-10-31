@@ -19,7 +19,7 @@ public class FuncDecl extends ProcDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Func Decl");
+        System.out.println("[ ] Func Decleration");
         // funcName.check(curScope,lib);
         //
         // returnValue = lib.getDecl(typeName.toString());

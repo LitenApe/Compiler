@@ -18,7 +18,7 @@ public class FuncCall extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Func Call");
+        System.out.println("[ ] Func Call");
         // name.check(curScope,lib);
         // for (Expression e : expressions)
         //     e.check(curScope,lib);

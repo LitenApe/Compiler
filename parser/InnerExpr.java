@@ -14,7 +14,7 @@ public class InnerExpr extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Inner Expr");
+        System.out.println("[ ] Inner Expr");
     }
 
     public static InnerExpr parse(Scanner s) {

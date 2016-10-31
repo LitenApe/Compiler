@@ -14,7 +14,7 @@ public class WhileStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("while");
+        System.out.println("[ ] while");
     }
 
     @Override

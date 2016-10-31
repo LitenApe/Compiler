@@ -21,7 +21,7 @@ public class Negation extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Negation");
+        System.out.println("[ ] Negation");
         // super.type = lib.booleanType;
     }
 

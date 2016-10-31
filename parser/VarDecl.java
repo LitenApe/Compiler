@@ -18,7 +18,7 @@ public class VarDecl extends PascalDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Var Decl");
+        System.out.println("[ ] Var Decl");
         // namedConstant.check(curScope,lib);
         // mType.check(curScope,lib);
         // type = lib.integerType;

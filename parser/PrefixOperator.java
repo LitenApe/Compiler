@@ -14,7 +14,7 @@ public class PrefixOperator extends Operator{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("Prefix Operator");
+        System.out.println("[ ] Prefix Operator");
         // System.out.println("PrefixOperator: " + prefix.toString());
     }
 

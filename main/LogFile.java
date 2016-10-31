@@ -39,12 +39,13 @@ public class LogFile {
 	try {
 	    PrintWriter log = (nLogLines==0 ? new PrintWriter(logFileName) :
 		new PrintWriter(new FileOutputStream(logFileName,true)));
+        System.out.println("LOGGING LINE: " + data);
 	    log.println(data);  ++nLogLines;
 	    log.close();
 	} catch (FileNotFoundException e) {
 	    String lName = logFileName;
 	    logFileName = null;  // To avoid infinite recursion
-	                         // Main.error -> noteError -> 
+	                         // Main.error -> noteError ->
 	                         //   writeLogLine -> ...
 	    Main.error("Cannot open log file " + lName + "!");
 	}
@@ -58,7 +59,7 @@ public class LogFile {
      * @param message  The error message
      */
     public void noteError(String message) {
-	if (nLogLines > 0) 
+	if (nLogLines > 0)
 	    writeLogLine(message);
     }
 
@@ -71,10 +72,10 @@ public class LogFile {
      * @param line     The actual line
      */
     public void noteSourceLine(int lineNum, String line) {
-	if (doLogParser || doLogScanner) 
+	if (doLogParser || doLogScanner)
 	    writeLogLine(String.format("%4d: %s",lineNum,line));
     }
-	
+
 
     /*
      * Make a note in the log file that a token has been read.
@@ -86,17 +87,17 @@ public class LogFile {
     }
 
 
-    public void noteTypeCheck(types.Type t1, String op, 
+    public void noteTypeCheck(types.Type t1, String op,
 			      types.Type t2, PascalSyntax where) {
 	if (doLogTypeChecks)
-	    writeLogLine("Type check " + op + " on line " + where.lineNum + 
+	    writeLogLine("Type check " + op + " on line " + where.lineNum +
 		": " + t1.identify() + " vs " + t2.identify());
     }
 
 
     public void noteBinding(String id, PascalSyntax where, PascalDecl decl) {
 	if (doLogBinding)
-	    writeLogLine("Binding on line " + where.lineNum + ": " + id + 
+	    writeLogLine("Binding on line " + where.lineNum + ": " + id +
 		" was declared as " + decl.identify());
     }
 
@@ -134,7 +135,7 @@ public class LogFile {
 
     public void prettyPrint(String s) {
 	if (prettyLine.equals("")) {
-	    for (int i = 1;  i <= prettyIndentation;  i++) 
+	    for (int i = 1;  i <= prettyIndentation;  i++)
 		prettyLine += "  ";
 	}
 	prettyLine += s;
