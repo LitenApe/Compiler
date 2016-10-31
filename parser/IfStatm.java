@@ -17,15 +17,14 @@ public class IfStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        try{
+        // try{
             exp.check(curScope, lib);
-            stat.check(curScope, lib);
-            if(elseExp != null){
-                elseExp.check(curScope, lib);
-            }
-        }catch(Exception err){
-            System.out.println("Error: " + err + " in if statm");
-        }
+        // }catch(Exception err){
+            // System.out.println("Error: " + exp + " in if statm");
+        // }
+        stat.check(curScope, lib);
+        if(elseExp != null)
+            elseExp.check(curScope, lib);
     }
 
     @Override

@@ -22,9 +22,14 @@ public class Expression extends PascalSyntax{
         firstValue.check(curScope,lib);
         type = firstValue.type;
         if (relOperator != null){
+            relOperator.check(curScope, lib);
             secondValue.check(curScope,lib);
             String oprName = relOperator.opr.toString();
-            type.checkType(secondValue.type,oprName+" operands",this,"Operands to "+oprName+" are of different type!");
+            try{
+                type.checkType(secondValue.type,oprName+" operands",this,"Operands to "+oprName+" are of different type!");
+            }catch(Exception err){
+                System.out.println(type);
+            }
             type = lib.booleanType;
             Main.log.noteTypeCheck(type, firstValue.toString(), secondValue.type, this);
         }

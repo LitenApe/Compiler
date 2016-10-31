@@ -24,16 +24,23 @@ public class SimpleExpr extends PascalSyntax{
 
         //NOTE: Farlig hvorfor rappe hvis du er så farlig
         for(int i = 0; i < term.size(); i++){
+
+            if(type != null){
+                System.out.println("=== === ===");
+                System.out.println(type);
+                System.out.println(termOpr.get(i - 1));
+                System.out.println(term.get(i));
+                System.out.println("=== === ===");
+                Main.log.noteTypeCheck(type, termOpr.get(i - 1).toString(), term.get(i).type, this);
+            }
+
             try{
                 term.get(i).check(curScope,lib);
             }catch(Exception e){
                 System.out.println("4: simple expr " + term.get(i));
             }
 
-            if(type == null)
-                type = term.get(i).type;
-            else
-                Main.log.noteTypeCheck(type, termOpr.get(i - 1).toString(), term.get(i).type, this);
+            type = term.get(i).type;
 
             if(i < termOpr.size())
                 termOpr.get(i).check(curScope,lib);
