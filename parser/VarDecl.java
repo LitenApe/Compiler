@@ -21,6 +21,7 @@ public class VarDecl extends PascalDecl{
         namedConstant.check(curScope,lib);
         mType.check(curScope,lib);
         type = lib.integerType;
+        
         if(mType.toString().equals("integer")||mType.toString().equals("boolean")||mType.toString().equals("char"))
             decl = lib.getDecl(mType.toString());
         else

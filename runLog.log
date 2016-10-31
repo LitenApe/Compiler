@@ -2,6 +2,7 @@ Buildfile: /Users/SonThanhVo/Dropbox/3aaretUiO/inf2100/build.xml
 
 clean:
    [delete] Deleting directory /Users/SonThanhVo/Dropbox/3aaretUiO/inf2100/classes
+   [delete] Deleting: /Users/SonThanhVo/Dropbox/3aaretUiO/inf2100/pascal2016.jar
 
 compile:
     [mkdir] Created dir: /Users/SonThanhVo/Dropbox/3aaretUiO/inf2100/classes
@@ -11,4 +12,4 @@ jar:
       [jar] Building jar: /Users/SonThanhVo/Dropbox/3aaretUiO/inf2100/pascal2016.jar
 
 BUILD SUCCESSFUL
-Total time: 2 seconds
+Total time: 1 second
