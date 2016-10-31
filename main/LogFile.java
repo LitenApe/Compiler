@@ -39,7 +39,7 @@ public class LogFile {
 	try {
 	    PrintWriter log = (nLogLines==0 ? new PrintWriter(logFileName) :
 		new PrintWriter(new FileOutputStream(logFileName,true)));
-        System.out.println("LOGGING LINE: " + data);
+        System.out.println("LOG LINE: " + data);
 	    log.println(data);  ++nLogLines;
 	    log.close();
 	} catch (FileNotFoundException e) {

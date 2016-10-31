@@ -9,6 +9,7 @@ public class Constant extends PascalSyntax{
 
     PrefixOperator prefixOpr;
     UnsignedConstant uConstant;
+    types.Type type;
 
     public Constant(int n){
         super(n);
@@ -16,7 +17,13 @@ public class Constant extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] Constantant");
+        System.out.println("[x] Constant");
+
+        if(prefixOpr != null)
+            prefixOpr.check(curScope, lib);
+
+        uConstant.check(curScope, lib);
+        type = uConstant.type;
     }
 
     @Override

@@ -23,7 +23,7 @@ public class ProcCallStatm extends Statement{
         for(Expression e : exp)
             e.check(curScope, lib);
 
-        PascalSyntax pd = curScope.findDecl(namedConst.toString(), this);
+        PascalDecl pd = curScope.findDecl(namedConst.toString(), this);
         procRef = (ProcDecl) pd;
     }
 

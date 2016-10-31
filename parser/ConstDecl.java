@@ -9,6 +9,7 @@ public class ConstDecl extends PascalDecl{
     // name : = : constant : ;
     public NamedConst namedConstant= null;
     public Constant constant = null;
+    public types.Type type = null;
 
     public ConstDecl(String id, int lNum){
         super(id, lNum);
@@ -16,10 +17,14 @@ public class ConstDecl extends PascalDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] Constant Decleration");
-        // namedConstant.check(curScope,lib);
-        // constant.check(curScope,lib);
-        // curScope.addDecl(namedConstant.toString(),this);
+        System.out.println("[x] Constant Decleration");
+
+        namedConstant.check(curScope,lib);
+        constant.check(curScope,lib);
+
+        type = constant.type;
+
+        curScope.addDecl(namedConstant.toString(),this);
     }
     @Override
     public void prettyPrint(){
