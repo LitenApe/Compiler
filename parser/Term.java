@@ -16,10 +16,11 @@ public class Term extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        for(Factor f : factors){
-            f.check(curScope, lib);
-            type = f.type;
-        }
+        System.out.println("Term");
+        // for(Factor f : factors){
+        //     f.check(curScope, lib);
+        //     type = f.type;
+        // }
     }
 
     public static Term parse(Scanner s){

@@ -19,8 +19,9 @@ public class Program extends PascalDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        // progNamecheck(curScope, lib);
-        progBlock.check(curScope, lib);
+        System.out.println("Program");
+        // progName.check(curScope, lib);
+        // progBlock.check(curScope, lib);
     }
 
     public static Program parse(Scanner s){

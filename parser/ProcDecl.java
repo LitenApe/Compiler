@@ -18,14 +18,15 @@ public class ProcDecl extends PascalDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        outerScope = curScope;
-
-        procName.check(block,lib);
-        if (paramDecl != null)
-            paramDecl.check(block,lib);
-
-        block.check(outerScope,lib);
-        curScope.addDecl(name.toString(),this);
+        System.out.println("Proc Decl");
+        // outerScope = curScope;
+        //
+        // procName.check(block,lib);
+        // if (paramDecl != null)
+        //     paramDecl.check(block,lib);
+        //
+        // block.check(outerScope,lib);
+        // curScope.addDecl(name.toString(),this);
     }
 
     @Override

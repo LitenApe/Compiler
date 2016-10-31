@@ -19,32 +19,33 @@ public class SimpleExpr extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        if (prefix != null)
-            prefix.check(curScope,lib);
-
-        //NOTE: Farlig hvorfor rappe hvis du er så farlig
-        for(int i = 0; i < term.size(); i++){
-
-            if(type != null){
-                System.out.println("=== === ===");
-                System.out.println(type);
-                System.out.println(termOpr.get(i - 1));
-                System.out.println(term.get(i));
-                System.out.println("=== === ===");
-                Main.log.noteTypeCheck(type, termOpr.get(i - 1).toString(), term.get(i).type, this);
-            }
-
-            try{
-                term.get(i).check(curScope,lib);
-            }catch(Exception e){
-                System.out.println("4: simple expr " + term.get(i));
-            }
-
-            type = term.get(i).type;
-
-            if(i < termOpr.size())
-                termOpr.get(i).check(curScope,lib);
-        }
+        System.out.println("Simple Expr");
+        // if (prefix != null)
+        //     prefix.check(curScope,lib);
+        //
+        // //NOTE: Farlig hvorfor rappe hvis du er så farlig
+        // for(int i = 0; i < term.size(); i++){
+        //
+        //     if(type != null){
+        //         System.out.println("=== === ===");
+        //         System.out.println(type);
+        //         System.out.println(termOpr.get(i - 1));
+        //         System.out.println(term.get(i));
+        //         System.out.println("=== === ===");
+        //         Main.log.noteTypeCheck(type, termOpr.get(i - 1).toString(), term.get(i).type, this);
+        //     }
+        //
+        //     try{
+        //         term.get(i).check(curScope,lib);
+        //     }catch(Exception e){
+        //         System.out.println("4: simple expr " + term.get(i));
+        //     }
+        //
+        //     type = term.get(i).type;
+        //
+        //     if(i < termOpr.size())
+        //         termOpr.get(i).check(curScope,lib);
+        // }
     }
 
     @Override public String identify() {

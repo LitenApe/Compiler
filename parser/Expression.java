@@ -19,20 +19,21 @@ public class Expression extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        firstValue.check(curScope,lib);
-        type = firstValue.type;
-        if (relOperator != null){
-            relOperator.check(curScope, lib);
-            secondValue.check(curScope,lib);
-            String oprName = relOperator.opr.toString();
-            try{
-                type.checkType(secondValue.type,oprName+" operands",this,"Operands to "+oprName+" are of different type!");
-            }catch(Exception err){
-                System.out.println(type);
-            }
-            type = lib.booleanType;
-            Main.log.noteTypeCheck(type, firstValue.toString(), secondValue.type, this);
-        }
+        System.out.println("Expression");
+        // firstValue.check(curScope,lib);
+        // type = firstValue.type;
+        // if (relOperator != null){
+        //     relOperator.check(curScope, lib);
+        //     secondValue.check(curScope,lib);
+        //     String oprName = relOperator.opr.toString();
+        //     try{
+        //         type.checkType(secondValue.type,oprName+" operands",this,"Operands to "+oprName+" are of different type!");
+        //     }catch(Exception err){
+        //         System.out.println(type);
+        //     }
+        //     type = lib.booleanType;
+        //     Main.log.noteTypeCheck(type, firstValue.toString(), secondValue.type, this);
+        // }
     }
 
     public static Expression parse(Scanner s) {

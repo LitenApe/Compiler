@@ -15,12 +15,13 @@ public class StatmList extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        for(Statement ps : statmList)
-            // try{
-                ps.check(curScope, lib);
-            // }catch(Exception e){
-                // System.out.println("Error: " + ps + " in statm list");
-            // }
+        System.out.println("Statm List");
+        // for(Statement ps : statmList)
+        //     // try{
+        //         ps.check(curScope, lib);
+        //     // }catch(Exception e){
+        //         // System.out.println("Error: " + ps + " in statm list");
+        //     // }
     }
 
     @Override public String identify() {

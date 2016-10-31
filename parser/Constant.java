@@ -16,9 +16,9 @@ public class Constant extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-
+        System.out.println("Constant");
     }
-    
+
     @Override
     public void prettyPrint(){
         if (prefixOpr != null){

@@ -13,8 +13,9 @@ public class NamedConst extends UnsignedConstant{
 
     @Override
     public void check(Block curScope, Library lib){
-        if(name.equals("integer"))
-            super.type = lib.integerType;
+        System.out.println("Named Const");
+        // if(name.equals("integer"))
+        //     super.type = lib.integerType;
     }
 
     public static NamedConst parse(Scanner s) {

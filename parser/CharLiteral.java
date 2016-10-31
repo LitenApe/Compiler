@@ -16,7 +16,8 @@ public class CharLiteral extends UnsignedConstant{
 
     @Override
     public void check(Block curScope, Library lib){
-        super.type = lib.characterType;
+        System.out.println("Char literal");
+        // super.type = lib.characterType;
     }
 
     public static CharLiteral parse(Scanner s) {

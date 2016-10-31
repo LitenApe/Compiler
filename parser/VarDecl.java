@@ -18,17 +18,18 @@ public class VarDecl extends PascalDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        namedConstant.check(curScope,lib);
-        mType.check(curScope,lib);
-        type = lib.integerType;
-        
-        if(mType.toString().equals("integer")||mType.toString().equals("boolean")||mType.toString().equals("char"))
-            decl = lib.getDecl(mType.toString());
-        else
-            decl = this;
-
-        decl.lineNum = super.lineNum;
-        curScope.addDecl(namedConstant.name, this);
+        System.out.println("Var Decl");
+        // namedConstant.check(curScope,lib);
+        // mType.check(curScope,lib);
+        // type = lib.integerType;
+        //
+        // if(mType.toString().equals("integer")||mType.toString().equals("boolean")||mType.toString().equals("char"))
+        //     decl = lib.getDecl(mType.toString());
+        // else
+        //     decl = this;
+        //
+        // decl.lineNum = super.lineNum;
+        // curScope.addDecl(namedConstant.name, this);
     }
 
     @Override

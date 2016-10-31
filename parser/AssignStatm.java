@@ -17,9 +17,11 @@ public class AssignStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        variable.check(curScope,lib);
-        expression.check(curScope,lib);
-        //Add decl? 
+        System.out.println("AssignStatm");
+
+        // variable.check(curScope,lib);
+        // expression.check(curScope,lib);
+        //Add decl?
     }
 
     @Override

@@ -14,9 +14,9 @@ public class FactorOperator extends Operator{
 
     @Override
     public void check(Block curScope, Library lib){
-
+        System.out.println("FactorOperator");
     }
-    
+
     @Override
     public String identify() {
         return "<FactorOperator> on line " + lineNum;
