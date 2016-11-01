@@ -32,19 +32,33 @@ public class Block extends PascalSyntax{
         // check the current scope after the decleration
         PascalDecl found = decls.get(id);
 
+        if(found != null){
+            Main.log.noteBinding(id, where, found);
+            return found;
+        }
+
         // check outer scopes after decleration
         if(outerScope != null && found == null)
             found = outerScope.findDecl(id,where);
+
+        if(found != null){
+            Main.log.noteBinding(id, where, found);
+            return found;
+        }
 
         // check library after the decleration
         if(found == null)
             found = library.findDecl(id,where);
 
+        if(found != null){
+            Main.log.noteBinding(id, where, found);
+            return found;
+        }
+
         // still nothing? dammit
         if(found == null)
             where.error("Name " + id + " is unknown!");
 
-        Main.log.noteBinding(id, where, found);
 
         // NOTE: We want only one return, not hundreds..
         return found;

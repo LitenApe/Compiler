@@ -8,6 +8,7 @@ public class Library extends Block{
     public static types.BoolType booleanType = new types.BoolType();
     public static types.CharType characterType = new types.CharType();
     public static types.IntType integerType = new types.IntType();
+    // public static types.ArrayType arrayType = new types.ArrayType();
 
   // Happy ? "YES I AM :D:D:D" : "Readable name";
     public static HashMap<String, PascalDecl> procedures = new HashMap<>();   // Happy ? "YES I AM :D:D:D" : "Readable name";

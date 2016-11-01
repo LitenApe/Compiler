@@ -18,6 +18,7 @@ public class ArrayType extends Type{
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[ ] ArrayType");
+        // type = lib.arrayType;
     }
 
     public static ArrayType parse(Scanner s) {
