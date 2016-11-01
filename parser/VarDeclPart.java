@@ -19,7 +19,6 @@ public class VarDeclPart extends PascalSyntax{
         System.out.println("[x] Var Decl Part");
         for(VarDecl v : varDecls){
             v.check(curScope,lib);
-            curScope.findDecl(v.mType.toString(), v.decl);
         }
     }
 
