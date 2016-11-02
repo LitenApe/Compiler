@@ -19,20 +19,22 @@ public class FuncDecl extends ProcDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] Func Decleration");
-        // funcName.check(curScope,lib);
-        //
-        // returnValue = lib.getDecl(typeName.toString());
-        // returnValue.lineNum = lineNum;
-        //
-        // curScope.addDecl(name, this);
-        //
-        // block.findDecl(typeName.toString(), returnValue);
-        //
-        // if (pDeclList != null)
-        //     pDeclList.check(block,lib);
-        //
-        // block.check(curScope,lib);
+        System.out.println("[x] Func Decleration: " + funcName.name);
+
+        funcName.check(curScope,lib);
+
+        if (typeName != null){
+            returnValue = lib.getDecl(typeName.toString());
+            returnValue.lineNum = lineNum;
+            block.findDecl(typeName.toString(), returnValue);
+        }
+
+        block.addDecl(funcName.name, this);
+
+        if (pDeclList != null)
+            pDeclList.check(block,lib);
+
+        block.check(curScope,lib);
     }/*End of checker*/
 
     @Override

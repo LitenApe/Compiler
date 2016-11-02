@@ -46,7 +46,6 @@ public class Block extends PascalSyntax{
         else
             where.error("Name " + id + " is unknown!");
 
-
         // NOTE: We want only one return, not hundreds..
         return found;
     }

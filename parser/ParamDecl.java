@@ -18,18 +18,14 @@ public class ParamDecl extends PascalDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] Param Decl");
-        // typeName.check(curScope,lib);
-        // type = typeName.type;
-        //
-        // if(typeName.toString().equals("integer")||typeName.toString().equals("boolean")||typeName.toString().equals("char"))
-        //     decl = lib.getDecl(typeName.toString());
-        //
-        // if(decl == null)
-        //     decl = this;
-        //
-        // decl.lineNum = super.lineNum;
-        // curScope.addDecl(name.toString(),this);
+        System.out.println("[x] Param Decl: " + name.name);
+        typeName.check(curScope,lib);
+        type = typeName.type;
+
+        decl = curScope.findDecl(typeName.toString(), this);
+        decl.lineNum = super.lineNum;
+
+        curScope.addDecl(name.toString(),this);
     }
 
     @Override
