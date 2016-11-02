@@ -18,7 +18,7 @@ public class EmptyStatm extends Statement{
 
     @Override
     public String identify() {
-        return "<EmptyStatm> on line " + lineNum;
+        return "<empty statm> on line " + lineNum;
     } /* End of identify */
 
     public static EmptyStatm parse(Scanner s) {

@@ -32,7 +32,7 @@ public class SimpleExpr extends PascalSyntax{
     }
 
     @Override public String identify() {
-        return "<SimpleExpr> on line " + lineNum;
+        return "<simpl expr> on line " + lineNum;
     } /* End of identify */
 
     @Override

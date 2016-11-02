@@ -41,7 +41,7 @@ public class FuncCall extends Factor{
 
     @Override
     public String identify() {
-        return "<FuncCall> on line " + lineNum;
+        return "<func call> on line " + lineNum;
     } /* End of identify */
 
     public static FuncCall parse(Scanner s) {

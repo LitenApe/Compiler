@@ -16,7 +16,7 @@ public class Negation extends Factor{
 
     @Override
     public String identify() {
-        return "<Negation> on line " + lineNum;
+        return "<negation> on line " + lineNum;
     } /* End of identify */
 
     @Override

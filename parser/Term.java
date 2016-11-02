@@ -41,7 +41,7 @@ public class Term extends PascalSyntax{
 
     @Override
     public String identify() {
-        return "<Term> on line " + lineNum;
+        return "<term> on line " + lineNum;
     } /* End of identify */
 
     @Override

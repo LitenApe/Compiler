@@ -25,7 +25,7 @@ public class TermOperator extends Operator{
 
     @Override
     public String identify() {
-        return "<CompoundStatm> on line " + lineNum;
+        return "<term opr> on line " + lineNum;
     } /* End of identify */
 
     public static TermOperator parse(Scanner s) {

@@ -30,7 +30,7 @@ public class NumberLiteral extends UnsignedConstant{
 
     @Override
     public String identify() {
-        return "<NumberLiteral> on line " + lineNum;
+        return "<number literal> on line " + lineNum;
     } /* End of identify */
 
     public static NumberLiteral parse(Scanner s) {

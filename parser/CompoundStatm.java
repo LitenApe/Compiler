@@ -20,7 +20,7 @@ public class CompoundStatm extends Statement{
 
     @Override
     public String identify() {
-        return "<CompoundStatm> on line " + lineNum;
+        return "<compound statm> on line " + lineNum;
     } /* End of identify */
 
     public static CompoundStatm parse(Scanner s) {

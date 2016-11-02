@@ -33,7 +33,7 @@ public class AssignStatm extends Statement{
 
     @Override
     public String identify() {
-        return "<AssignStatm> on line " + lineNum;
+        return "<assign statm> on line " + lineNum;
     } /* End of identify */
 
     public static AssignStatm parse(Scanner s) {

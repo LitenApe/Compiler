@@ -14,7 +14,7 @@ public abstract class Factor extends PascalSyntax{
 
     @Override
     public String identify() {
-        return "<Factor> on line " + lineNum;
+        return "<factor> on line " + lineNum;
     } /* End of identify */
 
     public static Factor parse(Scanner s) {

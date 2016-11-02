@@ -35,7 +35,7 @@ public class ParamDeclList extends PascalSyntax{
 
     @Override
     public String identify() {
-        return "<ParamDeclList> on line " + lineNum;
+        return "<param decl list> on line " + lineNum;
     } /* End of identify */
 
     public static ParamDeclList parse(Scanner s){

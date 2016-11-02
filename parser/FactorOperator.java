@@ -19,7 +19,7 @@ public class FactorOperator extends Operator{
 
     @Override
     public String identify() {
-        return "<FactorOperator> on line " + lineNum;
+        return "<factor opr> on line " + lineNum;
     } /* End of identify */
 
     public static FactorOperator parse(Scanner s) {

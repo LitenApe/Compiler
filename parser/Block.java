@@ -130,7 +130,7 @@ public class Block extends PascalSyntax{
 
     @Override
     public String identify() {
-        return "<Block> on line " + lineNum;
+        return "<block> on line " + lineNum;
     } /* End of identify */
 
 }/*End class*/

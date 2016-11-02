@@ -8,6 +8,7 @@ public class Variable extends Factor{
 
     NamedConst name = null;
     Expression expression = null;
+    PascalDecl decl = null;
 
     public Variable(int n){
         super(n);
@@ -15,11 +16,13 @@ public class Variable extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] Variable");
-        // name.check(curScope,lib);
-        // System.out.println("Variable: " + name);
-        // if (expression != null)
-        //     expression.check(curScope,lib);
+        System.out.println("[-] Variable: " + name.name);
+        name.check(curScope,lib);
+
+        decl = curScope.findDecl(name.name, this);
+
+        if (expression != null)
+            expression.check(curScope,lib);
     }
 
     @Override
@@ -51,6 +54,6 @@ public class Variable extends Factor{
 
     @Override
     public String identify() {
-        return "<Variable> on line " + lineNum;
+        return "<variable> on line " + lineNum;
     } /* End of identify */
 }/*End class*/

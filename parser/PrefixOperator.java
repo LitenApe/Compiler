@@ -22,7 +22,7 @@ public class PrefixOperator extends Operator{
 
     @Override
     public String identify() {
-        return "<PrefixOperator> on line " + lineNum;
+        return "<prefix opr> on line " + lineNum;
     } /* End of identify */
 
     public static PrefixOperator parse(Scanner s) {

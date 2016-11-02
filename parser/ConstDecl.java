@@ -7,7 +7,7 @@ import main.Main;
 public class ConstDecl extends PascalDecl{
 
     // name : = : constant : ;
-    
+
     public NamedConst namedConstant= null;
     public Constant constant = null;
     public types.Type type = null;
@@ -58,7 +58,7 @@ public class ConstDecl extends PascalDecl{
 
     @Override
     public String identify() {
-        return "<ConstDecl> " + name + " on line " + lineNum;
+        return lineNum == 0 ? "<const decl> " + name + " in the library" : "<const decl> " + name + " on line " + lineNum;
     } /* End of identify */
 
     @Override

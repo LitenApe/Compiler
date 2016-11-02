@@ -49,7 +49,7 @@ public class TypeName extends Type{
 
     @Override
     public String identify() {
-        return "<type decl> on line " + lineNum;
+        return "<type name> on line " + lineNum;
     } /* End of identify */
 
     public String toString(){

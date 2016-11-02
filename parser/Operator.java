@@ -12,7 +12,7 @@ public abstract class Operator extends PascalSyntax{
 
     @Override
     public String identify() {
-        return "<Operator> on line " + lineNum;
+        return "<operator> on line " + lineNum;
     } /* End of identify */
 
     public static Operator parse(Scanner s) {

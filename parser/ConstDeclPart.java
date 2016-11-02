@@ -49,7 +49,7 @@ public class ConstDeclPart extends PascalSyntax{
 
     @Override
     public String identify(){
-        return "<ConstDeclPart> on line " + lineNum;
+        return "<const decl part> on line " + lineNum;
     } /* End of identify */
 
 }/*End class*/

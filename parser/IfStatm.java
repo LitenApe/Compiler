@@ -6,7 +6,7 @@ import main.Main;
 
 public class IfStatm extends Statement{
 
-    // if : expression : then : statement : else : statement
+    // if : expression : then : statement : [else : statement]
     Expression exp = null;
     Statement stat = null;
     Statement elseExp = null;
@@ -17,12 +17,10 @@ public class IfStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] If Statment");
-        // try{
-            // exp.check(curScope, lib);
-        // }catch(Exception err){
-            // System.out.println("Error: " + exp + " in if statm");
-        // }
+        System.out.println("[-] If Statment");
+
+        exp.check(curScope, lib);
+
         // stat.check(curScope, lib);
         // if(elseExp != null)
         //     elseExp.check(curScope, lib);
@@ -67,6 +65,6 @@ public class IfStatm extends Statement{
     }/*End parse*/
 
     @Override public String identify() {
-        return "<IfStatm> on line " + lineNum;
+        return "<if statm> on line " + lineNum;
     } /* End of identify */
 } /* End of class */

@@ -61,6 +61,6 @@ public class Expression extends PascalSyntax{
 
     @Override
     public String identify() {
-        return "<Expression> on line " + lineNum;
+        return "<expression> on line " + lineNum;
     } /* End of identify */
 }/*End class*/

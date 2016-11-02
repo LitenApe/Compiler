@@ -22,7 +22,7 @@ public class StatmList extends PascalSyntax{
     }
 
     @Override public String identify() {
-        return "<StatmList> on line " + lineNum;
+        return "<statm list> on line " + lineNum;
     } /* End of identify */
 
     public static StatmList parse(Scanner s){
