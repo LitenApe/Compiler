@@ -20,9 +20,11 @@ public class Term extends PascalSyntax{
         for(int i = 0; i < factors.size(); i++){
             factors.get(i).check(curScope, lib);
             type = factors.get(i).type;
-            if(i < factorOpr.size()){
+            if(i < factorOpr.size())
                 factorOpr.get(i).check(curScope, lib);
-                type.checkType(factors.get(i).type, "left "+factorOpr.get(i).tokenKind.toString()+" operand", this, "parameter not same!"); //NOTE: wut?
+            if(factorOpr.size() > 0 && i >= 1){
+                type.checkType(factors.get(i - 1).type, "left "+factorOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!"); //NOTE: wut?
+                type.checkType(factors.get(i).type, "right "+factorOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!"); //NOTE: wut?
             }
         }
     }

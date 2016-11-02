@@ -15,6 +15,9 @@ public class FactorOperator extends Operator{
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[ ] Factor Operator: " + tokenKind.toString());
+        // hvis mod, sett expected type til integers
+        // if and, sett expected type til booleans
+        // osv
     }
 
     @Override
