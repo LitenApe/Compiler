@@ -10,7 +10,6 @@ public class CharLiteral extends UnsignedConstant{
     // ' : [char except] | [' : '] : '
 
     char charValue;
-    CharType type = null;
 
     public CharLiteral(int n){
         super(n);

@@ -10,7 +10,6 @@ public class NumberLiteral extends UnsignedConstant{
     // this right here needs to contain a digit
 
     public int digit;
-    public types.Type type = null;
 
     public NumberLiteral(int n){
         super(n);
@@ -19,7 +18,7 @@ public class NumberLiteral extends UnsignedConstant{
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[x] Number literal: " + digit);
-        type = lib.integerType;
+        super.type = lib.integerType;
         // System.out.println("Number: " + digit);
     }
 

@@ -6,6 +6,8 @@ import main.Main;
 
 public abstract class Statement extends PascalSyntax{
 
+    types.Type type = null;
+
     public Statement(int n){
         super(n);
     }/*End constructor*/

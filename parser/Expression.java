@@ -10,7 +10,6 @@ public class Expression extends PascalSyntax{
     SimpleExpr firstValue = null;
     RelOperator relOperator = null;
     SimpleExpr secondValue = null;
-
     types.Type type = null;
 
     public Expression(int n){
@@ -22,23 +21,15 @@ public class Expression extends PascalSyntax{
         System.out.println("[-] Expression");
         firstValue.check(curScope,lib);
         type = firstValue.type;
-
-        if(relOperator != null){
+        System.out.println("Printing type in expr: " + type);
+        if (relOperator != null){
             relOperator.check(curScope, lib);
-        }
+            secondValue.check(curScope,lib);
+            String oprName = relOperator.opr.toString();
 
-        // if (relOperator != null){
-        //     relOperator.check(curScope, lib);
-        //     secondValue.check(curScope,lib);
-        //     String oprName = relOperator.opr.toString();
-        //     try{
-        //         type.checkType(secondValue.type,oprName+" operands",this,"Operands to "+oprName+" are of different type!");
-        //     }catch(Exception err){
-        //         System.out.println(type);
-        //     }
-        //     type = lib.booleanType;
-        //     Main.log.noteTypeCheck(type, firstValue.toString(), secondValue.type, this);
-        // }
+            type.checkType(secondValue.type,oprName+" operands",this,"Operands to "+oprName+" are of different type!");
+            type = lib.booleanType;
+        }
     }
 
     public static Expression parse(Scanner s) {

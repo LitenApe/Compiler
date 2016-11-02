@@ -16,6 +16,7 @@ public class CompoundStatm extends Statement{
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[ ] Compound Statment");
+        statmList.check(curScope,lib);
     }
 
     @Override

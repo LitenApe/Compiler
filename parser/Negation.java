@@ -8,7 +8,6 @@ import types.BoolType;
 public class Negation extends Factor{
 
     Factor factor = null;
-    types.Type type = null;
 
     public Negation(int n){
         super(n);
@@ -22,7 +21,7 @@ public class Negation extends Factor{
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[ ] Negation");
-        // super.type = lib.booleanType;
+        super.type = lib.booleanType;
     }
 
     public static Negation parse(Scanner s) {

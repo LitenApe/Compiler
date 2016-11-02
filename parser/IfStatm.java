@@ -10,6 +10,7 @@ public class IfStatm extends Statement{
     Expression exp = null;
     Statement stat = null;
     Statement elseExp = null;
+    types.Type type = null;
 
     public IfStatm(int n){
         super(n);
@@ -18,12 +19,11 @@ public class IfStatm extends Statement{
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[-] If Statment");
-
+        System.out.println("THIS IS IFFFFFFFFFFFFFFFFFFFFFFFFFF");
         exp.check(curScope, lib);
-
-        // stat.check(curScope, lib);
-        // if(elseExp != null)
-        //     elseExp.check(curScope, lib);
+        stat.check(curScope, lib);
+        if(elseExp != null)
+            elseExp.check(curScope, lib);
     }
 
     @Override

@@ -7,6 +7,7 @@ import static scanner.TokenKind.*;
 public class InnerExpr extends Factor{
 
     Expression expression = null;
+    PascalDecl decl = null;
 
     public InnerExpr(int n){
         super(n);
@@ -15,6 +16,9 @@ public class InnerExpr extends Factor{
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[ ] Inner Expr");
+
+        if (expression != null)
+            expression.check(curScope,lib);
     }
 
     public static InnerExpr parse(Scanner s) {
