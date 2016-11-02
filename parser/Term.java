@@ -17,9 +17,12 @@ public class Term extends PascalSyntax{
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[-] Term");
-        for(Factor f : factors){
-            f.check(curScope, lib);
-            type = f.type;
+        for(int i = 0; i < factors.size(); i++){
+            factors.get(i).check(curScope, lib);
+            type = factors.get(i).type;
+
+            if(i < factorOpr.size())
+                factorOpr.get(i).check(curScope, lib);
         }
     }
 

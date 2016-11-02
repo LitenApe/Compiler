@@ -19,7 +19,7 @@ public class FuncCall extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] Func Call");
+        System.out.println("[ ] Func Call: " + name.name);
         name.check(curScope,lib);
 
         decl = curScope.findDecl(name.name, this);
@@ -27,7 +27,7 @@ public class FuncCall extends Factor{
 
         for (Expression e : expressions){
             e.check(curScope,lib);
-            type.checkType(e.type, "param "+"#"+expressions.indexOf(e)+1, this, "parameter not same!"); //NOTE:
+            // type.checkType(e.type, "param "+"#"+expressions.indexOf(e)+1, this, "parameter not same!"); //NOTE:
         }
     }
 
