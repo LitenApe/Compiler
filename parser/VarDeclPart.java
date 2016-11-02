@@ -8,6 +8,8 @@ import types.*;
 
 public class VarDeclPart extends PascalSyntax{
 
+    // var : var decl
+
     ArrayList<VarDecl> varDecls = new ArrayList<>();
 
     public VarDeclPart(int n){

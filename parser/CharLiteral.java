@@ -7,6 +7,8 @@ import types.CharType;
 
 public class CharLiteral extends UnsignedConstant{
 
+    // ' : [char except] | [' : '] : '
+
     char charValue;
     CharType type = null;
 

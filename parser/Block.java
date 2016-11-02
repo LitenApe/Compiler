@@ -8,6 +8,8 @@ import java.util.HashMap;
 
 public class Block extends PascalSyntax{
 
+    // [const decl part] : [var decl part] : [func decl part : proc decl part] : begin : statm list : end
+
     public ConstDeclPart constDeclPart = null;
     public VarDeclPart varDeclPart = null;
     public StatmList statmList = null;

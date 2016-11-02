@@ -7,6 +7,7 @@ import main.Main;
 public class ConstDecl extends PascalDecl{
 
     // name : = : constant : ;
+    
     public NamedConst namedConstant= null;
     public Constant constant = null;
     public types.Type type = null;

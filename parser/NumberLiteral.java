@@ -7,6 +7,8 @@ import types.IntType;
 
 public class NumberLiteral extends UnsignedConstant{
 
+    // this right here needs to contain a digit
+
     public int digit;
     public types.Type type = null;
 

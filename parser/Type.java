@@ -6,6 +6,8 @@ import main.*;
 
 public abstract class Type extends PascalSyntax{
 
+    // type name | array type
+
     public types.Type type = null;
 
     public Type(int lNum){
