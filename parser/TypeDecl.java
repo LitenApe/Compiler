@@ -5,6 +5,20 @@ import main.Main;
 class TypeDecl extends PascalDecl{
     public TypeDecl(String id,int lNum){
         super(id, lNum);
+
+        switch(id){
+            case "integer":
+                type = Library.integerType;
+                break;
+            case "boolean":
+                type = Library.booleanType;
+                break;
+            case "char":
+                type = Library.characterType;
+                break;
+            default:
+                break;
+        }
     }/*End of constructor*/
 
     @Override

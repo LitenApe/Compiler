@@ -10,7 +10,7 @@ public class IfStatm extends Statement{
     Expression exp = null;
     Statement stat = null;
     Statement elseExp = null;
-    types.Type type = null;
+    types.Type type = Library.booleanType;
 
     public IfStatm(int n){
         super(n);
@@ -19,11 +19,14 @@ public class IfStatm extends Statement{
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[-] If Statment");
-        System.out.println("THIS IS IFFFFFFFFFFFFFFFFFFFFFFFFFF");
         exp.check(curScope, lib);
+
+        type.checkType(exp.type ,"if-test" , this, "dfsafds");
+
         stat.check(curScope, lib);
-        if(elseExp != null)
+        if(elseExp != null){
             elseExp.check(curScope, lib);
+        }
     }
 
     @Override

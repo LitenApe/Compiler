@@ -22,8 +22,7 @@ public class Variable extends Factor{
 
         decl = curScope.findDecl(name.name, this);
         super.type = decl.type;
-        System.out.println("TYPE FOR VARIABLE -----------------------------------------"+type);
-
+        
         if (expression != null)
             expression.check(curScope,lib);
     }

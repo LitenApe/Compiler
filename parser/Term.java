@@ -20,8 +20,6 @@ public class Term extends PascalSyntax{
         for(Factor f : factors){
             f.check(curScope, lib);
             type = f.type;
-            System.out.println("LINE: ---------------------------------"+lineNum);
-            System.out.println("TYPE FOR TERM -----------------------------------------"+type);
         }
     }
 

@@ -25,9 +25,6 @@ public class FuncCall extends Factor{
         decl = curScope.findDecl(name.name, this);
         super.type = decl.type;
 
-        System.out.println("LINE: ---------------------------------"+lineNum);
-        System.out.println("TYPE FOR FUNC CALL -------------------------------------------------------"+type);
-
         for (Expression e : expressions)
             e.check(curScope,lib);
     }

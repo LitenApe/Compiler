@@ -30,8 +30,6 @@ public class SimpleExpr extends PascalSyntax{
                 termOpr.get(i).check(curScope, lib);
             }
             type = term.get(i).type; //TODO: define type
-            System.out.println("LINE: ---------------------------------"+lineNum);
-            System.out.println("TYPE FOR SIMPLE EXPR ---------------------------------"+type);
         }
     }
 

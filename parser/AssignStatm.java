@@ -21,6 +21,10 @@ public class AssignStatm extends Statement{
 
         variable.check(curScope,lib);
         expression.check(curScope,lib);
+
+        type = variable.type;
+        System.out.println("fdsajkfhdskajh: " + type);
+        type.checkType(type, ":=", expression, "String mess");
     }
 
     @Override

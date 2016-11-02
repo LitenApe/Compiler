@@ -26,10 +26,11 @@ public class FuncDecl extends ProcDecl{
         if (typeName != null){
             returnValue = lib.getDecl(typeName.toString());
             returnValue.lineNum = lineNum;
+            type = returnValue.type;
             block.findDecl(typeName.toString(), returnValue);
         }
 
-        block.addDecl(funcName.name, this);
+        curScope.addDecl(funcName.name, this);
 
         if (pDeclList != null)
             pDeclList.check(block,lib);
