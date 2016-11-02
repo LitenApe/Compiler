@@ -28,7 +28,6 @@ public class VarDecl extends PascalDecl{
         else
             decl = this;
 
-        decl.lineNum = super.lineNum;
         curScope.addDecl(namedConstant.name, this);
     }
 

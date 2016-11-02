@@ -23,7 +23,6 @@ public class ParamDecl extends PascalDecl{
         type = typeName.type;
 
         decl = curScope.findDecl(typeName.toString(), this);
-        decl.lineNum = super.lineNum;
 
         curScope.addDecl(name.toString(),this);
     }
