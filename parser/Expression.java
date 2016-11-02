@@ -21,7 +21,12 @@ public class Expression extends PascalSyntax{
     public void check(Block curScope, Library lib){
         System.out.println("[-] Expression");
         firstValue.check(curScope,lib);
-        // type = firstValue.type;
+        type = firstValue.type;
+
+        if(relOperator != null){
+            relOperator.check(curScope, lib);
+        }
+
         // if (relOperator != null){
         //     relOperator.check(curScope, lib);
         //     secondValue.check(curScope,lib);

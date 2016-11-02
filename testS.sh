@@ -24,7 +24,7 @@ curPath=$(pwd)
 # compile the source file
 touch runLog.log
 ant jar
-clear
+# clear
 
 # iterate through the pascal files
 for f in $(find pascal/testFiles -type f -name '*.pas'); do

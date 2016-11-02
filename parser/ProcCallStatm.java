@@ -20,10 +20,11 @@ public class ProcCallStatm extends Statement{
         System.out.println("[x] Procedure Call Statement");
         namedConst.check(curScope, lib);
 
+        PascalDecl pd = curScope.findDecl(namedConst.toString(), this);
+
         for(Expression e : exp)
             e.check(curScope, lib);
 
-        PascalDecl pd = curScope.findDecl(namedConst.toString(), this);
         procRef = (ProcDecl) pd;
     }
 
