@@ -7,7 +7,7 @@ import static scanner.TokenKind.*;
 public class Term extends PascalSyntax{
 
     public ArrayList<Factor> factors = new ArrayList<>();
-    public ArrayList<Operator> factorOpr = new ArrayList<>();
+    public ArrayList<FactorOperator> factorOpr = new ArrayList<>();
     public types.Type type;
 
     public Term(int n){
@@ -20,9 +20,10 @@ public class Term extends PascalSyntax{
         for(int i = 0; i < factors.size(); i++){
             factors.get(i).check(curScope, lib);
             type = factors.get(i).type;
-
-            if(i < factorOpr.size())
+            if(i < factorOpr.size()){
                 factorOpr.get(i).check(curScope, lib);
+                type.checkType(factors.get(i).type, "left "+factorOpr.get(i).tokenKind.toString()+" operand", this, "parameter not same!"); //NOTE: wut?
+            }
         }
     }
 

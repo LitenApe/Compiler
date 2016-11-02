@@ -27,7 +27,7 @@ public class FuncCall extends Factor{
 
         for (Expression e : expressions){
             e.check(curScope,lib);
-            // type.checkType(e.type, "param "+"#"+expressions.indexOf(e)+1, this, "parameter not same!"); //NOTE:
+            type.checkType(type, "param "+"#"+(expressions.indexOf(e)+1), this, "parameter not same!"); //NOTE:
         }
     }
 
