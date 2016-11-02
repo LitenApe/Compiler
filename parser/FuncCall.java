@@ -25,8 +25,10 @@ public class FuncCall extends Factor{
         decl = curScope.findDecl(name.name, this);
         super.type = decl.type;
 
-        for (Expression e : expressions)
+        for (Expression e : expressions){
             e.check(curScope,lib);
+            type.checkType(e.type, "param "+"#"+expressions.indexOf(e)+1, this, "parameter not same!"); //NOTE:
+        }
     }
 
     @Override
