@@ -19,9 +19,8 @@ public class VarDeclPart extends PascalSyntax{
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[x] Var Decl Part");
-        for(VarDecl v : varDecls){
+        for(VarDecl v : varDecls)
             v.check(curScope,lib);
-        }
     }
 
     @Override

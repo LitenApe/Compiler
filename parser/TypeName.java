@@ -14,7 +14,7 @@ public class TypeName extends Type{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Type Name");
+        System.out.println("[x] Type Name: " + namedConstant.name);
 
         namedConstant.check(curScope, lib);
         switch(namedConstant.name){

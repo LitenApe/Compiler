@@ -14,7 +14,11 @@ public class WhileStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] while");
+        System.out.println("[x] while");
+        expr.check(curScope, lib);
+        expr.type.checkType(lib.booleanType, "while-test", this,
+        "While-test is not Boolean.");
+        body.check(curScope, lib);
     }
 
     @Override
