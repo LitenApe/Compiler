@@ -7,17 +7,6 @@ mkdir -p pascal/resLogs/checkerLog
 # flag
 mode="-testchecker"
 
-# set flag
-if [[ ${#@} > 0 ]]; then
-    if [[ $1 == "-s" ]]; then
-        mode="-testscanner"
-    elif [[ $1 == "-p" ]]; then
-        mode="-testparser"
-    elif [[ $1 == "-c" ]]; then
-        mode="-testchecker"
-    fi
-fi
-
 # get current path
 curPath=$(pwd)
 
@@ -26,12 +15,16 @@ touch runLog.log
 ant jar
 # clear
 
-java -jar pascal2016.jar $mode "pascal/testFiles/easter.pas";
 
-# iterate through the pascal files
-# for f in $(find pascal/testFiles -type f -name '*.pas'); do
-#   java -jar pascal2016.jar $mode $f; echo ' '
-# done
+# set flag
+if [[ ${#@} > 0 ]]; then
+    java -jar pascal2016.jar $mode "pascal/testFiles/$1";
+else
+    for f in $(find pascal/testFiles -type f -name '*.pas'); do
+        java -jar pascal2016.jar $mode $f; echo ' '
+    done
+fi
+
 
 # move log files in testFiles directory to a seperate folder
 if [[ $mode == "-testscanner" ]]; then
