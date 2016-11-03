@@ -9,7 +9,6 @@ public class ArrayType extends Type{
     public Constant preConstant = null;
     public Constant postConstant = null;
     public Type pType = null;
-    public types.ArrayType type = null;
 
     public ArrayType(int lNum){
         super(lNum);
@@ -18,7 +17,16 @@ public class ArrayType extends Type{
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[ ] ArrayType");
-        // type = lib.arrayType;
+        preConstant.check(curScope,lib);
+        postConstant.check(curScope,lib);
+        pType.check(curScope,lib);
+        if (preConstant.uConstant instanceof NumberLiteral && postConstant.uConstant instanceof NumberLiteral) {
+            NumberLiteral pre = (NumberLiteral) preConstant.uConstant;
+            NumberLiteral post = (NumberLiteral) postConstant.uConstant;
+            int low = pre.digit;
+            int high = post.digit;
+            type = new types.ArrayType(pType.type,lib.integerType,low,high);
+        }
     }
 
     public static ArrayType parse(Scanner s) {
