@@ -30,7 +30,7 @@ public enum TokenKind {
     subtractToken("-"),
     upArrowToken("^"),
 
-    andToken("'and'"),
+    andToken("and"),
     arrayToken("array"),
     beginToken("begin"),
  /* caseToken("case"), */
@@ -49,9 +49,9 @@ public enum TokenKind {
  /* labelToken("label"), */
     modToken("mod"),
  /* nilToken("nil"), */
-    notToken("'not'"),
+    notToken("not"),
     ofToken("of"),
-    orToken("'or'"),
+    orToken("or"),
  /* packedToken("packed"), */
     procedureToken("procedure"),
     programToken("program"),

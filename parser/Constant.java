@@ -25,7 +25,6 @@ public class Constant extends PascalSyntax{
 
         if(prefixOpr != null){
             prefixOpr.check(curScope, lib);
-            System.out.println("in constant -------PREFIX!!!: " + prefixOpr.type);
             prefixOpr.type.checkType(type, "prefix "+prefixOpr.prefix.toString()+" operand",this,"Prefix type not integer");
         }
     }

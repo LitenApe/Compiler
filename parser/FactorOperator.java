@@ -15,7 +15,7 @@ public class FactorOperator extends Operator{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[-] Factor Operator: " + tokenKind.toString());
+        System.out.println("[x] Factor Operator: " + tokenKind.toString());
 
         if(tokenKind == andToken){
             type = lib.booleanType;

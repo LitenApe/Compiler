@@ -1,6 +1,6 @@
    1: /* Test program 'easter' 
    2:                 ======== 
-   3:    Computes Easter Sunday for the years 2010-2020.  
+   3:    Computes Easter Sunday for the years 2010-2020. 
    4: */ 
    5:  
    6: program Easter; 
@@ -14,7 +14,7 @@ Scanner: name token on line 8: y
 Scanner: : token on line 8
 Scanner: name token on line 8: integer
 Scanner: ; token on line 8
-   9:     
+   9:  
   10: procedure easter (y: integer); 
 Scanner: procedure token on line 10
 Scanner: name token on line 10: easter
