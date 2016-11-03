@@ -26,7 +26,7 @@ touch runLog.log
 ant jar
 # clear
 
-java -jar pascal2016.jar $mode "pascal/testFiles/10star.pas";
+java -jar pascal2016.jar $mode "pascal/testFiles/easter.pas";
 
 # iterate through the pascal files
 # for f in $(find pascal/testFiles -type f -name '*.pas'); do
