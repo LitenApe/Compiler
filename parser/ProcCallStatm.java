@@ -17,7 +17,7 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Procedure Call Statement");
+        System.out.println("[x] Procedure Call Statement: "+lineNum);
         namedConst.check(curScope, lib);
 
         PascalDecl pd = curScope.findDecl(namedConst.toString(), this);
@@ -32,6 +32,10 @@ public class ProcCallStatm extends Statement{
             e.check(curScope, lib);
             if (list != null){
                 types.Type t = list.get(exp.indexOf(e)).type;
+                System.out.println("----------------------------expression type: "+t);
+                System.out.println("----------------------------expression type: "+e);
+                System.out.println("----------------------------expression type: "+exp.indexOf(e));
+                System.out.println("----------------------------expression type: "+this);
                 t.checkType(e.type,"param #"+(exp.indexOf(e)+1),this,"Param type mismatch!");
             }
         }

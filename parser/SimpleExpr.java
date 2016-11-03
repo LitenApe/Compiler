@@ -26,6 +26,7 @@ public class SimpleExpr extends PascalSyntax{
         for(int i = 0; i < term.size(); i++){
             term.get(i).check(curScope, lib);
             type = term.get(i).type;
+            System.out.println("Term type: "+term.get(i));
 
             if(i > 0){
                 type.checkType(term.get(i - 1).type, "left "+termOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!");
@@ -36,6 +37,7 @@ public class SimpleExpr extends PascalSyntax{
                 termOpr.get(i).check(curScope, lib);
                 type = termOpr.get(i).type;
             }
+            System.out.println("Simple expr type: "+type);
         }
     }
 

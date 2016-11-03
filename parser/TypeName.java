@@ -17,19 +17,7 @@ public class TypeName extends Type{
         System.out.println("[x] Type Name: " + namedConstant.name);
 
         namedConstant.check(curScope, lib);
-        switch(namedConstant.name){
-            case "integer":
-                type = lib.integerType;
-                break;
-            case "boolean":
-                type = lib.booleanType;
-                break;
-            case "char":
-                type = lib.characterType;
-                break;
-            default:
-                break;
-        }
+        type = namedConstant.type; 
     }
 
     @Override

@@ -13,6 +13,12 @@ class TypeDecl extends PascalDecl{
             case "boolean":
                 type = Library.booleanType;
                 break;
+            case "true":
+                type = Library.booleanType;
+                break;
+            case "false":
+                type = Library.booleanType;
+                break;
             case "char":
                 type = Library.characterType;
                 break;

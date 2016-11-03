@@ -20,8 +20,10 @@ public class Negation extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] Negation");
-        super.type = lib.booleanType;
+        System.out.println("[x] Negation");
+        factor.check(curScope,lib);
+        type = lib.booleanType;
+        type.checkType(factor.type, "'not' operand",this,"Expected boolean found: "+factor.type);
     }
 
     public static Negation parse(Scanner s) {

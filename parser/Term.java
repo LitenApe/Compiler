@@ -28,10 +28,11 @@ public class Term extends PascalSyntax{
 
             if(factorOpr.size() > 0 && i >= 1){
                 type.checkType(factors.get(i - 1).type, "left "+factorOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!"); //NOTE: wut?
-                // System.out.println("-------------------------------Factor type: "+factors.get(i - 1).type);
-                // System.out.println("-------------------------------Factor type: "+factors.get(i).type);
+                System.out.println("-------------------------------Factor type: "+factors.get(i - 1).type);
+                System.out.println("-------------------------------Factor type: "+factors.get(i).type);
                 type.checkType(factors.get(i).type, "right "+factorOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!"); //NOTE: wut?
             }
+            System.out.println("-------------------------------Factor type: "+factors.get(i));
         }
 
     }

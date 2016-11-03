@@ -21,6 +21,7 @@ public class Expression extends PascalSyntax{
         System.out.println("[x] Expression");
         firstValue.check(curScope,lib);
         type = firstValue.type;
+        System.out.println("FIRSTVALUE " +firstValue);
 
         if (relOperator != null){
             relOperator.check(curScope, lib);

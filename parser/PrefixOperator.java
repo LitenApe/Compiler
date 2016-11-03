@@ -16,7 +16,8 @@ public class PrefixOperator extends Operator{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] Prefix Operator");
+        System.out.println("[x] Prefix Operator");
+        type = lib.integerType;
     }
 
     @Override

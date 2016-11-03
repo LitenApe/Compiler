@@ -17,7 +17,9 @@ public class NamedConst extends UnsignedConstant{
 
         if(name.equals("integer"))
             type = lib.integerType;
-        else if(name.equals("boolean"))
+        else if(name.equals("boolean") ||
+                    name.equals("true") ||
+                        name.equals("false"))
             type = lib.booleanType;
         else if(name.equals("char"))
             type = lib.characterType;

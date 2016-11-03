@@ -15,6 +15,12 @@ public class ConstDecl extends PascalDecl{
         super(id, lNum);
     }/*Enc constructor*/
 
+    public ConstDecl(String id, int lNum, Library lib){
+        super(id, lNum);
+
+        type = lib.booleanType;
+    }
+
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[x] Constant Decleration: " + namedConstant.name);
@@ -29,6 +35,7 @@ public class ConstDecl extends PascalDecl{
 
         curScope.addDecl(namedConstant.toString(),this);
     }
+
     @Override
     public void prettyPrint(){
         namedConstant.prettyPrint();
