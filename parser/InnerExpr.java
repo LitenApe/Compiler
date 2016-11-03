@@ -17,8 +17,10 @@ public class InnerExpr extends Factor{
     public void check(Block curScope, Library lib){
         System.out.println("[ ] Inner Expr");
 
-        if (expression != null)
+        if (expression != null){
             expression.check(curScope,lib);
+            type = expression.type;
+        }
     }
 
     public static InnerExpr parse(Scanner s) {

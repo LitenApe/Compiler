@@ -19,11 +19,11 @@ public class ProcDecl extends PascalDecl{
     public void check(Block curScope, Library lib){
         System.out.println("[-] Proc Decl: " + procName.name);
 
-        procName.check(block,lib);
+        procName.check(curScope,lib);
         curScope.addDecl(procName.name, this);
 
         if (paramDecl != null)
-            paramDecl.check(curScope, lib);
+            paramDecl.check(block, lib);
 
         block.check(curScope, lib);
     }
