@@ -23,7 +23,6 @@ public class Block extends PascalSyntax{
     }/*End constructor*/
 
     public void addDecl(String id, PascalDecl declaration){
-        System.out.println("Adding: " + id + " in " + this);
         if (decls.containsKey(id))
             declaration.error(id + " declared twice in same block!");
         else
@@ -45,7 +44,6 @@ public class Block extends PascalSyntax{
 
         where.error("Name " + id + " is unknown!");
 
-        // NOTE: We want only one return, not hundreds..
         return found;
     }
 
@@ -61,7 +59,7 @@ public class Block extends PascalSyntax{
             varDeclPart.check(this, lib);
 
         for(ProcDecl p : procAndFuncDecls)
-            p.check(curScope,lib);
+            p.check(this, lib);
 
         statmList.check(this, lib);
     }

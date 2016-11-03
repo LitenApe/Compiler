@@ -22,7 +22,6 @@ public class SimpleExpr extends PascalSyntax{
         System.out.println("[-] Simple Expr");
         if (prefix != null)
             prefix.check(curScope,lib);
-        // type.checkType(secondValue.type,oprName+" operands",this,"Operands to "+oprName+" are of different type!");
 
         for(int i = 0; i < term.size(); i++){
             term.get(i).check(curScope, lib);

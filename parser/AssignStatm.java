@@ -23,7 +23,7 @@ public class AssignStatm extends Statement{
         expression.check(curScope,lib);
 
         type = variable.type;
-        type.checkType(type, ":=", expression, "String mess");
+        type.checkType(type, ":=", expression, "Error message plz");
     }
 
     @Override

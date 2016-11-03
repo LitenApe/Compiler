@@ -23,10 +23,7 @@ public class VarDecl extends PascalDecl{
         mType.check(curScope,lib);
         type = mType.type;
 
-        if(type != null)
-            decl = curScope.findDecl(mType.toString(), this);
-        else
-            decl = this;
+        decl = curScope.findDecl(mType.toString(), this);
 
         curScope.addDecl(namedConstant.name, this);
     }
@@ -59,7 +56,6 @@ public class VarDecl extends PascalDecl{
 
     @Override
     public String identify() {
-        System.out.println(decl);
         return "<var decl> " + name + " on line " + lineNum;
     } /* End of identify */
 

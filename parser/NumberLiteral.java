@@ -19,7 +19,6 @@ public class NumberLiteral extends UnsignedConstant{
     public void check(Block curScope, Library lib){
         System.out.println("[x] Number literal: " + digit);
         super.type = lib.integerType;
-        // System.out.println("Number: " + digit);
     }
 
     @Override

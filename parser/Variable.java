@@ -21,8 +21,8 @@ public class Variable extends Factor{
         name.check(curScope,lib);
 
         decl = curScope.findDecl(name.name, this);
-        super.type = decl.type;
-        
+        type = decl.type;
+
         if (expression != null)
             expression.check(curScope,lib);
     }

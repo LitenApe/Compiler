@@ -26,10 +26,12 @@ touch runLog.log
 ant jar
 # clear
 
+java -jar pascal2016.jar $mode "pascal/testFiles/10star.pas";
+
 # iterate through the pascal files
-for f in $(find pascal/testFiles -type f -name '*.pas'); do
-  java -jar pascal2016.jar $mode $f; echo ' '
-done
+# for f in $(find pascal/testFiles -type f -name '*.pas'); do
+#   java -jar pascal2016.jar $mode $f; echo ' '
+# done
 
 # move log files in testFiles directory to a seperate folder
 if [[ $mode == "-testscanner" ]]; then

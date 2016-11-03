@@ -19,11 +19,11 @@ public class ConstDeclPart extends PascalSyntax{
     @Override
     public void check(Block curScope, Library lib){
         System.out.println("[x] Constant Decleration Part");
+
         for(ConstDecl p : constDeclarations){
             p.check(curScope,lib);
             type = p.type;
         }
-
     }
 
     public static ConstDeclPart parse(Scanner s){

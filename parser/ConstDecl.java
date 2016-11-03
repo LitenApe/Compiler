@@ -23,7 +23,10 @@ public class ConstDecl extends PascalDecl{
         namedConstant.check(curScope,lib);
         constant.check(curScope,lib);
 
-        type = constant.type;
+        if(name.equals("true") || name.equals("false"))
+            type = Library.booleanType;
+        else
+            type = constant.type;
 
         curScope.addDecl(namedConstant.toString(),this);
     }

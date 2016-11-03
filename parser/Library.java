@@ -15,6 +15,8 @@ public class Library extends Block{
 
     public Library(int lineNum){
         super(lineNum);
+        procedures.put("true", new ConstDecl("true",0));
+        procedures.put("false", new ConstDecl("false",0));
         procedures.put("write",new ProcDecl("write",0));
         procedures.put("integer",new TypeDecl("integer",0));
         procedures.put("boolean",new TypeDecl("boolean",0));
