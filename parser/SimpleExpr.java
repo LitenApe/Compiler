@@ -19,16 +19,23 @@ public class SimpleExpr extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[-] Simple Expr");
+        System.out.println("[x] Simple Expr");
         if (prefix != null)
             prefix.check(curScope,lib);
 
         for(int i = 0; i < term.size(); i++){
             term.get(i).check(curScope, lib);
+            type = term.get(i).type;
+
+            if(i > 0){
+                type.checkType(term.get(i - 1).type, "left "+termOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!");
+                type.checkType(term.get(i).type, "right "+termOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!");
+            }
+
             if(i < termOpr.size()){
                 termOpr.get(i).check(curScope, lib);
+                type = termOpr.get(i).type;
             }
-            type = term.get(i).type; //TODO: define type
         }
     }
 

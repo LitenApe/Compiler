@@ -16,7 +16,7 @@ public class RelOperator extends Operator{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[-] Rel Operator: " + opr.toString());
+        System.out.println("[x] Rel Operator: " + opr.toString());
         type = lib.booleanType;
     }
 

@@ -10,7 +10,6 @@ public class ConstDecl extends PascalDecl{
 
     public NamedConst namedConstant= null;
     public Constant constant = null;
-    public types.Type type = null;
 
     public ConstDecl(String id, int lNum){
         super(id, lNum);
@@ -24,7 +23,7 @@ public class ConstDecl extends PascalDecl{
         constant.check(curScope,lib);
 
         if(name.equals("true") || name.equals("false"))
-            type = Library.booleanType;
+            type = lib.booleanType;
         else
             type = constant.type;
 
@@ -52,11 +51,6 @@ public class ConstDecl extends PascalDecl{
 
         leaveParser("const decl");
         return constDecl;
-    }
-
-    @Override
-    public String toString(){
-        return namedConstant.toString();
     }
 
     @Override

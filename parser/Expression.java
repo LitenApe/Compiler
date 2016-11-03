@@ -18,7 +18,7 @@ public class Expression extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[-] Expression");
+        System.out.println("[x] Expression");
         firstValue.check(curScope,lib);
         type = firstValue.type;
 
@@ -26,7 +26,6 @@ public class Expression extends PascalSyntax{
             relOperator.check(curScope, lib);
             secondValue.check(curScope,lib);
             String oprName = relOperator.opr.toString();
-
             type.checkType(secondValue.type,oprName+" operands",this,"Operands to "+oprName+" are of different type!");
             type = lib.booleanType;
         }

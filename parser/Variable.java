@@ -9,7 +9,6 @@ public class Variable extends Factor{
     NamedConst name = null;
     Expression expression = null;
     PascalDecl decl = null;
-    // types.Type type = null;
 
     public Variable(int n){
         super(n);
@@ -17,14 +16,15 @@ public class Variable extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[-] Variable: " + name.name);
+        System.out.println("[x] Variable: " + name.name);
         name.check(curScope,lib);
 
         decl = curScope.findDecl(name.name, this);
-        type = decl.type;
 
         if (expression != null)
             expression.check(curScope,lib);
+
+        type = decl.type;
     }
 
     @Override

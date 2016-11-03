@@ -6,6 +6,8 @@ import static scanner.TokenKind.*;
 
 public abstract class Operator extends PascalSyntax{
 
+    public types.Type type = null;
+
     public Operator(int n){
         super(n);
     }/*End constructor*/

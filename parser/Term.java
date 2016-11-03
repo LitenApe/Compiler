@@ -16,7 +16,7 @@ public class Term extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[-] Term");
+        System.out.println("[x] Term");
         for(int i = 0; i < factors.size(); i++){
             factors.get(i).check(curScope, lib);
             type = factors.get(i).type;
@@ -25,12 +25,13 @@ public class Term extends PascalSyntax{
                 type = factorOpr.get(i).type;
                 factorOpr.get(i).check(curScope, lib);
             }
-            
+
             if(factorOpr.size() > 0 && i >= 1){
                 type.checkType(factors.get(i - 1).type, "left "+factorOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!"); //NOTE: wut?
                 type.checkType(factors.get(i).type, "right "+factorOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!"); //NOTE: wut?
             }
         }
+
     }
 
     public static Term parse(Scanner s){

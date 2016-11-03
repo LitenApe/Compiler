@@ -6,7 +6,6 @@ import main.Main;
 public class NamedConst extends UnsignedConstant{
 
     public String name = "";
-    // types.Type type = null;
 
     public NamedConst(int n){
         super(n);
@@ -14,14 +13,14 @@ public class NamedConst extends UnsignedConstant{
 
     @Override
     public void check(Block curScope, Library lib){
-        // System.out.println("[x] Named Constant");
+        System.out.println("[x] Named Constant: " + name);
 
         if(name.equals("integer"))
-            super.type = lib.integerType;
+            type = lib.integerType;
         else if(name.equals("boolean"))
-            super.type = lib.booleanType;
+            type = lib.booleanType;
         else if(name.equals("char"))
-            super.type = lib.characterType;
+            type = lib.characterType;
     }
 
     public static NamedConst parse(Scanner s) {
