@@ -15,7 +15,7 @@ public class InnerExpr extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] Inner Expr");
+        System.out.println("[x] Inner Expr");
 
         if (expression != null){
             expression.check(curScope,lib);
