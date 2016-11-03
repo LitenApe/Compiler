@@ -27,12 +27,15 @@ public class SimpleExpr extends PascalSyntax{
             term.get(i).check(curScope, lib);
             type = term.get(i).type;
 
-            if(i == 0 && prefix != null)
-                prefix.type.checkType(term.get(i).type, "prefix " + prefix.prefix.toString() + " operand", this, "Expected integer, found: " + term.get(i).type);
+            if(i == 0 && prefix != null){
+                String image = prefix.prefix.toString().equals("or") ? "'or'" : prefix.prefix.toString();
+                prefix.type.checkType(term.get(i).type, "prefix " + image + " operand", this, "Expected integer, found: " + term.get(i).type);
+            }
 
             if(i > 0){
-                type.checkType(term.get(i - 1).type, "left "+termOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!");
-                type.checkType(term.get(i).type, "right "+termOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!");
+                String image = termOpr.get(i-1).tokenKind.toString().equals("or") ? "'or'" : termOpr.get(i-1).tokenKind.toString();
+                type.checkType(term.get(i - 1).type, "left "+image+" operand", this, "parameter not same!");
+                type.checkType(term.get(i).type, "right "+image+" operand", this, "parameter not same!");
             }
 
             if(i < termOpr.size()){

@@ -27,8 +27,12 @@ public class Term extends PascalSyntax{
             }
 
             if(factorOpr.size() > 0 && i >= 1){
-                type.checkType(factors.get(i - 1).type, "left "+factorOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!"); //NOTE: wut?
-                type.checkType(factors.get(i).type, "right "+factorOpr.get(i-1).tokenKind.toString()+" operand", this, "parameter not same!"); //NOTE: wut?
+                String image = factorOpr.get(i-1).tokenKind.toString();
+                if(image.equals("and") || image.equals("or")){
+                    image = "'" + factorOpr.get(i-1).tokenKind.toString() + "'";
+                }
+                type.checkType(factors.get(i - 1).type, "left "+image+" operand", this, "parameter not same!"); //NOTE: wut?
+                type.checkType(factors.get(i).type, "right "+image+" operand", this, "parameter not same!"); //NOTE: wut?
             }
         }
 
