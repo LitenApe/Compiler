@@ -33,17 +33,19 @@ public class Block extends PascalSyntax{
         // check the current scope after the decleration
         PascalDecl found = decls.get(id);
 
+        if(found != null){
+            Main.log.noteBinding(id, where, found);
+            return found;
+        }
+
         // check outer scopes after decleration
         if(outerScope != null && found == null)
-            found = outerScope.findDecl(id, where);
+            return outerScope.findDecl(id, where);
 
         if(library != null && found == null)
-            found = library.findDecl(id, where);
+            return library.findDecl(id, where);
 
-        if(found != null)
-            Main.log.noteBinding(id, where, found);
-        else
-            where.error("Name " + id + " is unknown!");
+        where.error("Name " + id + " is unknown!");
 
         return found;
     }

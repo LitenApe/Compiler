@@ -29,6 +29,8 @@ public class Library extends Block{
 
         if (!procedures.containsKey(id))
             where.error("Name " + id + " is unknown!");
+        else
+            Main.log.noteBinding(id, where, found);
 
         return found;
     }/*End of findDecl*/

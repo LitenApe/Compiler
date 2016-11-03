@@ -6,11 +6,8 @@ Binding on line 12: n was declared as <param decl> n on line 10
 Type check = operands on line 12: type Integer vs type Integer
 Type check if-test on line 12: type Boolean vs type Boolean
 Binding on line 13: gcd was declared as <func decl> gcd on line 10
-Binding on line 13: gcd was declared as <func decl> gcd on line 10
 Binding on line 13: m was declared as <param decl> m on line 10
 Type check := on line 13: type Integer vs type Integer
-Binding on line 15: gcd was declared as <func decl> gcd on line 10
-Binding on line 15: gcd was declared as <func decl> gcd on line 10
 Binding on line 15: gcd was declared as <func decl> gcd on line 10
 Binding on line 15: gcd was declared as <func decl> gcd on line 10
 Binding on line 15: n was declared as <param decl> n on line 10
