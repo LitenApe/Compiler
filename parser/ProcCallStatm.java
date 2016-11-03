@@ -21,11 +21,21 @@ public class ProcCallStatm extends Statement{
         namedConst.check(curScope, lib);
 
         PascalDecl pd = curScope.findDecl(namedConst.toString(), this);
-
-        for(Expression e : exp)
-            e.check(curScope, lib);
-
         procRef = (ProcDecl) pd;
+
+        ArrayList<ParamDecl> list = null;
+
+        if (procRef.paramDecl != null){
+            list = procRef.paramDecl.listOfParamDecls;
+        }
+        for(Expression e : exp){
+            e.check(curScope, lib);
+            if (list != null){
+                types.Type t = list.get(exp.indexOf(e)).type;
+                t.checkType(e.type,"param #"+(exp.indexOf(e)+1),this,"Param type mismatch!");
+            }
+        }
+
     }
 
     @Override public String identify() {

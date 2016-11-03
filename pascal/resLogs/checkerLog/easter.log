@@ -170,6 +170,7 @@ Type check <= operands on line 45: type Integer vs type Integer
 Type check while-test on line 45: type Boolean vs type Boolean
 Binding on line 47: easter was declared as <proc decl> easter on line 10
 Binding on line 47: y was declared as <var decl> y on line 8
+Type check param #1 on line 47: type Integer vs type Integer
 Binding on line 47: y was declared as <var decl> y on line 8
 Binding on line 47: y was declared as <var decl> y on line 8
 Type check left + operand on line 47: type Integer vs type Integer
