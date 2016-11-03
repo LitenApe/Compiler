@@ -16,7 +16,7 @@ public class Block extends PascalSyntax{
     public ArrayList<ProcDecl> procAndFuncDecls = new ArrayList<>();
     public HashMap<String, PascalDecl> decls = new HashMap<>();
     public Block outerScope = null;
-    public static Library library = Main.library;
+    public static Library library = null;
 
     public Block(int lineNum){
         super(lineNum);
@@ -35,7 +35,10 @@ public class Block extends PascalSyntax{
 
         // check outer scopes after decleration
         if(outerScope != null && found == null)
-            found = outerScope.findDecl(id,where);
+            found = outerScope.findDecl(id, where);
+
+        if(library != null && found == null)
+            found = library.findDecl(id, where);
 
         if(found != null)
             Main.log.noteBinding(id, where, found);

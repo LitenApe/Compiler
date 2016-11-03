@@ -15,8 +15,6 @@ touch runLog.log
 ant jar
 # clear
 
-
-# set flag
 if [[ ${#@} > 0 ]]; then
     java -jar pascal2016.jar $mode "pascal/testFiles/$1";
 else
@@ -24,7 +22,6 @@ else
         java -jar pascal2016.jar $mode $f; echo ' '
     done
 fi
-
 
 # move log files in testFiles directory to a seperate folder
 if [[ $mode == "-testscanner" ]]; then
