@@ -82,6 +82,10 @@ public class FuncDecl extends ProcDecl{
         return funcName.toString();
     }
 
+    public ParamDeclList getParams(){
+        return pDeclList;
+    }
+
     @Override
     public String identify() {
         return "<func decl> " + name + " on line " + lineNum;

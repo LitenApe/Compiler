@@ -7,6 +7,7 @@ import static scanner.TokenKind.*;
 public class FactorOperator extends Operator{
 
     TokenKind tokenKind = null;
+    types.Type type = null;
 
     public FactorOperator(int n){
         super(n);
@@ -14,10 +15,13 @@ public class FactorOperator extends Operator{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] Factor Operator: " + tokenKind.toString());
-        // hvis mod, sett expected type til integers
-        // if and, sett expected type til booleans
-        // osv
+        System.out.println("[-] Factor Operator: " + tokenKind.toString());
+
+        if(tokenKind == andToken){
+            type = lib.booleanType;
+        }else{
+            type = lib.integerType;
+        }
     }
 
     @Override

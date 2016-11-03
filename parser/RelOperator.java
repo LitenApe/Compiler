@@ -8,6 +8,7 @@ import main.Main;
 public class RelOperator extends Operator{
 
     public TokenKind opr = null;
+    public types.Type type = null;
 
     public RelOperator(int n){
         super(n);
@@ -15,8 +16,8 @@ public class RelOperator extends Operator{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] Rel Operator:" + opr.toString());
-        // System.out.println("Rel opr: " + opr.toString());
+        System.out.println("[-] Rel Operator:" + opr.toString());
+        type = lib.booleanType;
     }
 
     @Override

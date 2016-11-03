@@ -11,7 +11,8 @@ public class FuncCall extends Factor{
 
     NamedConst name = null;
     ArrayList<Expression> expressions = new ArrayList<>();
-    PascalDecl decl = null;
+    FuncDecl decl = null;
+    ArrayList<ParamDecl> declParameters = null;
 
     public FuncCall(int n){
         super(n);
@@ -19,14 +20,15 @@ public class FuncCall extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] Func Call: " + name.name);
+        System.out.println("[-] Func Call: " + name.name);
         name.check(curScope,lib);
 
-        decl = curScope.findDecl(name.name, this);
-        super.type = decl.type;
+        decl = (FuncDecl) curScope.findDecl(name.name, this);
+        declParameters = decl.getParams().listOfParamDecls;
 
         for (Expression e : expressions){
             e.check(curScope,lib);
+            type = declParameters.get(expressions.indexOf(e)).type;
             type.checkType(type, "param "+"#"+(expressions.indexOf(e)+1), this, "parameter not same!"); //NOTE:
         }
     }
