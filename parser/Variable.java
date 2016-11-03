@@ -25,7 +25,6 @@ public class Variable extends Factor{
             expression.check(curScope,lib);
 
         type = decl.type;
-        System.out.println("VARIABLE :ASKDFJLADSKFJDLSFJKLDSJFKLDSJFL : "+decl); 
     }
 
     @Override
