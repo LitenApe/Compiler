@@ -11,6 +11,7 @@ public class Constant extends PascalSyntax{
     UnsignedConstant uConstant;
     types.Type type;
     int constVal;
+    PascalDecl decl;
 
     public Constant(int n){
         super(n);
@@ -18,12 +19,12 @@ public class Constant extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Constant");
-
         uConstant.check(curScope, lib);
         type = uConstant.type;
 
         constVal = uConstant.constVal;
+        if(uConstant instanceof NamedConst)
+            decl = curScope.findDecl(uConstant.name, this);
 
         if (prefixOpr != null) {
             String oprName = prefixOpr.prefix.toString();

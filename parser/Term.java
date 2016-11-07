@@ -16,7 +16,6 @@ public class Term extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Term");
         for(int i = 0; i < factors.size(); i++){
             factors.get(i).check(curScope, lib);
             type = factors.get(i).type;

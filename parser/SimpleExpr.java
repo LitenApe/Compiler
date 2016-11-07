@@ -19,7 +19,6 @@ public class SimpleExpr extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Simple Expr");
         if (prefix != null)
             prefix.check(curScope,lib);
 

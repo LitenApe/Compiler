@@ -10,7 +10,6 @@ public class ParamDecl extends PascalDecl{
 
     public NamedConst name = null;
     public TypeName typeName = null;
-    public PascalDecl decl = null;
 
     public ParamDecl(String id, int lNum){
         super(id, lNum);
@@ -18,11 +17,8 @@ public class ParamDecl extends PascalDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Param Decl: " + name.name);
         typeName.check(curScope,lib);
         type = typeName.type;
-
-        decl = curScope.findDecl(typeName.toString(), this);
 
         curScope.addDecl(name.toString(),this);
     }

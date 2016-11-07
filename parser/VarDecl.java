@@ -18,13 +18,14 @@ public class VarDecl extends PascalDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Var Decl: " + namedConstant.name);
         namedConstant.check(curScope,lib);
         curScope.addDecl(namedConstant.name, this);
         mType.check(curScope,lib);
-        type = mType.type;
 
-        decl = curScope.findDecl(mType.toString(), this);
+        if(mType instanceof ArrayType)
+            type = mType.pType.type;
+        else
+            type = mType.type;
     }
 
     @Override

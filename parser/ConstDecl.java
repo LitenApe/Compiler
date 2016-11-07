@@ -22,8 +22,6 @@ public class ConstDecl extends PascalDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Constant Decleration: " + namedConstant.name);
-
         namedConstant.check(curScope,lib);
         curScope.addDecl(namedConstant.toString(), this);
         constant.check(curScope,lib);

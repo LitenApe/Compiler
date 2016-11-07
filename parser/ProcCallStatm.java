@@ -17,7 +17,6 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Procedure Call Statement: "+lineNum);
         namedConst.check(curScope, lib);
 
         PascalDecl pd = curScope.findDecl(namedConst.toString(), this);

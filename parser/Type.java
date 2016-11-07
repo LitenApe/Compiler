@@ -9,6 +9,7 @@ public abstract class Type extends PascalSyntax{
     // type name | array type
 
     public types.Type type = null;
+    public Type pType = null;
 
     public Type(int lNum){
         super(lNum);
@@ -16,7 +17,7 @@ public abstract class Type extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        
+
     }
 
     public static Type parse(Scanner s) {

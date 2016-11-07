@@ -20,7 +20,6 @@ public class Negation extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Negation");
         factor.check(curScope,lib);
         type = lib.booleanType;
         type.checkType(factor.type, "'not' operand",this,"Expected boolean found: "+factor.type);

@@ -8,7 +8,7 @@ public class ArrayType extends Type{
 
     public Constant preConstant = null;
     public Constant postConstant = null;
-    public Type pType = null;
+    // public Type pType = null;
 
     public ArrayType(int lNum){
         super(lNum);
@@ -16,15 +16,13 @@ public class ArrayType extends Type{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] ArrayType");
-
         preConstant.check(curScope,lib);
         postConstant.check(curScope,lib);
         pType.check(curScope,lib);
 
         int low = preConstant.constVal;
         int high = postConstant.constVal;
-        preConstant.type.checkType(postConstant.type, "Array", this, "Array error msg");
+        preConstant.type.checkType(postConstant.type, "array limits", this, "Array error msg");
         type = new types.ArrayType(pType.type,preConstant.type,low,high);
     }
 

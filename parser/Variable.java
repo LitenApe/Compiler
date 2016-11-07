@@ -16,7 +16,6 @@ public class Variable extends Factor{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Variable: " + name.name);
         name.check(curScope,lib);
 
         decl = curScope.findDecl(name.name, this);
@@ -25,6 +24,9 @@ public class Variable extends Factor{
             expression.check(curScope,lib);
 
         type = decl.type;
+
+        if(expression != null)
+            lib.integerType.checkType(expression.type, "array index", this, type.toString() + " vs " + expression.type.toString());
     }
 
     @Override

@@ -19,8 +19,6 @@ public class FuncDecl extends ProcDecl{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Func Decleration: " + funcName.name);
-
         funcName.check(curScope,lib);
 
         if (typeName != null){

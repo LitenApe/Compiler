@@ -18,7 +18,6 @@ public class Expression extends PascalSyntax{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Expression");
         firstValue.check(curScope,lib);
         type = firstValue.type;
 

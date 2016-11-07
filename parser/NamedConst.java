@@ -13,8 +13,6 @@ public class NamedConst extends UnsignedConstant{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[x] Named Constant: " + name);
-
         if(name.equals("integer"))
             type = lib.integerType;
         else if(name.equals("boolean") ||
@@ -25,6 +23,8 @@ public class NamedConst extends UnsignedConstant{
             type = lib.characterType;
         else
             type = lib.integerType;
+
+        super.name = name;
     }
 
     public static NamedConst parse(Scanner s) {

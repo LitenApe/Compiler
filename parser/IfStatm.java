@@ -18,10 +18,9 @@ public class IfStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[-] If Statment");
         exp.check(curScope, lib);
 
-        type.checkType(exp.type ,"if-test" , this, "dfsafds");
+        type.checkType(exp.type ,"if-test" , this, "Expected boolean but found: " + exp.type);
 
         stat.check(curScope, lib);
         if(elseExp != null){
