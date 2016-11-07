@@ -33,6 +33,8 @@ public class ConstDecl extends PascalDecl{
         else
             type = constant.type;
 
+        System.out.println("------ madfakka: " + type);
+
         curScope.addDecl(namedConstant.toString(),this);
     }
 

@@ -16,10 +16,14 @@ public class ArrayType extends Type{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[ ] ArrayType");
+        System.out.println("[-] ArrayType");
         preConstant.check(curScope,lib);
         postConstant.check(curScope,lib);
         pType.check(curScope,lib);
+
+        System.out.println("--- check, check");
+        System.out.println("----- " + preConstant.uConstant.type);
+        System.out.println("----- " + postConstant.type);
         if (preConstant.uConstant instanceof NumberLiteral && postConstant.uConstant instanceof NumberLiteral) {
             NumberLiteral pre = (NumberLiteral) preConstant.uConstant;
             NumberLiteral post = (NumberLiteral) postConstant.uConstant;

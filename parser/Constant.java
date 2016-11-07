@@ -23,6 +23,8 @@ public class Constant extends PascalSyntax{
         uConstant.check(curScope, lib);
         type = uConstant.type;
 
+        System.out.println("------ mafakka: " + type);
+
         if(prefixOpr != null){
             prefixOpr.check(curScope, lib);
             prefixOpr.type.checkType(type, "prefix "+prefixOpr.prefix.toString()+" operand",this,"Prefix type not integer");
