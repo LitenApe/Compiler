@@ -30,7 +30,7 @@ public class ProcCallStatm extends Statement{
 
         if((exp != null && list != null) && exp.size() != list.size()){
             String msg = exp.size() < procRef.paramDecl.listOfParamDecls.size() ? "few":"many";
-            error("Too " + msg + "parameters in call on " + namedConst.name);
+            error("Too " + msg + " parameters in call on " + namedConst.name);
         }
 
         for(Expression e : exp){
