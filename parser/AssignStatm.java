@@ -20,6 +20,9 @@ public class AssignStatm extends Statement{
         variable.check(curScope,lib);
         expression.check(curScope,lib);
 
+        if(variable.decl instanceof ConstDecl){
+            error("You cannot assign to a constant");
+        }
         type = variable.type;
         type.checkType(type, ":=", expression, "Error message plz");
     }
