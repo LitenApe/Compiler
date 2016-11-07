@@ -23,6 +23,8 @@ public class NamedConst extends UnsignedConstant{
             type = lib.booleanType;
         else if(name.equals("char"))
             type = lib.characterType;
+        else
+            type = lib.integerType;
     }
 
     public static NamedConst parse(Scanner s) {

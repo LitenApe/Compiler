@@ -55,22 +55,15 @@ public class Block extends PascalSyntax{
         outerScope = curScope;
         library = lib; //NOTE: why does it not work without this???
 
-        System.out.println("---const decl");
-        if(constDeclPart != null){
+        if(constDeclPart != null)
             constDeclPart.check(this, lib);
-        }
 
-        System.out.println("---var decl");
-        if(varDeclPart != null){
+        if(varDeclPart != null)
             varDeclPart.check(this, lib);
-        }
 
-        System.out.println("---proc/func decl");
-        for(ProcDecl p : procAndFuncDecls){
+        for(ProcDecl p : procAndFuncDecls)
             p.check(this, lib);
-        }
 
-        System.out.println("---statm list");
         statmList.check(this, lib);
     }
 

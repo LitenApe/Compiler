@@ -17,7 +17,6 @@ public class ConstDecl extends PascalDecl{
 
     public ConstDecl(String id, int lNum, Library lib){
         super(id, lNum);
-
         type = lib.booleanType;
     }
 
@@ -26,16 +25,13 @@ public class ConstDecl extends PascalDecl{
         System.out.println("[x] Constant Decleration: " + namedConstant.name);
 
         namedConstant.check(curScope,lib);
+        curScope.addDecl(namedConstant.toString(), this);
         constant.check(curScope,lib);
 
         if(name.equals("true") || name.equals("false"))
             type = lib.booleanType;
         else
             type = constant.type;
-
-        System.out.println("------ madfakka: " + type);
-
-        curScope.addDecl(namedConstant.toString(),this);
     }
 
     @Override

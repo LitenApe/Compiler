@@ -10,6 +10,7 @@ public class Constant extends PascalSyntax{
     PrefixOperator prefixOpr;
     UnsignedConstant uConstant;
     types.Type type;
+    int constVal;
 
     public Constant(int n){
         super(n);
@@ -19,15 +20,17 @@ public class Constant extends PascalSyntax{
     public void check(Block curScope, Library lib){
         System.out.println("[x] Constant");
 
-
         uConstant.check(curScope, lib);
         type = uConstant.type;
 
-        System.out.println("------ mafakka: " + type);
+        constVal = uConstant.constVal;
 
-        if(prefixOpr != null){
-            prefixOpr.check(curScope, lib);
-            prefixOpr.type.checkType(type, "prefix "+prefixOpr.prefix.toString()+" operand",this,"Prefix type not integer");
+        if (prefixOpr != null) {
+            String oprName = prefixOpr.prefix.toString();
+            uConstant.type.checkType(lib.integerType, "Prefix "+oprName, this,"Prefix + or - may only be applied to Integers.");
+
+            if (prefixOpr.prefix == subtractToken)
+                constVal = -constVal;
         }
     }
 
