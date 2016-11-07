@@ -20,12 +20,11 @@ public class VarDecl extends PascalDecl{
     public void check(Block curScope, Library lib){
         System.out.println("[x] Var Decl: " + namedConstant.name);
         namedConstant.check(curScope,lib);
+        curScope.addDecl(namedConstant.name, this);
         mType.check(curScope,lib);
         type = mType.type;
 
         decl = curScope.findDecl(mType.toString(), this);
-
-        curScope.addDecl(namedConstant.name, this);
     }
 
     @Override

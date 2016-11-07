@@ -16,7 +16,7 @@ public class ArrayType extends Type{
 
     @Override
     public void check(Block curScope, Library lib){
-        System.out.println("[-] ArrayType");
+        System.out.println("[x] ArrayType");
 
         preConstant.check(curScope,lib);
         postConstant.check(curScope,lib);
@@ -24,7 +24,8 @@ public class ArrayType extends Type{
 
         int low = preConstant.constVal;
         int high = postConstant.constVal;
-        type = new types.ArrayType(pType.type,lib.integerType,low,high);
+        preConstant.type.checkType(postConstant.type, "Array", this, "Array error msg");
+        type = new types.ArrayType(pType.type,preConstant.type,low,high);
     }
 
     public static ArrayType parse(Scanner s) {
