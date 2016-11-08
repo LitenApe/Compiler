@@ -24,9 +24,8 @@ public class ProcCallStatm extends Statement{
 
         ArrayList<ParamDecl> list = null;
 
-        if (procRef.paramDecl != null){
+        if (procRef.paramDecl != null)
             list = procRef.paramDecl.listOfParamDecls;
-        }
 
         if((exp != null && list != null) && exp.size() != list.size()){
             String msg = exp.size() < procRef.paramDecl.listOfParamDecls.size() ? "few":"many";
@@ -40,7 +39,6 @@ public class ProcCallStatm extends Statement{
                 t.checkType(e.type,"param #"+(exp.indexOf(e)+1),this,"Param type mismatch!");
             }
         }
-
     }
 
     @Override public String identify() {
