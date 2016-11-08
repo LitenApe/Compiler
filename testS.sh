@@ -2,7 +2,6 @@
 mkdir -p pascal/resLogs/scannerLog
 mkdir -p pascal/resLogs/parserLog
 mkdir -p pascal/resLogs/checkerLog
-# mkdir -p pascal/resLogs/scannerRes
 
 # flag
 mode="-testchecker"
@@ -11,14 +10,12 @@ mode="-testchecker"
 curPath=$(pwd)
 
 # compile the source file
-touch runLog.log
 ant jar
-# clear
 
 if [[ ${#@} > 0 ]]; then
     java -jar pascal2016.jar $mode "pascal/testFiles/$1";
 else
-    for f in $(find pascal/ -type f -name '*.pas'); do
+    for f in $(find pascal/testFiles -type f -name '*.pas'); do
         java -jar pascal2016.jar $mode $f; echo ' '
     done
 fi
