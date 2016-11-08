@@ -13,6 +13,11 @@ public class WhileStatm extends Statement{
     } /* End of constructor */
 
     @Override
+    public void genCode(CodeFile f){
+
+    }
+
+    @Override
     public void check(Block curScope, Library lib){
         expr.check(curScope, lib);
         expr.type.checkType(lib.booleanType, "while-test", this,

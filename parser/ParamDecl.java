@@ -2,18 +2,22 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
-import main.Main;
+import main.*;
 
 public class ParamDecl extends PascalDecl{
 
     // name : : : type name
-
     public NamedConst name = null;
     public TypeName typeName = null;
 
     public ParamDecl(String id, int lNum){
         super(id, lNum);
     }/*Enc constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

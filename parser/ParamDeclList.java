@@ -3,7 +3,7 @@ package parser;
 import scanner.*;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
-import main.Main;
+import main.*;
 
 public class ParamDeclList extends PascalSyntax{
 
@@ -12,6 +12,11 @@ public class ParamDeclList extends PascalSyntax{
     public ParamDeclList(int n){
         super(n);
         listOfParamDecls = new ArrayList<>();
+    }
+
+    @Override
+    public void genCode(CodeFile f){
+
     }
 
     @Override

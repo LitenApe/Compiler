@@ -1,7 +1,7 @@
 package parser;
 
 import java.util.ArrayList;
-import main.Main;
+import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -16,6 +16,11 @@ public class SimpleExpr extends PascalSyntax{
     public SimpleExpr(int n){
         super(n);
     }/*End Constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

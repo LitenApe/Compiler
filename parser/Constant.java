@@ -1,5 +1,6 @@
 package parser;
 
+import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -16,6 +17,11 @@ public class Constant extends PascalSyntax{
     public Constant(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

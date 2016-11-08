@@ -1,6 +1,6 @@
 package scanner;
 
-import main.Main;
+import main.*;
 import static scanner.TokenKind.*;
 
 import java.io.*;

@@ -2,7 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
-import main.Main;
+import main.*;
 
 public class IfStatm extends Statement{
 
@@ -15,6 +15,11 @@ public class IfStatm extends Statement{
     public IfStatm(int n){
         super(n);
     } /* End of public */
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

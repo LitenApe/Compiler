@@ -1,6 +1,6 @@
 package parser;
 
-import main.Main;
+import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -15,6 +15,11 @@ public class EmptyStatm extends Statement{
 
     @Override
     public void check(Block curScope, Library lib){}
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public String identify() {

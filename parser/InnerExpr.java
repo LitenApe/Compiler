@@ -1,6 +1,6 @@
 package parser;
 
-import main.Main;
+import main.*;
 import scanner.Scanner;
 import static scanner.TokenKind.*;
 
@@ -12,6 +12,11 @@ public class InnerExpr extends Factor{
     public InnerExpr(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

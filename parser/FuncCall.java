@@ -3,7 +3,7 @@ package parser;
 import scanner.*;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
-import main.Main;
+import main.*;
 
 public class FuncCall extends Factor{
 
@@ -17,6 +17,11 @@ public class FuncCall extends Factor{
     public FuncCall(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

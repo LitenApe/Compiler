@@ -1,6 +1,6 @@
 package parser;
 
-import main.Main;
+import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 import types.BoolType;
@@ -12,6 +12,11 @@ public class Negation extends Factor{
     public Negation(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public String identify() {

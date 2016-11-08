@@ -2,7 +2,7 @@ package parser;
 
 import scanner.Scanner;
 import static scanner.TokenKind.*;
-import main.Main;
+import main.*;
 
 public class TypeName extends Type{
 
@@ -11,6 +11,11 @@ public class TypeName extends Type{
     public TypeName(int lNum){
         super(lNum);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

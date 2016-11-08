@@ -16,6 +16,11 @@ public abstract class Type extends PascalSyntax{
     }/*End constructor*/
 
     @Override
+    public void genCode(CodeFile f){
+
+    }
+
+    @Override
     public void check(Block curScope, Library lib){
 
     }

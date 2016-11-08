@@ -2,7 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
-import main.Main;
+import main.*;
 
 public class Variable extends Factor{
 
@@ -13,6 +13,11 @@ public class Variable extends Factor{
     public Variable(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

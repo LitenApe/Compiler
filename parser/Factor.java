@@ -13,6 +13,11 @@ public abstract class Factor extends PascalSyntax{
     }/*End constructor*/
 
     @Override
+    public void genCode(CodeFile f){
+
+    }
+
+    @Override
     public String identify() {
         return "<factor> on line " + lineNum;
     } /* End of identify */

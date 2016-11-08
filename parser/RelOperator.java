@@ -3,7 +3,7 @@ package parser;
 import scanner.*;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
-import main.Main;
+import main.*;
 
 public class RelOperator extends Operator{
 
@@ -13,6 +13,11 @@ public class RelOperator extends Operator{
     public RelOperator(int n){
         super(n);
     }/*Enc constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

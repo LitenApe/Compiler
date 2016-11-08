@@ -32,11 +32,11 @@ public class Main {
 
             Scanner s = new Scanner(sourceFileName);
             if (testScanner)
-                doTestScanner(s);
+            doTestScanner(s);
             else if (testParser)
-                doTestParser(s);
+            doTestParser(s);
             else if (testChecker)
-                doTestChecker(s);
+            doTestChecker(s);
             // else
             //     doRunRealCompiler(s);
         } catch (PascalError e) {
@@ -112,29 +112,27 @@ public class Main {
         prog.check(library, library);
     }
 
-/* Del 4:
-private static void doRunRealCompiler(Scanner s) {
-System.out.print("Parsing...");
-Program prog = Program.parse(s);
-if (s.curToken.kind != eofToken)
-error("Scanner error: Garbage after the program!");
+    private static void doRunRealCompiler(Scanner s) {
+        System.out.print("Parsing...");
+        Program prog = Program.parse(s);
+        if (s.curToken.kind != eofToken)
+        error("Scanner error: Garbage after the program!");
 
-if (log.doLogPrettyPrint)
-prog.prettyPrint();
+        if (log.doLogPrettyPrint)
+        prog.prettyPrint();
 
-System.out.print(" checking...");
-library = new Library();
-prog.check(library, library);
+        System.out.print(" checking...");
+        library = new Library(0);
+        prog.check(library, library);
 
-System.out.print(" generating code...");
-CodeFile code = new CodeFile(baseFileName+".s");
-library.genCode(code);  prog.genCode(code);
-code.finish();
-System.out.println("OK");
+        System.out.print(" generating code...");
+        CodeFile code = new CodeFile(baseFileName+".s");
+        library.genCode(code);  prog.genCode(code);
+        code.finish();
+        System.out.println("OK");
 
-assembleCode();
-}
-*/
+        assembleCode();
+    }
 
     private static void assembleCode() {
         String pName = baseFileName;

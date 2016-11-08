@@ -2,7 +2,7 @@ package parser;
 
 import scanner.Scanner;
 import static scanner.TokenKind.*;
-import main.Main;
+import main.*;
 import java.util.ArrayList;
 
 public class ConstDeclPart extends PascalSyntax{
@@ -15,6 +15,11 @@ public class ConstDeclPart extends PascalSyntax{
     public ConstDeclPart(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

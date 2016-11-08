@@ -1,6 +1,6 @@
 package parser;
 
-import main.Main;
+import main.*;
 
 class TypeDecl extends PascalDecl{
     public TypeDecl(String id,int lNum){

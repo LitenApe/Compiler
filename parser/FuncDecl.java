@@ -2,7 +2,7 @@ package parser;
 
 import scanner.Scanner;
 import static scanner.TokenKind.*;
-import main.Main;
+import main.*;
 
 public class FuncDecl extends ProcDecl{
 
@@ -16,6 +16,11 @@ public class FuncDecl extends ProcDecl{
     public FuncDecl(String id, int lNum){
         super(id, lNum);
     }/*Enc constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

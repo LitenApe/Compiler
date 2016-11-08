@@ -1,7 +1,7 @@
 package parser;
 import scanner.Scanner;
 import static scanner.TokenKind.*;
-import main.Main;
+import main.*;
 
 public class NamedConst extends UnsignedConstant{
 
@@ -10,6 +10,11 @@ public class NamedConst extends UnsignedConstant{
     public NamedConst(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

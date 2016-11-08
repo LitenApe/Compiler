@@ -1,7 +1,7 @@
 package parser;
 
 import scanner.*;
-import main.Main;
+import main.*;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +21,11 @@ public class Block extends PascalSyntax{
     public Block(int lineNum){
         super(lineNum);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     public void addDecl(String id, PascalDecl declaration){
         if (decls.containsKey(id))

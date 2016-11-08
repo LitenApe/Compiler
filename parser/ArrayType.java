@@ -15,6 +15,11 @@ public class ArrayType extends Type{
     }/*Enc constructor*/
 
     @Override
+    public void genCode(CodeFile f){
+
+    }
+
+    @Override
     public void check(Block curScope, Library lib){
         preConstant.check(curScope,lib);
         postConstant.check(curScope,lib);

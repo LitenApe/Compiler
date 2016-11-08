@@ -1,6 +1,6 @@
 package parser;
 
-import main.Main;
+import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -11,6 +11,11 @@ public abstract class Operator extends PascalSyntax{
     public Operator(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public String identify() {

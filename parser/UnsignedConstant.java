@@ -1,4 +1,5 @@
 package parser;
+import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -11,6 +12,11 @@ public abstract class UnsignedConstant extends Factor{
     public UnsignedConstant(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public String identify() {

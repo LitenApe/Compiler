@@ -1,6 +1,6 @@
 package parser;
 
-import main.Main;
+import main.*;
 import java.util.HashMap;
 import java.util.ArrayList;
 
@@ -22,6 +22,11 @@ public class Library extends Block{
         procedures.put("char",new TypeDecl("char",0));
         procedures.put("eol",new ConstDecl("eol",0));
     }/*End of constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     public PascalDecl findDecl(String id, PascalSyntax where){
         PascalDecl found = procedures.get(id);

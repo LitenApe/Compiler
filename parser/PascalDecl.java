@@ -1,5 +1,6 @@
 package parser;
 
+import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -11,6 +12,11 @@ public abstract class PascalDecl extends PascalSyntax {
     PascalDecl(String id, int lNum) {
     	super(lNum);
     	name = id;
+    }
+
+    @Override
+    public void genCode(CodeFile f){
+
     }
 
     @Override

@@ -1,7 +1,7 @@
 package parser;
 
 import java.util.ArrayList;
-import main.Main;
+import main.*;
 import scanner.*;
 import static scanner.TokenKind.*;
 
@@ -14,6 +14,11 @@ public class ProcCallStatm extends Statement{
     public ProcCallStatm(int n){
         super(n);
     } /* End of constructor */
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

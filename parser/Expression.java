@@ -2,7 +2,7 @@ package parser;
 
 import scanner.*;
 import types.Type;
-import main.Main;
+import main.*;
 import static scanner.TokenKind.*;
 
 public class Expression extends PascalSyntax{
@@ -15,6 +15,11 @@ public class Expression extends PascalSyntax{
     public Expression(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

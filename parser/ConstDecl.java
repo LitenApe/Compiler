@@ -2,7 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
-import main.Main;
+import main.*;
 
 public class ConstDecl extends PascalDecl{
 
@@ -18,6 +18,11 @@ public class ConstDecl extends PascalDecl{
     public ConstDecl(String id, int lNum, Library lib){
         super(id, lNum);
         type = lib.booleanType;
+    }
+
+    @Override
+    public void genCode(CodeFile f){
+
     }
 
     @Override

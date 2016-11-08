@@ -3,7 +3,7 @@ package parser;
 import scanner.Scanner;
 import static scanner.TokenKind.*;
 import java.util.ArrayList;
-import main.Main;
+import main.*;
 import types.*;
 
 public class VarDeclPart extends PascalSyntax{
@@ -15,6 +15,11 @@ public class VarDeclPart extends PascalSyntax{
     public VarDeclPart(int n){
         super(n);
     } /* End of constructor */
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){

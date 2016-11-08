@@ -2,7 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
-import main.Main;
+import main.*;
 
 public abstract class Statement extends PascalSyntax{
 
@@ -11,6 +11,11 @@ public abstract class Statement extends PascalSyntax{
     public Statement(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public String identify() {

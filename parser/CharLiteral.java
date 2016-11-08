@@ -2,7 +2,7 @@ package parser;
 
 import scanner.*;
 import static scanner.TokenKind.*;
-import main.Main;
+import main.*;
 import types.CharType;
 
 public class CharLiteral extends UnsignedConstant{
@@ -14,6 +14,11 @@ public class CharLiteral extends UnsignedConstant{
     public CharLiteral(int n){
         super(n);
     }/*End constructor*/
+
+    @Override
+    public void genCode(CodeFile f){
+
+    }
 
     @Override
     public void check(Block curScope, Library lib){
