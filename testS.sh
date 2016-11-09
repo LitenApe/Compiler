@@ -4,7 +4,7 @@ mkdir -p pascal/resLogs/parserLog
 mkdir -p pascal/resLogs/checkerLog
 
 # flag
-mode="-testchecker"
+mode=""
 
 # get current path
 curPath=$(pwd)
@@ -13,7 +13,7 @@ curPath=$(pwd)
 ant jar
 
 if [[ ${#@} > 0 ]]; then
-    java -jar pascal2016.jar $mode "pascal/testFiles/$1";
+    java -jar pascal2016.jar "pascal/testFiles/$1";
 else
     for f in $(find pascal/testFiles -type f -name '*.pas'); do
         java -jar pascal2016.jar $mode $f; echo ' '

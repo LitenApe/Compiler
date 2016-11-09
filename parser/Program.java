@@ -19,7 +19,7 @@ public class Program extends PascalDecl{
 
     @Override
     public void genCode(CodeFile f){
-
+        
     }
 
     @Override
