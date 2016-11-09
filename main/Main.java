@@ -22,7 +22,7 @@ public class Main {
         OS = System.getProperty("os.name");
         System.out.println("This is the Ifi Pascal2016 compiler (" +
         version + ") running on " + OS);
-        
+
         String[] sFile = arg[arg.length - 1].split("/");
         System.out.println("source file: " + sFile[sFile.length - 1]);
 
@@ -33,13 +33,13 @@ public class Main {
 
             Scanner s = new Scanner(sourceFileName);
             if (testScanner)
-            doTestScanner(s);
+                doTestScanner(s);
             else if (testParser)
-            doTestParser(s);
+                doTestParser(s);
             else if (testChecker)
-            doTestChecker(s);
-            // else
-            //     doRunRealCompiler(s);
+                doTestChecker(s);
+            else
+                doRunRealCompiler(s);
         } catch (PascalError e) {
             System.out.println();
             System.err.println(e.getMessage());
@@ -122,11 +122,11 @@ public class Main {
         if (log.doLogPrettyPrint)
         prog.prettyPrint();
 
-        System.out.print(" checking...");
+        System.out.println(" checking...");
         library = new Library(0);
         prog.check(library, library);
 
-        System.out.print(" generating code...");
+        System.out.println(" generating code...");
         CodeFile code = new CodeFile(baseFileName+".s");
         library.genCode(code);  prog.genCode(code);
         code.finish();

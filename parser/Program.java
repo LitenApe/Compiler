@@ -19,7 +19,12 @@ public class Program extends PascalDecl{
 
     @Override
     public void genCode(CodeFile f){
-        
+        System.out.println("[ ] Program: " + progName);
+        String testLabel = f.getLocalLabel(),
+        endLabel = f.getLocalLabel();
+        f.genInstr(testLabel, "", "", "Start program " + progName.name);
+        progBlock.genCode(f);
+        f.genInstr(endLabel, "", "", "End program " + progName.name);
     }
 
     @Override
