@@ -24,7 +24,7 @@ public class Block extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Block");
     }
 
     public void addDecl(String id, PascalDecl declaration){

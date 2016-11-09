@@ -21,7 +21,7 @@ public class CodeFile {
     }
 
     void finish() {
-	code.close();
+    	code.close();
     }
 
     public String identify() {

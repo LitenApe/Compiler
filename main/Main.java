@@ -114,7 +114,7 @@ public class Main {
     }
 
     private static void doRunRealCompiler(Scanner s) {
-        System.out.print("Parsing...");
+        System.out.println("Parsing...");
         Program prog = Program.parse(s);
         if (s.curToken.kind != eofToken)
         error("Scanner error: Garbage after the program!");
@@ -122,11 +122,11 @@ public class Main {
         if (log.doLogPrettyPrint)
         prog.prettyPrint();
 
-        System.out.println(" checking...");
+        System.out.println("checking...");
         library = new Library(0);
         prog.check(library, library);
 
-        System.out.println(" generating code...");
+        System.out.println("generating code...");
         CodeFile code = new CodeFile(baseFileName+".s");
         library.genCode(code);  prog.genCode(code);
         code.finish();
