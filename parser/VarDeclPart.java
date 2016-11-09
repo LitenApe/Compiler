@@ -18,7 +18,7 @@ public class VarDeclPart extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Variable Decleration Part");
     }
 
     @Override

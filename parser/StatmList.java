@@ -15,7 +15,10 @@ public class StatmList extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Statement List");
+        for(Statement st : statmList){
+            st.genCode(f);
+        }
     }
 
     @Override

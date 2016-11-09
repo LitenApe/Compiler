@@ -18,7 +18,7 @@ public class ConstDeclPart extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Constant Decleration Part");
     }
 
     @Override

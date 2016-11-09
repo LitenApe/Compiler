@@ -17,7 +17,10 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Procedure Call Statement");
+        for(Expression e : exp){
+            e.genCode(f);
+        }
     }
 
     @Override
