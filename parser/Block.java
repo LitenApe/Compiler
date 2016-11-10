@@ -18,7 +18,7 @@ public class Block extends PascalSyntax{
     public Block outerScope = null;
     public static Library library = null;
     public static int defaultPos = 32;
-    public static int blockLvl = 1;
+    public int blockLvl = 0;
 
     public Block(int lineNum){
         super(lineNum);
@@ -75,6 +75,7 @@ public class Block extends PascalSyntax{
     @Override
     public void check(Block curScope, Library lib){
         outerScope = curScope;
+        blockLvl = curScope.blockLvl + 1;
         library = lib; //NOTE: why does it not work without this???
 
         if(constDeclPart != null)

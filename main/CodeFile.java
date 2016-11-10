@@ -10,14 +10,14 @@ public class CodeFile {
     private int numLabels = 0;
 
     CodeFile(String fName) {
-	codeFileName = fName;
-	try {
-	    code = new PrintWriter(fName);
-	} catch (FileNotFoundException e) {
-	    Main.error("Cannot create code file " + fName + "!");
-	}
-	// code.println("# Code file created by Pascal2016 compiler " +
-	    // new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+    	codeFileName = fName;
+    	try {
+    	    code = new PrintWriter(fName);
+    	} catch (FileNotFoundException e) {
+    	    Main.error("Cannot create code file " + fName + "!");
+    	}
+    	// code.println("# Code file created by Pascal2016 compiler " +
+    	    // new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
     }
 
     void finish() {

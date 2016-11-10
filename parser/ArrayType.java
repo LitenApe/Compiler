@@ -8,7 +8,6 @@ public class ArrayType extends Type{
 
     public Constant preConstant = null;
     public Constant postConstant = null;
-    // public Type pType = null;
 
     public ArrayType(int lNum){
         super(lNum);
