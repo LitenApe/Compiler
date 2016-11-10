@@ -20,7 +20,17 @@ public class ProcCallStatm extends Statement{
         System.out.println("[-] Procedure Call Statement");
         for(Expression e : exp){
             e.genCode(f);
-            f.genInstr("", "pushl", "%eax", "pushing value on stack");
+            f.genInstr("", "pushl", "%eax", "Push next param.");
+            if(namedConst.name.equals("write")){
+                if(e.type.toString().equals("integer")){
+                    f.genInstr("", "call", "write_char", "");
+                }else if(e.type.toString().equals("character")){
+                    f.genInstr("", "call", "write_char", "");
+                }else if(e.type.toString().equals("boolean")){
+                    f.genInstr("", "call", "write_char", "");
+                }
+            }
+            f.genInstr("", "addl", "$4,%esp", "Pop param.");
         }
     }
 

@@ -22,14 +22,15 @@ public class Program extends PascalDecl{
         System.out.println("[-] Program: " + progName);
         String testLabel = "prog$" + progName.name + "_1",
         endLabel = f.getLocalLabel();
-        f.genInstr("", ".global", "main", "");
+        f.genInstr("", ".globl", "main", "");
         f.genInstr("main", "", "", "");
-        f.genInstr("", "call ", testLabel, "start program");
-        f.genInstr("", "movl", "$0, %eax", "set return value");
-        f.genInstr("", "ret", "", "quit program");
+        f.genInstr("", "call ", testLabel, "Start program");
+        f.genInstr("", "movl", "$0,%eax", "Set status 0 and");
+        f.genInstr("", "ret", "", "terminate the program");
         f.genInstr(testLabel, "", "", "");
+        f.genInstr("", "enter", "$" + progBlock.defaultPos + ",$" + progBlock.blockLvl, "Start of " + progName.name);
         progBlock.genCode(f);
-        f.genInstr("", "leave", "", "end of " + progName.name);
+        f.genInstr("", "leave", "", "End of " + progName.name);
         f.genInstr("", "ret", "", "");
     }
 

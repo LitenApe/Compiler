@@ -16,8 +16,8 @@ public class CodeFile {
 	} catch (FileNotFoundException e) {
 	    Main.error("Cannot create code file " + fName + "!");
 	}
-	code.println("# Code file created by Pascal2016 compiler " +
-	    new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+	// code.println("# Code file created by Pascal2016 compiler " +
+	    // new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
     }
 
     void finish() {

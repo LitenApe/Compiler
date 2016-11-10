@@ -32,3 +32,4 @@ function diffFiles {
 diffFiles scanner scannerLog SCANNER
 diffFiles parser parserLog PARSER
 diffFiles checker checkerLog CHECKER
+diffFiles assembler assembler ASSEMBLER
