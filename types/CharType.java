@@ -3,7 +3,7 @@ package types;
 public class CharType extends Type {
     @Override
     public String identify() {
-    	return "type Char";
+    	return "write_char";
     }
 
     public String toString(){

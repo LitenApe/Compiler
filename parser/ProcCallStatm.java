@@ -22,13 +22,11 @@ public class ProcCallStatm extends Statement{
             e.genCode(f);
             f.genInstr("", "pushl", "%eax", "Push next param.");
             if(namedConst.name.equals("write")){
-                if(e.type.toString().equals("integer")){
-                    f.genInstr("", "call", "write_char", "");
-                }else if(e.type.toString().equals("character")){
-                    f.genInstr("", "call", "write_char", "");
-                }else if(e.type.toString().equals("boolean")){
-                    f.genInstr("", "call", "write_char", "");
-                }
+                String sType = e.type.toString();
+                if(sType.equals("integer") || sType.equals("character") || sType.equals("boolean"))
+                    f.genInstr("", "call", e.type.identify(), "");
+                else
+                    error(sType + " is a invalid type that encountered during writing");
             }
             f.genInstr("", "addl", "$4,%esp", "Pop param.");
         }
