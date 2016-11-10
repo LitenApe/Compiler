@@ -17,7 +17,12 @@ public class Term extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[-] Term");
+        for(int i = 0; i < factors.size(); i++){
+            factors.get(i).genCode(f);
+            if(i < factorOpr.size())
+                factorOpr.get(i).genCode(f);
+        }
     }
 
     @Override

@@ -14,7 +14,7 @@ public class TermOperator extends Operator{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Term Operator");
     }
 
     @Override

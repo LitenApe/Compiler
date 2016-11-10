@@ -32,11 +32,11 @@ Pascal kompilator
     - [x] primes.pas
     - [x] 10star.pas
     - [x] gcd.pas
-  - [ ] Part 3: Checker
+  - [x] Part 3: Checker
     - [x] mini.pas
     - [x] eater.pas
     - [x] opers.pas
-    - [ ] primes.pas
+    - [x] primes.pas
     - [x] 10star.pas
     - [x] gcd.pas
   - [ ] Part 4: Code generator

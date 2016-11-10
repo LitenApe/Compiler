@@ -17,6 +17,8 @@ public class Block extends PascalSyntax{
     public HashMap<String, PascalDecl> decls = new HashMap<>();
     public Block outerScope = null;
     public static Library library = null;
+    public static int defaultPos = 32;
+    public static int blockLvl = 0;
 
     public Block(int lineNum){
         super(lineNum);
@@ -25,6 +27,8 @@ public class Block extends PascalSyntax{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[-] Block");
+        blockLvl++;
+        f.genInstr("", "enter", "$" + defaultPos + ", $" + blockLvl, "");
         if(constDeclPart != null){
             constDeclPart.genCode(f);
         }

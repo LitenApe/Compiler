@@ -19,7 +19,13 @@ public class SimpleExpr extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
+        System.out.println("[-] Simple Expression");
 
+        for(int i = 0; i < term.size(); i++){
+            term.get(i).genCode(f);
+            if(i < termOpr.size())
+                termOpr.get(i).genCode(f);
+        }
     }
 
     @Override

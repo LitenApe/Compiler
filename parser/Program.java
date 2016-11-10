@@ -20,7 +20,7 @@ public class Program extends PascalDecl{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[-] Program: " + progName);
-        String testLabel = "prog$" + progName.name,
+        String testLabel = "prog$" + progName.name + "_1",
         endLabel = f.getLocalLabel();
         f.genInstr("", ".global", "main", "");
         f.genInstr("main", "", "", "");
@@ -29,6 +29,8 @@ public class Program extends PascalDecl{
         f.genInstr("", "ret", "", "quit program");
         f.genInstr(testLabel, "", "", "");
         progBlock.genCode(f);
+        f.genInstr("", "leave", "", "end of " + progName.name);
+        f.genInstr("", "ret", "", "");
     }
 
     @Override
