@@ -7,7 +7,7 @@ prog$mini_1:
         enter   $32,$1                  # Start of mini
         movl    $120,%eax               #   'x'
         pushl   %eax                    # Push next param.
-        call    write_char              
+        call    write_char
         addl    $4,%esp                 # Pop param.
         leave                           # End of mini
-        ret                             
+        ret
