@@ -16,7 +16,7 @@ public class PrefixOperator extends Operator{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Prefix Operator");
     }
 
     @Override

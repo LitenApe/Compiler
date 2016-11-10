@@ -17,7 +17,7 @@ public class ProcDecl extends PascalDecl{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Procedure Decleration");
     }
 
     @Override

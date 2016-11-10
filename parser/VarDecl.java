@@ -18,7 +18,7 @@ public class VarDecl extends PascalDecl{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Variable Decleration");
     }
 
     @Override

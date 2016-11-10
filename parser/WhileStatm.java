@@ -14,6 +14,7 @@ public class WhileStatm extends Statement{
 
     @Override
     public void genCode(CodeFile f){
+        System.out.println("[ ] While Statement");
         String testLabel = f.getLocalLabel(),
         endLabel = f.getLocalLabel();
         f.genInstr(testLabel, "", "", "Start while-statement");

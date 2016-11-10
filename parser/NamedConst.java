@@ -13,7 +13,7 @@ public class NamedConst extends UnsignedConstant{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Named Constant");
     }
 
     @Override

@@ -14,7 +14,7 @@ public class TypeName extends Type{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Type Name");
     }
 
     @Override

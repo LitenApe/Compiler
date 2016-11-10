@@ -14,7 +14,7 @@ public abstract class Factor extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Factor");
     }
 
     @Override

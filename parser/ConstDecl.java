@@ -22,7 +22,7 @@ public class ConstDecl extends PascalDecl{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Constant Decleration");
     }
 
     @Override

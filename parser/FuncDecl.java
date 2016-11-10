@@ -19,7 +19,7 @@ public class FuncDecl extends ProcDecl{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Function Decleration");
     }
 
     @Override

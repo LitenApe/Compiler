@@ -20,7 +20,7 @@ public class FuncCall extends Factor{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Function Call");
     }
 
     @Override

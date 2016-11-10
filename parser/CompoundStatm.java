@@ -15,7 +15,7 @@ public class CompoundStatm extends Statement{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Compound Statement");
     }
 
     @Override

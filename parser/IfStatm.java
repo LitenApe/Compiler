@@ -18,7 +18,7 @@ public class IfStatm extends Statement{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] If Statement");
     }
 
     @Override

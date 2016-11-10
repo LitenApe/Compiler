@@ -17,9 +17,7 @@ public class EmptyStatm extends Statement{
     public void check(Block curScope, Library lib){}
 
     @Override
-    public void genCode(CodeFile f){
-
-    }
+    public void genCode(CodeFile f){}
 
     @Override
     public String identify() {

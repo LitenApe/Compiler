@@ -16,7 +16,7 @@ public class ArrayType extends Type{
 
     @Override
     public void genCode(CodeFile f){
-
+        System.out.println("[ ] Array Type");
     }
 
     @Override
