@@ -28,8 +28,9 @@ public class AssignStatm extends Statement{
         if(variable.decl instanceof ConstDecl){
             error("You cannot assign to a constant");
         }
+
         type = variable.type;
-        type.checkType(type, ":=", expression, "Error message plz");
+        type.checkType(type, ":=", expression, "Value and expression is of different types");
     }
 
     @Override
