@@ -27,21 +27,21 @@ public class Block extends PascalSyntax{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[-] Block");
-        if(constDeclPart != null){
-            constDeclPart.genCode(f);
-        }
-
-        if(varDeclPart != null){
-            varDeclPart.genCode(f);
-        }
-
-        if(procAndFuncDecls.isEmpty()){
-            for(ProcDecl pd : procAndFuncDecls){
-                pd.genCode(f);
-            }
-        }
-
-        statmList.genCode(f);
+        // if(constDeclPart != null){
+        //     constDeclPart.genCode(f);
+        // }
+        //
+        // if(varDeclPart != null){
+        //     varDeclPart.genCode(f);
+        // }
+        //
+        // if(!procAndFuncDecls.isEmpty()){
+        //     for(ProcDecl pd : procAndFuncDecls){
+        //         pd.genCode(f);
+        //     }
+        // }
+        //
+        // statmList.genCode(f);
     }
 
     public void addDecl(String id, PascalDecl declaration){

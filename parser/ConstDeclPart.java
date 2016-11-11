@@ -22,7 +22,7 @@ public class ConstDeclPart extends PascalSyntax{
 
         for (int i = constDeclarations.size()-1; i >= 0; i--){
             constDeclarations.get(i).genCode(f);
-            f.genInstr("", "pushl", "%eax", "push param #" + i+1);
+            f.genInstr("", "pushl", "%eax", "push param #" + (i+1));
         }
     }
 

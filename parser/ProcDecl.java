@@ -10,6 +10,7 @@ public class ProcDecl extends PascalDecl{
     public NamedConst procName = null;
     public ParamDeclList paramDecl = null;
     public Block block = null;
+    public String label = null;
 
     public ProcDecl(String id, int lNum){
         super(id, lNum);
@@ -20,7 +21,8 @@ public class ProcDecl extends PascalDecl{
         System.out.println("[-x?] Procedure Decleration");
 
         int numBytes = paramDecl.listOfParamDecls.size()*4;
-        f.genInstr("proc$"+procName.name+"_"+block.blockLvl,"","","");
+        label = f.getLabel(procName.name);
+        f.genInstr("proc$"+label,"","","");
         f.genInstr("","enter","$"+32+numBytes+",$"+block.blockLvl,"");
         block.genCode(f);
         f.genInstr("","leave","","");

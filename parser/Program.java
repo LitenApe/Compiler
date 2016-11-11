@@ -20,16 +20,31 @@ public class Program extends PascalDecl{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[-] Program: " + progName);
-        String testLabel = "prog$" + f.getLabel(progName.name),
-        endLabel = f.getLocalLabel();
+        String testLabel = "prog$" + f.getLabel(progName.name);
         f.genInstr("", ".globl", "main", "");
         f.genInstr("main", "", "", "");
         f.genInstr("", "call ", testLabel, "Start program");
         f.genInstr("", "movl", "$0,%eax", "Set status 0 and");
         f.genInstr("", "ret", "", "terminate the program");
+
+        if(!progBlock.procAndFuncDecls.isEmpty())
+            for(ProcDecl pd : progBlock.procAndFuncDecls){
+                pd.genCode(f);
+            }
+
         f.genInstr(testLabel, "", "", "");
         f.genInstr("", "enter", "$" + progBlock.defaultPos + ",$" + progBlock.blockLvl, "Start of " + progName.name);
-        progBlock.genCode(f);
+
+        if(progBlock.constDeclPart != null){
+            progBlock.constDeclPart.genCode(f);
+        }
+
+        if(progBlock.varDeclPart != null){
+            progBlock.varDeclPart.genCode(f);
+        }
+
+        progBlock.statmList.genCode(f);
+
         f.genInstr("", "leave", "", "End of " + progName.name);
         f.genInstr("", "ret", "", "");
     }

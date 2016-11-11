@@ -12,6 +12,7 @@ public class FuncDecl extends ProcDecl{
     public TypeName typeName = null;
     public Block block = null;
     public PascalDecl returnValue = null;
+    public String label = null;
 
     public FuncDecl(String id, int lNum){
         super(id, lNum);
@@ -22,7 +23,8 @@ public class FuncDecl extends ProcDecl{
         System.out.println("[-x?] Function Decleration");
 
         int numBytes = pDeclList.listOfParamDecls.size()*4;
-        f.genInstr("func$"+funcName.name+"_"+block.blockLvl,"","","");
+        label = f.getLabel(funcName.name);
+        f.genInstr("func$" + label,"","","");
         f.genInstr("","enter","$"+32+numBytes+",$"+block.blockLvl,"");
         block.genCode(f);
         f.genInstr("","movl","-32(%ebp),%eax","");

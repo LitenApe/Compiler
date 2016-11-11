@@ -3,12 +3,17 @@ main:
         call    prog$gcd_1              # Start program
         movl    $0,%eax                 # Set status 0 and
         ret                             # terminate the program
+func$gcd_2:
+        enter   $328,$2                 
+        movl    -32(%ebp),%eax          
+        leave                           
+        ret                             
 prog$gcd_1:
         enter   $32,$1                  # Start of gcd
         movl    $462,%eax               #   '462'
-        pushl   %eax                    # push param #11
+        pushl   %eax                    # push param #2
         movl    $1071,%eax              #   '1071'
-        pushl   %eax                    # push param #01
+        pushl   %eax                    # push param #1
         pushl   %eax                    # Push next param.
         addl    $4,%esp                 # Pop param.
         pushl   %eax                    # Push next param.
