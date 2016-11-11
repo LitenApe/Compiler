@@ -23,6 +23,7 @@ public class Constant extends PascalSyntax{
         System.out.println("[x] Constant");
 
         uConstant.genCode(f);
+        // decl.genCode(f);
         if (prefixOpr != null)
             f.genInstr("","negl","%eax","--- constant");
     }
