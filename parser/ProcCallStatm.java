@@ -17,18 +17,26 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[-] Procedure Call Statement");
-        for(Expression e : exp){
+        System.out.println("[-x?] Procedure Call Statement");
+        // tmp
+        Expression e = null;
+        for(int i = exp.size()-1; i >= 0; i--){
+            e = exp.get(i);
             e.genCode(f);
             f.genInstr("", "pushl", "%eax", "Push next param.");
             if(namedConst.name.equals("write")){
-                String sType = e.type.toString();
-                if(sType.equals("integer") || sType.equals("character") || sType.equals("boolean"))
-                    f.genInstr("", "call", e.type.identify(), "");
-                else
-                    error(sType + " is a invalid type that encountered during writing");
+                if (e.type != null){
+                    String sType = e.type.toString(); //NOTE: Null pointer fixed. Why was this null?
+
+                    if(sType.equals("integer") ||
+                            sType.equals("character") ||
+                                sType.equals("boolean"))
+                       f.genInstr("", "call", e.type.identify(), ""); //smart
+                    else
+                       error(sType + " is a invalid type that encountered during writing");
+                }
             }
-            f.genInstr("", "addl", "$4,%esp", "Pop param.");
+            f.genInstr("", "addl","$4,%esp", "Pop param.");
         }
     }
 

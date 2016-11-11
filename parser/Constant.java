@@ -20,7 +20,11 @@ public class Constant extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[ ] Constant");
+        System.out.println("[x] Constant");
+
+        uConstant.genCode(f);
+        if (prefixOpr != null)
+            f.genInstr("","negl","%eax","");
     }
 
     @Override

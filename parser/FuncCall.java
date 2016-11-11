@@ -11,8 +11,8 @@ public class FuncCall extends Factor{
 
     NamedConst name = null;
     ArrayList<Expression> expressions = new ArrayList<>();
+    ArrayList<ParamDecl> declParameters = null; //actually local(?)
     FuncDecl decl = null;
-    ArrayList<ParamDecl> declParameters = null;
 
     public FuncCall(int n){
         super(n);
@@ -20,7 +20,14 @@ public class FuncCall extends Factor{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[ ] Function Call");
+        System.out.println("[-x?] Function Call");
+
+        for (int i = expressions.size()-1; i >= 0; i--){
+            expressions.get(i).genCode(f);
+            f.genInstr("","pushl","%eax","Push next param.");
+        }
+        f.genInstr("","call",name.name+"$NOTE: BLOCK_LEVEL","");
+        f.genInstr("","addl",""+expressions.size()*4+",%esp","Pop param.");
     }
 
     @Override

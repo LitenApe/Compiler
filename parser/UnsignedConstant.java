@@ -15,7 +15,7 @@ public abstract class UnsignedConstant extends Factor{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[ ] Unsigned Constant");
+        System.out.println("[x] Unsigned Constant");
     }
 
     @Override

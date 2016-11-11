@@ -26,6 +26,9 @@ public class Library extends Block{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[ ] Library");
+
+        
+
     }
 
     public PascalDecl findDecl(String id, PascalSyntax where){
