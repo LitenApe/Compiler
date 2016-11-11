@@ -24,12 +24,12 @@ public class FuncDecl extends ProcDecl{
 
         int numBytes = pDeclList.listOfParamDecls.size()*4;
         label = f.getLabel(funcName.name);
-        f.genInstr("func$" + label,"","","");
-        f.genInstr("","enter","$"+32+numBytes+",$"+block.blockLvl,"");
+        f.genInstr("func$" + label,"","","--- func decl");
+        f.genInstr("","enter","$"+32+numBytes+",$"+block.blockLvl,"--- func decl");
         block.genCode(f);
-        f.genInstr("","movl","-32(%ebp),%eax","");
-        f.genInstr("","leave","","");
-        f.genInstr("","ret","","");
+        f.genInstr("","movl","-32(%ebp),%eax","--- func decl");
+        f.genInstr("","leave","","--- func decl");
+        f.genInstr("","ret","","--- func decl");
     }
 
     @Override

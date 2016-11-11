@@ -21,32 +21,25 @@ public class Program extends PascalDecl{
     public void genCode(CodeFile f){
         System.out.println("[-] Program: " + progName);
         String testLabel = "prog$" + f.getLabel(progName.name);
-        f.genInstr("", ".globl", "main", "");
-        f.genInstr("main", "", "", "");
-        f.genInstr("", "call ", testLabel, "Start program");
-        f.genInstr("", "movl", "$0,%eax", "Set status 0 and");
-        f.genInstr("", "ret", "", "terminate the program");
+        f.genInstr("", ".globl", "main", "--- program");
+        f.genInstr("main", "", "", "--- program");
+        f.genInstr("", "call ", testLabel, "Start program --- program");
+        f.genInstr("", "movl", "$0,%eax", "Set status 0 and --- program");
+        f.genInstr("", "ret", "", "terminate the program --- program");
 
-        if(!progBlock.procAndFuncDecls.isEmpty())
+        if(!progBlock.procAndFuncDecls.isEmpty()){
             for(ProcDecl pd : progBlock.procAndFuncDecls){
                 pd.genCode(f);
             }
-
-        f.genInstr(testLabel, "", "", "");
-        f.genInstr("", "enter", "$" + progBlock.defaultPos + ",$" + progBlock.blockLvl, "Start of " + progName.name);
-
-        if(progBlock.constDeclPart != null){
-            progBlock.constDeclPart.genCode(f);
         }
 
-        if(progBlock.varDeclPart != null){
-            progBlock.varDeclPart.genCode(f);
-        }
+        f.genInstr(testLabel, "", "", "--- program");
+        f.genInstr("", "enter", "$" + progBlock.defaultPos + ",$" + progBlock.blockLvl, "Start of " + progName.name + "--- program");
 
-        progBlock.statmList.genCode(f);
+        progBlock.genCode(f);
 
-        f.genInstr("", "leave", "", "End of " + progName.name);
-        f.genInstr("", "ret", "", "");
+        f.genInstr("", "leave", "", "End of " + progName.name + "--- program");
+        f.genInstr("", "ret", "", "--- program");
     }
 
     @Override

@@ -19,10 +19,10 @@ public class WhileStatm extends Statement{
         endLabel = f.getLocalLabel();
         f.genInstr(testLabel, "", "", "Start while-statement");
         expr.genCode(f);
-        f.genInstr("", "cmpl", "$0,%eax", "");
-        f.genInstr("", "je", endLabel, "");
+        f.genInstr("", "cmpl", "$0,%eax", "--- while statm");
+        f.genInstr("", "je", endLabel, "--- while statm");
         body.genCode(f);
-        f.genInstr("", "jmp", testLabel, "");
+        f.genInstr("", "jmp", testLabel, "--- while statm");
         f.genInstr(endLabel, "", "", "End while-statement");
     }
 

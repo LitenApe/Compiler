@@ -24,10 +24,11 @@ public class FuncCall extends Factor{
 
         for (int i = expressions.size()-1; i >= 0; i--){
             expressions.get(i).genCode(f);
-            f.genInstr("","pushl","%eax","Push next param.");
+            f.genInstr("","pushl","%eax","Push next param. --- func call");
         }
-        f.genInstr("","call",name.name+"$NOTE: BLOCK_LEVEL","");
-        f.genInstr("","addl",""+expressions.size()*4+",%esp","Pop param.");
+
+        f.genInstr("","call",decl.label,"Call function --- func call");
+        f.genInstr("","addl",""+expressions.size()*4+",%esp","Pop param. --- func call");
     }
 
     @Override

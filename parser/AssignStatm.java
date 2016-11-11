@@ -18,6 +18,8 @@ public class AssignStatm extends Statement{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[ ] Assign Statement");
+        expression.genCode(f);
+        variable.genCode(f);
     }
 
     @Override
