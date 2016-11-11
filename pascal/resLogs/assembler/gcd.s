@@ -7,11 +7,13 @@ main:
 func$gcd_2:
                                         # --- func decl
         enter   $328,$2                 # --- func decl
-        cmpl    $0,%eax                 
-        je      .L0003                  
+        cmpl    $0,%eax                 # --- if statm
+        je      .L0003                  # --- if statm
 .L0003:
-        jmp     .L0004                  
+                                        # --- if statm
+        jmp     .L0004                  # --- if statm
 .L0004:
+                                        # --- if statm
         pushl   %eax                    # Push next param. --- func call
         pushl   %eax                    # Push next param. --- func call
         call    gcd_2                   # Call function --- func call
@@ -22,52 +24,52 @@ func$gcd_2:
 prog$gcd_1:
                                         # --- program
         enter   $32,$1                  # Start of gcd--- program
-        movl    $462,%eax               #   '462'
+        movl    $462,%eax               #   '462' --- number literal
         pushl   %eax                    # push param #2 --- const decl part
-        movl    $1071,%eax              #   '1071'
+        movl    $1071,%eax              #   '1071' --- number literal
         pushl   %eax                    # push param #1 --- const decl part
         pushl   %eax                    # Push next param. --- func call
         pushl   %eax                    # Push next param. --- func call
         call    gcd_2                   # Call function --- func call
         addl    8,%esp                  # Pop param. --- func call
-        pushl   %eax                    # Push next param.
-        addl    $4,%esp                 # Pop param.
-        pushl   %eax                    # Push next param.
-        call    write_int               
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push next param. --- proc call
+        addl    $4,%esp                 # Pop param. --- proc call
+        pushl   %eax                    # Push next param. --- proc call
+        call    write_int               # --- proc call
+        addl    $4,%esp                 # Pop param. --- proc call
         movl    $61,%eax                #   '='  --- char literal
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push next param. --- proc call
+        call    write_char              # --- proc call
+        addl    $4,%esp                 # Pop param. --- proc call
         movl    $41,%eax                #   ')'  --- char literal
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
-        pushl   %eax                    # Push next param.
-        call    write_int               
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push next param. --- proc call
+        call    write_char              # --- proc call
+        addl    $4,%esp                 # Pop param. --- proc call
+        pushl   %eax                    # Push next param. --- proc call
+        call    write_int               # --- proc call
+        addl    $4,%esp                 # Pop param. --- proc call
         movl    $44,%eax                #   ','  --- char literal
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
-        pushl   %eax                    # Push next param.
-        call    write_int               
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push next param. --- proc call
+        call    write_char              # --- proc call
+        addl    $4,%esp                 # Pop param. --- proc call
+        pushl   %eax                    # Push next param. --- proc call
+        call    write_int               # --- proc call
+        addl    $4,%esp                 # Pop param. --- proc call
         movl    $40,%eax                #   '('  --- char literal
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push next param. --- proc call
+        call    write_char              # --- proc call
+        addl    $4,%esp                 # Pop param. --- proc call
         movl    $68,%eax                #   'D'  --- char literal
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push next param. --- proc call
+        call    write_char              # --- proc call
+        addl    $4,%esp                 # Pop param. --- proc call
         movl    $67,%eax                #   'C'  --- char literal
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push next param. --- proc call
+        call    write_char              # --- proc call
+        addl    $4,%esp                 # Pop param. --- proc call
         movl    $71,%eax                #   'G'  --- char literal
-        pushl   %eax                    # Push next param.
-        call    write_char              
-        addl    $4,%esp                 # Pop param.
+        pushl   %eax                    # Push next param. --- proc call
+        call    write_char              # --- proc call
+        addl    $4,%esp                 # Pop param. --- proc call
         leave                           # End of gcd--- program
         ret                             # --- program

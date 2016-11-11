@@ -23,7 +23,7 @@ public class ProcCallStatm extends Statement{
         for(int i = exp.size()-1; i >= 0; i--){
             e = exp.get(i);
             e.genCode(f);
-            f.genInstr("", "pushl", "%eax", "Push next param.");
+            f.genInstr("", "pushl", "%eax", "Push next param. --- proc call");
             if(namedConst.name.equals("write")){
                 if (e.type != null){
                     String sType = e.type.toString(); //NOTE: Null pointer fixed. Why was this null?
@@ -31,12 +31,12 @@ public class ProcCallStatm extends Statement{
                     if(sType.equals("integer") ||
                             sType.equals("character") ||
                                 sType.equals("boolean"))
-                       f.genInstr("", "call", e.type.identify(), ""); //smart
+                       f.genInstr("", "call", e.type.identify(), "--- proc call"); //smart
                     else
                        error(sType + " is a invalid type that encountered during writing");
                 }
             }
-            f.genInstr("", "addl","$4,%esp", "Pop param.");
+            f.genInstr("", "addl","$4,%esp", "Pop param. --- proc call");
         }
     }
 

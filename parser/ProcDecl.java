@@ -22,17 +22,18 @@ public class ProcDecl extends PascalDecl{
 
         int numBytes = paramDecl.listOfParamDecls.size()*4;
         label = f.getLabel(procName.name);
-        f.genInstr("proc$"+label,"","","");
-        f.genInstr("","enter","$"+32+numBytes+",$"+block.blockLvl,"");
+        f.genInstr("proc$"+label,"","","--- proc call");
+        f.genInstr("","enter","$"+32+numBytes+",$"+block.blockLvl,"--- proc call");
         block.genCode(f);
-        f.genInstr("","leave","","");
-        f.genInstr("","ret","","");
+        f.genInstr("","leave","","--- proc call");
+        f.genInstr("","ret","","--- proc call");
     }
 
     @Override
     public void check(Block curScope, Library lib){
         procName.check(curScope,lib);
         curScope.addDecl(procName.name, this);
+        declLevel = curScope.blockLvl;
 
         if (paramDecl != null)
             paramDecl.check(block, lib);
