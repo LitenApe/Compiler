@@ -16,9 +16,9 @@ public class Variable extends Factor{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[ ] Variable");
-        // System.out.println(decl);
-        // decl.genCode(f);
+        System.out.println("[ ] Variable: "+name.name);
+        // System.out.println("\nVariable: " + name.name + "\nDecl level: "+decl.declLevel+"\nType: "+decl+"\n");
+        
     }
 
     @Override

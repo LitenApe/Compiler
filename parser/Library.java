@@ -27,7 +27,7 @@ public class Library extends Block{
     public void genCode(CodeFile f){
         System.out.println("[ ] Library");
 
-        
+
 
     }
 
