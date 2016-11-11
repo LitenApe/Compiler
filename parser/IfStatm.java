@@ -25,7 +25,7 @@ public class IfStatm extends Statement{
         f.genInstr("","cmpl","$0,%eax","");
         f.genInstr("","je",label,"");
         stat.genCode(f);
-        f.genInstr(label,"","",""); //NOTE: Note same format on if then->else
+        f.genInstr(label,"","",""); //NOTE: Not same format on if then->else as reference code
 
         if (elseExp != null){
             String label2 = f.getLocalLabel();

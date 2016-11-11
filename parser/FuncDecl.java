@@ -20,6 +20,14 @@ public class FuncDecl extends ProcDecl{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[ ] Function Decleration");
+
+        int numBytes = pDeclList.listOfParamDecls.size()*4;
+        f.genInstr("func$"+funcName.name+"_"+block.blockLvl,"","","");
+        f.genInstr("","enter","$"+32+numBytes+",$"+block.blockLvl,"");
+        block.genCode(f);
+        f.genInstr("","movl","-32(%ebp),%eax","");
+        f.genInstr("","leave","","");
+        f.genInstr("","ret","","");
     }
 
     @Override
