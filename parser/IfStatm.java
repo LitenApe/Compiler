@@ -22,16 +22,16 @@ public class IfStatm extends Statement{
 
         //if
         String label = f.getLocalLabel();
-        f.genInstr("","cmpl","$0,%eax","");
-        f.genInstr("","je",label,"");
+        f.genInstr("","cmpl","$0,%eax","--- if statm");
+        f.genInstr("","je",label,"--- if statm");
         stat.genCode(f);
-        f.genInstr(label,"","",""); //NOTE: Not same format on if then->else as reference code
+        f.genInstr(label,"","","--- if statm"); //NOTE: Not same format on if then->else as reference code
 
         if (elseExp != null){
             String label2 = f.getLocalLabel();
-            f.genInstr("","jmp",label2,"");
+            f.genInstr("","jmp",label2,"--- if statm");
             // f.genInstr(label,"","","");
-            f.genInstr(label2,"","","");
+            f.genInstr(label2,"","","--- if statm");
             elseExp.genCode(f);
         }
     }

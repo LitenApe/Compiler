@@ -35,7 +35,8 @@ public class FuncDecl extends ProcDecl{
     @Override
     public void check(Block curScope, Library lib){
         funcName.check(curScope,lib);
-
+        declLevel = curScope.blockLvl;
+        
         if (typeName != null){
             returnValue = curScope.findDecl(typeName.toString(), this);
             type = returnValue.type;
