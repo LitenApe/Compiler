@@ -14,9 +14,9 @@ func$gcd_2:
         jmp     .L0004                  # --- if statm
 .L0004:
                                         # --- if statm
+        call    func$gcd_2              # Call function --- func call
         pushl   %eax                    # Push next param. --- func call
         pushl   %eax                    # Push next param. --- func call
-        call    gcd_2                   # Call function --- func call
         addl    8,%esp                  # Pop param. --- func call
         movl    -32(%ebp),%eax          # --- func decl
         leave                           # --- func decl
@@ -28,9 +28,9 @@ prog$gcd_1:
         pushl   %eax                    # push param #2 --- const decl part
         movl    $1071,%eax              #   '1071' --- number literal
         pushl   %eax                    # push param #1 --- const decl part
+        call    func$gcd_2              # Call function --- func call
         pushl   %eax                    # Push next param. --- func call
         pushl   %eax                    # Push next param. --- func call
-        call    gcd_2                   # Call function --- func call
         addl    8,%esp                  # Pop param. --- func call
         pushl   %eax                    # Push next param. --- proc call
         addl    $4,%esp                 # Pop param. --- proc call
