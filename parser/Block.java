@@ -27,14 +27,14 @@ public class Block extends PascalSyntax{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[-] Block");
-        if(constDeclPart != null){
-            constDeclPart.genCode(f);
-        }
+        // if(constDeclPart != null){
+        //     constDeclPart.genCode(f);
+        // }
+        //
+        // if(varDeclPart != null){
+        //     varDeclPart.genCode(f);
+        // }
 
-        if(varDeclPart != null){
-            varDeclPart.genCode(f);
-        }
-        
         statmList.genCode(f);
     }
 

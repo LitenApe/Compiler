@@ -22,10 +22,6 @@ func$gcd_2:
 prog$gcd_1:
                                         # --- program
         enter   $32,$1                  # Start of gcd--- program
-        movl    $462,%eax               #   '462'
-        pushl   %eax                    # push param #2 --- const decl part
-        movl    $1071,%eax              #   '1071'
-        pushl   %eax                    # push param #1 --- const decl part
         pushl   %eax                    # Push next param. --- func call
         pushl   %eax                    # Push next param. --- func call
         call    gcd_2                   # Call function --- func call
