@@ -17,7 +17,14 @@ public class ProcDecl extends PascalDecl{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[ ] Procedure Decleration");
+        System.out.println("[-x?] Procedure Decleration");
+
+        int numBytes = paramDecl.listOfParamDecls.size()*4;
+        f.genInstr("proc$"+procName.name+"_"+block.blockLvl,"","","");
+        f.genInstr("","enter","$"+32+numBytes+",$"+block.blockLvl,"");
+        block.genCode(f);
+        f.genInstr("","leave","","");
+        f.genInstr("","ret","","");
     }
 
     @Override
