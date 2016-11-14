@@ -15,6 +15,7 @@ public abstract class Statement extends PascalSyntax{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[ ] Statement");
+        
     }
 
     @Override

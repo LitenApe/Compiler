@@ -24,8 +24,7 @@ public class ProcCallStatm extends Statement{
             f.genInstr("", "pushl", "%eax", "Push next param. --- proc call: "+namedConst.name);
             if(namedConst.name.equals("write")){
                 if (e.type != null){
-                    String sType = e.type.toString(); //NOTE: Null pointer fixed. Why was this null?
-
+                    String sType = e.type.toString();
                     if(sType.equals("integer") ||
                             sType.equals("character") ||
                                 sType.equals("boolean"))
@@ -33,8 +32,10 @@ public class ProcCallStatm extends Statement{
                     else
                        error(sType + " is a invalid type that encountered during writing");
                 }
-            }
             f.genInstr("", "addl","$4,%esp", "Pop param. --- proc call: "+namedConst.name);
+            continue;
+            }
+            f.genInstr("", "addl",""+(4*exp.size())+",%esp", "Pop param. --- proc call: "+namedConst.name);
         }
     }
 

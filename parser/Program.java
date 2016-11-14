@@ -35,7 +35,7 @@ public class Program extends PascalDecl{
 
         f.genInstr(testLabel, "", "", "--- program");
         int numBytes = 32+progBlock.varDeclPart.varDecls.size()*4;
-        f.genInstr("", "enter", "$" + numBytes + ",$" + progBlock.blockLvl, "Start of " + progName.name + "--- program");
+        f.genInstr("", "enter", "$" + numBytes + ",$" + declLevel, "Start of " + progName.name + "--- program");
 
         progBlock.genCode(f);
 

@@ -22,10 +22,10 @@ public class FuncDecl extends ProcDecl{
     public void genCode(CodeFile f){
         System.out.println("[-x?] Function Decleration");
 
-        int numBytes = pDeclList.listOfParamDecls.size()*4;
+        int numBytes = block.varDeclPart != null ? 32+block.varDeclPart.varDecls.size()*4 : 32;
         label = f.getLabel(funcName.name);
         f.genInstr("func$" + label,"","","--- func decl");
-        f.genInstr("","enter","$"+32+numBytes+",$"+block.blockLvl,"--- func decl");
+        f.genInstr("","enter","$"+numBytes+",$"+declLevel,"--- func decl");
         block.genCode(f);
         f.genInstr("","movl","-32(%ebp),%eax","--- func decl");
         f.genInstr("","leave","","--- func decl");
@@ -35,8 +35,8 @@ public class FuncDecl extends ProcDecl{
     @Override
     public void check(Block curScope, Library lib){
         funcName.check(curScope,lib);
-        declLevel = curScope.blockLvl;
-        
+        declLevel++;
+
         if (typeName != null){
             returnValue = curScope.findDecl(typeName.toString(), this);
             type = returnValue.type;

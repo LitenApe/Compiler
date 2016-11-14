@@ -23,8 +23,14 @@ public class Expression extends PascalSyntax{
         firstValue.genCode(f);
 
         if(relOperator != null){
-            relOperator.genCode(f);
-            secondValue.genCode(f);
+            if (relOperator.opr == equalToken) {
+                f.genInstr("","pushl","%eax","First on right of = ");
+                secondValue.genCode(f);
+                f.genInstr("","popl","%ecx","Second part of = in to ecx");
+                f.genInstr("","cmpl","%eax,%ecx","compare");
+                f.genInstr("","movl","$0,%eax","idk");
+                f.genInstr("","sete","%al","idk");
+            }
         }
     }
 

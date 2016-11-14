@@ -22,13 +22,12 @@ public class FuncCall extends Factor{
     public void genCode(CodeFile f){
         System.out.println("[-x?] Function Call");
 
-        f.genInstr("","call","func$"+decl.label,"Call function --- func call: "+name.name);
         for (int i = expressions.size()-1; i >= 0; i--){
             expressions.get(i).genCode(f);
             f.genInstr("","pushl","%eax","Push next param. --- func call: "+name.name);
         }
-
-        f.genInstr("","addl",""+expressions.size()*4+",%esp","Pop param. --- func call: "+name.name);
+        f.genInstr("","call","func$"+decl.label,"Call function --- func call: "+name.name);
+        f.genInstr("","addl","$"+(expressions.size()*4)+",%esp","Pop param. --- func call: "+name.name);
     }
 
     @Override

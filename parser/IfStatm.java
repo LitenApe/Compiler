@@ -20,20 +20,30 @@ public class IfStatm extends Statement{
     public void genCode(CodeFile f){
         System.out.println("[?] If Statement");
 
-        //if
-        String label = f.getLocalLabel();
-        f.genInstr("","cmpl","$0,%eax","--- if statm");
-        f.genInstr("","je",label,"--- if statm");
-        stat.genCode(f);
-        f.genInstr(label,"","","--- if statm"); //NOTE: Not same format on if then->else as reference code
-
+        //TODO: Se over, kan optimaliseres om nødvendig men nå er det gjort slik for å fungere riktig (rekkefølge) i gcd.s
         if (elseExp != null){
+            exp.genCode(f);
+            String label = f.getLocalLabel();
+            // exp.genCode(f);
+            f.genInstr("","cmpl","$0,%eax","--- if statm");
+            f.genInstr("","je",label,"--- if statm");
+            stat.genCode(f);
+
             String label2 = f.getLocalLabel();
-            f.genInstr("","jmp",label2,"--- if statm");
-            // f.genInstr(label,"","","");
-            f.genInstr(label2,"","","--- if statm");
+            f.genInstr("","je",label2,"--- if statm");
+            f.genInstr(label,"","","--- if statm stuff sdfbsldfhl");
             elseExp.genCode(f);
+            f.genInstr(label2,"","","--- if statm secoindsf stuff");
         }
+        else{
+            exp.genCode(f);
+            String label = f.getLocalLabel();
+            f.genInstr("","cmpl","$0,%eax","--- if statm");
+            f.genInstr("","je",label,"--- if statm");
+            stat.genCode(f);
+            f.genInstr(label,"","","---skfjslkdfjlskdj lwhat hawtha wht h ---->_>_>_>_>_>_> Stronger - By Kanye West");
+        }
+
     }
 
     @Override

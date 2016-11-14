@@ -6,7 +6,7 @@ import static scanner.TokenKind.*;
 
 public abstract class PascalDecl extends PascalSyntax {
     String name, progProcFuncName;
-    int declLevel = 0, declOffset = 0;
+    int declLevel = 1, declOffset = 0;
     types.Type type = null;
 
     PascalDecl(String id, int lNum) {

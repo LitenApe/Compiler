@@ -5,7 +5,6 @@ main:
         ret                             # terminate the program
 func$gcd_2:
         enter   $32,$2                  # Start of gcd
-                                        # Start if-statement
         movl    -8(%ebp),%edx
         movl    12(%edx),%eax           #   n
         pushl   %eax

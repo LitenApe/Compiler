@@ -19,9 +19,19 @@ public class Term extends PascalSyntax{
     public void genCode(CodeFile f){
         System.out.println("[-] Term");
         for(int i = 0; i < factors.size(); i++){
-            factors.get(i).genCode(f);
-            if(i < factorOpr.size())
-                factorOpr.get(i).genCode(f);
+            Factor fa = factors.get(i);
+            fa.genCode(f);
+            if(i % 2 == 0 && i != 0){
+                if (factorOpr.get(i/2).tokenKind == divToken || factorOpr.get(i/2).tokenKind == modToken) {
+                    f.genInstr("","pushl","%eax","idk in genCode Term");
+                    f.genInstr("","movl","%eax,%ecx","");
+                    f.genInstr("","popl","%eax","");
+                    f.genInstr("","cdq","","");
+                    f.genInstr("","idivl","%ecx","");
+                    if (factorOpr.get(i/2).tokenKind == modToken)
+                        f.genInstr("","movl","%edx,%eax"," mod");
+                }
+            }
         }
     }
 

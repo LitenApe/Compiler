@@ -21,6 +21,23 @@ public class Library extends Block{
         procedures.put("boolean",new TypeDecl("boolean",0));
         procedures.put("char",new TypeDecl("char",0));
         procedures.put("eol",new ConstDecl("eol",0));
+
+        ConstDecl col = (ConstDecl) procedures.get("eol");
+        col.constant = new Constant(0);
+        col.constant.uConstant = new NumberLiteral(0);
+        ((NumberLiteral) (col.constant.uConstant)).constVal = 10;
+        col.type = characterType;
+
+        col = (ConstDecl) procedures.get("true");
+        col.constant = new Constant(0);
+        col.constant.uConstant = new NumberLiteral(0);
+        ((NumberLiteral) (col.constant.uConstant)).constVal = 1;
+
+        col = (ConstDecl) procedures.get("false");
+        col.constant = new Constant(0);
+        col.constant.uConstant = new NumberLiteral(0);
+        ((NumberLiteral) (col.constant.uConstant)).constVal = 0;
+
     }/*End of constructor*/
 
     @Override

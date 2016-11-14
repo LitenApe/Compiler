@@ -17,7 +17,7 @@ public class StatmList extends PascalSyntax{
     public void genCode(CodeFile f){
         System.out.println("[-x?] Statement List");
         for(Statement s : statmList)
-            s.genCode(f); //changed and changed back
+            s.genCode(f);
     }
 
     @Override

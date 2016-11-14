@@ -17,7 +17,6 @@ public class RelOperator extends Operator{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[ ] Rel Operator");
-
     }
 
     @Override
