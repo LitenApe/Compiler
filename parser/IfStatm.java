@@ -30,10 +30,10 @@ public class IfStatm extends Statement{
             stat.genCode(f);
 
             String label2 = f.getLocalLabel();
-            f.genInstr("","je",label2,"--- if statm");
-            f.genInstr(label,"","","--- if statm stuff sdfbsldfhl");
+            f.genInstr("","jmp",label2,"--- if statm");
+            f.genInstr(label,"","","");
             elseExp.genCode(f);
-            f.genInstr(label2,"","","--- if statm secoindsf stuff");
+            f.genInstr(label2,"","","");
         }
         else{
             exp.genCode(f);

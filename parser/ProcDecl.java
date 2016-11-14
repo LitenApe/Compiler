@@ -23,7 +23,7 @@ public class ProcDecl extends PascalDecl{
         int numBytes = paramDecl.listOfParamDecls.size()*4;
         label = f.getLabel(procName.name);
         f.genInstr("proc$"+label,"","","--- proc call");
-        f.genInstr("","enter","$"+32+numBytes+",$"+block.blockLvl,"--- proc call");
+        f.genInstr("","enter","$"+32+numBytes+",$"+block.blockLvl,"");
         block.genCode(f);
         f.genInstr("","leave","","--- proc call");
         f.genInstr("","ret","","--- proc call");

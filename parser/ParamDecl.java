@@ -17,14 +17,15 @@ public class ParamDecl extends PascalDecl{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[-] Parameter Decleration");
-        f.genInstr("","movl",""+(-4*declLevel)+"(%ebp),%edx","----Getting variable in variable: ");
-        f.genInstr("","movl",(-1*(32+declOffset))+"(%edx),%eax","--- move variable into eax");
+        f.genInstr("","movl",""+(-4*declLevel)+"(%ebp),%edx","----Getting paramdecl: "+typeName.namedConstant.name+", and name below");
+        f.genInstr("","movl",(declOffset)+"(%edx),%eax","--- move paramdecl into eax:"+name.name);
     }
 
     @Override
     public void check(Block curScope, Library lib){
         typeName.check(curScope,lib);
         type = typeName.type;
+        declLevel++;
 
         curScope.addDecl(name.toString(),this);
     }

@@ -24,8 +24,8 @@ public class FuncDecl extends ProcDecl{
 
         int numBytes = block.varDeclPart != null ? 32+block.varDeclPart.varDecls.size()*4 : 32;
         label = f.getLabel(funcName.name);
-        f.genInstr("func$" + label,"","","--- func decl");
-        f.genInstr("","enter","$"+numBytes+",$"+declLevel,"--- func decl");
+        f.genInstr("func$" + label,"","","");
+        f.genInstr("","enter","$"+numBytes+",$"+declLevel,"");
         block.genCode(f);
         f.genInstr("","movl","-32(%ebp),%eax","--- func decl");
         f.genInstr("","leave","","--- func decl");

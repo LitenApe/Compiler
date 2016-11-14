@@ -17,13 +17,22 @@ public class ParamDeclList extends PascalSyntax{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[ ] Parameter Decleration List");
-        
+
     }
 
     @Override
     public void check(Block curScope, Library lib){
-        for(ParamDecl pd : listOfParamDecls)
+        ParamDecl prev = null;
+        for(ParamDecl pd : listOfParamDecls){
             pd.check(curScope, lib);
+            if (prev != null){
+                pd.declOffset = prev.declOffset+pd.type.size();
+            }
+            else{
+                pd.declOffset = 4+pd.type.size();
+            }
+            prev = pd;
+        }
     }
 
     @Override

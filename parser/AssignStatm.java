@@ -20,7 +20,7 @@ public class AssignStatm extends Statement{
         System.out.println("[ ] Assign Statement");
         expression.genCode(f);
         f.genInstr("","movl",""+(-4*variable.decl.declLevel)+"(%ebp),%edx","____________________________________"+variable.name);
-        f.genInstr("","movl","%eax,"+(-1*(32+variable.decl.declOffset))+"(%edx)","________________________________________"+expression.relOperator); //-36 stuff ellernoe
+        f.genInstr("","movl","%eax,"+(-1*(32+variable.decl.declOffset))+"(%edx)","________________________________________"+expression.relOperator); 
     }
 
     @Override
