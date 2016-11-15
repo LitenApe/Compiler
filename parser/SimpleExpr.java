@@ -28,11 +28,13 @@ public class SimpleExpr extends PascalSyntax{
             if (!termOpr.isEmpty() && i < term.size()-1)
                 f.genInstr("","pushl","%eax","idk in genCode Term");
             if(count % 2 == 0 && i != 0){
-                if (termOpr.get((i/2)).tokenKind == addToken) {
+                if (termOpr.get((i/2)).tokenKind == addToken || termOpr.get((i/2)).tokenKind == subtractToken) {
                     f.genInstr("","movl","%eax,%ecx","");
                     f.genInstr("","popl","%eax","");
-                    f.genInstr("","addl","%ecx,%eax","In simpleexpr adding");
-                    continue; //wops, dolmio spaghetti, moms spaghetti arms are heavy //TODO: REMOVE COMMENT, hehe
+                    if (termOpr.get((i/2)).tokenKind == addToken)
+                        f.genInstr("","addl","%ecx,%eax","In simpleexpr adding");
+                    else if (termOpr.get((i/2)).tokenKind == subtractToken)
+                        f.genInstr("","subl","%ecx,%eax","In simpleexpr subtracting");
                 }
             }
         }

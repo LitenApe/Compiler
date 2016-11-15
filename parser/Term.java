@@ -23,12 +23,16 @@ public class Term extends PascalSyntax{
             count++; //Just to make it work. need to remove if possible
             Factor fa = factors.get(i);
             fa.genCode(f);
-            if (!factorOpr.isEmpty() && i < factors.size()-1)
+            if (!factorOpr.isEmpty() && i < factors.size()-1) //Må  ha isEmpty() for at det samme ikke skjer dobbelt. 
                 f.genInstr("","pushl","%eax","idk in genCode Term");
             if(count % 2 == 0 && i != 0){
-                if (factorOpr.get((i/2)).tokenKind == divToken || factorOpr.get((i/2)).tokenKind == modToken) {
+                if (factorOpr.get((i/2)).tokenKind == divToken || factorOpr.get((i/2)).tokenKind == modToken || factorOpr.get((i/2)).tokenKind == multiplyToken) {
                     f.genInstr("","movl","%eax,%ecx","");
                     f.genInstr("","popl","%eax","");
+                    if(factorOpr.get((i/2)).tokenKind == multiplyToken){
+                        f.genInstr("","imull","%ecx,%eax"," In Term: *");
+                        continue;
+                    }
                     f.genInstr("","cdq","","");
                     f.genInstr("","idivl","%ecx","");
                     if (factorOpr.get((i/2)).tokenKind == modToken)

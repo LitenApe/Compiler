@@ -35,6 +35,7 @@ public class ProcCallStatm extends Statement{
             f.genInstr("", "addl","$4,%esp", " Pop param.");
             continue;
             }
+            // f.genInstr("", "call","proc$_"+procRef.label, "");//Null pointer because decl assembly hasnt been done yet
             f.genInstr("", "addl",""+(4*exp.size())+",%esp", " Pop param.");
         }
     }

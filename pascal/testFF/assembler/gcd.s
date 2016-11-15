@@ -40,7 +40,6 @@ func$gcd_2:
         movl    -8(%ebp),%edx
         movl    %eax,-32(%edx)          # gcd :=
 .L0004:
-                                        # End if-statement
         movl    -32(%ebp),%eax          # Fetch return value
         leave                           # End of gcd
         ret

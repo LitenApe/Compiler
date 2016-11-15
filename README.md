@@ -41,8 +41,8 @@ Pascal kompilator
     - [x] gcd.pas
   - [ ] Part 4: Code generator
     - [x] mini.pas
-    - [ ] eater.pas
+    - [ ] easter.pas
     - [ ] opers.pas
     - [ ] primes.pas
-    - [ ] 10star.pas
-    - [ ] gcd.pas
+    - [x] 10star.pas
+    - [x] gcd.pas

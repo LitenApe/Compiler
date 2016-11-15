@@ -79,6 +79,9 @@ proc$easter_2:
         movl    -8(%ebp),%edx
         movl    -56(%edx),%eax          #  In vardecl (also line above): f
         pushl   %eax                    # idk in genCode Term
+        movl    %eax,%ecx
+        popl    %eax
+        subl    %ecx,%eax               # In simpleexpr subtracting
         movl    $1,%eax                 #  numberliteral: 1
         pushl   %eax                    # idk in genCode Term
         movl    $3,%eax                 #  numberliteral: 3
@@ -92,6 +95,9 @@ proc$easter_2:
         pushl   %eax                    # idk in genCode Term
         movl    -8(%ebp),%edx
         movl    -36(%edx),%eax          #  In vardecl (also line above): a
+        movl    %eax,%ecx
+        popl    %eax
+        imull   %ecx,%eax               #  In Term: *
         pushl   %eax                    # idk in genCode Term
         movl    -8(%ebp),%edx
         movl    -40(%edx),%eax          #  In vardecl (also line above): b
@@ -105,6 +111,9 @@ proc$easter_2:
         movl    -8(%ebp),%edx
         movl    -60(%edx),%eax          #  In vardecl (also line above): g
         pushl   %eax                    # idk in genCode Term
+        movl    %eax,%ecx
+        popl    %eax
+        subl    %ecx,%eax               # In simpleexpr subtracting
         movl    $15,%eax                #  numberliteral: 15
         pushl   %eax                    # idk in genCode Term
         movl    $30,%eax                #  numberliteral: 30
@@ -115,7 +124,7 @@ proc$easter_2:
         movl    %edx,%eax               #  mod
         movl    -8(%ebp),%edx
         movl    %eax,-64(%edx)          #  In assignstatm (also line above): h :=
-        movl    -8(%ebp),%edx           
+        movl    -8(%ebp),%edx
         movl    -44(%edx),%eax          #  In vardecl (also line above): c
         pushl   %eax                    # idk in genCode Term
         movl    $4,%eax                 #  numberliteral: 4
@@ -142,6 +151,9 @@ proc$easter_2:
         pushl   %eax                    # idk in genCode Term
         movl    -8(%ebp),%edx
         movl    -52(%edx),%eax          #  In vardecl (also line above): e
+        movl    %eax,%ecx
+        popl    %eax
+        imull   %ecx,%eax               #  In Term: *
         pushl   %eax                    # idk in genCode Term
         movl    %eax,%ecx
         popl    %eax
@@ -150,6 +162,9 @@ proc$easter_2:
         pushl   %eax                    # idk in genCode Term
         movl    -8(%ebp),%edx
         movl    -68(%edx),%eax          #  In vardecl (also line above): i
+        movl    %eax,%ecx
+        popl    %eax
+        imull   %ecx,%eax               #  In Term: *
         pushl   %eax                    # idk in genCode Term
         movl    -8(%ebp),%edx
         movl    -64(%edx),%eax          #  In vardecl (also line above): h
@@ -175,6 +190,9 @@ proc$easter_2:
         pushl   %eax                    # idk in genCode Term
         movl    -8(%ebp),%edx
         movl    -64(%edx),%eax          #  In vardecl (also line above): h
+        movl    %eax,%ecx
+        popl    %eax
+        imull   %ecx,%eax               #  In Term: *
         pushl   %eax                    # idk in genCode Term
         movl    %eax,%ecx
         popl    %eax
@@ -183,6 +201,9 @@ proc$easter_2:
         pushl   %eax                    # idk in genCode Term
         movl    -8(%ebp),%edx
         movl    -76(%edx),%eax          #  In vardecl (also line above): l
+        movl    %eax,%ecx
+        popl    %eax
+        imull   %ecx,%eax               #  In Term: *
         pushl   %eax                    # idk in genCode Term
         movl    $451,%eax               #  numberliteral: 451
         movl    %eax,%ecx
@@ -204,8 +225,14 @@ proc$easter_2:
         pushl   %eax                    # idk in genCode Term
         movl    -8(%ebp),%edx
         movl    -80(%edx),%eax          #  In vardecl (also line above): m
+        movl    %eax,%ecx
+        popl    %eax
+        imull   %ecx,%eax               #  In Term: *
         pushl   %eax                    # idk in genCode Term
         movl    $114,%eax               #  numberliteral: 114
+        movl    %eax,%ecx
+        popl    %eax
+        subl    %ecx,%eax               # In simpleexpr subtracting
         pushl   %eax                    # idk in genCode Term
         movl    $31,%eax                #  numberliteral: 31
         movl    %eax,%ecx
@@ -227,8 +254,14 @@ proc$easter_2:
         pushl   %eax                    # idk in genCode Term
         movl    -8(%ebp),%edx
         movl    -80(%edx),%eax          #  In vardecl (also line above): m
+        movl    %eax,%ecx
+        popl    %eax
+        imull   %ecx,%eax               #  In Term: *
         pushl   %eax                    # idk in genCode Term
         movl    $114,%eax               #  numberliteral: 114
+        movl    %eax,%ecx
+        popl    %eax
+        subl    %ecx,%eax               # In simpleexpr subtracting
         pushl   %eax                    # idk in genCode Term
         movl    $31,%eax                #  numberliteral: 31
         movl    %eax,%ecx
