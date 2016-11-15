@@ -18,20 +18,15 @@ public class Term extends PascalSyntax{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[-] Term");
-        // System.out.println("SIZE OF FACTORS :    . - . . ... . .  . . . - - - -- - - "+ factors.size());
         int count = 0;
         for(int i = 0; i < factors.size(); i++){
             count++; //Just to make it work. need to remove if possible
             Factor fa = factors.get(i);
             fa.genCode(f);
-            // System.out.println("SDKFJDSKLFJLDSJFLKSDJFKLSJDFLKJDFKLSJDFKLSDJFKLSJDLFJLDSJFLJDFLF ? "+type);
-            // f.genInstr("","pushl","%eax","idk in genCode Term");
-            // System.out.println("i is -----------------------" + i +"\nWith following factor: "+fa);
-            if(count % 2 == 0 && i != 0){
+            if (!factorOpr.isEmpty() && i < factors.size()-1)
                 f.genInstr("","pushl","%eax","idk in genCode Term");
-                // System.out.println("INSIDE -----------------------" + i +"\nWith following termopr: "+factorOpr.get((i/2)-1));
+            if(count % 2 == 0 && i != 0){
                 if (factorOpr.get((i/2)).tokenKind == divToken || factorOpr.get((i/2)).tokenKind == modToken) {
-                    System.out.println("INSIDE HERE? DSIFJL");
                     f.genInstr("","movl","%eax,%ecx","");
                     f.genInstr("","popl","%eax","");
                     f.genInstr("","cdq","","");

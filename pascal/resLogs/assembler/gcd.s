@@ -23,9 +23,9 @@ func$gcd_2:
 .L0003:
         movl    -8(%ebp),%edx           # ----Getting paramdecl: integer, and name below
         movl    8(%edx),%eax            # --- move paramdecl into eax:m
+        pushl   %eax                    # idk in genCode Term
         movl    -8(%ebp),%edx           # ----Getting paramdecl: integer, and name below
         movl    12(%edx),%eax           # --- move paramdecl into eax:n
-        pushl   %eax                    # idk in genCode Term
         movl    %eax,%ecx               
         popl    %eax                    
         cdq                             
