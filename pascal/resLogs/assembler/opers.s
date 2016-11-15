@@ -7,139 +7,139 @@ proc$testunaryboolean_2:
         enter   $32,$2                  
         movl    $0,%eax                 #  numberliteral: 0
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    4,%esp                  #  Pop param.
         movl    $1,%eax                 #  numberliteral: 1
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    4,%esp                  #  Pop param.
         leave                           # --- proc call
         ret                             # --- proc call
 proc$testbinaryboolean_3:
-        enter   $32,$2                  
+        enter   $32,$2
         movl    $0,%eax                 #  numberliteral: 0
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
-        addl    8,%esp                  #  Pop param.
-        movl    $0,%eax                 #  numberliteral: 0
-        pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $0,%eax                 #  numberliteral: 0
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
-        addl    8,%esp                  #  Pop param.
-        movl    $1,%eax                 #  numberliteral: 1
-        pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
-        addl    8,%esp                  #  Pop param.
-        movl    $1,%eax                 #  numberliteral: 1
-        pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $0,%eax                 #  numberliteral: 0
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $1,%eax                 #  numberliteral: 1
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $1,%eax                 #  numberliteral: 1
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
+        addl    8,%esp                  #  Pop param.
+        movl    $0,%eax                 #  numberliteral: 0
+        pushl   %eax                    #  Proccall: Push next param.
+        call    proc$_null
+        addl    8,%esp                  #  Pop param.
+        movl    $1,%eax                 #  numberliteral: 1
+        pushl   %eax                    #  Proccall: Push next param.
+        call    proc$_null
+        addl    8,%esp                  #  Pop param.
+        movl    $1,%eax                 #  numberliteral: 1
+        pushl   %eax                    #  Proccall: Push next param.
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         leave                           # --- proc call
         ret                             # --- proc call
 proc$testunarynumeric_4:
-        enter   $32,$2                  
+        enter   $32,$2
         movl    $17,%eax                #  numberliteral: 17
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    4,%esp                  #  Pop param.
         movl    $11,%eax                #  numberliteral: 11
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    4,%esp                  #  Pop param.
         movl    $0,%eax                 #  numberliteral: 0
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    4,%esp                  #  Pop param.
         leave                           # --- proc call
         ret                             # --- proc call
 proc$testbinarynumeric_5:
-        enter   $32,$2                  
+        enter   $32,$2
         movl    $17,%eax                #  numberliteral: 17
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $17,%eax                #  numberliteral: 17
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $17,%eax                #  numberliteral: 17
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $11,%eax                #  numberliteral: 11
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $17,%eax                #  numberliteral: 17
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $0,%eax                 #  numberliteral: 0
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $11,%eax                #  numberliteral: 11
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $17,%eax                #  numberliteral: 17
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $11,%eax                #  numberliteral: 11
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $11,%eax                #  numberliteral: 11
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $17,%eax                #  numberliteral: 17
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $0,%eax                 #  numberliteral: 0
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $0,%eax                 #  numberliteral: 0
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $17,%eax                #  numberliteral: 17
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $0,%eax                 #  numberliteral: 0
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $11,%eax                #  numberliteral: 11
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $0,%eax                 #  numberliteral: 0
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         movl    $0,%eax                 #  numberliteral: 0
         pushl   %eax                    #  Proccall: Push next param.
-        call    proc$_null              
+        call    proc$_null
         addl    8,%esp                  #  Pop param.
         leave                           # --- proc call
         ret                             # --- proc call
