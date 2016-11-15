@@ -17,8 +17,10 @@ public class AssignStatm extends Statement{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[ ] Assign Statement");
+        System.out.println("[-] Assign Statement");
         expression.genCode(f);
+
+        //TODO: Fix this or wherever it is, decl level is always 1 less in this assignstatm for easter.s  
         f.genInstr("","movl",""+(-4*variable.decl.declLevel)+"(%ebp),%edx","");
         f.genInstr("","movl","%eax,"+(-1*(32+variable.decl.declOffset))+"(%edx)"," In assignstatm (also line above): "+variable.name.name+ " " +assignToken);
     }

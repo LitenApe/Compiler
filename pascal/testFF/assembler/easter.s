@@ -1,4 +1,4 @@
-        .globl  main                    
+        .globl  main
 main:
         call    prog$easter_1           # Start program
         movl    $0,%eax                 # Set status 0 and

@@ -30,7 +30,6 @@ public class VarDeclPart extends PascalSyntax{
                 v.declOffset = prev.declOffset+v.type.size();
             else
                 v.declOffset = v.type.size();
-            System.out.println("DECL OFFSET:         - - - -- - - - - - -  "+v.declOffset);
             prev = v;
         }
     }

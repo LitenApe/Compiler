@@ -22,6 +22,12 @@ public class FuncDecl extends ProcDecl{
     public void genCode(CodeFile f){
         System.out.println("[-x?] Function Decleration");
 
+        if(pDeclList != null){
+            for (ParamDecl p : pDeclList.listOfParamDecls)
+                p.declLevel = this.declLevel;
+            block.declLevel = this.declLevel;
+        }
+
         int numBytes = block.varDeclPart != null ? 32+block.varDeclPart.varDecls.size()*4 : 32;
         label = f.getLabel(funcName.name);
         f.genInstr("func$" + label,"","","");

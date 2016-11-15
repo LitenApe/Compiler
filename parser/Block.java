@@ -17,8 +17,7 @@ public class Block extends PascalSyntax{
     public HashMap<String, PascalDecl> decls = new HashMap<>();
     public Block outerScope = null;
     public static Library library = null;
-    public static int defaultPos = 32;
-    public int blockLvl = 0;
+    public int declLevel = 0;
 
     public Block(int lineNum){
         super(lineNum);
@@ -34,7 +33,14 @@ public class Block extends PascalSyntax{
         // if(varDeclPart != null){
         //     varDeclPart.genCode(f);
         // }
-
+        if(constDeclPart != null){
+            for (ConstDecl p : constDeclPart.constDeclarations)
+                p.declLevel = this.declLevel;
+        }
+        if(varDeclPart != null){
+            for (VarDecl p : varDeclPart.varDecls)
+                p.declLevel = this.declLevel;
+        }
         statmList.genCode(f);
     }
 
@@ -69,7 +75,6 @@ public class Block extends PascalSyntax{
     @Override
     public void check(Block curScope, Library lib){
         outerScope = curScope;
-        blockLvl = curScope.blockLvl + 1;
         library = lib; //NOTE: why does it not work without this???
 
         if(constDeclPart != null)
