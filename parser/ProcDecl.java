@@ -20,7 +20,7 @@ public class ProcDecl extends PascalDecl{
     public void genCode(CodeFile f){
         System.out.println("[-x?] Procedure Decleration");
 
-        int numBytes = paramDecl.listOfParamDecls.size()*4;
+        int numBytes = paramDecl != null ? paramDecl.listOfParamDecls.size()*4 : 32;
         label = f.getLabel(procName.name);
         f.genInstr("proc$"+label,"","","--- proc call");
         f.genInstr("","enter","$"+32+numBytes+",$"+block.blockLvl,"");

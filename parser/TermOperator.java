@@ -16,7 +16,7 @@ public class TermOperator extends Operator{
     public void genCode(CodeFile f){
         System.out.println("[ ] Term Operator");
         switch(tokenKind){
-            
+                
         }
     }
 

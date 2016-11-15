@@ -19,8 +19,8 @@ public class AssignStatm extends Statement{
     public void genCode(CodeFile f){
         System.out.println("[ ] Assign Statement");
         expression.genCode(f);
-        f.genInstr("","movl",""+(-4*variable.decl.declLevel)+"(%ebp),%edx","____________________________________"+variable.name);
-        f.genInstr("","movl","%eax,"+(-1*(32+variable.decl.declOffset))+"(%edx)","________________________________________"+expression.relOperator); 
+        f.genInstr("","movl",""+(-4*variable.decl.declLevel)+"(%ebp),%edx","");
+        f.genInstr("","movl","%eax,"+(-1*(32+variable.decl.declOffset))+"(%edx)"," In assignstatm (also line above): "+variable.name.name+ " " +assignToken);
     }
 
     @Override

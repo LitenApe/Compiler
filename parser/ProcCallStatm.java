@@ -21,21 +21,21 @@ public class ProcCallStatm extends Statement{
         // tmp
         for(Expression e : exp){
             e.genCode(f);
-            f.genInstr("", "pushl", "%eax", "Push next param. --- proc call: "+namedConst.name);
+            f.genInstr("", "pushl", "%eax", " Proccall: Push next param.");
             if(namedConst.name.equals("write")){
                 if (e.type != null){
                     String sType = e.type.toString();
                     if(sType.equals("integer") ||
                             sType.equals("character") ||
                                 sType.equals("boolean"))
-                       f.genInstr("", "call", e.type.identify(), "--- proc call: "+namedConst.name); //smart
+                       f.genInstr("", "call", e.type.identify(), ""); //smart
                     else
                        error(sType + " is a invalid type that encountered during writing");
                 }
-            f.genInstr("", "addl","$4,%esp", "Pop param. --- proc call: "+namedConst.name);
+            f.genInstr("", "addl","$4,%esp", " Pop param.");
             continue;
             }
-            f.genInstr("", "addl",""+(4*exp.size())+",%esp", "Pop param. --- proc call: "+namedConst.name);
+            f.genInstr("", "addl",""+(4*exp.size())+",%esp", " Pop param.");
         }
     }
 
