@@ -1,6 +1,6 @@
-function diffFiles {
-    curPath=$(pwd)
+curPath=$(pwd)
 
+function diffFiles {
     # set path for directories
     fasPath="$curPath/pascal/testFF/$1/"
     resPath="$curPath/pascal/resLogs/$2/"

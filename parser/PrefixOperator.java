@@ -17,6 +17,8 @@ public class PrefixOperator extends Operator{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[ ] Prefix Operator");
+        if(prefix == subtractToken)
+            f.genInstr("", "negl", "%eax", "  - (prefix)");
     }
 
     @Override

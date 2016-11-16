@@ -23,19 +23,19 @@ public class Expression extends PascalSyntax{
         firstValue.genCode(f);
 
         if(relOperator != null){
-            if (relOperator.opr == equalToken || relOperator.opr == lessToken) {
-                f.genInstr("","pushl","%eax"," in Expression");
-                secondValue.genCode(f);
-                f.genInstr("","popl","%ecx"," in Expression");
-                f.genInstr("","cmpl","%eax,%ecx","in Expression");
-                f.genInstr("","movl","$0,%eax","idk");
+            f.genInstr("","pushl","%eax"," in Expression");
+            secondValue.genCode(f);
+            f.genInstr("","popl","%ecx"," in Expression");
+            f.genInstr("","cmpl","%eax,%ecx","in Expression");
+            f.genInstr("","movl","$0,%eax","idk");
 
-                //Excessive stuff but it works. I think Dag has done it the way that he uses setl or sete dependant on what token it is
-                if (relOperator.opr == lessToken)
-                    f.genInstr("","setl","%al"," in Expression: Test "+lessToken);
-                else if (relOperator.opr == equalToken)
-                    f.genInstr("","sete","%al"," in Expression: Test "+equalToken);
-            }
+            //Excessive stuff but it works. I think Dag has done it the way that he uses setl or sete dependant on what token it is
+            if (relOperator.opr == lessToken)
+                f.genInstr("","setl","%al","Test "+lessToken);
+            else if (relOperator.opr == equalToken)
+                f.genInstr("","sete","%al","Test "+equalToken);
+            else
+                f.genInstr("","setle","%al","Test "+relOperator.opr.toString());
         }
     }
 

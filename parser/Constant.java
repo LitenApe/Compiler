@@ -24,7 +24,7 @@ public class Constant extends PascalSyntax{
 
         uConstant.genCode(f);
         if (prefixOpr != null)
-            f.genInstr("","negl","%eax","--- constant");
+            prefixOpr.genCode(f);
     }
 
     @Override

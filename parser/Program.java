@@ -22,11 +22,11 @@ public class Program extends PascalDecl{
         System.out.println("[-] Program: " + progName);
         progBlock.declLevel = 1;
         String testLabel = "prog$" + f.getLabel(progName.name);
-        f.genInstr("", ".globl", "main", "--- program");
+        f.genInstr("", ".globl", "main", "");
         f.genInstr("main", "", "", "");
-        f.genInstr("", "call ", testLabel, "Start program --- program");
-        f.genInstr("", "movl", "$0,%eax", "Set status 0 and --- program");
-        f.genInstr("", "ret", "", "terminate the program --- program");
+        f.genInstr("", "call ", testLabel, "Start program");
+        f.genInstr("", "movl", "$0,%eax", "Set status 0 and");
+        f.genInstr("", "ret", "", "terminate the program");
 
         if(!progBlock.procAndFuncDecls.isEmpty()){
             for(ProcDecl pd : progBlock.procAndFuncDecls){
@@ -40,8 +40,8 @@ public class Program extends PascalDecl{
 
         progBlock.genCode(f);
 
-        f.genInstr("", "leave", "", "End of " + progName.name + "--- program");
-        f.genInstr("", "ret", "", "--- program");
+        f.genInstr("", "leave", "", "End of " + progName.name);
+        f.genInstr("", "ret", "", "");
     }
 
     @Override

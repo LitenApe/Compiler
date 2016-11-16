@@ -18,22 +18,21 @@ public class IfStatm extends Statement{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[?] If Statement");
-
+        System.out.println("[-?] If Statement");
+        f.genInstr("", "", "", "Start if-statement");
         //TODO: Se over, kan optimaliseres om nødvendig men nå er det gjort slik for å fungere riktig (rekkefølge) i gcd.s
         if (elseExp != null){
-            exp.genCode(f);
             String label = f.getLocalLabel();
-            // exp.genCode(f);
+            exp.genCode(f);
             f.genInstr("","cmpl","$0,%eax","--- if statm");
-            f.genInstr("","je",label,"--- if statm");
+            f.genInstr("","je",label,"--- if statm1");
             stat.genCode(f);
 
             String label2 = f.getLocalLabel();
-            f.genInstr("","jmp",label2,"--- if statm");
+            f.genInstr("","jmp",label2,"--- if statm2");
             f.genInstr(label,"","","");
             elseExp.genCode(f);
-            f.genInstr(label2,"","","");
+            f.genInstr(label2,"","","End if-statemen");
         }
         else{
             exp.genCode(f);
@@ -41,7 +40,7 @@ public class IfStatm extends Statement{
             f.genInstr("","cmpl","$0,%eax","--- if statm");
             f.genInstr("","je",label,"--- if statm");
             stat.genCode(f);
-            f.genInstr(label,"","","---skfjslkdfjlskdj lwhat hawtha wht h ---->_>_>_>_>_>_> Stronger - By Kanye West");
+            f.genInstr(label,"","","End if-statement");
         }
 
     }

@@ -18,10 +18,10 @@ public class ProcCallStatm extends Statement{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[-x?] Procedure Call Statement");
-        // tmp
+        int counter = 0;
         for(Expression e : exp){
             e.genCode(f);
-            f.genInstr("", "pushl", "%eax", " Proccall: Push next param.");
+            f.genInstr("", "pushl", "%eax", "Push param #" + (++counter));
             if(namedConst.name.equals("write")){
                 if (e.type != null){
                     String sType = e.type.toString();
@@ -32,11 +32,11 @@ public class ProcCallStatm extends Statement{
                     else
                        error(sType + " is a invalid type that encountered during writing");
                 }
-            f.genInstr("", "addl","$4,%esp", " Pop param.");
+            f.genInstr("", "addl","$4,%esp", "Pop param.");
             continue;
             }
-            // f.genInstr("", "call","proc$_"+procRef.label, "");//Null pointer because decl assembly hasnt been done yet
-            f.genInstr("", "addl",""+(4*exp.size())+",%esp", " Pop param.");
+            f.genInstr("", "call","proc$_"+procRef.label, "");//Null pointer because decl assembly hasnt been done yet
+            f.genInstr("", "addl",""+(4*exp.size())+",%esp", "Pop params.");
         }
     }
 

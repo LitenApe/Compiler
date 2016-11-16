@@ -18,25 +18,31 @@ public class Term extends PascalSyntax{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[-] Term");
-        int count = 0;
+
         for(int i = 0; i < factors.size(); i++){
-            count++; //Just to make it work. need to remove if possible
-            Factor fa = factors.get(i);
-            fa.genCode(f);
-            if (!factorOpr.isEmpty() && i < factors.size()-1) //Må  ha isEmpty() for at det samme ikke skjer dobbelt. 
-                f.genInstr("","pushl","%eax","idk in genCode Term");
-            if(count % 2 == 0 && i != 0){
-                if (factorOpr.get((i/2)).tokenKind == divToken || factorOpr.get((i/2)).tokenKind == modToken || factorOpr.get((i/2)).tokenKind == multiplyToken) {
-                    f.genInstr("","movl","%eax,%ecx","");
-                    f.genInstr("","popl","%eax","");
-                    if(factorOpr.get((i/2)).tokenKind == multiplyToken){
-                        f.genInstr("","imull","%ecx,%eax"," In Term: *");
-                        continue;
-                    }
-                    f.genInstr("","cdq","","");
+
+            factors.get(i).genCode(f);
+
+            if(!factorOpr.isEmpty() && i < factorOpr.size() && factors.size() > 1)
+                f.genInstr("", "pushl", "%eax", "idk in Term");
+
+            if((i + 1) % 2 == 0 && i != 0){
+                f.genInstr("", "movl", "%eax,%ecx", "");
+                f.genInstr("", "popl", "%eax", "");
+
+                FactorOperator fo = factorOpr.get(i - 1);
+
+                if (fo.tokenKind == multiplyToken) {
+                    f.genInstr("", "imull", "%ecx,%eax", "  *");
+                    continue;
+                }
+
+                f.genInstr("","cdq","","");
+                if (fo.tokenKind == divToken)
+                    f.genInstr("", "idivl", "%ecx", "  /");
+                else if(fo.tokenKind == modToken){
                     f.genInstr("","idivl","%ecx","");
-                    if (factorOpr.get((i/2)).tokenKind == modToken)
-                        f.genInstr("","movl","%edx,%eax"," mod");
+                    f.genInstr("", "movl", "%edx,%eax", "  mod");
                 }
             }
         }

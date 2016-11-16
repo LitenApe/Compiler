@@ -20,7 +20,7 @@ public class VarDecl extends PascalDecl{
     public void genCode(CodeFile f){
         System.out.println("[-] Variable Decleration");
         f.genInstr("","movl",""+(-4*declLevel)+"(%ebp),%edx","");
-        f.genInstr("","movl",(-1*(32+declOffset))+"(%edx),%eax"," In vardecl (also line above): "+namedConstant.name);
+        f.genInstr("","movl",(-1*(32+declOffset))+"(%edx),%eax","  "+namedConstant.name);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class VarDecl extends PascalDecl{
         namedConstant.check(curScope,lib);
         curScope.addDecl(namedConstant.name, this);
         mType.check(curScope,lib);
-        
+
         if(mType instanceof ArrayType)
             type = mType.pType.type;
         else

@@ -21,21 +21,18 @@ public class SimpleExpr extends PascalSyntax{
     public void genCode(CodeFile f){
         System.out.println("[-] Simple Expression");
 
-        int count = 0;
         for(int i = 0; i < term.size(); i++){
-            count++;
             term.get(i).genCode(f);
-            if (!termOpr.isEmpty() && i < term.size()-1)
-                f.genInstr("","pushl","%eax","idk in genCode Term");
-            if(count % 2 == 0 && i != 0){
-                if (termOpr.get((i/2)).tokenKind == addToken || termOpr.get((i/2)).tokenKind == subtractToken) {
-                    f.genInstr("","movl","%eax,%ecx","");
-                    f.genInstr("","popl","%eax","");
-                    if (termOpr.get((i/2)).tokenKind == addToken)
-                        f.genInstr("","addl","%ecx,%eax","In simpleexpr adding");
-                    else if (termOpr.get((i/2)).tokenKind == subtractToken)
-                        f.genInstr("","subl","%ecx,%eax","In simpleexpr subtracting");
-                }
+
+            if(!termOpr.isEmpty() && i < termOpr.size()){
+                f.genInstr("", "pushl", "%eax", "idk in SimpleExpr");
+                term.get(++i).genCode(f);
+                f.genInstr("", "movl", "%eax,%ecx", "");
+                f.genInstr("", "popl", "%eax", "");
+                if(termOpr.get(i - 1).tokenKind == addToken)
+                    f.genInstr("", "addl", "%ecx,%eax", "  +");
+                else if(termOpr.get(i - 1).tokenKind == subtractToken)
+                    f.genInstr("", "subl", "%ecx,%eax", "  -");
             }
         }
     }

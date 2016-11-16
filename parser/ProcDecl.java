@@ -26,13 +26,16 @@ public class ProcDecl extends PascalDecl{
             block.declLevel = this.declLevel;
         }
 
-        int numBytes = paramDecl != null ? 32+paramDecl.listOfParamDecls.size()*4 : 32;
+        int numBytes = block.varDeclPart != null? 32+(block.varDeclPart.varDecls.size()*4):32;
+
+        // int numBytes = paramDecl != null ? 32+paramDecl.listOfParamDecls.size()*4 : 32;
+
         label = f.getLabel(procName.name);
         f.genInstr("proc$"+label,"","","");
-        f.genInstr("","enter","$"+numBytes+",$"+declLevel,"");
+        f.genInstr("","enter","$"+numBytes+",$"+declLevel,"Start of " + procName);
         block.genCode(f);
-        f.genInstr("","leave","","--- proc call");
-        f.genInstr("","ret","","--- proc call");
+        f.genInstr("","leave","","End of " + procName.name);
+        f.genInstr("","ret","","");
     }
 
     @Override
