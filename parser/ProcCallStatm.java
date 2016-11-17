@@ -21,7 +21,11 @@ public class ProcCallStatm extends Statement{
         int counter = 0;
         for(Expression e : exp){
             e.genCode(f);
-            f.genInstr("", "pushl", "%eax", "Push param #" + (++counter));
+            if(namedConst.name.equals("write"))
+                f.genInstr("", "pushl", "%eax", "Push next param.");
+            else
+                f.genInstr("", "pushl", "%eax", "Push param #" + (++counter));
+                
             if(namedConst.name.equals("write")){
                 if (e.type != null){
                     String sType = e.type.toString();

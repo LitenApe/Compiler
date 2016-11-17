@@ -22,17 +22,20 @@ public class SimpleExpr extends PascalSyntax{
         System.out.println("[-] Simple Expression");
 
         for(int i = 0; i < term.size(); i++){
+            if(i != 0)
+                f.genInstr("", "pushl", "%eax", "idk 2 in SimpleExpr");
+
             term.get(i).genCode(f);
 
-            if(!termOpr.isEmpty() && i < termOpr.size()){
-                f.genInstr("", "pushl", "%eax", "idk in SimpleExpr");
-                term.get(++i).genCode(f);
+            if(i != 0){
                 f.genInstr("", "movl", "%eax,%ecx", "");
                 f.genInstr("", "popl", "%eax", "");
-                if(termOpr.get(i - 1).tokenKind == addToken)
+
+                if(termOpr.get(i - 1).tokenKind == addToken){
                     f.genInstr("", "addl", "%ecx,%eax", "  +");
-                else if(termOpr.get(i - 1).tokenKind == subtractToken)
+                }else if(termOpr.get(i - 1).tokenKind == subtractToken){
                     f.genInstr("", "subl", "%ecx,%eax", "  -");
+                }
             }
         }
     }

@@ -14,13 +14,13 @@ func$gcd_2:
         cmpl    %eax,%ecx               # in Expression
         movl    $0,%eax                 # idk
         sete    %al                     # Test =
-        cmpl    $0,%eax                 # --- if statm
-        je      .L0003                  # --- if statm1
+        cmpl    $0,%eax                 
+        je      .L0003                  
         movl    -8(%ebp),%edx           
         movl    8(%edx),%eax            #   m
         movl    -8(%ebp),%edx           
         movl    %eax,-32(%edx)          # gcd :=
-        jmp     .L0004                  # --- if statm2
+        jmp     .L0004                  
 .L0003:
         movl    -8(%ebp),%edx           
         movl    8(%edx),%eax            #   m
@@ -56,48 +56,48 @@ prog$gcd_1:
         movl    -4(%ebp),%edx           
         movl    %eax,-36(%edx)          # res :=
         movl    $71,%eax                #   'G'
-        pushl   %eax                    # Push param #1
+        pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
         movl    $67,%eax                #   'C'
-        pushl   %eax                    # Push param #2
+        pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
         movl    $68,%eax                #   'D'
-        pushl   %eax                    # Push param #3
+        pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
         movl    $40,%eax                #   '('
-        pushl   %eax                    # Push param #4
+        pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
         movl    $1071,%eax              #   1071
-        pushl   %eax                    # Push param #5
+        pushl   %eax                    # Push next param.
         call    write_int               
         addl    $4,%esp                 # Pop param.
         movl    $44,%eax                #   ','
-        pushl   %eax                    # Push param #6
+        pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
         movl    $462,%eax               #   462
-        pushl   %eax                    # Push param #7
+        pushl   %eax                    # Push next param.
         call    write_int               
         addl    $4,%esp                 # Pop param.
         movl    $41,%eax                #   ')'
-        pushl   %eax                    # Push param #8
+        pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
         movl    $61,%eax                #   '='
-        pushl   %eax                    # Push param #9
+        pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
         movl    -4(%ebp),%edx           
         movl    -36(%edx),%eax          #   res
-        pushl   %eax                    # Push param #10
+        pushl   %eax                    # Push next param.
         call    write_int               
         addl    $4,%esp                 # Pop param.
         movl    $10,%eax                #   10
-        pushl   %eax                    # Push param #11
+        pushl   %eax                    # Push next param.
         call    write_char              
         addl    $4,%esp                 # Pop param.
         leave                           # End of gcd

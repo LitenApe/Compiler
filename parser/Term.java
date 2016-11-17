@@ -23,10 +23,9 @@ public class Term extends PascalSyntax{
 
             factors.get(i).genCode(f);
 
-            if(!factorOpr.isEmpty() && i < factorOpr.size() && factors.size() > 1)
+            if(i < factorOpr.size()){
                 f.genInstr("", "pushl", "%eax", "idk in Term");
-
-            if((i + 1) % 2 == 0 && i != 0){
+                factors.get(++i).genCode(f);
                 f.genInstr("", "movl", "%eax,%ecx", "");
                 f.genInstr("", "popl", "%eax", "");
 
@@ -44,6 +43,9 @@ public class Term extends PascalSyntax{
                     f.genInstr("","idivl","%ecx","");
                     f.genInstr("", "movl", "%edx,%eax", "  mod");
                 }
+
+                if(i != factors.size() - 1)
+                    f.genInstr("", "pushl", "%eax", "idk in Term");
             }
         }
     }

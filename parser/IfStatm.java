@@ -24,12 +24,12 @@ public class IfStatm extends Statement{
         if (elseExp != null){
             String label = f.getLocalLabel();
             exp.genCode(f);
-            f.genInstr("","cmpl","$0,%eax","--- if statm");
-            f.genInstr("","je",label,"--- if statm1");
+            f.genInstr("","cmpl","$0,%eax","");
+            f.genInstr("","je",label,"");
             stat.genCode(f);
 
             String label2 = f.getLocalLabel();
-            f.genInstr("","jmp",label2,"--- if statm2");
+            f.genInstr("","jmp",label2,"");
             f.genInstr(label,"","","");
             elseExp.genCode(f);
             f.genInstr(label2,"","","End if-statemen");

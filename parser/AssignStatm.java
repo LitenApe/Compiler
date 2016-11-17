@@ -3,6 +3,7 @@ package parser;
 import scanner.*;
 import static scanner.TokenKind.*;
 import main.*;
+import types.*;
 
 public class AssignStatm extends Statement{
 
@@ -20,9 +21,19 @@ public class AssignStatm extends Statement{
         System.out.println("[-] Assign Statement");
         expression.genCode(f);
 
+        if(variable.type instanceof types.ArrayType){
+            f.genInstr("", "pushl", "%eax", "ArrayType operation");
+            variable.genCode(f);
+            f.genInstr("", "subl", "$low,%eax", "Dropp om low = 0");    //NOTE: Hva er low?? :P
+            f.genInstr("", "movl", (-4*variable.decl.declLevel)+"(%ebp),%edx", "");
+            f.genInstr("", "leal", (-1*(32+variable.decl.declOffset))+"(%edx),%edx", "");
+            f.genInstr("", "popl", "%ecx", "");
+            f.genInstr("", "movl", "%ecx,(%edx,%eax,4)", "");
+        }else{
         //TODO: Fix this or wherever it is, decl level is always 1 less in this assignstatm for easter.s
-        f.genInstr("","movl",""+(-4*variable.decl.declLevel)+"(%ebp),%edx","");
-        f.genInstr("","movl","%eax,"+(-1*(32+variable.decl.declOffset))+"(%edx)",variable.name.name+ " " +assignToken);
+            f.genInstr("","movl",""+(-4*variable.decl.declLevel)+"(%ebp),%edx","");
+            f.genInstr("","movl","%eax,"+(-1*(32+variable.decl.declOffset))+"(%edx)",variable.name.name+ " " +assignToken);
+        }
     }
 
     @Override
