@@ -69,6 +69,7 @@ public class Block extends PascalSyntax{
         outerScope = curScope;
         library = lib; //NOTE: why does it not work without this???
 
+        declLevel = curScope.declLevel+1;
         if(constDeclPart != null)
             constDeclPart.check(this, lib);
 

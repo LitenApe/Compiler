@@ -48,6 +48,8 @@ public class Program extends PascalDecl{
     public void check(Block curScope, Library lib){
         progName.check(curScope, lib);
         progBlock.check(curScope, lib);
+        declLevel = 1;
+        progBlock.declLevel = this.declLevel;
     }
 
     public static Program parse(Scanner s){

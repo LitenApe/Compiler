@@ -46,7 +46,7 @@ public class ProcDecl extends PascalDecl{
     public void check(Block curScope, Library lib){
         procName.check(curScope,lib);
         curScope.addDecl(procName.name, this);
-        declLevel++;
+        declLevel = curScope.declLevel+1;
 
         if (paramDecl != null)
             paramDecl.check(block, lib);

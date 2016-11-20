@@ -28,6 +28,7 @@ public class VarDecl extends PascalDecl{
         curScope.addDecl(namedConstant.name, this);
         mType.check(curScope,lib);
 
+        declLevel = curScope.declLevel;
         if(mType instanceof ArrayType)
             type = mType.pType.type;
         else

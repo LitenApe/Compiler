@@ -6,11 +6,11 @@ main:
 proc$findprimes_2:
         enter   $40,$2                  # Start of findprimes
         movl    $2,%eax                 #   2
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    %eax,-36(%edx)          # i1 :=
 .L0003:
                                         # Start while-statement
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -36(%edx),%eax          #   i1
         pushl   %eax                    
         movl    $1000,%eax              #   1000
@@ -22,16 +22,16 @@ proc$findprimes_2:
         je      .L0004                  
         movl    $2,%eax                 #   2
         pushl   %eax                    
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -36(%edx),%eax          #   i1
         movl    %eax,%ecx               
         popl    %eax                    
         imull   %ecx,%eax               #   *
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    %eax,-40(%edx)          # i2 :=
 .L0005:
                                         # Start while-statement
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -40(%edx),%eax          #   i2
         pushl   %eax                    
         movl    $1000,%eax              #   1000
@@ -44,27 +44,27 @@ proc$findprimes_2:
         movl    $0,%eax                 #   0
         movl    -4(%ebp),%edx           
         movl    %eax,-36(%edx)          # prime[x] :=
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -40(%edx),%eax          #   i2
         pushl   %eax                    
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -36(%edx),%eax          #   i1
         movl    %eax,%ecx               
         popl    %eax                    
         addl    %ecx,%eax               #   +
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    %eax,-40(%edx)          # i2 :=
         jmp     .L0005                  
 .L0006:
                                         # End while-statement
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -36(%edx),%eax          #   i1
         pushl   %eax                    
         movl    $1,%eax                 #   1
         movl    %eax,%ecx               
         popl    %eax                    
         addl    %ecx,%eax               #   +
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    %eax,-36(%edx)          # i1 :=
         jmp     .L0003                  
 .L0004:
@@ -134,14 +134,14 @@ proc$p4_7:
 proc$printprimes_11:
         enter   $40,$2                  # Start of printprimes
         movl    $2,%eax                 #   2
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    %eax,-36(%edx)          # i :=
         movl    $0,%eax                 #   0
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    %eax,-40(%edx)          # nprinted :=
 .L0012:
                                         # Start while-statement
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -36(%edx),%eax          #   i
         pushl   %eax                    
         movl    $1000,%eax              #   1000
@@ -154,12 +154,12 @@ proc$printprimes_11:
                                         # Start if-statement
         movl    -4(%ebp),%edx           
         movl    -36(%edx),%eax          #   prime
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -36(%edx),%eax          #   i
         cmpl    $0,%eax                 
         je      .L0014                  
                                         # Start if-statement
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -40(%edx),%eax          #   nprinted
         pushl   %eax                    
         movl    $0,%eax                 #   0
@@ -168,7 +168,7 @@ proc$printprimes_11:
         movl    $0,%eax                 
         setg    %al                     # Test >
         pushl   %eax                    
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -40(%edx),%eax          #   nprinted
         pushl   %eax                    
         movl    $10,%eax                #   10
@@ -194,30 +194,30 @@ proc$printprimes_11:
         addl    $4,%esp                 # Pop param.
 .L0015:
                                         # End if-statement
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -36(%edx),%eax          #   i
         pushl   %eax                    # Push param #1.
         call    proc$p4_7               
         addl    $4,%esp                 # Pop params.
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -40(%edx),%eax          #   nprinted
         pushl   %eax                    
         movl    $1,%eax                 #   1
         movl    %eax,%ecx               
         popl    %eax                    
         addl    %ecx,%eax               #   +
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    %eax,-40(%edx)          # nprinted :=
 .L0014:
                                         # End if-statement
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    -36(%edx),%eax          #   i
         pushl   %eax                    
         movl    $1,%eax                 #   1
         movl    %eax,%ecx               
         popl    %eax                    
         addl    %ecx,%eax               #   +
-        movl    0(%ebp),%edx            
+        movl    -8(%ebp),%edx           
         movl    %eax,-36(%edx)          # i :=
         jmp     .L0012                  
 .L0013:

@@ -31,6 +31,7 @@ public class ConstDecl extends PascalDecl{
         namedConstant.check(curScope,lib);
         curScope.addDecl(namedConstant.toString(), this);
         constant.check(curScope,lib);
+        declLevel = curScope.declLevel;
 
         constVal = constant.constVal; //NOTE: Added in part 4
 
