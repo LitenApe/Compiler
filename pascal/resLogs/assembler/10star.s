@@ -12,11 +12,11 @@ prog$tenstars_1:
                                         # Start while-statement
         movl    -4(%ebp),%edx           
         movl    -36(%edx),%eax          #   i
-        pushl   %eax                    #  in Expression
+        pushl   %eax                    
         movl    $10,%eax                #   10
-        popl    %ecx                    #  in Expression
-        cmpl    %eax,%ecx               # in Expression
-        movl    $0,%eax                 # idk
+        popl    %ecx                    
+        cmpl    %eax,%ecx               
+        movl    $0,%eax                 
         setl    %al                     # Test <
         cmpl    $0,%eax                 
         je      .L0003                  
@@ -26,7 +26,7 @@ prog$tenstars_1:
         addl    $4,%esp                 # Pop param.
         movl    -4(%ebp),%edx           
         movl    -36(%edx),%eax          #   i
-        pushl   %eax                    # idk in SimpleExpr
+        pushl   %eax                    
         movl    $1,%eax                 #   1
         movl    %eax,%ecx               
         popl    %eax                    

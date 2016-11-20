@@ -33,9 +33,9 @@ public class FuncDecl extends ProcDecl{
         f.genInstr("func$" + label,"","","");
         f.genInstr("","enter","$"+numBytes+",$"+declLevel,"Start of "+funcName.name);
         block.genCode(f);
-        f.genInstr("","movl","-32(%ebp),%eax","--- func decl");
-        f.genInstr("","leave","","--- func decl");
-        f.genInstr("","ret","","--- func decl");
+        f.genInstr("","movl","-32(%ebp),%eax","Fetch return value");
+        f.genInstr("","leave","","End of " + funcName.name);
+        f.genInstr("","ret","","");
     }
 
     @Override

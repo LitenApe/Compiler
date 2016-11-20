@@ -24,10 +24,10 @@ public class FuncCall extends Factor{
 
         for (int i = expressions.size()-1; i >= 0; i--){
             expressions.get(i).genCode(f);
-            f.genInstr("","pushl","%eax"," Funccall: Push param #"+(i+1));
+            f.genInstr("","pushl","%eax","Push param #"+(i+1));
         }
         f.genInstr("","call","func$"+decl.label,"");
-        f.genInstr("","addl","$"+(expressions.size()*4)+",%esp"," Pop parameters");
+        f.genInstr("","addl","$"+(expressions.size()*4)+",%esp","Pop parameters");
     }
 
     @Override

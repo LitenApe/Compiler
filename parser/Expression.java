@@ -23,11 +23,11 @@ public class Expression extends PascalSyntax{
         firstValue.genCode(f);
 
         if(relOperator != null){
-            f.genInstr("","pushl","%eax"," in Expression");
+            f.genInstr("","pushl","%eax","");
             secondValue.genCode(f);
-            f.genInstr("","popl","%ecx"," in Expression");
-            f.genInstr("","cmpl","%eax,%ecx","in Expression");
-            f.genInstr("","movl","$0,%eax","idk");
+            f.genInstr("","popl","%ecx","");
+            f.genInstr("","cmpl","%eax,%ecx","");
+            f.genInstr("","movl","$0,%eax","");
 
             //Excessive stuff but it works. I think Dag has done it the way that he uses setl or sete dependant on what token it is
             if (relOperator.opr == lessToken)

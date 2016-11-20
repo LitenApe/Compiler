@@ -37,8 +37,8 @@ public class IfStatm extends Statement{
         else{
             exp.genCode(f);
             String label = f.getLocalLabel();
-            f.genInstr("","cmpl","$0,%eax","--- if statm");
-            f.genInstr("","je",label,"--- if statm");
+            f.genInstr("","cmpl","$0,%eax","");
+            f.genInstr("","je",label,"");
             stat.genCode(f);
             f.genInstr(label,"","","End if-statement");
         }

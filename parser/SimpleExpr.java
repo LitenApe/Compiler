@@ -23,7 +23,7 @@ public class SimpleExpr extends PascalSyntax{
 
         for(int i = 0; i < term.size(); i++){
             if(i != 0)
-                f.genInstr("", "pushl", "%eax", "idk 2 in SimpleExpr");
+                f.genInstr("", "pushl", "%eax", "");
 
             term.get(i).genCode(f);
 

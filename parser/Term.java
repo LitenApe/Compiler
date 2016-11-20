@@ -21,7 +21,7 @@ public class Term extends PascalSyntax{
 
         for(int i = 0; i < factors.size(); i++){
             if(i != 0)
-                f.genInstr("", "pushl", "%eax", "idk in Term");
+                f.genInstr("", "pushl", "%eax", "");
 
             factors.get(i).genCode(f);
 
