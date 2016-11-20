@@ -15,10 +15,7 @@ public class ParamDeclList extends PascalSyntax{
     }
 
     @Override
-    public void genCode(CodeFile f){
-        System.out.println("[ ] Parameter Decleration List");
-
-    }
+    public void genCode(CodeFile f){}
 
     @Override
     public void check(Block curScope, Library lib){

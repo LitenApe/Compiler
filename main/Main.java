@@ -12,7 +12,7 @@ public class Main {
     public static parser.Library library = new Library(0);;
     public static LogFile log = new LogFile();
 
-    public static String sourceFileName, baseFileName;
+    private static String sourceFileName, baseFileName;
     private static boolean testChecker = false,
     testParser = false, testScanner = false;
     private static String OS;

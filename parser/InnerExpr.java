@@ -15,7 +15,6 @@ public class InnerExpr extends Factor{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[ ] Inner Expression");
         expression.genCode(f);
     }
 

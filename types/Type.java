@@ -13,6 +13,10 @@ public abstract class Type {
     	    where.error(mess);
     }
 
+    public String writeCMD(){
+        return "";
+    }
+
     public static Type parse(Scanner s){
         return null;
     }

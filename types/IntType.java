@@ -3,7 +3,12 @@ package types;
 public class IntType extends Type {
     @Override
     public String identify() {
-    	return "write_int";
+    	return "type Integer";
+    }
+
+    @Override
+    public String writeCMD(){
+        return "write_int";
     }
 
     public String toString(){

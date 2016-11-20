@@ -18,7 +18,6 @@ public class AssignStatm extends Statement{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[-] Assign Statement");
         expression.genCode(f);
 
         if(variable.type instanceof types.ArrayType){

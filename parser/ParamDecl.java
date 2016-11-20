@@ -16,7 +16,6 @@ public class ParamDecl extends PascalDecl{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[-] Parameter Decleration");
         f.genInstr("","movl",""+(-4*declLevel)+"(%ebp),%edx","");
         f.genInstr("","movl",(declOffset)+"(%edx),%eax","  " + name.name);
     }

@@ -1,8 +1,14 @@
 package types;
 
 public class BoolType extends Type {
-    @Override public String identify() {
-    	return "write_bool";
+    @Override
+    public String identify() {
+    	return "type Boolean";
+    }
+
+    @Override
+    public String writeCMD(){
+        return "write_bool";
     }
 
     public String toString(){

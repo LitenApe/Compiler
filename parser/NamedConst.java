@@ -12,9 +12,7 @@ public class NamedConst extends UnsignedConstant{
     }/*End constructor*/
 
     @Override
-    public void genCode(CodeFile f){
-        System.out.println("[ ] Named Constant");
-    }
+    public void genCode(CodeFile f){}
 
     @Override
     public void check(Block curScope, Library lib){

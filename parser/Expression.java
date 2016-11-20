@@ -18,8 +18,6 @@ public class Expression extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[-] Expression");
-
         firstValue.genCode(f);
 
         if(relOperator != null){

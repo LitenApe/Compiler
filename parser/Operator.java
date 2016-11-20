@@ -13,9 +13,7 @@ public abstract class Operator extends PascalSyntax{
     }/*End constructor*/
 
     @Override
-    public void genCode(CodeFile f){
-        System.out.println("[ ] Operator");
-    }
+    public void genCode(CodeFile f){}
 
     @Override
     public String identify() {

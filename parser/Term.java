@@ -17,8 +17,6 @@ public class Term extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[-] Term");
-
         for(int i = 0; i < factors.size(); i++){
             if(i != 0)
                 f.genInstr("", "pushl", "%eax", "");

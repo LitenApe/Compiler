@@ -15,7 +15,6 @@ public class FactorOperator extends Operator{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[ ] Factor Operator");
     }
 
     @Override

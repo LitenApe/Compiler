@@ -25,7 +25,6 @@ public class Block extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[-] Block: " + declLevel);
         if(constDeclPart != null){
             for (ConstDecl p : constDeclPart.constDeclarations)
                 p.declLevel = this.declLevel;

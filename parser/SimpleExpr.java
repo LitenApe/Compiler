@@ -19,8 +19,6 @@ public class SimpleExpr extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[-] Simple Expression");
-
         for(int i = 0; i < term.size(); i++){
             if(i != 0)
                 f.genInstr("", "pushl", "%eax", "");

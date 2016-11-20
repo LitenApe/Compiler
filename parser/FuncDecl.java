@@ -20,8 +20,6 @@ public class FuncDecl extends ProcDecl{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[-x?] Function Decleration");
-
         if(pDeclList != null){
             for (ParamDecl p : pDeclList.listOfParamDecls)
                 p.declLevel = this.declLevel;

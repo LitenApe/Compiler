@@ -5,6 +5,7 @@ main:
         ret                             # terminate the program
 func$gcd_2:
         enter   $32,$2                  # Start of gcd
+                                        # Start if-statement
         movl    -8(%ebp),%edx
         movl    12(%edx),%eax           #   n
         pushl   %eax
@@ -40,6 +41,7 @@ func$gcd_2:
         movl    -8(%ebp),%edx
         movl    %eax,-32(%edx)          # gcd :=
 .L0004:
+                                        # End if-statement
         movl    -32(%ebp),%eax          # Fetch return value
         leave                           # End of gcd
         ret

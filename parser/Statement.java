@@ -13,10 +13,7 @@ public abstract class Statement extends PascalSyntax{
     }/*End constructor*/
 
     @Override
-    public void genCode(CodeFile f){
-        System.out.println("[ ] Statement");
-        
-    }
+    public void genCode(CodeFile f){}
 
     @Override
     public String identify() {

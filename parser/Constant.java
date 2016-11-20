@@ -20,8 +20,6 @@ public class Constant extends PascalSyntax{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[x] Constant: " + constVal);
-
         uConstant.genCode(f);
         if (prefixOpr != null)
             prefixOpr.genCode(f);

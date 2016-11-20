@@ -20,8 +20,6 @@ public class FuncCall extends Factor{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[-x?] Function Call");
-
         for (int i = expressions.size()-1; i >= 0; i--){
             expressions.get(i).genCode(f);
             f.genInstr("","pushl","%eax","Push param #"+(i+1));

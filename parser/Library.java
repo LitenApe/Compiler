@@ -41,12 +41,7 @@ public class Library extends Block{
     }/*End of constructor*/
 
     @Override
-    public void genCode(CodeFile f){
-        System.out.println("[ ] Library");
-
-
-
-    }
+    public void genCode(CodeFile f){}
 
     public PascalDecl findDecl(String id, PascalSyntax where){
         PascalDecl found = procedures.get(id);

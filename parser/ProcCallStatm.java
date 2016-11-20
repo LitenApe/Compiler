@@ -17,7 +17,6 @@ public class ProcCallStatm extends Statement{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[-] Procedure Call Statement: " + namedConst.name);
         int counter = 0;
 
         if(exp.isEmpty())
@@ -35,7 +34,7 @@ public class ProcCallStatm extends Statement{
                     if(sType.equals("integer") ||
                             sType.equals("character") ||
                                 sType.equals("boolean"))
-                       f.genInstr("", "call", e.type.identify(), ""); //smart
+                       f.genInstr("", "call", e.type.writeCMD(), ""); //smart
                     else
                        error(sType + " is a invalid type that encountered during writing");
                 }

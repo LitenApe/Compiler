@@ -13,9 +13,7 @@ public class TypeName extends Type{
     }/*End constructor*/
 
     @Override
-    public void genCode(CodeFile f){
-        System.out.println("[ ] Type Name");
-    }
+    public void genCode(CodeFile f){}
 
     @Override
     public void check(Block curScope, Library lib){
