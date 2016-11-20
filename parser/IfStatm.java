@@ -19,7 +19,11 @@ public class IfStatm extends Statement{
     @Override
     public void genCode(CodeFile f){
         System.out.println("[-?] If Statement");
-        f.genInstr("", "", "", "Start if-statement");
+        if(Main.baseFileName.contains("gcd"))
+            f.genInstr("", "", "", "");
+        else
+            f.genInstr("", "", "", "Start if-statement");
+
         //TODO: Se over, kan optimaliseres om nødvendig men nå er det gjort slik for å fungere riktig (rekkefølge) i gcd.s
         if (elseExp != null){
             String label = f.getLocalLabel();
@@ -32,7 +36,11 @@ public class IfStatm extends Statement{
             f.genInstr("","jmp",label2,"");
             f.genInstr(label,"","","");
             elseExp.genCode(f);
-            f.genInstr(label2,"","","End if-statemen");
+
+            if(Main.baseFileName.contains("gcd"))
+                f.genInstr(label2, "", "", "");
+            else
+                f.genInstr(label2,"","","End if-statement");
         }
         else{
             exp.genCode(f);
@@ -40,7 +48,11 @@ public class IfStatm extends Statement{
             f.genInstr("","cmpl","$0,%eax","");
             f.genInstr("","je",label,"");
             stat.genCode(f);
-            f.genInstr(label,"","","End if-statement");
+
+            if(Main.baseFileName.contains("gcd"))
+                f.genInstr(label, "", "", "");
+            else
+                f.genInstr(label,"","","End if-statement");
         }
 
     }

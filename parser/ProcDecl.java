@@ -22,9 +22,8 @@ public class ProcDecl extends PascalDecl{
 
         if(paramDecl != null){
             for (ParamDecl p : paramDecl.listOfParamDecls)
-                p.declLevel = this.declLevel + 1;
-            this.declLevel += 1;
-            block.declLevel = this.declLevel;
+                p.declLevel = this.declLevel;
+            block.declLevel = this.declLevel + 1;
         }
 
         int numBytes = block.varDeclPart != null? 32+(block.varDeclPart.varDecls.size()*4):32;

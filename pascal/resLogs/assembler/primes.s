@@ -72,9 +72,9 @@ proc$findprimes_2:
         leave                           # End of findprimes
         ret                             
 proc$p4_7:
-        enter   $32,$3                  # Start of p4
+        enter   $32,$2                  # Start of p4
                                         # Start if-statement
-        movl    -12(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
         movl    $1000,%eax              #   1000
@@ -91,7 +91,7 @@ proc$p4_7:
 .L0008:
                                         # End if-statement
                                         # Start if-statement
-        movl    -12(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
         movl    $100,%eax               #   100
@@ -108,7 +108,7 @@ proc$p4_7:
 .L0009:
                                         # End if-statement
                                         # Start if-statement
-        movl    -12(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    8(%edx),%eax            #   x
         pushl   %eax                    
         movl    $10,%eax                #   10
@@ -124,7 +124,7 @@ proc$p4_7:
         addl    $4,%esp                 # Pop param.
 .L0010:
                                         # End if-statement
-        movl    -12(%ebp),%edx          
+        movl    -8(%ebp),%edx           
         movl    8(%edx),%eax            #   x
         pushl   %eax                    # Push next param.
         call    write_int               

@@ -22,6 +22,7 @@ public class Program extends PascalDecl{
         System.out.println("[-] Program: " + progName);
         progBlock.declLevel = 1;
         String testLabel = "prog$" + f.getLabel(progName.name);
+        
         f.genInstr("", ".globl", "main", "");
         f.genInstr("main", "", "", "");
         f.genInstr("", "call ", testLabel, "Start program");
