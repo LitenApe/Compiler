@@ -35,9 +35,15 @@ public class SimpleExpr extends PascalSyntax{
                     f.genInstr("", "addl", "%ecx,%eax", "  +");
                 }else if(termOpr.get(i - 1).tokenKind == subtractToken){
                     f.genInstr("", "subl", "%ecx,%eax", "  -");
+                }else if(termOpr.get(i - 1).tokenKind == orToken){
+                    f.genInstr("", "orl", "%ecx,%eax", "  or");
                 }
             }
         }
+
+        if(prefix != null)
+            prefix.genCode(f);
+
     }
 
     @Override

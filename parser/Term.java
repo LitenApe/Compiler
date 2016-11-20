@@ -20,26 +20,28 @@ public class Term extends PascalSyntax{
         System.out.println("[-] Term");
 
         for(int i = 0; i < factors.size(); i++){
+            if(i != 0)
+                f.genInstr("", "pushl", "%eax", "idk in Term");
 
             factors.get(i).genCode(f);
 
-            if(i < factorOpr.size()){
-                f.genInstr("", "pushl", "%eax", "idk in Term");
-                factors.get(++i).genCode(f);
+            if(i != 0){
                 f.genInstr("", "movl", "%eax,%ecx", "");
                 f.genInstr("", "popl", "%eax", "");
 
-                FactorOperator fo = factorOpr.get(i - 1);
-
-                if (fo.tokenKind == multiplyToken) {
+                if (factorOpr.get(i - 1).tokenKind == multiplyToken) {
                     f.genInstr("", "imull", "%ecx,%eax", "  *");
+                    continue;
+                }else if(factorOpr.get(i - 1).tokenKind == andToken){
+                    f.genInstr("", "andl", "%ecx,%eax", "  and");
+                    // f.genInstr("", "cmpl", "$0,%eax", "");
                     continue;
                 }
 
                 f.genInstr("","cdq","","");
-                if (fo.tokenKind == divToken)
+                if (factorOpr.get(i - 1).tokenKind == divToken)
                     f.genInstr("", "idivl", "%ecx", "  /");
-                else if(fo.tokenKind == modToken){
+                else if(factorOpr.get(i - 1).tokenKind == modToken){
                     f.genInstr("","idivl","%ecx","");
                     f.genInstr("", "movl", "%edx,%eax", "  mod");
                 }

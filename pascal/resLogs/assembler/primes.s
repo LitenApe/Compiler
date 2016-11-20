@@ -43,7 +43,7 @@ proc$findprimes_2:
         je      .L0006
         movl    $0,%eax                 #   0
         movl    -4(%ebp),%edx
-        movl    %eax,-36(%edx)          # prime :=
+        movl    %eax,-36(%edx)          # prime[x] :=
         movl    0(%ebp),%edx
         movl    -40(%edx),%eax          #   i2
         pushl   %eax                    # idk 2 in SimpleExpr
@@ -154,6 +154,8 @@ proc$printprimes_11:
                                         # Start if-statement
         movl    -4(%ebp),%edx
         movl    -36(%edx),%eax          #   prime
+        movl    0(%ebp),%edx
+        movl    -36(%edx),%eax          #   i
         cmpl    $0,%eax                 # --- if statm
         je      .L0014                  # --- if statm
                                         # Start if-statement
@@ -164,7 +166,7 @@ proc$printprimes_11:
         popl    %ecx                    #  in Expression
         cmpl    %eax,%ecx               # in Expression
         movl    $0,%eax                 # idk
-        setle   %al                     # Test >
+        setg    %al                     # Test >
         pushl   %eax                    # idk in Term
         movl    0(%ebp),%edx
         movl    -40(%edx),%eax          #   nprinted
@@ -183,7 +185,8 @@ proc$printprimes_11:
         sete    %al                     # Test =
         movl    %eax,%ecx
         popl    %eax
-        cdq
+        andl    %ecx,%eax               #   and
+        cmpl    $0,%eax
         cmpl    $0,%eax                 # --- if statm
         je      .L0015                  # --- if statm
         movl    $10,%eax                #   10
@@ -245,7 +248,7 @@ prog$primes_1:
         je      .L0017
         movl    $1,%eax                 #   1
         movl    -4(%ebp),%edx
-        movl    %eax,-36(%edx)          # prime :=
+        movl    %eax,-36(%edx)          # prime[x] :=
         movl    -4(%ebp),%edx
         movl    -40(%edx),%eax          #   i
         pushl   %eax                    # idk 2 in SimpleExpr
@@ -258,5 +261,7 @@ prog$primes_1:
         jmp     .L0016
 .L0017:
                                         # End while-statement
+        call    proc$findprimes_2
+        call    proc$printprimes_11
         leave                           # End of primes
         ret

@@ -18,7 +18,7 @@ public class ProcDecl extends PascalDecl{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[-x?] Procedure Decleration");
+        System.out.println("[-] Procedure Decleration: " + procName.name);
 
         if(paramDecl != null){
             for (ParamDecl p : paramDecl.listOfParamDecls)
@@ -28,12 +28,18 @@ public class ProcDecl extends PascalDecl{
 
         int numBytes = block.varDeclPart != null? 32+(block.varDeclPart.varDecls.size()*4):32;
 
-        // int numBytes = paramDecl != null ? 32+paramDecl.listOfParamDecls.size()*4 : 32;
-
         label = f.getLabel(procName.name);
+
+        if(!block.procAndFuncDecls.isEmpty()){
+            for(ProcDecl pd : block.procAndFuncDecls){
+                pd.genCode(f);
+            }
+        }
+
         f.genInstr("proc$"+label,"","","");
         f.genInstr("","enter","$"+numBytes+",$"+declLevel,"Start of " + procName);
         block.genCode(f);
+
         f.genInstr("","leave","","End of " + procName.name);
         f.genInstr("","ret","","");
     }

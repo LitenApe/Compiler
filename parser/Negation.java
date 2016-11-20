@@ -15,7 +15,7 @@ public class Negation extends Factor{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[ ] Negation");
+        System.out.println("[x] Negation: ----- : not");
         f.genInstr("", "xorl", "$1,%eax", "  not");
     }
 

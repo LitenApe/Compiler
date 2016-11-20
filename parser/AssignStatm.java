@@ -32,7 +32,10 @@ public class AssignStatm extends Statement{
         }else{
         //TODO: Fix this or wherever it is, decl level is always 1 less in this assignstatm for easter.s
             f.genInstr("","movl",""+(-4*variable.decl.declLevel)+"(%ebp),%edx","");
-            f.genInstr("","movl","%eax,"+(-1*(32+variable.decl.declOffset))+"(%edx)",variable.name.name+ " " +assignToken);
+            if(variable.expression == null)
+                f.genInstr("","movl","%eax,"+(-1*(32+variable.decl.declOffset))+"(%edx)",variable.name.name+ " " +assignToken);
+            else
+                f.genInstr("","movl","%eax,"+(-1*(32+variable.decl.declOffset))+"(%edx)",variable.name.name+ "[x] " +assignToken);
         }
     }
 

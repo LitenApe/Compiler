@@ -34,6 +34,10 @@ public class Expression extends PascalSyntax{
                 f.genInstr("","setl","%al","Test "+lessToken);
             else if (relOperator.opr == equalToken)
                 f.genInstr("","sete","%al","Test "+equalToken);
+            else if (relOperator.opr == greaterToken)
+                f.genInstr("", "setg", "%al", "Test "+greaterToken);
+            else if (relOperator.opr == notEqualToken)
+                f.genInstr("", "setne", "%al", "Test "+notEqualToken);
             else
                 f.genInstr("","setle","%al","Test "+relOperator.opr.toString());
         }

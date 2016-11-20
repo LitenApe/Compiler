@@ -18,6 +18,8 @@ public class Variable extends Factor{
     public void genCode(CodeFile f){
         System.out.println("[x] Variable: ----- : "+name.name);
         decl.genCode(f);
+        if(expression != null)
+            expression.genCode(f);
     }
 
     @Override

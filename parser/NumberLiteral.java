@@ -16,7 +16,7 @@ public class NumberLiteral extends UnsignedConstant{
 
     @Override
     public void genCode(CodeFile f){
-        System.out.println("[x] Number Literal");
+        System.out.println("[x] Number Literal: ----- : " + digit);
         f.genInstr("", "movl", "$" + constVal + ",%eax", "  "+constVal);
     }
 
