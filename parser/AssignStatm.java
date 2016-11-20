@@ -20,16 +20,16 @@ public class AssignStatm extends Statement{
     public void genCode(CodeFile f){
         expression.genCode(f);
 
-        if(variable.type instanceof types.ArrayType){
+        if(variable.expression != null){
+            //TODO: Hvordan referere til variabelens arraytype slik at man kan hente types.ArrayType.size() blant annet
             f.genInstr("", "pushl", "%eax", "ArrayType operation");
             variable.genCode(f);
-            f.genInstr("", "subl", "$low,%eax", "Dropp om low = 0");    //NOTE: Hva er low?? :P
+            f.genInstr("", "subl", "$low,%eax", "Dropp om low = 0");    //NOTE: Hva er low?? :P. Det er preconst sin verdi (constval); see check() in parser.ArrayType.java :D
             f.genInstr("", "movl", (-4*variable.decl.declLevel)+"(%ebp),%edx", "");
             f.genInstr("", "leal", (-1*(32+variable.decl.declOffset))+"(%edx),%edx", "");
             f.genInstr("", "popl", "%ecx", "");
             f.genInstr("", "movl", "%ecx,(%edx,%eax,4)", "");
         }else{
-        //TODO: Fix this or wherever it is, decl level is always 1 less in this assignstatm for easter.s
             f.genInstr("","movl",""+(-4*variable.decl.declLevel)+"(%ebp),%edx","");
             if(variable.expression == null)
                 f.genInstr("","movl","%eax,"+(-1*(32+variable.decl.declOffset))+"(%edx)",variable.name.name+ " " +assignToken);
