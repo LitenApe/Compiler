@@ -25,14 +25,11 @@ public class ProcCallStatm extends Statement{
         else if(exp.isEmpty() && !namedConst.name.equals("write"))
             procRef.genCode(f);
 
-        for(Expression e : exp){
-            e.genCode(f);
-            if(namedConst.name.equals("write"))
+        if(namedConst.name.equals("write")){
+            for(Expression e : exp){
+                e.genCode(f);
                 f.genInstr("", "pushl", "%eax", "Push next param.");
-            else
-                f.genInstr("", "pushl", "%eax", "Push param #" + (++counter)+".");
 
-            if(namedConst.name.equals("write")){
                 if (e.type != null){
                     String sType = e.type.toString();
                     if(sType.equals("integer") ||
@@ -43,12 +40,16 @@ public class ProcCallStatm extends Statement{
                        error(sType + " is a invalid type that encountered during writing");
                 }
                 f.genInstr("", "addl","$4,%esp", "Pop param.");
-                continue;
             }
-        }
-        if(!namedConst.name.equals("write")){
-            f.genInstr("", "call","proc$_"+procRef.label, "");//Null pointer because decl assembly hasnt been done yet
-            f.genInstr("", "addl","$"+(4*exp.size())+",%esp", "Pop params.");
+        }else{
+            for(int i = exp.size() - 1; i >= 0; i--){
+                exp.get(i).genCode(f);
+                f.genInstr("", "pushl", "%eax", "Push param #" + (i + 1)+".");
+            }
+            if(exp.size() != 0){
+                f.genInstr("", "call","proc$"+procRef.label, "");//Null pointer because decl assembly hasnt been done yet
+                f.genInstr("", "addl","$"+(4*exp.size())+",%esp", "Pop params.");
+            }
         }
     }
 
