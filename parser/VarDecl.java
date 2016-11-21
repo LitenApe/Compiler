@@ -56,10 +56,10 @@ public class VarDecl extends PascalDecl{
         return varDecl;
     }
 
-    @Override
-    public String toString(){
-        return namedConstant.toString();
-    }
+    // @Override
+    // public String toString(){
+    //     return namedConstant.toString();
+    // }
 
     @Override
     public String identify() {

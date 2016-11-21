@@ -36,6 +36,16 @@ public class Program extends PascalDecl{
 
         f.genInstr(testLabel, "", "", "");
         int numBytes = progBlock.varDeclPart != null ? 32+progBlock.varDeclPart.varDecls.size()*4 : 32;
+
+
+        //TODO: numbyte må endres hvis det skulle være en array her. slik at vi i assign kan hente riktige verdier, se todo der
+        // for (VarDecl v : progBlock.varDeclPart.varDecls) {
+        //     if (v.mType instanceof parser.ArrayType) {
+        //         System.out.println("ARRAY AEIRJAELFJ " + ((ArrayType)v.mType).type.size());
+        //         // System.out.println("ARRAY AEIRJAELFJ " + v.decl.name);
+        //     }
+        // }
+
         f.genInstr("", "enter", "$" + numBytes + ",$" + declLevel, "Start of " + progName.name + "");
 
         progBlock.genCode(f);

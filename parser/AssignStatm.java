@@ -23,8 +23,13 @@ public class AssignStatm extends Statement{
         if(variable.expression != null){
             //TODO: Hvordan referere til variabelens arraytype slik at man kan hente types.ArrayType.size() blant annet
             f.genInstr("", "pushl", "%eax", "ArrayType operation");
-            variable.genCode(f);
-            f.genInstr("", "subl", "$low,%eax", "Dropp om low = 0");    //NOTE: Hva er low?? :P. Det er preconst sin verdi (constval); see check() in parser.ArrayType.java :D
+            variable.expression.genCode(f);
+            VarDecl d = ((VarDecl)variable.decl);
+            int low = ((ArrayType)d.mType).preConstant.constVal;
+            // int baseOffset = ((ArrayType)d.mType).type.size();
+            // TODO: For aa finne ut hva størrelsen er må vi ha (low-high)+1; se linjen over med type.size().
+            // Hvis low og high er riktig satt er formelen (...).type.size()*4, som byttes ut med leal-linjen 
+            f.genInstr("", "subl", "$"+low+",%eax", "Dropp om low = 0");    //NOTE: Hva er low?? :P. Det er preconst sin verdi (constval); see check() in parser.ArrayType.java :D
             f.genInstr("", "movl", (-4*variable.decl.declLevel)+"(%ebp),%edx", "");
             f.genInstr("", "leal", (-1*(32+variable.decl.declOffset))+"(%edx),%edx", "");
             f.genInstr("", "popl", "%ecx", "");

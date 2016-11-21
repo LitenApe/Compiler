@@ -43,11 +43,9 @@ proc$findprimes_2:
         je      .L0006                  
         movl    $0,%eax                 #   0
         pushl   %eax                    # ArrayType operation
-        movl    -4(%ebp),%edx           
-        movl    -36(%edx),%eax          #   prime
         movl    -8(%ebp),%edx           
         movl    -40(%edx),%eax          #   i2
-        subl    $low,%eax               # Dropp om low = 0
+        subl    $2,%eax                 # Dropp om low = 0
         movl    -4(%ebp),%edx           
         leal    -36(%edx),%edx          
         popl    %ecx                    
@@ -256,10 +254,8 @@ prog$primes_1:
         movl    $1,%eax                 #   1
         pushl   %eax                    # ArrayType operation
         movl    -4(%ebp),%edx           
-        movl    -36(%edx),%eax          #   prime
-        movl    -4(%ebp),%edx           
         movl    -40(%edx),%eax          #   i
-        subl    $low,%eax               # Dropp om low = 0
+        subl    $2,%eax                 # Dropp om low = 0
         movl    -4(%ebp),%edx           
         leal    -36(%edx),%edx          
         popl    %ecx                    
