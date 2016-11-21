@@ -40,6 +40,14 @@ public class Main {
                 doTestChecker(s);
             else
                 doRunRealCompiler(s);
+
+                System.out.println("Statistics: ");
+                int[] stats = s.getStats();
+                System.out.println("Number of lines read: " + stats[0]);
+                System.out.println("Number of chars read: " + stats[1]);
+                System.out.println("Number of tokens generated: " + stats[2]);
+                System.out.println("Number of comments ignored: " + stats[3]);
+                
         } catch (PascalError e) {
             System.out.println();
             System.err.println(e.getMessage());
@@ -47,6 +55,8 @@ public class Main {
         } finally {
             log.finish();
         }
+
+
         System.exit(exitStatus);
     }
 

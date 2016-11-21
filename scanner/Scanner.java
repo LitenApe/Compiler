@@ -11,7 +11,7 @@ public class Scanner {
     private LineNumberReader sourceFile = null;
     private String sourceFileName, sourceLine = "";
     private int sourcePos = 0;
-    public int nrOfLines = 0,nrOfTokens = 0,nrOfChars = 0,nrOfComments=0;
+    private int nrOfLines = 0,nrOfTokens = 0,nrOfChars = 0,nrOfComments=0;
     private HashMap<String, TokenKind> tokenKinds = new HashMap<>();
 
     public Scanner(String fileName) {
@@ -72,14 +72,8 @@ public class Scanner {
         // convert sourceLine into an char array
         char[] charArr = sourceLine.toCharArray();
 
-        if(sourceFile == null){ // print out statistics
+        if(sourceFile == null){
             nextToken = new Token(eofToken,getFileLineNum());
-            if(nextToken.kind == eofToken && curToken.kind != eofToken){
-                System.out.println("Number of lines read: " + nrOfLines);
-                System.out.println("Number of tokens generated: " + nrOfTokens);
-                System.out.println("Number of chars iterated: " + nrOfChars);
-                System.out.println("Number of comments ignored: " + nrOfComments);
-            }
         }
 
         while(nextToken == null){ // jump over white spaces
@@ -191,6 +185,15 @@ public class Scanner {
         }
     }
 
+    public int[] getStats(){
+        int[] stats = new int[4];
+        stats[0] = nrOfLines;
+        stats[1] = nrOfChars;
+        stats[2] = nrOfTokens;
+        stats[3] = nrOfComments;
+        return stats;
+    }
+
     // Character test utilities:
 
     private boolean isLetterAZ(char c) {
@@ -201,7 +204,6 @@ public class Scanner {
     private boolean isDigit(char c) {
         return '0'<=c && c<='9';
     }
-
 
     // Parser tests:
 
