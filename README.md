@@ -29,7 +29,7 @@ Pascal kompilator
     - [x] mini.pas
     - [x] eater.pas
     - [x] opers.pas
-    - [x] primes.pas
+    - [ ] primes.pas
     - [x] 10star.pas
     - [x] gcd.pas
   - [x] Part 3: Checker
@@ -39,10 +39,10 @@ Pascal kompilator
     - [x] primes.pas
     - [x] 10star.pas
     - [x] gcd.pas
-  - [ ] Part 4: Code generator
+  - [x] Part 4: Code generator
     - [x] mini.pas
-    - [ ] easter.pas
-    - [ ] opers.pas
+    - [x] easter.pas
+    - [x] opers.pas
     - [ ] primes.pas
     - [x] 10star.pas
     - [x] gcd.pas
