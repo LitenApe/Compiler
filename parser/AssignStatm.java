@@ -28,7 +28,8 @@ public class AssignStatm extends Statement{
             int low = ((ArrayType)d.mType).preConstant.constVal;
             // int baseOffset = ((ArrayType)d.mType).type.size();
             // TODO: For aa finne ut hva størrelsen er må vi ha (low-high)+1; se linjen over med type.size().
-            // Hvis low og high er riktig satt er formelen (...).type.size()*4, som byttes ut med leal-linjen 
+            // Hvis low og high er riktig satt er formelen (...).type.size()*4, som byttes ut med leal-linjen
+            // NOTE: Arrays er ikke gjort.
             f.genInstr("", "subl", "$"+low+",%eax", "Dropp om low = 0");    //NOTE: Hva er low?? :P. Det er preconst sin verdi (constval); see check() in parser.ArrayType.java :D
             f.genInstr("", "movl", (-4*variable.decl.declLevel)+"(%ebp),%edx", "");
             f.genInstr("", "leal", (-1*(32+variable.decl.declOffset))+"(%edx),%edx", "");
