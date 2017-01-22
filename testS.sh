@@ -1,5 +1,5 @@
 # make directories
-mkdir -p pascal/resLogs/assembler
+mkdir -p pascal/resLogs/
 
 # flag
 mode=""
@@ -18,4 +18,4 @@ else
     done
 fi
 
-mv $curPath/pascal/testFiles/*.s $curPath/pascal/resLogs/assembler/
+mv $curPath/pascal/testFiles/*.s $curPath/pascal/resLogs/
