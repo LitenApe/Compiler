@@ -1,7 +1,4 @@
 # make directories
-mkdir -p pascal/resLogs/scannerLog
-mkdir -p pascal/resLogs/parserLog
-mkdir -p pascal/resLogs/checkerLog
 mkdir -p pascal/resLogs/assembler
 
 # flag
@@ -21,13 +18,4 @@ else
     done
 fi
 
-# move log files in testFiles directory to a seperate folder
-if [[ $mode == "-testscanner" ]]; then
-    mv $curPath/pascal/testFiles/*.log $curPath/pascal/resLogs/scannerLog/
-elif [[ $mode == "-testparser" ]]; then
-    mv $curPath/pascal/testFiles/*.log $curPath/pascal/resLogs/parserLog/
-elif [[ $mode == "-testchecker" ]]; then
-    mv $curPath/pascal/testFiles/*.log $curPath/pascal/resLogs/checkerLog/
-else
-    mv $curPath/pascal/testFiles/*.s $curPath/pascal/resLogs/assembler/
-fi
+mv $curPath/pascal/testFiles/*.s $curPath/pascal/resLogs/assembler/
