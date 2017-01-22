@@ -1,5 +1,5 @@
-# inf2100
-Pascal kompilator
+# pascal
+Pascal
 
 # How to run
   - Download ant
@@ -15,34 +15,3 @@ Pascal kompilator
   - Run: run **ant run**
 
   By using **ant run** the project will compile and build itself.
-
-
-# To Do
-  - [x] Part 1: Scanner
-    - [x] mini.pas
-    - [x] eater.pas
-    - [x] opers.pas
-    - [x] primes.pas
-    - [x] 10star.pas
-    - [x] gcd.pas
-  - [x] Part 2: Parser
-    - [x] mini.pas
-    - [x] eater.pas
-    - [x] opers.pas
-    - [ ] primes.pas
-    - [x] 10star.pas
-    - [x] gcd.pas
-  - [x] Part 3: Checker
-    - [x] mini.pas
-    - [x] eater.pas
-    - [x] opers.pas
-    - [x] primes.pas
-    - [x] 10star.pas
-    - [x] gcd.pas
-  - [x] Part 4: Code generator
-    - [x] mini.pas
-    - [x] easter.pas
-    - [x] opers.pas
-    - [ ] primes.pas
-    - [x] 10star.pas
-    - [x] gcd.pas

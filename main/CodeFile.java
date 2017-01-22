@@ -16,8 +16,6 @@ public class CodeFile {
     	} catch (FileNotFoundException e) {
     	    Main.error("Cannot create code file " + fName + "!");
     	}
-    	// code.println("# Code file created by Pascal2016 compiler " +
-    	    // new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
     }
 
     void finish() {
@@ -25,28 +23,27 @@ public class CodeFile {
     }
 
     public String identify() {
-	return "Code file named " + codeFileName;
+	    return "Code file named " + codeFileName;
     }
 
 
     public String getLabel(String origName) {
-	return origName + "_" + (++numLabels);
+        return origName + "_" + (++numLabels);
     }
 
     public String getLocalLabel() {
-	return String.format(".L%04d", ++numLabels);
+        return String.format(".L%04d", ++numLabels);
     }
 
-
     public void genInstr(String lab, String instr, String arg, String comment) {
-	if (lab.length() > 0)
-	    code.println(lab + ":");
-	if ((instr+arg+comment).length() > 0) {
-	    code.printf("        %-7s %-23s ", instr, arg);
-	    if (comment.length() > 0) {
-		code.print("# " + comment);
-	    }
-	    code.println();
-	}
+    	if (lab.length() > 0)
+    	    code.println(lab + ":");
+    	if ((instr+arg+comment).length() > 0) {
+    	    code.printf("        %-7s %-23s ", instr, arg);
+    	    if (comment.length() > 0) {
+    	        code.print("# " + comment);
+    	    }
+    	    code.println();
+    	}
     }
 }

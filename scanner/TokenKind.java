@@ -1,7 +1,7 @@
 package scanner;
 
-// Note that tokens found in standard Pascal but not in Pascal2016
-// have been commented out.
+// Note that this is only a small set from the
+// complete pascal languange
 
 public enum TokenKind {
     nameToken("name"),

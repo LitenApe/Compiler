@@ -48,7 +48,6 @@ public class Scanner {
     public void readNextToken() {
         curToken = nextToken;  nextToken = null;
         String newToken = "";
-        // Del 1 her:
 
         // check too see if we need to read a new line
         if(sourceLine.isEmpty() || sourcePos >= sourceLine.length()){
@@ -194,18 +193,13 @@ public class Scanner {
         return stats;
     }
 
-    // Character test utilities:
-
     private boolean isLetterAZ(char c) {
         return 'A'<=c && c<='Z' || 'a'<=c && c<='z';
     }
 
-
     private boolean isDigit(char c) {
         return '0'<=c && c<='9';
     }
-
-    // Parser tests:
 
     public void test(TokenKind t) {
         if (curToken.kind != t)

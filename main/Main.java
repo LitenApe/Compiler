@@ -7,8 +7,6 @@ import static scanner.TokenKind.*;
 import java.io.*;
 
 public class Main {
-    public static final String version = "2016-09-07";
-
     public static parser.Library library = new Library(0);;
     public static LogFile log = new LogFile();
 
@@ -17,11 +15,9 @@ public class Main {
     testParser = false, testScanner = false;
     private static String OS;
 
-
     public static void main(String arg[]) {
         OS = System.getProperty("os.name");
-        System.out.println("This is the Ifi Pascal2016 compiler (" +
-        version + ") running on " + OS);
+        System.out.println("Running on " + OS);
 
         String[] sFile = arg[arg.length - 1].split("/");
         System.out.println("source file: " + sFile[sFile.length - 1]);
@@ -47,7 +43,7 @@ public class Main {
                 System.out.println("Number of chars read: " + stats[1]);
                 System.out.println("Number of tokens generated: " + stats[2]);
                 System.out.println("Number of comments ignored: " + stats[3]);
-                
+
         } catch (PascalError e) {
             System.out.println();
             System.err.println(e.getMessage());
@@ -61,7 +57,6 @@ public class Main {
     }
 
     public static boolean useUnderscore() {
-        // Should global names start with an '_'? Not with Linux/Unix.
         return ! OS.matches(".*n.*x.*");
     }
 
@@ -168,11 +163,10 @@ public class Main {
             String line;
             Process p = Runtime.getRuntime().exec(cmd);
 
-            // Print any output from the assembly process:
             BufferedReader out = new BufferedReader
-            (new InputStreamReader(p.getInputStream()));
+                (new InputStreamReader(p.getInputStream()));
             BufferedReader err = new BufferedReader
-            (new InputStreamReader(p.getErrorStream()));
+                (new InputStreamReader(p.getErrorStream()));
 
             while ((line = out.readLine()) != null) {
                 System.out.println(line);
@@ -200,7 +194,7 @@ public class Main {
     }
 
     private static void usage() {
-        error("Usage: java -jar pascal2016.jar " +
+        error("Usage: java -jar pascal.jar " +
         "[-log{B|P|S|T|Y}] [-test{checker|parser|scanner}] file");
     }
 
