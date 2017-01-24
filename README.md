@@ -1,5 +1,5 @@
-# pascal
-Pascal
+# Compiler
+Compiler for a small set of functions for pascal
 
 # How to run
   - Download ant
