@@ -11,10 +11,10 @@ curPath=$(pwd)
 ant jar
 
 if [[ ${#@} > 0 ]]; then
-    java -jar pascal2016.jar "pascal/testFiles/$1";
+    java -jar pascal.jar "pascal/testFiles/$1";
 else
     for f in $(find pascal/testFiles -type f -name '*.pas'); do
-        java -jar pascal2016.jar $mode $f; echo ' '
+        java -jar pascal.jar $mode $f; echo ' '
     done
 fi
 
